@@ -11,7 +11,7 @@ class DONTHUOC {
 
     // thieu 3 ham tao nua ...
 
-    // 2 mang 
+    // 2 mang
 
     DONTHUOC(String maPhongKham, String chuanDoan) {
         this.dst = new THUOC[0];
