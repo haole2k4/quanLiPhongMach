@@ -9,7 +9,7 @@ abstract class THUOC {
     private int soLuong;
     private LocalDate ngaySanXuat;
     private LocalDate hanSuDung;
-    private double giaCa; // --> don gia
+    private double giaCa; // --> sua thanh don gia
 
     THUOC() {
         this.maThuoc = null;
