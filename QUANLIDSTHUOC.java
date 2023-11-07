@@ -20,14 +20,14 @@ public class QUANLIDSTHUOC {
 
 
 
-    // ---- LAM VIEC VOI FILE -----------
+    // ---- LAM VIEC VOI FILE ------------
     public void xoaAllDataThuoc(String filePath) {
         try {
             FileWriter writer = new FileWriter(filePath, false);
             writer.write("");
             writer.close();
         } catch (IOException e) {
-            System.out.println("loi");
+            System.out.println("loi...");
         }
     }
 
