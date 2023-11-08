@@ -5,8 +5,3 @@ public class Main {
         trinhQuanLi.menu();
     }
 }
-
-
-// thấy gì ko mấy ôg
-
-// tôi không thấy cái cmt trên đâu 
