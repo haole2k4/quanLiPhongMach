@@ -9,6 +9,7 @@ public interface arrayInterfaceTHUOC {
     public void nhapThuoc(int soThuocCanNhap);
     public void timThuocTheoTen(String tenThuocCanTim);
     public THUOC timThuocTheoMa(String maThuocCantTim);
+    public void inThuocTheoMa(String maThuocCanTim);
 }
 
 

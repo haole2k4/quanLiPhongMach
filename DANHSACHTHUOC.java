@@ -9,6 +9,7 @@ public class DANHSACHTHUOC implements arrayInterfaceTHUOC {
     Scanner mayScanner = new Scanner(System.in);
     private THUOC[] dsThuoc;
     private int soLuongThuoc;
+
     DANHSACHTHUOC() {
         this.dsThuoc = new THUOC[0];
         this.soLuongThuoc = 0;
@@ -114,8 +115,8 @@ public class DANHSACHTHUOC implements arrayInterfaceTHUOC {
         }
     }
 
+    // ----------- START XU LI THEO MA THOC ---------
     public THUOC timThuocTheoMa(String maThuocCanTim) {
-
         int index = 0;
         for (int i = 0; i < this.soLuongThuoc; i++) {
             if (this.dsThuoc[i].getMaThuoc().equalsIgnoreCase(maThuocCanTim))
@@ -126,14 +127,50 @@ public class DANHSACHTHUOC implements arrayInterfaceTHUOC {
             thuocchich = (THUOCCHICH) this.dsThuoc[index];
             return thuocchich;
         }
-        // if(this.dsThuoc[index] instanceof THUOCVI)
         THUOCVI thuocvi = new THUOCVI();
         thuocvi = (THUOCVI) this.dsThuoc[index];
         return thuocvi;
-
     }
-    // 2 loai
 
+    public void inThuocTheoMa(String maThuocCanTim) {
+        for (THUOC tempThuoc : this.dsThuoc) {
+            if (tempThuoc.getMaThuoc().equals(maThuocCanTim)) {
+                tempThuoc.inThongTinThuoc();
+            }
+        }
+    }
+    // ----------- END XU LI THEO MA THUOC -------------
+
+    // ------ START XU LI THUOC THEO MA NHA SAN XUAT ----------
+    public int[] thongKeThuocCungMaNSX(String maNSX) {
+        int[] index = new int[0];
+        for (int i = 0; i < this.soLuongThuoc; i++) {
+            if (this.dsThuoc[i].getMaNhaSanXuat().equalsIgnoreCase(maNSX)) {
+                index = Arrays.copyOf(index, index.length + 1);
+                index[index.length - 1] = i;
+            }
+        }
+        return index;
+    }
+
+    public void inThuocCungMaMSX(String maNSX) {
+        for (int i = 0; i < this.soLuongThuoc; i++) {
+            if (this.dsThuoc[i].getMaNhaSanXuat().equalsIgnoreCase(maNSX)) {
+                this.dsThuoc[i].inThongTinThuoc();
+            }
+        }
+    }
+    // ---------- END XU LI THUOC THEO MA NHA SAN XUAT ----------
+
+    public THUOC[] checkThuocHetHanSuDungChua() {
+        THUOC[] outOfDateTHUOC = new THUOC[0];
+        for(int i = 0; i < this.dsThuoc.length; i++ ) {
+            // xu li ngay o day
+        }
+        return outOfDateTHUOC;
+    }
+
+    // DOC DATA CUA FILE ROI GHI VAO MANG
     public void docData(File dataFile) throws FileNotFoundException {
         Scanner fileScanner = new Scanner(dataFile);
         while (fileScanner.hasNextLine()) {
@@ -163,6 +200,7 @@ public class DANHSACHTHUOC implements arrayInterfaceTHUOC {
         fileScanner.close();
     }
 
+    // TRA VE DATA CUA CLASS VAO 1 STRING ROI GHI LEN FILE THEO DONG
     public String getDataThuoc(int index) {
         DateTimeFormatter dinhDangNgayThang = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         StringBuilder dataThuoc = new StringBuilder();
