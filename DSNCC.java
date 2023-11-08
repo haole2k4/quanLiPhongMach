@@ -2,43 +2,41 @@
 import java.util.Arrays;
 import java.util.Scanner;
 import java.io.*;
+
 public class DSNCC {
-    NhaCungCap [] dsncc;
+    NhaCungCap[] dsncc;
     int soLuongNCC;
-    public void ghiFile()
-    {
+
+    public void ghiFile() {
         File file = new File("D:\\phongMach_THUOC\\quanLiPhongMach\\nhacungcap.txt");
         PrintWriter write = null;
-        try{
+        try {
             write = new PrintWriter(file);
-        } catch(Exception e){
+        } catch (Exception e) {
             System.out.println("LOi mo file!");
         }
         write.println(soLuongNCC);
-        for (int i=0;i<soLuongNCC;i++)
-        {
+        for (int i = 0; i < soLuongNCC; i++) {
             write.println(dsncc[i].getLine());
         }
 
         write.close();
     }
 
-    public void docFile()
-    {
+    public void docFile() {
         File file = new File("D:\\phongMach_THUOC\\quanLiPhongMach\\nhacungcap.txt");
         Scanner read = null;
-        try{
+        try {
             read = new Scanner(file);
-        } catch(Exception e){
+        } catch (Exception e) {
             System.out.println("Khong the mo file!");
         }
-        if (read.hasNextLine())
-        {
+        if (read.hasNextLine()) {
             soLuongNCC = Integer.parseInt(read.nextLine());
             dsncc = new NhaCungCap[soLuongNCC];
-        }
-        else return;
-        int i=0;
+        } else
+            return;
+        int i = 0;
         while (read.hasNextLine()) {
             String line = read.nextLine();
             String arr[] = line.split(",");
@@ -50,38 +48,35 @@ public class DSNCC {
             i++;
         }
     }
-    public void them()
-    {
+
+    public void them() {
         Scanner input = new Scanner(System.in);
         soLuongNCC++;
-        if (soLuongNCC==1)
-        {
+        if (soLuongNCC == 1) {
             dsncc = new NhaCungCap[1];
             dsncc[0] = new NhaCungCap();
             dsncc[0].nhap();
-        }
-        else
-        {
-            this.dsncc = Arrays.copyOf(this.dsncc,soLuongNCC);
-            dsncc[soLuongNCC-1] = new NhaCungCap();
-            dsncc[soLuongNCC-1].nhap();
+        } else {
+            this.dsncc = Arrays.copyOf(this.dsncc, soLuongNCC);
+            dsncc[soLuongNCC - 1] = new NhaCungCap();
+            dsncc[soLuongNCC - 1].nhap();
         }
         ghiFile();
 
     }
-    public void xuat()
-    {
+
+    public void xuat() {
         docFile();
-        for (int i=0;i<soLuongNCC;i++)
-        {
-            System.out.print((i+1)+" ");
+        for (int i = 0; i < soLuongNCC; i++) {
+            System.out.print((i + 1) + " ");
             dsncc[i].xuat();
             System.out.println();
         }
     }
+
     public static void main(String[] args) {
         DSNCC test = new DSNCC();
-       
+
         test.xuat();
     }
 }

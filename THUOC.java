@@ -97,6 +97,10 @@ abstract class THUOC {
     public void setGiaCa(double newGiaCa) {
         this.giaCa = newGiaCa;
     }
+    public void tangSoLuongThuoc(int soLuongThem)
+    {
+        this.soLuong = soLuongThem+soLuong;
+    }
 
     public void nhapThongTinThuoc() {
 
