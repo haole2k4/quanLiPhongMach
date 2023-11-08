@@ -8,7 +8,7 @@ public class QUANLIDSTHUOC {
     Scanner quanliScanner = new Scanner(System.in);
     DANHSACHTHUOC ds;
     private File fileDataThuoc = new File("D:\\phongMach_THUOC\\quanLiPhongMach\\dataThuoc.txt");
-    String filePathDataThuoc = "D:\\phongMach_THUOC\\quanLiPhongMach\\dataThuoc.txt";
+    private String filePathDataThuoc = "D:\\phongMach_THUOC\\quanLiPhongMach\\dataThuoc.txt";
 
     QUANLIDSTHUOC() {
         this.ds = new DANHSACHTHUOC();
@@ -65,8 +65,6 @@ public class QUANLIDSTHUOC {
 
 
 
-
-
     public void menu() {
         int option = 0;
         try {
@@ -93,6 +91,7 @@ public class QUANLIDSTHUOC {
             if (option == 1) {
                 System.out.print("Nhap loai thuoc can them (0 la thuoc chich, 1 la thuoc vi): ");
                 int loaiThuocCanThem = quanliScanner.nextInt();
+                this.xoaAllDataThuoc(filePathDataThuoc);
                 if (loaiThuocCanThem == 0) {
                     THUOCCHICH tempThuocchich = new THUOCCHICH();
                     tempThuocchich.nhapThongTinThuoc();
@@ -102,6 +101,7 @@ public class QUANLIDSTHUOC {
                     tempThuocvi.nhapThongTinThuoc();
                     this.ds.themThuoc(tempThuocvi);
                 }
+                this.ghiFile();
             }
 
             if (option == 2) {
