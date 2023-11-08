@@ -91,17 +91,18 @@ public class QUANLIDSTHUOC {
             if (option == 1) {
                 System.out.print("Nhap loai thuoc can them (0 la thuoc chich, 1 la thuoc vi): ");
                 int loaiThuocCanThem = quanliScanner.nextInt();
-                this.xoaAllDataThuoc(filePathDataThuoc);
                 if (loaiThuocCanThem == 0) {
                     THUOCCHICH tempThuocchich = new THUOCCHICH();
                     tempThuocchich.nhapThongTinThuoc();
                     this.ds.themThuoc(tempThuocchich);
+                    this.ghiFile();
                 } else if (loaiThuocCanThem == 1) {
                     THUOCVI tempThuocvi = new THUOCVI();
                     tempThuocvi.nhapThongTinThuoc();
                     this.ds.themThuoc(tempThuocvi);
+                    this.ghiFile();
                 }
-                this.ghiFile();
+                
             }
 
             if (option == 2) {
@@ -115,6 +116,8 @@ public class QUANLIDSTHUOC {
 
             if (option == 3) {
                 this.ds.suaThongTin();
+                this.xoaAllDataThuoc(filePathDataThuoc);
+                this.ghiFile();
             }
 
             if (option == 4) {
