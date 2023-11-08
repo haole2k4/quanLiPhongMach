@@ -164,8 +164,12 @@ public class DANHSACHTHUOC implements arrayInterfaceTHUOC {
 
     public THUOC[] checkThuocHetHanSuDungChua() {
         THUOC[] outOfDateTHUOC = new THUOC[0];
+        LocalDate today = LocalDate.now();
         for(int i = 0; i < this.dsThuoc.length; i++ ) {
-            // xu li ngay o day
+            if(!this.dsThuoc[i].getHanSuDung().isEqual(today) && this.dsThuoc[i].getHanSuDung().isBefore(today)) {
+                outOfDateTHUOC = Arrays.copyOf(outOfDateTHUOC, outOfDateTHUOC.length + 1);
+                outOfDateTHUOC[outOfDateTHUOC.length - 1] = this.dsThuoc[i];
+            }
         }
         return outOfDateTHUOC;
     }
