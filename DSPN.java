@@ -104,7 +104,7 @@ public class DSPN {
                 soLuong--;
             }
         }
-        input.close();
+       
         ghiFile();
     }
 
@@ -122,7 +122,7 @@ public class DSPN {
         if (flag) {
             System.out.println("Khong tim thhay phieu nhap!");
         }
-        input.close();
+       
 
     }
 
@@ -182,7 +182,7 @@ public class DSPN {
             }
 
         }
-        input.close();
+        
 
     }
 
@@ -217,7 +217,7 @@ public class DSPN {
         }
         if (flag)
             System.out.println("Ngay " + ngay + " khong co du lieu!");
-        input.close();
+        
 
     }
 
