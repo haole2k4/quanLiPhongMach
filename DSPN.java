@@ -52,14 +52,15 @@ public class DSPN {
             dspn[i].setMaPhieuNhap(arr[0]);
             dspn[i].setMaNhanVien((arr[1]));
             dspn[i].setMaNhaCungCap(arr[2]);
-            maCT = new String[Integer.parseInt(arr[4])];
-            for (int j=0;j<Integer.parseInt(arr[4]);j++)
-                maCT[i]=arr[5+i];
-            dspn[i].setMaCTPhieuNhap(maCT);
             String ngayNhapTemp = arr[3];
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 
             dspn[i].setNgayNhap(LocalDate.parse(ngayNhapTemp, formatter));
+            maCT = new String[Integer.parseInt(arr[4])];
+            for (int j = 0; j < Integer.parseInt(arr[4]); j++)
+                maCT[j] = arr[5 + j];
+            dspn[i].setMaCTPhieuNhap(maCT);
+            dspn[i].setTongTien(Double.parseDouble(arr[arr.length - 1]));
             i++;
 
         }
@@ -132,17 +133,16 @@ public class DSPN {
         System.out.println("ngay dau (yyyy-MM-dd):");
         String ngaydautemp = input.nextLine();
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-        ngaydau = LocalDate.parse(ngaydautemp,formatter);
+        ngaydau = LocalDate.parse(ngaydautemp, formatter);
         System.out.println("Ngay cuoi (yyyy-MM-dd) ");
         String ngaycuoitemp = input.nextLine();
-        ngaycuoi = LocalDate.parse(ngaycuoitemp,formatter);
+        ngaycuoi = LocalDate.parse(ngaycuoitemp, formatter);
         int ngay = ngaydau.getDayOfMonth();
         int thang = ngaydau.getMonthValue();
         int nam = ngaydau.getYear();
         while (!ngaydau.isEqual(ngaycuoi)) {
             ngay++;
             ngaydau = LocalDate.of(nam, thang, ngay);
-            System.out.println(ngaydau);
             for (int i = 0; i < soLuong; i++) {
                 if (ngaydau.isEqual(dspn[i].getNgayNhap())) {
                     dspn[i].xuatPhieuNhap();
@@ -254,23 +254,21 @@ public class DSPN {
         System.out.println("        5: In danh sach phieu nhap");
         int i;
         do {
-            System.out.print("        lua chon: ");
             Scanner input = new Scanner(System.in);
+            System.out.print("        lua chon: ");
             i = input.nextInt();
             switch (i) {
                 case 0:
                     QUANLYNHAPHANG qlnh = new QUANLYNHAPHANG();
                     qlnh.menu();
-                case 1: {
+                    break;
+                case 1:
                     them();
-                }
                     break;
-
-                case 2: {
+                case 2:
                     xoa();
-                }
                     break;
-                case 3: {
+                case 3:
                     System.out.println("TIM KIEM :");
                     System.out.println("0. BACK");
                     System.out.println("1. tim theo ma ");
@@ -280,41 +278,30 @@ public class DSPN {
                     int dem = input.nextInt();
                     input.nextLine();
                     switch (dem) {
-                        case 0: {
+                        case 0:
                             menu();
-                        }
-                        case 1: {
-                            timKiem();
-                        }
                             break;
-                        case 2: {
+                        case 1:
+                            timKiem();
+                            break;
+                        case 2:
                             timKiemTheoNgay();
-                        }
-                        case 3:{
+                            break;
+                        case 3:
                             timKiemTheoNgayToiNgay();
-                        }
-
+                            break;
                         default:
                             break;
                     }
-
-                }
                     break;
-                case 4: {
+                case 4:
                     thongKeTheoThang();
-                }
                     break;
-                case 5: {
+                case 5:
                     xuat();
-                }
-
+                    break;
             }
         } while (i != 0);
     }
 
-    public static void main(String[] args) {
-        DSPN dspn = new DSPN();
-        dspn.docfile();
-        dspn.menu();
-    }
 }

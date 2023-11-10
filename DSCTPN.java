@@ -2,8 +2,6 @@
 import java.util.Arrays;
 import java.util.Scanner;
 
-import javax.security.sasl.SaslException;
-
 import java.io.*;
 
 public class DSCTPN {

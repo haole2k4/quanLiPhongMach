@@ -82,6 +82,7 @@ public class QUANLIDSTHUOC {
             System.out.println("Nhap 4 de thong ke thuoc theo ten");
             System.out.println("Nhap 5 de in toan bo thuoc");
             System.out.println("Nhap 6 de tao don thuoc: ");
+            System.out.println("Nhap 7 de truy cap menu phieu nhap hang");
             System.out.print("Nhap lua chon: ");
             option = quanliScanner.nextInt();
 
@@ -135,6 +136,11 @@ public class QUANLIDSTHUOC {
             if (option == 6) {
                 QUANLIDONTHUOC quanlidonthuoc = new QUANLIDONTHUOC(ds);
                 quanlidonthuoc.menuDonThuoc();
+            }
+            if (option == 7)
+            {
+                QUANLYNHAPHANG ql = new QUANLYNHAPHANG();
+                ql.menu();
             }
 
         } while (option != 0);

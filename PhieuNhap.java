@@ -163,7 +163,6 @@ public class PhieuNhap {
         {
             System.out.println(" - "+ maCTPhieuNhap[i]);
         }
-        System.out.println();
         System.out.println("Ma nhan vien : " + maNhanVien);
         System.out.println("Ma nha cung cap : " + maNhaCungCap);
         System.out.println("Ngay nhap: " + ngayNhap);
