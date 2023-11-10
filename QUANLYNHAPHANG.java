@@ -41,7 +41,11 @@ public class QUANLYNHAPHANG
         }
         while (i!=0);
 
-
     
+    
+    }
+    public static void main(String[] args) {
+        QUANLYNHAPHANG ql = new QUANLYNHAPHANG();
+        ql.menu();
     }
 }
