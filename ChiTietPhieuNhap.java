@@ -33,8 +33,6 @@ public class ChiTietPhieuNhap {
         dsThuocNhap = new THUOC[soLoaiThuocNhap];
         input.nextLine();
         for (int i = 0; i < soLoaiThuocNhap; i++) {
-        int chon;
-        do{
             System.out.print("Nhap loai thuoc(0 la thuoc chich, 1 la thuoc vi): ");
             int typeThuoc = input.nextInt();
             if (typeThuoc == 0) {
@@ -46,73 +44,74 @@ public class ChiTietPhieuNhap {
             input.nextLine();
             System.out.print("Ma thuoc: ");
             String maThuoc = input.nextLine();
-            //doc data thuoc de check xem thuoc co ton tai hay khong ?
-            File file = new File(" ");
+            // doc data thuoc de check xem thuoc co ton tai hay khong ?
+            File file = new File("D:\\phongMach_THUOC\\quanLiPhongMach\\dataThuoc.txt");
             Scanner read = null;
-            try{
+            try {
                 read = new Scanner(file);
 
-            } catch(Exception e ){
+            } catch (Exception e) {
                 System.out.println("Loi doc file!");
                 return;
             }
-            boolean flag =false;
+            boolean flag = false;
 
-            while (read.hasNextLine())
-            {
+            while (read.hasNextLine()) {
                 String line = read.nextLine();
                 String arr[] = line.split(",");
-                if (arr[0].trim().equals(maThuoc))
-                {
+                if (arr[0].trim().equals(maThuoc)) {
                     flag = true;
                 }
             }
 
-            if (!flag)
-            {
+            if (!flag) {
                 System.out.println("Thuoc khong ton tai!");
                 System.out.println("1. Nhap lai!");
                 System.out.println("2. Nhap thong tin thuoc moi");
                 System.out.println("Lua chon: ");
-                chon = input.nextInt();
+                int chon = input.nextInt();
                 input.nextLine();
-                if ( chon ==2){
-                // nhap thong tin thuoc
-                System.out.print("Nhap loai thuoc can them (0 la thuoc chich, 1 la thuoc vi): ");
-                int loaiThuocCanThem = input.nextInt();
-                QUANLIDSTHUOC ql = new QUANLIDSTHUOC();
-                input.nextLine();
-                if (loaiThuocCanThem == 0) {
-                    THUOCCHICH tempThuocchich = new THUOCCHICH();
-                    tempThuocchich.nhapThongTinThuoc();
-                    ql.ghiLine("D:\\phongMach_THUOC\\quanLiPhongMach\\dataThuoc.txt","vidu chuou thuoc");
-                } else if (loaiThuocCanThem == 1) {
-                    THUOCVI tempThuocvi = new THUOCVI();
-                    tempThuocvi.nhapThongTinThuoc();
-                    ql.ghiLine("D:\\phongMach_THUOC\\quanLiPhongMach\\dataThuoc.txt","vidu chuou thuoc");
-                }
+                if (chon == 2) {
+                    // nhap thong tin thuoc
+                    System.out.print("Nhap loai thuoc can them (0 la thuoc chich, 1 la thuoc vi): ");
+                    int loaiThuocCanThem = input.nextInt();
+                    QUANLIDSTHUOC ql = new QUANLIDSTHUOC();
+                    input.nextLine();
+                    if (loaiThuocCanThem == 0) {
+                        THUOCCHICH tempThuocchich = new THUOCCHICH();
+                        tempThuocchich.nhapThongTinThuoc();
+                        DANHSACHTHUOC dst = new DANHSACHTHUOC();
+                        dst.themThuoc(tempThuocchich);
+                        dst.ghiLine(dst.getDataThuoc(0));
+                    } else if (loaiThuocCanThem == 1) {
+                        THUOCVI tempThuocvi = new THUOCVI();
+                        tempThuocvi.nhapThongTinThuoc();
+                        DANHSACHTHUOC dst = new DANHSACHTHUOC();
+                        dst.themThuoc(tempThuocvi);
+                        dst.ghiLine(dst.getDataThuoc(0));
+                    }
+                    System.out.println("De tao thong tin thuoc thanh cong. Hay nhap lai!");
+                    nhap();
+                } else if (chon == 1) {
+                    nhap();
                 }
 
-            }
-            else {
+            } else {
                 dsThuocNhap[i].setMaThuoc(maThuoc);
-                // set so luong trong kho
-
-
-            }
-        read.close();       
+                System.out.print("So luong :");
+                int soLuong = input.nextInt();
+                dsThuocNhap[i].setSoLuong(soLuong);
                 
-        } while ( chon==1);
-
-            // if (danhSachThuocLon.timThuocTheoMa(maThuoc) != null) // neu thuoc da ton
-            // trai trong KHO thi add them so luong            System.out.print("So luong: ");
-            int soLuong = input.nextInt();
-            dsThuocNhap[i].setSoLuong(soLuong);
-            // danhSachThuocLon.addSoLuongThuoc(danhSachThuocLon.timThuocTheoTenTraVeViTri(maThuoc),soLuong);
-            System.out.print("Gia nhap hang / 1 : ");
-            double giaCa = input.nextDouble();
-            thanhTien = thanhTien + giaCa * soLuong;
-            dsThuocNhap[i].setGiaCa(giaCa);
+                {
+                    DANHSACHTHUOC ql = new DANHSACHTHUOC();
+                    ql.themSoLuongChoThuoc(maThuoc, soLuong);
+                }
+                System.out.print("Gia nhap hang / 1 : ");
+                double giaCa = input.nextDouble();
+                thanhTien = thanhTien + giaCa * soLuong;
+                dsThuocNhap[i].setGiaCa(giaCa);
+                read.close();
+            }
         }
         // else // neu thuoc la thuoc moi thi them thuoc vao KHO
         // {
@@ -195,5 +194,10 @@ public class ChiTietPhieuNhap {
 
     public void setThanhTien(Double tt) {
         thanhTien = tt;
+    }
+
+    public static void main(String[] args) {
+        ChiTietPhieuNhap ql = new ChiTietPhieuNhap();
+        ql.nhap();
     }
 }

@@ -1,7 +1,6 @@
-import java.io.File;
 import java.util.Arrays;
 import java.util.Scanner;
-import java.io.FileNotFoundException;
+import java.io.*;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
@@ -204,6 +203,51 @@ public class DANHSACHTHUOC implements arrayInterfaceTHUOC {
         fileScanner.close();
     }
 
+    public void themSoLuongChoThuoc(String ma,int soLuong)
+    {
+        //doc data thuoc de lam vien tren array va sau khi sua so luong thanh cong thi ghi lai vao file !
+        File file = new File("D:\\phongMach_THUOC\\quanLiPhongMach\\dataThuoc.txt");
+        try{
+            docData(file);
+        } catch ( Exception e) { System.out.println("Loi!"); return;}
+        for (int i=0;i<soLuongThuoc;i++)
+        {
+            if (dsThuoc[i].getMaThuoc().trim().equals(ma))
+            {
+                dsThuoc[i].setSoLuong(soLuong+dsThuoc[i].getSoLuong());
+            }
+        }
+
+
+         PrintWriter write = null;
+            try {
+                write = new PrintWriter(file);
+            } catch ( Exception e ){
+                System.out.println("Loi !");
+                return;
+            }
+        for (int i=0;i<soLuongThuoc;i++)
+        {
+            write.println(getDataThuoc(i));
+        }
+        write.close();
+
+
+    }
+    //ham ghi line vao cuoi dong
+    public void ghiLine(String s)
+    {   
+        File file = new File("D:\\phongMach_THUOC\\quanLiPhongMach\\dataThuoc.txt");
+        PrintWriter write = null;
+            try {
+                write = new PrintWriter(new FileWriter(file,true));
+            } catch ( Exception e ){
+                System.out.println("Loi !");
+                return;
+            }
+        write.println(s);
+        write.close();
+    }
     // TRA VE DATA CUA CLASS VAO 1 STRING ROI GHI LEN FILE THEO DONG
     public String getDataThuoc(int index) {
         DateTimeFormatter dinhDangNgayThang = DateTimeFormatter.ofPattern("yyyy-MM-dd");
