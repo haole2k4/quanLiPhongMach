@@ -43,7 +43,7 @@ public class PhieuNhap {
             maCTPhieuNhap[i] = input.nextLine();
         
             // doc file chi tiet phieu nhap xem ma nay co ton tai khong !
-            File file = new File("E:\\java\\baitap\\doan\\THUOC\\NHAP\\chitietphieunhap.txt");
+            File file = new File("D:\\phongMach_THUOC\\quanLiPhongMach\\chitietphieunhap.txt");
             Scanner read = null;
             try {
                 read = new Scanner(file);
@@ -76,7 +76,7 @@ public class PhieuNhap {
         }
         System.out.print("Ma nhan vien: ");
         maNhanVien = input.nextLine();
-        File f = new File("E:\\java\\baitap\\doan\\NHANVIEN\\NhanVien.txt");
+        File f = new File("D:\\phongMach_THUOC\\quanLiPhongMach\\NhanVien.txt");
         Scanner readf = null;
         try {
             readf = new Scanner(f);
@@ -115,7 +115,7 @@ public class PhieuNhap {
         System.out.print("Ma nha cung cap: ");
         maNhaCungCap = input.nextLine();
         //doc nha cung cap de xem nha cung cap co ton tai trong du lieu khong!
-        File filencc = new File("E:\\java\\baitap\\doan\\THUOC\\NHAP\\nhacungcap.txt" );
+        File filencc = new File("D:\\phongMach_THUOC\\quanLiPhongMach\\nhacungcap.txt" );
         Scanner readncc = null;
         try{ readncc = new Scanner(filencc);} catch(Exception e){System.out.println("loi doc file nha cung cap");}
         String soLuongNCC = readncc.nextLine();
@@ -168,7 +168,7 @@ public class PhieuNhap {
         System.out.println("Ma nha cung cap : " + maNhaCungCap);
         System.out.println("Ngay nhap: " + ngayNhap);
         System.out.println("--- CHI TIET PHIEU NHAP ---");
-        File file = new File("E:\\java\\baitap\\doan\\THUOC\\NHAP\\chitietphieunhap.txt");
+        File file = new File("D:\\phongMach_THUOC\\quanLiPhongMach\\chitietphieunhap.txt");
         Scanner read = null;
         try {
             read = new Scanner(file);

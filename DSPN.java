@@ -12,7 +12,7 @@ public class DSPN {
 
     // HAM GHI FILE
     public void ghiFile() {
-        File file = new File("E:\\java\\baitap\\doan\\THUOC\\NHAP\\phieunhap.txt");
+        File file = new File("D:\\phongMach_THUOC\\quanLiPhongMach\\phieunhap.txt");
         PrintWriter write = null;
         try {
             write = new PrintWriter(file);
@@ -28,7 +28,7 @@ public class DSPN {
 
     // HAM DOC FILE
     public void docfile() {
-        File file = new File("E:\\java\\baitap\\doan\\THUOC\\NHAP\\phieunhap.txt");
+        File file = new File("D:\\phongMach_THUOC\\quanLiPhongMach\\phieunhap.txt");
         Scanner read = null;
         try {
 

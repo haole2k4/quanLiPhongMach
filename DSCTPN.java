@@ -13,7 +13,7 @@ public class DSCTPN {
     // 3 ham khoi tao
     // HAM DOC FILE
     public void docfile() {
-        File file = new File("E:\\java\\baitap\\doan\\THUOC\\quanLiPhongMach-main\\THUOC\\chitietphieunhap.txt");
+        File file = new File("D:\\phongMach_THUOC\\quanLiPhongMach\\chitietphieunhap.txt");
         Scanner read = null;
         try {
             read = new Scanner(file);
@@ -54,7 +54,7 @@ public class DSCTPN {
 
     // HAM GHI FILE
     public void ghiFile() {
-        File file = new File("E:\\java\\baitap\\doan\\THUOC\\quanLiPhongMach-main\\THUOC\\chitietphieunhap.txt");
+        File file = new File("D:\\phongMach_THUOC\\quanLiPhongMach\\chitietphieunhap.txt");
         PrintWriter write = null;
         try {
             write = new PrintWriter(file);

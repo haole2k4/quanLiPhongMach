@@ -9,6 +9,7 @@ public class QUANLIDSTHUOC {
     DANHSACHTHUOC ds;
     private File fileDataThuoc = new File("D:\\phongMach_THUOC\\quanLiPhongMach\\dataThuoc.txt");
     private String filePathDataThuoc = "D:\\phongMach_THUOC\\quanLiPhongMach\\dataThuoc.txt";
+    
 
     QUANLIDSTHUOC() {
         this.ds = new DANHSACHTHUOC();

@@ -26,7 +26,7 @@ public class DSNV {
     }
     public String fileNV()
     {
-        return "E:\\java\\baitap\\doan\\NHANVIEN\\NhanVien.txt";
+        return "D:\\phongMach_THUOC\\quanLiPhongMach\\NhanVien.txt";
     }
 //ham lay dong de ghi vao file
     public String getLine(int i)
