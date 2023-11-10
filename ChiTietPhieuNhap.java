@@ -90,13 +90,13 @@ public class ChiTietPhieuNhap {
                         dst.themThuoc(tempThuocvi);
                         dst.ghiLine(dst.getDataThuoc(0));
                     }
-                    System.out.println("De tao thong tin thuoc thanh cong. Hay nhap lai!");
-                    nhap();
+                    System.out.println("De tao thong tin thuoc thanh cong. Hay tiep tuc!");
                 } else if (chon == 1) {
                     nhap();
                 }
+                else nhap();
 
-            } else {
+            }   
                 dsThuocNhap[i].setMaThuoc(maThuoc);
                 System.out.print("So luong :");
                 int soLuong = input.nextInt();
@@ -117,7 +117,7 @@ public class ChiTietPhieuNhap {
         // {
         // danhSachThuocLon.addThuoc();
         // }
-    }
+
 
     public void xuatThuocDaNhap() {
         for (int i = 0; i < soLoaiThuocNhap; i++) {
