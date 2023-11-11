@@ -113,10 +113,6 @@ public class ChiTietPhieuNhap {
                 read.close();
             }
         }
-        // else // neu thuoc la thuoc moi thi them thuoc vao KHO
-        // {
-        // danhSachThuocLon.addThuoc();
-        // }
 
 
     public void xuatThuocDaNhap() {
