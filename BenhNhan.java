@@ -1,4 +1,3 @@
-package doanphongmachoop;
 
 import java.time.LocalDate;
 import java.util.Scanner;

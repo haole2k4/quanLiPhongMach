@@ -1,4 +1,3 @@
-package doanphongmachoop;
 
 import java.util.Scanner;
 

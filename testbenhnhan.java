@@ -1,4 +1,3 @@
-package doanphongmachoop;
 
 public class testbenhnhan {
     public static void main(String [] args){

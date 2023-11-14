@@ -1,4 +1,3 @@
-package doanphongmachoop;
 
 public interface arrayInterfaceBENHNHAN {
     void NhapBN();

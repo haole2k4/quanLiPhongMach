@@ -6,9 +6,10 @@ public class Login {
     private String uSer, passWord;
 
     // phuong thuc
+    // tai khoan admin
     Login(){
-        uSer = "";
-        passWord = "";
+        uSer = "Admin";
+        passWord = "123";
     }
 
     Login(String u, String p){
