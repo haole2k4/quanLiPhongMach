@@ -210,6 +210,7 @@ public class DANHSACHTHUOC implements arrayInterfaceTHUOC {
         try{
             docData(file);
         } catch ( Exception e) { System.out.println("Loi!"); return;}
+        
         for (int i=0;i<soLuongThuoc;i++)
         {
             if (dsThuoc[i].getMaThuoc().trim().equals(ma))

@@ -69,7 +69,7 @@ public class QUANLIDSTHUOC {
     public void menu() {
         int option = 0;
         try {
-            this.ds.docData(fileDataThuoc);
+            ds.docData(fileDataThuoc);
         } catch (Exception e) {
             System.out.println("Khong doc duoc file");
         }

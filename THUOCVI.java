@@ -14,7 +14,7 @@ public class THUOCVI extends THUOC {
     THUOCVI(String maThuoc, String maNhaSanXuat, String tenThuoc, int soLuong, LocalDate ngaySanXuat,
             LocalDate hanSuDung, double giaCa, int soLuongVi, int soThuocMoiVi) {
 
-        super(maThuoc, maNhaSanXuat, tenThuoc, soLuongVi, ngaySanXuat, hanSuDung, giaCa);
+        super(maThuoc, maNhaSanXuat, tenThuoc, soLuong, ngaySanXuat, hanSuDung, giaCa);
         this.soLuongVi = soLuongVi;
         this.soThuocMoiVi = soThuocMoiVi;
     }
