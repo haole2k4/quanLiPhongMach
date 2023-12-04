@@ -1,4 +1,3 @@
-
 import java.util.Scanner;
 
 public class QuanLyDSBN {
@@ -8,12 +7,12 @@ public class QuanLyDSBN {
         System.out.print("----------------");
         dsbn = new DSBN();
         int menu = 0;
-        Scanner input = new Scanner(System.in);
+        Scanner sc = new Scanner(System.in);
         while (menu != 8) {
             System.out.print("\n1) Nhap DSBN." + "\n2) Xem DSBN." + "\n3) Them BN." + "\n4) Xoa BN." + "\n5) Sua thong tin BN." + "\n6) Tim kiem." + "\n7) Thong ke. " + "\n8) Ket thuc.");
             System.out.print("\nHay chon chuc nang: ");
-            menu = input.nextInt();
-            input.nextLine();
+            menu = sc.nextInt();
+            sc.nextLine();
             switch (menu) {
                 case 1:
                     dsbn.NhapBN();
@@ -26,7 +25,7 @@ public class QuanLyDSBN {
                     break;
                 case 4:
                     System.out.print("\nNhap ma benh nhan muon xoa: ");
-                    String ma1 = input.nextLine();
+                    String ma1 = sc.nextLine();
                     dsbn.XoaBN(ma1);
                     break;
                 case 5:
@@ -34,7 +33,7 @@ public class QuanLyDSBN {
                     break;
                 case 6:
                     System.out.print("\nNhap ma benh nhan can tim: ");
-                    String ma2 = input.nextLine();
+                    String ma2 = sc.nextLine();
                     int foundIndex = dsbn.TimkiemBN(ma2);
                     if (foundIndex != -1) {
                         System.out.println("Benh nhan da duoc tim thay o vi tri " + foundIndex);
