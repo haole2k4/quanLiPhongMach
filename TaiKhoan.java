@@ -1,25 +1,25 @@
 import java.util.Scanner;
 
-public class Login {
+public class TaiKhoan {
     // thuoc tinh
     Scanner input = new Scanner(System.in);
     private String uSer, passWord;
 
     // phuong thuc
     // tai khoan admin
-    Login(){
-        uSer = "Admin";
-        passWord = "123";
+    TaiKhoan(){
+        uSer = "";
+        passWord = "";
     }
 
-    Login(String u, String p){
+    TaiKhoan(String u, String p){
         uSer = u;
         passWord = p;
     }
 
-    Login(Login l){
-        uSer = l.uSer;
-        passWord = l.passWord;
+    TaiKhoan(TaiKhoan tk){
+        uSer = tk.uSer;
+        passWord = tk.passWord;
     }
 
     // nhap
