@@ -1,4 +1,3 @@
-
 import java.util.Scanner;
 import java.time.LocalDate;
 import java.io.*;
@@ -12,7 +11,9 @@ public class DSBN implements arrayInterfaceBENHNHAN{
     private DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
     
     DSBN() {
-        dsbn = new DSBN[];
+        dsbn = new BenhNhan[1000];
+        dsbn[0] = null;
+        dsbn[0] = new BenhNhan();
         n = 0;
     }
 
@@ -28,7 +29,7 @@ public class DSBN implements arrayInterfaceBENHNHAN{
 
         public String fileBN()
     {
-        return "D:\\phongMach_THUOC\\quanLiPhongMach\\BenhNhan.txt";
+        return "E:\\javatxt\\\\BenhNhan.txt";
     }
     //ham lay dong de ghi vao file
     public String getLine(int i)
@@ -98,8 +99,7 @@ public class DSBN implements arrayInterfaceBENHNHAN{
                 System.out.print("khong the mo file BenhNhan.txt");
                 return ;
             }
-            String sl = read.nextLine();
-            n = Integer.parseInt(sl);
+            n = Integer.parseInt(read.nextLine());
             dsbn = new BenhNhan[n];
             for (int i=0;i<n;i++)
             {
@@ -124,6 +124,7 @@ public class DSBN implements arrayInterfaceBENHNHAN{
         }
         
     public void XuatBN() {
+        docData();
         for (int i = 0; i < n; i++) {
             dsbn[i].xuatThongTinBenhNhan();
         }
@@ -163,11 +164,17 @@ public class DSBN implements arrayInterfaceBENHNHAN{
         Scanner input = new Scanner(System.in);
         System.out.print("\nNhap ma benh nhan: ");
         String ma = input.nextLine();
+        int foundIndex = -1;
         for (int i = 0; i < n; i++) {
             if (dsbn[i].getMaBenhNhan().equals(ma)) {
-                MenuSua(i);
+                foundIndex = i;
+                break;
             }
-            else System.out.println("Khong tim thay benh nhan!");
+        }
+        if (foundIndex != -1) {
+            MenuSua(foundIndex);
+        } else {
+            System.out.println("Khong tim thay benh nhan!");
         }
         ghiFile();
     }
