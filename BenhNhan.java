@@ -1,8 +1,8 @@
+package doanphongmachoop;
 
 import java.time.LocalDate;
 import java.util.Scanner;
 import java.time.format.DateTimeFormatter;
-import java.time.Period;
 
 class BenhNhan {
     private String maBenhNhan;
@@ -145,13 +145,14 @@ public void nhapThongTinBenhNhan() {
     System.out.print("Nhap ma benh nhan: ");
     maBenhNhan = sc.next();
     System.out.print("Nhap ho cua benh nhan: ");
-    Ho = sc.nextLine();
+    Ho = sc.next();
+    sc.nextLine();
     System.out.print("Nhap ten cua benh nhan: ");
     Ten = sc.nextLine();
     System.out.print("Nhap gioi tinh cua benh nhan: ");
-    gioiTinh = sc.nextLine();
+    gioiTinh = sc.next();
     System.out.print("Nhap so dien thoai cua benh nhan: ");
-    SDT = sc.nextLine();
+    SDT = sc.next();
     System.out.print("Nhap can nang cua benh nhan (kg): ");
     canNang = sc.nextDouble();
     System.out.print("Nhap chieu cao cua benh nhan (cm): ");
@@ -161,7 +162,7 @@ public void nhapThongTinBenhNhan() {
     LocalDate ngaySinhDate;
     do {
         System.out.print("Nhap ngay sinh cua benh nhan (dd/mm/yyyy): ");
-        ngaySinhStr = sc.nextLine();
+        ngaySinhStr = sc.next();
         ngaySinhDate = LocalDate.parse(ngaySinhStr, dateFormatter);
     } while (ngaySinhStr.isEmpty());
     ngaySinh = ngaySinhDate;
