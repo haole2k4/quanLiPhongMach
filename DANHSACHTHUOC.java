@@ -191,8 +191,6 @@ public class DANHSACHTHUOC implements arrayInterfaceTHUOC {
 
 
 
-
-
     // DOC DATA CUA FILE ROI GHI VAO MANG
     public void docData(String filePath) throws FileNotFoundException {
         File dataFile = new File(filePath);
@@ -232,7 +230,129 @@ public class DANHSACHTHUOC implements arrayInterfaceTHUOC {
         }
         writer.close();
     }
-    
+
+    // TRA VE DATA CUA CLASS VAO 1 STRING ROI GHI LEN FILE THEO DONG
+    public String getDataThuoc(int index) {
+        DateTimeFormatter dinhDangNgayThang = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        StringBuilder dataThuoc = new StringBuilder();
+        String ngaySanXuat = this.dsThuoc[index].getNgaySanXuat().format(dinhDangNgayThang);
+        String hanSuDung = this.dsThuoc[index].getHanSuDung().format(dinhDangNgayThang);
+        if (this.dsThuoc[index] instanceof THUOCCHICH) {
+            THUOCCHICH tempThuocChich = (THUOCCHICH) this.dsThuoc[index];
+            dataThuoc.append(this.dsThuoc[index].getMaThuoc()).append(", ");
+            dataThuoc.append(this.dsThuoc[index].getMaNhaSanXuat()).append(", ");
+            dataThuoc.append(this.dsThuoc[index].getTenThuoc()).append(", ");
+            dataThuoc.append(this.dsThuoc[index].getSoLuong()).append(", ");
+            dataThuoc.append(ngaySanXuat).append(", ");
+            dataThuoc.append(hanSuDung).append(", ");
+            dataThuoc.append(this.dsThuoc[index].getGiaCa()).append(", ");
+            dataThuoc.append(tempThuocChich.getDungTichThuoc());
+        }
+        if (this.dsThuoc[index] instanceof THUOCVI) {
+            THUOCVI tempThuocVi = (THUOCVI) this.dsThuoc[index];
+            dataThuoc.append(this.dsThuoc[index].getMaThuoc()).append(", ");
+            dataThuoc.append(this.dsThuoc[index].getMaNhaSanXuat()).append(", ");
+            dataThuoc.append(this.dsThuoc[index].getTenThuoc()).append(", ");
+            dataThuoc.append(this.dsThuoc[index].getSoLuong()).append(", ");
+            dataThuoc.append(ngaySanXuat).append(", ");
+            dataThuoc.append(hanSuDung).append(", ");
+            dataThuoc.append(this.dsThuoc[index].getGiaCa()).append(", ");
+            dataThuoc.append(tempThuocVi.getSoLuongVi()).append(", ");
+            dataThuoc.append(tempThuocVi.getSoThuocMoiVi());
+        }
+        return dataThuoc.toString();
+    }
+
+    public void menuThaoTac() {
+        int option = 0;
+
+        do {
+            System.out.println("\t\t\t\tNhap 0 de thoat");
+            System.out.println("\t\t\t\tNhap 1 de them thuoc");
+            System.out.println("\t\t\t\tNhap 2 de xoa thuoc");
+            System.out.println("\t\t\t\tNhap 3 de sua thuoc ?????");
+            System.out.println("\t\t\t\tNhap 4 de thong ke thuoc");
+            System.out.println("\t\t\t\tNhap 5 de in danh sach thuoc ra");
+            System.out.println("\t\t\t\tNhap 6 de thoat khoi quan li thuoc");
+            System.out.print("\t\t\t\tVui long nhap lua chon cua ban: ");
+            option = mayScanner.nextInt();
+
+            while (option < 0 || option > 6) {
+                System.out.print("\t\t\t\tLua chon nay khong ton tai, vui long nhap lai: ");
+                option = mayScanner.nextInt();
+            }
+
+            if (option == 0) {
+                break;
+            }
+
+            if (option == 1) {
+                System.out.print("\t\t\t\t\tNhap loai thuoc can them (0 la thuoc chich, 1 la thuoc vi): ");
+                int loaiThuocCanThem = mayScanner.nextInt();
+                if (loaiThuocCanThem == 0) {
+                    THUOCCHICH tempThuocchich = new THUOCCHICH();
+                    tempThuocchich.nhapThongTinThuoc();
+                    this.themThuoc(tempThuocchich);
+                    // this.ghiFile();
+                } else if (loaiThuocCanThem == 1) {
+                    THUOCVI tempThuocvi = new THUOCVI();
+                    tempThuocvi.nhapThongTinThuoc();
+                    this.themThuoc(tempThuocvi);
+                    // this.ghiFile();
+                }
+            }
+
+            if (option == 2) {
+                int index = 0;
+                boolean isSuccess = false;
+                System.out.println("\t\t\t\t\tNhap ma thuoc can xoa: ");
+                String maThuocCanXoa = mayScanner.nextLine();
+                for (int i = 0; i < this.dsThuoc.length; i++) {
+                    if (this.dsThuoc[i].getMaThuoc().indexOf(maThuocCanXoa) != -1) { // da tim thay
+                        isSuccess = true;
+                        index = i;
+                        break;
+                    }
+                }
+                if (isSuccess) {
+                    this.xoaThuoc(index);
+                    System.out.println("Da xoa thanh cong!\n");
+                } else {
+                    System.out.println("Xoa that bai do khong tim thay ma thuoc yeu cau\n");
+                }
+            }
+
+            if (option == 3) {
+
+            }
+
+            if(option == 4) {
+                
+            }
+
+            if(option == 5) {
+                this.inDanhSachThuoc();
+            }
+
+            if(option == 6) {
+                break;
+            }
+
+        } while (option != 0);
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -274,6 +394,16 @@ public class DANHSACHTHUOC implements arrayInterfaceTHUOC {
 
     }
 
+
+
+
+
+
+
+
+
+
+
     // ham ghi line vao cuoi dong
     public void ghiLine(String s) {
         File file = new File("data/dataThuoc.txt");
@@ -287,37 +417,4 @@ public class DANHSACHTHUOC implements arrayInterfaceTHUOC {
         write.println(s);
         write.close();
     }
-
-    // TRA VE DATA CUA CLASS VAO 1 STRING ROI GHI LEN FILE THEO DONG
-    public String getDataThuoc(int index) {
-        DateTimeFormatter dinhDangNgayThang = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-        StringBuilder dataThuoc = new StringBuilder();
-        String ngaySanXuat = this.dsThuoc[index].getNgaySanXuat().format(dinhDangNgayThang);
-        String hanSuDung = this.dsThuoc[index].getHanSuDung().format(dinhDangNgayThang);
-        if (this.dsThuoc[index] instanceof THUOCCHICH) {
-            THUOCCHICH tempThuocChich = (THUOCCHICH) this.dsThuoc[index];
-            dataThuoc.append(this.dsThuoc[index].getMaThuoc()).append(", ");
-            dataThuoc.append(this.dsThuoc[index].getMaNhaSanXuat()).append(", ");
-            dataThuoc.append(this.dsThuoc[index].getTenThuoc()).append(", ");
-            dataThuoc.append(this.dsThuoc[index].getSoLuong()).append(", ");
-            dataThuoc.append(ngaySanXuat).append(", ");
-            dataThuoc.append(hanSuDung).append(", ");
-            dataThuoc.append(this.dsThuoc[index].getGiaCa()).append(", ");
-            dataThuoc.append(tempThuocChich.getDungTichThuoc());
-        }
-        if (this.dsThuoc[index] instanceof THUOCVI) {
-            THUOCVI tempThuocVi = (THUOCVI) this.dsThuoc[index];
-            dataThuoc.append(this.dsThuoc[index].getMaThuoc()).append(", ");
-            dataThuoc.append(this.dsThuoc[index].getMaNhaSanXuat()).append(", ");
-            dataThuoc.append(this.dsThuoc[index].getTenThuoc()).append(", ");
-            dataThuoc.append(this.dsThuoc[index].getSoLuong()).append(", ");
-            dataThuoc.append(ngaySanXuat).append(", ");
-            dataThuoc.append(hanSuDung).append(", ");
-            dataThuoc.append(this.dsThuoc[index].getGiaCa()).append(", ");
-            dataThuoc.append(tempThuocVi.getSoLuongVi()).append(", ");
-            dataThuoc.append(tempThuocVi.getSoThuocMoiVi());
-        }
-        return dataThuoc.toString();
-    }
-
 }
