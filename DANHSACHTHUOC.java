@@ -32,11 +32,10 @@ public class DANHSACHTHUOC implements arrayInterfaceTHUOC {
     public int getSoLuongThuoc() {
         return this.soLuongThuoc;
     }
-    public double getGiaCaTheoMa(String ma)
-    {
-        for (int i=0;i<soLuongThuoc;i++)
-        {
-            if (ma.equals(dsThuoc[i].getMaThuoc())){
+
+    public double getGiaCaTheoMa(String ma) {
+        for (int i = 0; i < soLuongThuoc; i++) {
+            if (ma.equals(dsThuoc[i].getMaThuoc())) {
                 return dsThuoc[i].getGiaCa();
             }
         }
@@ -171,10 +170,10 @@ public class DANHSACHTHUOC implements arrayInterfaceTHUOC {
         return result;
     }
 
-    public int getSoLuongThuocTheoLoai(String ma){
+    public int getSoLuongThuocTheoLoai(String ma) {
         int result = 0;
-        for(int i = 0 ; i < this.dsThuoc.length; i++) {
-            if(this.dsThuoc[i].getMaThuoc().equalsIgnoreCase(ma)) 
+        for (int i = 0; i < this.dsThuoc.length; i++) {
+            if (this.dsThuoc[i].getMaThuoc().equalsIgnoreCase(ma))
                 result = dsThuoc[i].getSoLuong();
         }
         return result;
@@ -309,9 +308,7 @@ public class DANHSACHTHUOC implements arrayInterfaceTHUOC {
             System.out.println("\t\tNhap 2 de xoa thuoc");
             System.out.println("\t\tNhap 3 de sua thuoc");
             System.out.println("\t\tNhap 4 de thong ke va tim kiem thuoc");
-            System.out.println("\t\tNhap 5 de ???");
-            System.out.println("\t\tNhap 6 de in danh sach thuoc");
-            System.out.println("\t\tNhap 7 de ???");
+            System.out.println("\t\tNhap 5 de in danh sach thuoc");
             System.out.print("\t\tVui long nhap lua chon cua ban: ");
             option = mayScanner.nextInt();
 
@@ -372,10 +369,6 @@ public class DANHSACHTHUOC implements arrayInterfaceTHUOC {
             }
 
             if (option == 5) {
-
-            }
-
-            if (option == 6) {
                 this.inDanhSachThuoc();
             }
 
@@ -455,11 +448,52 @@ public class DANHSACHTHUOC implements arrayInterfaceTHUOC {
             }
 
             if (find_option == 3) {
+                mayScanner.nextLine();
+                System.out.print("Nhap ten thuoc can tim: ");
+                String tenThuocCanTim = mayScanner.nextLine();
 
+                boolean canFind = false;
+                System.out.format("\u001B[34m" + "|| %-10s | %-15s | %-25s | %-8s | %-10s | %-10s | %-14s ||\n" + "\u001B[0m", "MA THUOC", "MA NHA SAN XUAT", "TEN THUOC", "SO LUONG", "NGAY SX", "HAN SD", "GIA CA");
+                for (THUOC tempThuoc : this.dsThuoc) {
+                    if (tempThuoc.getTenThuoc().contains(tenThuocCanTim)) {
+
+                        tempThuoc.inThongTinThuoc();
+                        canFind = true;
+                    }
+                }
+                if (!canFind) {
+                    System.out.println("Khong tim thay ");
+                }
             }
 
             if (find_option == 4) {
+                mayScanner.nextLine();
+                System.out.print("Nhap loai thuoc can tim(0 la thuoc chich, 1 la thuoc vi): ");
+                int type = mayScanner.nextInt();
+                
+                
+                if(type == 0) {
+                    
+                    System.out.format("\u001B[34m" + "|| %-10s | %-15s | %-25s | %-8s | %-10s | %-10s | %-14s ||\n" + "\u001B[0m", "MA THUOC", "MA NHA SAN XUAT", "TEN THUOC", "SO LUONG", "NGAY SX", "HAN SD", "GIA CA");
+                    for(THUOC i : this.dsThuoc) {
+                        if(i instanceof THUOCCHICH) {
+                            i.inThongTinThuoc();
+                        }
+                    }
+                }
 
+                else if(type == 1) {
+                    System.out.format("\u001B[34m" + "|| %-10s | %-15s | %-25s | %-8s | %-10s | %-10s | %-14s ||\n" + "\u001B[0m", "MA THUOC", "MA NHA SAN XUAT", "TEN THUOC", "SO LUONG", "NGAY SX", "HAN SD", "GIA CA");
+                    for(THUOC i : this.dsThuoc) {
+                        if(i instanceof THUOCVI) {
+                            i.inThongTinThuoc();
+                        }
+                    }
+                }
+
+                else {
+                    System.out.println("Ket qua tim kiem khong hop le: ");
+                }
             }
             if (find_option == 0) {
                 break;
