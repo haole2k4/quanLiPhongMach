@@ -79,7 +79,7 @@ public class DANHSACHNHACUNGCAP {
         String ten = input.nextLine();
         for (int i=0;i<soLuongNCC;i++)
         {
-            if (ten.equals(dsncc[i].getTenNhaCungCap()))
+            if (ten.equals(dsncc[i].getMaNhaCungCap()))
             {
                 dsncc[i].xuat();
                 return;
@@ -115,10 +115,6 @@ public class DANHSACHNHACUNGCAP {
             }
         }
         while (i!=0);
-    }
-    public static void main(String[] args) {
-        DANHSACHNHACUNGCAP ds = new DANHSACHNHACUNGCAP();
-        ds.menu();
     }
 
 }

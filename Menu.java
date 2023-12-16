@@ -3,12 +3,12 @@ import java.util.Scanner;
 public class Menu {
     Scanner mayScanner = new Scanner(System.in);
 
-    DANHSACHNHANVIEN trinhqlNhanVien = new DANHSACHNHANVIEN();
     QUANLIDSTHUOC trinhqlThuoc = new QUANLIDSTHUOC();
-    private DANHSACHCHITHIETPHIEUNHAP trinhqlDSCTPN = new DANHSACHCHITHIETPHIEUNHAP();
-    private DANHSACHPHIEUNHAP trinhqlDSPN = new DANHSACHPHIEUNHAP();
+    DANHSACHNHANVIEN trinhqlNhanVien = new DANHSACHNHANVIEN();
+    DANHSACHCHITHIETPHIEUNHAP trinhqlDSCTPN = new DANHSACHCHITHIETPHIEUNHAP();
+    DANHSACHPHIEUNHAP trinhqlDSPN = new DANHSACHPHIEUNHAP();
     QUANLYNHAPHANG trinhqlNhapHang = new QUANLYNHAPHANG();
-    
+    DANHSACHNHACUNGCAP trinhqlNCC = new DANHSACHNHACUNGCAP();
 
     public void MainMenu() {
 
@@ -16,7 +16,7 @@ public class Menu {
         trinhqlNhanVien.docFile();
         trinhqlDSCTPN.docfile();
         trinhqlDSPN.docfile();
-
+        trinhqlNCC.docFile();
 
         int option = 0;
         do {
@@ -26,6 +26,7 @@ public class Menu {
             System.out.println("\tNhan phim 1 de vao trinh quan li danh sach thuoc");
             System.out.println("\tNhan phim 2 de vao trinh quan li nhan vien");
             System.out.println("\tNhan phim 3 de vao trinh quan li nhap hang");
+            System.out.println("\tNhan phim 4 de vao trinh quan li nha cung cap");
             System.out.print("\tVui long nhap lua chon cua ban: ");
             option = mayScanner.nextInt();
 
@@ -47,6 +48,9 @@ public class Menu {
 
             if(option == 3) {
                 trinhqlNhapHang.menu(trinhqlDSCTPN,trinhqlDSPN);
+            }
+             if(option == 4) {
+                trinhqlNCC.menu();
             }
 
         } while (option != 0);
