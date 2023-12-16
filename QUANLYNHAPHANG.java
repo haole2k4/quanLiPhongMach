@@ -5,7 +5,7 @@ public class QUANLYNHAPHANG
     private DANHSACHCHITHIETPHIEUNHAP dsctpn = new DANHSACHCHITHIETPHIEUNHAP();
     private DANHSACHPHIEUNHAP dspn = new DANHSACHPHIEUNHAP();
     private DANHSACHTHUOC dst;
-    private Main main;
+    private Menu MainMenu;
     public void menu()
     {
         dsctpn.docfile();//doc data co san
@@ -24,9 +24,8 @@ public class QUANLYNHAPHANG
             {
                 case 0:
                 {
-                    QUANLIDSTHUOC trinhQuanLi = new QUANLIDSTHUOC();
         
-                     trinhQuanLi.menu();
+                    MainMenu.MainMenu();
                 }
                 case 1:
                 { 
