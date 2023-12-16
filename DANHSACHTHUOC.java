@@ -54,7 +54,7 @@ public class DANHSACHTHUOC implements arrayInterfaceTHUOC {
         for (int i = 0; i < soThuocCanNhap; i++) {
             int typeThuoc;
             do {
-                System.out.print("Nhap loai thuoc(0 la thuoc chich, 1 la thuoc vi): ");
+                System.out.print("\tNhap loai thuoc(0 la thuoc chich, 1 la thuoc vi): ");
                 typeThuoc = mayScanner.nextInt();
                 if (typeThuoc == 0) {
                     this.dsThuoc[i] = new THUOCCHICH();
@@ -178,6 +178,19 @@ public class DANHSACHTHUOC implements arrayInterfaceTHUOC {
         return outOfDateTHUOC;
     }
 
+    public THUOC[] checkThuocSapHetHanSuDungChua() {
+        THUOC[] outOfDateTHUOC = new THUOC[0];
+        LocalDate today = LocalDate.now();
+        for (int i = 0; i < this.dsThuoc.length; i++) {
+            LocalDate hanSuDung = this.dsThuoc[i].getHanSuDung();
+            if (hanSuDung.isBefore(today.plusDays(7))) {
+                outOfDateTHUOC = Arrays.copyOf(outOfDateTHUOC, outOfDateTHUOC.length + 1);
+                outOfDateTHUOC[outOfDateTHUOC.length - 1] = this.dsThuoc[i];
+            }
+        }
+        return outOfDateTHUOC;
+    }
+
     // DOC DATA CUA FILE ROI GHI VAO MANG
     public void docData(String filePath) throws FileNotFoundException {
         File dataFile = new File(filePath);
@@ -258,9 +271,10 @@ public class DANHSACHTHUOC implements arrayInterfaceTHUOC {
             System.out.println("\t\tNhap 1 de them thuoc");
             System.out.println("\t\tNhap 2 de xoa thuoc");
             System.out.println("\t\tNhap 3 de sua thuoc ?????");
-            System.out.println("\t\tNhap 4 de thong ke thuoc");
-            System.out.println("\t\tNhap 5 de in danh sach thuoc ra");
-            System.out.println("\t\tNhap 6 de thoat khoi quan li thuoc");
+            System.out.println("\t\tNhap 4 de thong ke thuoc het han va sap het han");
+            System.out.println("\t\tNhap 5 de tim kiem thuoc theo ma");
+            System.out.println("\t\tNhap 6 de in danh sach thuoc ra");
+            System.out.println("\t\tNhap 7 de ");
             System.out.print("\t\tVui long nhap lua chon cua ban: ");
             option = mayScanner.nextInt();
 
@@ -281,7 +295,7 @@ public class DANHSACHTHUOC implements arrayInterfaceTHUOC {
                     tempThuocchich.nhapThongTinThuoc();
                     try {
                         this.themThuoc(tempThuocchich);
-                        this.ghiData("/dataThuoc.txt");
+                        this.ghiData("data/dataThuoc.txt");
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
@@ -306,6 +320,7 @@ public class DANHSACHTHUOC implements arrayInterfaceTHUOC {
                 boolean isSuccess = false;
                 System.out.println("\t\t\t\t\tNhap ma thuoc can xoa: ");
                 String maThuocCanXoa = mayScanner.nextLine();
+                mayScanner.nextLine();
                 for (int i = 0; i < this.dsThuoc.length; i++) {
                     if (this.dsThuoc[i].getMaThuoc().indexOf(maThuocCanXoa) != -1) { // da tim thay
                         isSuccess = true;
@@ -314,8 +329,14 @@ public class DANHSACHTHUOC implements arrayInterfaceTHUOC {
                     }
                 }
                 if (isSuccess) {
-                    this.xoaThuoc(index);
-                    System.out.println("Da xoa thanh cong!\n");
+                    try {
+                        this.xoaThuoc(index);
+                        this.ghiData("data/dataThuoc.txt");
+                        System.out.println("\t\tDa xoa thanh cong!\n");
+                    } catch (IOException e) {
+                        System.out.println("Xoa that bai do khong tim thay file");
+                    }
+
                 } else {
                     System.out.println("Xoa that bai do khong tim thay ma thuoc yeu cau\n");
                 }
@@ -326,63 +347,89 @@ public class DANHSACHTHUOC implements arrayInterfaceTHUOC {
             }
 
             if (option == 4) {
+                int find_option;
+                System.out.println("\t" + "-".repeat(10) + " TRINH TIM KIEM VA THONG KE THUOC " + "-".repeat(10));
+                System.out.println("\tNhap 0 de thong ke so thuoc het han ");
+                System.out.println("\tNhap 1 de thong ke so thuoc sap het han (trong 1 tuan toi)");
+                System.out.println("\tNhap 2 de tim kiem thuoc theo ten nha san xuat:");
+                System.out.println("\tNhap 3 de tim kiem thuoc theo ten thuoc:");
+                System.out.println("\tNhap 4 de tim kiem thuoc theo loai thuoc:");
+                System.out.println("\tNhap 5 de thoat trinh tim kiem:");
+                System.out.print("\tVui lonh nhap lua chon cua ban: ");
+                find_option = mayScanner.nextInt();
 
+                while (find_option < 0 && find_option > 5) {
+                    System.out.print("Vui long nhap lai gia tri: ");
+                    find_option = mayScanner.nextInt();
+                }
+
+                if (find_option == 0) {
+                    THUOC[] hetHsd;
+                    hetHsd = checkThuocHetHanSuDungChua();
+                    if (hetHsd.length == 0) {
+                        System.out.println("\t\tChua co thuoc nao het han");
+                    } else {
+                        System.out.println("\t\tCo " + hetHsd.length + " thuoc het han");
+                    }
+
+                    System.out.println(
+                            "\u001B[32m" + "-".repeat(50) + " DANH SACH THUOC " + "-".repeat(50) + "\u001B[0m");
+                    System.out.format(
+                            "\u001B[34m" + "|| %-10s | %-15s | %-25s | %-8s | %-10s | %-10s | %-14s ||\n" + "\u001B[0m",
+                            "MA THUOC", "MA NHA SAN XUAT", "TEN THUOC", "SO LUONG", "NGAY SX", "HAN SD", "GIA CA");
+                    for (THUOC thuocHetHan : hetHsd) {
+                        thuocHetHan.inThongTinThuoc();
+                    }
+                    System.out.println("\u001B[32m" + "-".repeat(117) + "\u001B[0m");
+                }
+
+                if (find_option == 1) {
+                    THUOC[] hetHsd;
+                    hetHsd = checkThuocSapHetHanSuDungChua();
+                    if (hetHsd.length == 0) {
+                        System.out.println("\t\tChua co thuoc nao het han");
+                    } else {
+                        System.out.println("\t\tCo " + hetHsd.length + " thuoc sap het han");
+                    }
+
+                    System.out.println(
+                            "\u001B[32m" + "-".repeat(50) + " DANH SACH THUOC " + "-".repeat(50) + "\u001B[0m");
+                    System.out.format(
+                            "\u001B[34m" + "|| %-10s | %-15s | %-25s | %-8s | %-10s | %-10s | %-14s ||\n" + "\u001B[0m",
+                            "MA THUOC", "MA NHA SAN XUAT", "TEN THUOC", "SO LUONG", "NGAY SX", "HAN SD", "GIA CA");
+                    for (THUOC thuocHetHan : hetHsd) {
+                        thuocHetHan.inThongTinThuoc();
+                    }
+                    System.out.println("\u001B[32m" + "-".repeat(117) + "\u001B[0m");
+                }
+
+                if(find_option == 2){
+
+                }
+
+                if(find_option == 3) {
+
+                }
+
+                if(find_option == 4) {
+
+                }
+                if(find_option == 5) {
+                    
+                    break;
+                }
             }
 
             if (option == 5) {
-                this.inDanhSachThuoc();
+                
             }
 
             if (option == 6) {
-                break;
+                this.inDanhSachThuoc();
             }
 
         } while (option != 0);
     }
 
-    public void themSoLuongChoThuoc(String ma, int soLuong) {
-        // doc data thuoc de lam vien tren array va sau khi sua so luong thanh cong thi
-        // ghi lai vao file !
-        File file = new File("data/dataThuoc.txt");
-        // File file = new File("D:\\phongMach_THUOC\\quanLiPhongMach\\dataThuoc.txt");
-        try {
-            docData("data/dataThuoc.txt");
-        } catch (Exception e) {
-            System.out.println("Loi!");
-            return;
-        }
-
-        for (int i = 0; i < soLuongThuoc; i++) {
-            if (dsThuoc[i].getMaThuoc().trim().equals(ma)) {
-                dsThuoc[i].setSoLuong(soLuong + dsThuoc[i].getSoLuong());
-            }
-        }
-
-        PrintWriter write = null;
-        try {
-            write = new PrintWriter(file);
-        } catch (Exception e) {
-            System.out.println("Loi !");
-            return;
-        }
-        for (int i = 0; i < soLuongThuoc; i++) {
-            write.println(getDataThuoc(i));
-        }
-        write.close();
-
-    }
-
-    // ham ghi line vao cuoi dong
-    public void ghiLine(String s) {
-        File file = new File("data/dataThuoc.txt");
-        PrintWriter write = null;
-        try {
-            write = new PrintWriter(new FileWriter(file, true));
-        } catch (Exception e) {
-            System.out.println("Loi !");
-            return;
-        }
-        write.println(s);
-        write.close();
-    }
+    
 }

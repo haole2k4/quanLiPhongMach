@@ -17,7 +17,6 @@ public class THUOCCHICH extends THUOC {
     THUOCCHICH(THUOCCHICH newThuocChich) {
         super((THUOC) newThuocChich);
         this.dungTichThuoc = newThuocChich.dungTichThuoc;
-        System.out.println("--------------------------------");
     }
 
     public int getDungTichThuoc() {
