@@ -13,7 +13,7 @@ public class Menu {
             System.out.println(
                     "\u001B[31m" + "-".repeat(20) + "CHUONG TRINH QUAN LI PHONG MACH" + "-".repeat(20) + "\u001B[0m");
             System.out.println("\tNhan phim 0 de thoat");
-            System.out.println("\tNhan phim 1 de vao trinh quan li danh sach thuoc\n");
+            System.out.println("\tNhan phim 1 de vao trinh quan li danh sach thuoc");
             System.out.print("\tVui long nhap lua chon cua ban: ");
             option = mayScanner.nextInt();
 
