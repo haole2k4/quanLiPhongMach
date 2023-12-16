@@ -104,7 +104,8 @@ public class DANHSACHTHUOC implements arrayInterfaceTHUOC {
         System.out.println("\tTong so thuoc: " + this.soLuongThuoc);
 
         System.out.println("\u001B[32m" + "-".repeat(50) + " DANH SACH THUOC " + "-".repeat(50) + "\u001B[0m");
-        System.out.format("\u001B[34m" + "|| %-10s | %-15s | %-25s | %-8s | %-10s | %-10s | %-14s ||\n" + "\u001B[0m", "MA THUOC", "MA NHA SAN XUAT", "TEN THUOC", "SO LUONG", "NGAY SX", "HAN SD", "GIA CA");
+        System.out.format("\u001B[34m" + "|| %-10s | %-15s | %-25s | %-8s | %-10s | %-10s | %-14s ||\n" + "\u001B[0m",
+                "MA THUOC", "MA NHA SAN XUAT", "TEN THUOC", "SO LUONG", "NGAY SX", "HAN SD", "GIA CA");
         for (int i = 0; i < this.soLuongThuoc; i++) {
             this.dsThuoc[i].inThongTinThuoc();
         }
@@ -176,13 +177,6 @@ public class DANHSACHTHUOC implements arrayInterfaceTHUOC {
         }
         return outOfDateTHUOC;
     }
-
-
-
-
-
-
-
 
     // DOC DATA CUA FILE ROI GHI VAO MANG
     public void docData(String filePath) throws FileNotFoundException {
@@ -285,13 +279,25 @@ public class DANHSACHTHUOC implements arrayInterfaceTHUOC {
                 if (loaiThuocCanThem == 0) {
                     THUOCCHICH tempThuocchich = new THUOCCHICH();
                     tempThuocchich.nhapThongTinThuoc();
-                    this.themThuoc(tempThuocchich);
-                    // this.ghiFile();
+                    try {
+                        this.themThuoc(tempThuocchich);
+                        this.ghiData("/dataThuoc.txt");
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+
                 } else if (loaiThuocCanThem == 1) {
                     THUOCVI tempThuocvi = new THUOCVI();
                     tempThuocvi.nhapThongTinThuoc();
-                    this.themThuoc(tempThuocvi);
-                    // this.ghiFile();
+                    try {
+                        this.themThuoc(tempThuocvi);
+                        this.ghiData("data/dataThuoc.txt");
+                    }
+
+                    catch (IOException e) {
+                        e.printStackTrace();
+                    }
+
                 }
             }
 
@@ -319,41 +325,20 @@ public class DANHSACHTHUOC implements arrayInterfaceTHUOC {
 
             }
 
-            if(option == 4) {
+            if (option == 4) {
 
             }
 
-            if(option == 5) {
+            if (option == 5) {
                 this.inDanhSachThuoc();
             }
 
-            if(option == 6) {
+            if (option == 6) {
                 break;
             }
 
         } while (option != 0);
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     public void themSoLuongChoThuoc(String ma, int soLuong) {
         // doc data thuoc de lam vien tren array va sau khi sua so luong thanh cong thi
@@ -386,16 +371,6 @@ public class DANHSACHTHUOC implements arrayInterfaceTHUOC {
         write.close();
 
     }
-
-
-
-
-
-
-
-
-
-
 
     // ham ghi line vao cuoi dong
     public void ghiLine(String s) {
