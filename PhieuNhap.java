@@ -4,7 +4,7 @@ import java.time.LocalDate;
 import java.util.Scanner;
 import java.time.format.DateTimeFormatter;
 
-public class PHIEUNHAP {
+ class PHIEUNHAP {
     private String maPhieuNhap;
     private String[] maCTPhieuNhap;
     private String maNhanVien, maNhaCungCap;

@@ -2,7 +2,7 @@
 import java.io.File;
 import java.util.Scanner;
 
-public class CHITIETPHIEUNHAP {
+ class CHITIETPHIEUNHAP {
     private String maCTPhieuNhap;
     THUOC[] dsThuocNhap;
     int soLoaiThuocNhap = 0;

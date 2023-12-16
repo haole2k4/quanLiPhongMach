@@ -1,6 +1,6 @@
 
 import java.util.Scanner;
-public class NHACUNGCAP {
+class NHACUNGCAP {
     private String maNhaCungCap,tenNhaCungCap,diaChi,SDT;
     public String getLine()
     {

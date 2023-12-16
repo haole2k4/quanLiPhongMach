@@ -2,7 +2,7 @@
 import java.util.Scanner;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;;
-public class NHANVIEN 
+ class NHANVIEN 
 {
     Scanner input = new Scanner(System.in);
     private String maNV,ho,ten,chucVu,gioiTinh,SDT;
