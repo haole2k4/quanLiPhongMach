@@ -3,12 +3,13 @@ import java.util.Scanner;
 public class Menu {
     Scanner mayScanner = new Scanner(System.in);
 
-    QUANLIDSTHUOC trinhqlThuoc = new QUANLIDSTHUOC();
+    DANHSACHTHUOC trinhqlThuoc = new DANHSACHTHUOC();
     DANHSACHNHANVIEN trinhqlNhanVien = new DANHSACHNHANVIEN();
     DANHSACHCHITHIETPHIEUNHAP trinhqlDSCTPN = new DANHSACHCHITHIETPHIEUNHAP();
     DANHSACHPHIEUNHAP trinhqlDSPN = new DANHSACHPHIEUNHAP();
     QUANLYNHAPHANG trinhqlNhapHang = new QUANLYNHAPHANG();
     DANHSACHNHACUNGCAP trinhqlNCC = new DANHSACHNHACUNGCAP();
+    DANHSACHDONTHUOC trinhqlDONTHUOC = new DANHSACHDONTHUOC();
 
     public void MainMenu() {
 
@@ -17,7 +18,11 @@ public class Menu {
         trinhqlDSCTPN.docfile();
         trinhqlDSPN.docfile();
         trinhqlNCC.docFile();
-
+        try{
+        trinhqlThuoc.docData("D:\\phongMach_THUOC\\quanLiPhongMach\\data\\dataThuoc.txt" );
+        } catch(Exception E){
+            System.out.println("loi !");
+        }
         int option = 0;
         do {
             System.out.println(
@@ -27,6 +32,7 @@ public class Menu {
             System.out.println("\tNhan phim 2 de vao trinh quan li nhan vien");
             System.out.println("\tNhan phim 3 de vao trinh quan li nhap hang");
             System.out.println("\tNhan phim 4 de vao trinh quan li nha cung cap");
+            System.out.println("\tNhan phim 5 de vao trinh quan li don thuoc");
             System.out.print("\tVui long nhap lua chon cua ban: ");
             option = mayScanner.nextInt();
 
@@ -40,7 +46,7 @@ public class Menu {
             }
 
             if(option == 1) {
-                trinhqlThuoc.trinhQuanLiDanhSachThuoc();
+                trinhqlThuoc.menuThaoTac();
             }
             if(option == 2) {
                 trinhqlNhanVien.menu();
@@ -51,6 +57,9 @@ public class Menu {
             }
              if(option == 4) {
                 trinhqlNCC.menu();
+            }
+            if (option == 5){
+                trinhqlDONTHUOC.menu(trinhqlThuoc);
             }
 
         } while (option != 0);

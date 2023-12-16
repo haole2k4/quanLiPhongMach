@@ -47,7 +47,7 @@ public class DANHSACHTHUOC implements arrayInterfaceTHUOC {
     }
     public void giamSoLuongThuocTheoMa(String ma,int soluong){
         for (int i=0;i<soLuongThuoc;i++){
-            if (ma.equals(dsThuoc[i].getTenThuoc())){
+            if (ma.equals(dsThuoc[i].getMaThuoc())){
                 dsThuoc[i].setSoLuong(dsThuoc[i].getSoLuong()-soluong);
             }
         }
@@ -177,6 +177,16 @@ public class DANHSACHTHUOC implements arrayInterfaceTHUOC {
                 result = dsThuoc[i].getSoLuong();
         }
         return result;
+    }
+    public String getTenThuocTheoMa(String ma){
+        for (int i=0;i<soLuongThuoc;i++)
+        {
+            if (ma.equals(dsThuoc[i].getMaThuoc())){
+                return dsThuoc[i].getTenThuoc();
+            }
+
+        }
+        return "null";
     }
 
     // ----------- END XU LI THEO MA THUOC -------------

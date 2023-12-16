@@ -26,15 +26,19 @@ class DONTHUOC {
         this.donGia = dt.donGia;
     }
     public void them(DANHSACHTHUOC dstchinh)
-    {
-        Scanner input = new Scanner(System.in);
+    {   Scanner input = new Scanner(System.in);
+        input.nextLine();
         System.out.print("Ma don thuoc: ");
         maDonThuoc = input.nextLine();
         System.out.print("So loai thuoc boc: "); 
         soLuongThuocBoc = input.nextInt();
+        dst = new THUOC[soLuongThuocBoc];
+        input.nextLine();
         for (int i=0;i<soLuongThuocBoc;i++)
         {
-            System.out.print("Thuoc "+ i+1 + " : "); 
+            // chỗ này chưa định dạng đc 2 loạit thuốc :v nên để đại , fix sau
+            dst[i] = new THUOCCHICH();
+            System.out.print("Thuoc "+ (i+1) + " : "); 
             System.out.print("Ma: "); 
             String ma = input.nextLine();
             if (dstchinh.isExists(ma) == 0){
@@ -43,8 +47,10 @@ class DONTHUOC {
             }
             else{
                 dst[i].setMaThuoc(ma);
+                dst[i].setTenThuoc(dstchinh.getTenThuocTheoMa(ma));
                 System.out.print("So luong: "); 
                 int soluong = input.nextInt();
+                input.nextLine();
                 if ((soluong>= 0) && soluong <= dstchinh.getSoLuongThuocTheoLoai(ma)){
                     dst[i].setSoLuong(soluong);
                     dst[i].setGiaCa(dstchinh.getGiaCaTheoMa(ma));
@@ -52,10 +58,11 @@ class DONTHUOC {
                     donGia+=dst[i].getGiaCa()*dst[i].getSoLuong();
                     //khi nhap xong don thuoc thi set lai so luong trong danh sach thuoc
                     dstchinh.giamSoLuongThuocTheoMa(ma, soluong);
+                    dstchinh.inDanhSachThuoc();
                     try{
-                        dstchinh.ghiData("D:\\phongMach_THUOC\\quanLiPhongMach\\data");
+                        dstchinh.ghiData("D:\\phongMach_THUOC\\quanLiPhongMach\\data\\dataThuoc.txt");
                     } catch(Exception e){
-                        System.out.println("LOI!");
+                        System.out.println("Loi doc file!");
 
                     }
                 }
@@ -74,12 +81,52 @@ class DONTHUOC {
         Scanner input = new Scanner(System.in);
         System.out.println("Ma: "+ maDonThuoc);
         System.out.println("So loai thuoc boc: "+ soLuongThuocBoc);
-        System.out.format("%-3s %-15s %-40s %-15s %-15s","STT","Ma","Ten","So luong","gia ca");
+        System.out.format("%-3s %-15s %-40s %-15s %-15s\n","STT","Ma","Ten","So luong","gia ca");
         for (int i=0;i<soLuongThuocBoc;i++)
         {
-            System.out.format("%-3s %-15s %-40s %-15s %-15s",i+1,dst[i].getMaThuoc(),dst[i].getTenThuoc(),dst[i].getSoLuong(),dst[i].getGiaCa());
+            System.out.format("%-3s %-15s %-40s %-15s %-15s\n",i+1,dst[i].getMaThuoc(),dst[i].getTenThuoc(),dst[i].getSoLuong(),dst[i].getGiaCa());
         }
         System.out.println("Don gia: "+ donGia);
+    }
+    public String getThongTin(){
+        String s=maDonThuoc+","+soLuongThuocBoc;
+        for (int i=0;i<soLuongThuocBoc;i++){
+            s=s+","+dst[i].getMaThuoc()+","+dst[i].getSoLuong();
+        }
+        s=s+","+donGia;
+        return s;
+    }
+
+    public String getMaDonThuoc() {
+        return maDonThuoc;
+    }
+
+    public void setMaDonThuoc(String maDonThuoc) {
+        this.maDonThuoc = maDonThuoc;
+    }
+
+    public THUOC[] getDst() {
+        return dst;
+    }
+
+    public void setDst(THUOC[] dst) {
+        this.dst = dst;
+    }
+
+    public int getSoLuongThuocBoc() {
+        return soLuongThuocBoc;
+    }
+
+    public void setSoLuongThuocBoc(int soLuongThuocBoc) {
+        this.soLuongThuocBoc = soLuongThuocBoc;
+    }
+
+    public double getDonGia() {
+        return donGia;
+    }
+
+    public void setDonGia(double donGia) {
+        this.donGia = donGia;
     }
 
 
