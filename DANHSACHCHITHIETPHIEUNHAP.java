@@ -34,7 +34,6 @@ public class DANHSACHCHITHIETPHIEUNHAP {
             dsctpn[i].setMaCTPhieuNhap(arr[0]);
             dsctpn[i].setSoLoaiThuocNhap(Integer.parseInt(arr[1]));
             dsctpn[i].dsThuocNhap = new THUOC[Integer.parseInt(arr[1])];
-            System.out.println();
             for (int j = 0; j < dsctpn[i].getSoLoaiThuocNhap(); j++) {
                 dsctpn[i].dsThuocNhap[j] = new THUOCVI();
                 dsctpn[i].dsThuocNhap[j].setMaThuoc(arr[j * 3 + 2]);
@@ -119,15 +118,15 @@ public class DANHSACHCHITHIETPHIEUNHAP {
     }
 
     public void menu() {
-        System.out.println("        ==> MENU QUAN LY CHI TIET PHIEU NHAP: ");
-        System.out.println("        0: BACK");
-        System.out.println("        1: Them chi tiet phieu nhap");
-        System.out.println("        2: Xoa chi tiet phieu nhap");
-        System.out.println("        3: Tim kiem tiet phieu nhap");
-        System.out.println("        4: Xem tat ca chi tiet phieu nhap");
+        System.out.println("\u001B[34m\n\t\t==> QUAN LY CHI TIET PHIEU NHAP:");
+        System.out.println("\t\t0: BACK");
+        System.out.println("\t\t1: Them chi tiet phieu nhap");
+        System.out.println("\t\t2: Xoa chi tiet phieu nhap");
+        System.out.println("\t\t3: Tim kiem tiet phieu nhap");
+        System.out.println("\t\t4: Xem tat ca chi tiet phieu nhap \u001B[0m");
         int i;
         do {
-            System.out.print("        lua chon: ");
+            System.out.print("\t\tlua chon: ");
             Scanner input = new Scanner(System.in);
             i = input.nextInt();
             switch (i) {

@@ -6,9 +6,10 @@ public class QUANLYNHAPHANG
     private DANHSACHPHIEUNHAP dspn = new DANHSACHPHIEUNHAP();
     public void menu()
     {
+        
         dsctpn.docfile();//doc data co san
         dspn.docfile();
-        System.out.println("\t\u001B[34m======[ Trinh quan ly nhap hang ]=====\u001B[0m");
+        System.out.println("\n\t\u001B[34m======[ Trinh quan ly nhap hang ]=====\u001B[0m");
         System.out.println("\t -> Nhap 0 de quay tro lai");
         System.out.println("\t -> Nhap 1 de quan ly chi tiet phieu nhap");
         System.out.println("\t -> Nhap 2 de quuan ly phieu nhap");

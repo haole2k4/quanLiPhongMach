@@ -246,17 +246,17 @@ public class DANHSACHPHIEUNHAP {
     }
 
     public void menu() {
-        System.out.println("        ==>MENU QUAN LY PHIEU NHAP: ");
-        System.out.println("        0: BACK");
-        System.out.println("        1: Them phieu nhap");
-        System.out.println("        2: Xoa phieu nhap");
-        System.out.println("        3: Tim kiem phieu nhap");
-        System.out.println("        4: Thong ke theo thang");
-        System.out.println("        5: In danh sach phieu nhap");
+        System.out.println("\u001B[34m\n\t\t ==>MENU QUAN LY PHIEU NHAP: ");
+        System.out.println("\t\t0: BACK");
+        System.out.println("\t\t1: Them phieu nhap");
+        System.out.println("\t\t2: Xoa phieu nhap");
+        System.out.println("\t\t3: Tim kiem phieu nhap");
+        System.out.println("\t\t4: Thong ke theo thang");
+        System.out.println("\t\t5: In danh sach phieu nhap \u001B[0m");
         int i;
         do {
             Scanner input = new Scanner(System.in);
-            System.out.print("        lua chon: ");
+            System.out.print("\t\tlua chon: ");
             i = input.nextInt();
             switch (i) {
                 case 0:
