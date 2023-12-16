@@ -217,6 +217,7 @@ public class DANHSACHTHUOC implements arrayInterfaceTHUOC {
     public void themSoLuongChoThuoc(String ma, int soLuong) {
         // doc data thuoc de lam vien tren array va sau khi sua so luong thanh cong thi
         // ghi lai vao file !
+        // File file = new File("data/dataThuoc.txt");
         File file = new File("D:\\phongMach_THUOC\\quanLiPhongMach\\dataThuoc.txt");
         try {
             docData(file);

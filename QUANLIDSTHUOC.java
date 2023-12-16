@@ -7,8 +7,8 @@ import java.io.PrintWriter;
 public class QUANLIDSTHUOC {
     Scanner quanliScanner = new Scanner(System.in);
     DANHSACHTHUOC ds;
-    private File fileDataThuoc = new File("D:\\phongMach_THUOC\\quanLiPhongMach\\dataThuoc.txt");
-    private String filePathDataThuoc = "D:\\phongMach_THUOC\\quanLiPhongMach\\dataThuoc.txt";
+    private File fileDataThuoc = new File("data/dataThuoc.txt");
+    private String filePathDataThuoc = "data/dataThuoc.txt";
     
 
     QUANLIDSTHUOC() {
