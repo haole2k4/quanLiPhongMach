@@ -184,8 +184,18 @@ public class DANHSACHTHUOC implements arrayInterfaceTHUOC {
         return outOfDateTHUOC;
     }
 
+
+
+
+
+
+
+
+
+
     // DOC DATA CUA FILE ROI GHI VAO MANG
-    public void docData(File dataFile) throws FileNotFoundException {
+    public void docData(String filePath) throws FileNotFoundException {
+        File dataFile = new File(filePath);
         Scanner fileScanner = new Scanner(dataFile);
         while (fileScanner.hasNextLine()) {
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
@@ -214,13 +224,31 @@ public class DANHSACHTHUOC implements arrayInterfaceTHUOC {
         fileScanner.close();
     }
 
+    public void ghiData(String filePath) throws IOException {
+        File dataFile = new File(filePath);
+        FileWriter writer = new FileWriter(dataFile);
+        for (int i = 0; i < soLuongThuoc; i++) {
+            writer.write(getDataThuoc(i) + "\n");
+        }
+        writer.close();
+    }
+    
+
+
+
+
+
+
+
+
+
     public void themSoLuongChoThuoc(String ma, int soLuong) {
         // doc data thuoc de lam vien tren array va sau khi sua so luong thanh cong thi
         // ghi lai vao file !
-        // File file = new File("data/dataThuoc.txt");
-        File file = new File("D:\\phongMach_THUOC\\quanLiPhongMach\\dataThuoc.txt");
+        File file = new File("data/dataThuoc.txt");
+        // File file = new File("D:\\phongMach_THUOC\\quanLiPhongMach\\dataThuoc.txt");
         try {
-            docData(file);
+            docData("data/dataThuoc.txt");
         } catch (Exception e) {
             System.out.println("Loi!");
             return;
@@ -248,7 +276,7 @@ public class DANHSACHTHUOC implements arrayInterfaceTHUOC {
 
     // ham ghi line vao cuoi dong
     public void ghiLine(String s) {
-        File file = new File("D:\\phongMach_THUOC\\quanLiPhongMach\\dataThuoc.txt");
+        File file = new File("data/dataThuoc.txt");
         PrintWriter write = null;
         try {
             write = new PrintWriter(new FileWriter(file, true));
