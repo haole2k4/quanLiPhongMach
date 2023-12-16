@@ -4,6 +4,12 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+
+
+
+
+
+// chỉnh sửa quản lí danh sách sao cho chỉ khai báo 1 danh sách và cho danh sách đó đọc, 1 hàm còn lại thì cho chạy trình quản lí 
 public class QUANLIDSTHUOC {
     Scanner quanliScanner = new Scanner(System.in);
     DANHSACHTHUOC ds;
@@ -20,6 +26,9 @@ public class QUANLIDSTHUOC {
     }
 
 
+
+
+    // CÁI LÀM VIỆC VỚI FILE KO ĐƯỢC ĐỂ Ở ĐÂY NỮA ĐÚNG K 
 
     // ---- LAM VIEC VOI FILE -----------
     public void xoaAllDataThuoc(String filePath) {
@@ -69,7 +78,7 @@ public class QUANLIDSTHUOC {
     public void menu() {
         int option = 0;
         try {
-            ds.docData(fileDataThuoc);
+            ds.docData(filePathDataThuoc);
         } catch (Exception e) {
             System.out.println("Khong doc duoc file");
         }
