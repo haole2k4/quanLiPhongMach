@@ -7,7 +7,7 @@ public class CHITIETPHIEUNHAP {
     THUOC[] dsThuocNhap;
     int soLoaiThuocNhap = 0;
     double thanhTien = 0;
-
+   // 3 HÀM KHƠI TẠO
     public CHITIETPHIEUNHAP() {
         maCTPhieuNhap = null;
         thanhTien = 0;
@@ -24,6 +24,9 @@ public class CHITIETPHIEUNHAP {
 
     }
 
+
+
+    // HÀM NHẬP
     public void nhap() {
         Scanner input = new Scanner(System.in);
         System.out.print("Ma phieu nhap: ");
