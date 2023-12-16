@@ -1,5 +1,3 @@
-
-
 import java.util.Scanner;
 import java.time.LocalDate;
 import java.io.*;
@@ -29,7 +27,12 @@ public class DSBN implements arrayInterfaceBENHNHAN{
         n = l.n;
     }
 
-        public String fileBN()
+    public int getSLBN() {
+        n = dsbn.length;
+        return n;
+    }
+
+    public String fileBN()
     {
         return "data/BenhNhan.txt";
     }
@@ -74,16 +77,22 @@ public class DSBN implements arrayInterfaceBENHNHAN{
         }
     }
     public void NhapBN() {
-        //xoa data trong file truoc khi ghi lai file moi
+        // xoa data trong file truoc khi ghi lai file moi
         xoaDataFile(fileBN());
         Scanner input = new Scanner(System.in);
         System.out.print("\nNhap so luong: ");
-        n = input.nextInt();
-        dsbn = new BenhNhan[n];
-        for (int i = 0; i < n; i++) {
+        int soLuongNhap = input.nextInt();
+        int soLuongHienTai = getSLBN();
+        int maBatDau = soLuongHienTai + 1;
+    
+        dsbn = Arrays.copyOf(dsbn, soLuongHienTai + soLuongNhap);
+    
+        for (int i = soLuongHienTai; i < soLuongHienTai + soLuongNhap; i++) {
+            int MaBN = maBatDau++;
             dsbn[i] = new BenhNhan();
-            dsbn[i].nhapThongTinBenhNhan();
+            dsbn[i].nhapThongTinBenhNhan(MaBN);
         }
+        n = soLuongHienTai + soLuongNhap;
         ghiFile();
     }
     
@@ -91,6 +100,9 @@ public class DSBN implements arrayInterfaceBENHNHAN{
         {
             File inFile = new File(fileBN());
             Scanner read = null;
+
+            if (!inFile.exists()) System.out.println("File does not exist: " + fileBN());
+
             try
             {
                 read = new Scanner(inFile);
@@ -103,7 +115,7 @@ public class DSBN implements arrayInterfaceBENHNHAN{
                         dsbn[i] = new BenhNhan();
                         String line = read.nextLine();
                         String [] str = line.split(",");
-                        dsbn[i].setMaBenhNhan(str[0]);
+                        dsbn[i].setMaBenhNhan(Integer.parseInt(str[0]));
                         dsbn[i].setHo(str[1]);
                         dsbn[i].setTen(str[2]);
                         dsbn[i].setGioiTinh(str[3]);
@@ -132,49 +144,160 @@ public class DSBN implements arrayInterfaceBENHNHAN{
             }
         }
         
+    public void xuatThongTinBenhNhan(int i) {
+                System.out.format(  "%-12s %1s %-21s %1s %-9s %1s %-11s %1s %-13s %1s %-14s %1s %-10s %1s %-10s %1s %-12s %1s %-10s", dsbn[i].getMaBenhNhan(),"|", dsbn[i].getHo() + " " + dsbn[i].getTen(),"|", dsbn[i].getGioiTinh(),"|",dsbn[i].getSDT(),"|",dsbn[i].getCanNang(),"|",dsbn[i].getChieuCao(),"|",dsbn[i].getNgaySinh(),"|",dsbn[i].getQueQuan(),"|",dsbn[i].getBenhNen(),"|",dsbn[i].getNgayKham());
+        }
+
     public void XuatBN() {
-        for (int i = 0; i < n; i++) {
-            dsbn[i].xuatThongTinBenhNhan();
-        }   
+            System.out.println("-".repeat(65) + "DANH SACH BENH NHAN" + "-".repeat(65));
+            System.out.format("%-12s %1s %-21s %1s %-9s %1s %-11s %1s %-13s %1s %-14s %1s %-10s %1s %-10s %1s %-12s %1s %-10s", "Ma benh nhan", "|", "Ho ten", "|", "Gioi tinh","|","SDT","|","Can nang(kg)","|","Chieu cao(kg)","|","Ngay sinh","|","Que quan","|","Benh nen","|","Ngay kham");
+            System.out.println();
+            System.out.print("-".repeat(149));
+            for (int i = 0; i < n; i++) {
+                System.out.println();
+                xuatThongTinBenhNhan(i);
+            } 
     }
 
     public void ThemBN() {
-        n = dsbn.length;
         dsbn = Arrays.copyOf(dsbn, n + 1);
-            dsbn[n] = new BenhNhan();
-        dsbn[n].nhapThongTinBenhNhan();
+        int MaBN = n;
+        dsbn[n] = new BenhNhan();
+        dsbn[n].nhapThongTinBenhNhan(MaBN);
         n++;
         ghiFile();
     }
 
-    public int TimkiemBN(String maBenhNhan) {
-        for (int i = 0; i < n; i++) {
-            if (dsbn[i].getMaBenhNhan().equals(maBenhNhan)) {
-                return i;
+    // public int TimkiemBN(String maBenhNhan) {
+    //     for (int i = 0; i < n; i++) {
+    //         if (dsbn[i].getMaBenhNhan().equals(maBenhNhan)) {
+    //             return i;
+    //         }
+    //     }
+    //     return -1;
+    // }
+
+    public void TimkiemBN() {
+        int option = 0;
+        while (option != 5) {
+            System.out.println("\n----------------------");
+            System.out.println("Chon thong tin can loc:\n1) Ma benh nhan.\n2) Ho.\n3) Gioi tinh. \n4) Que quan.\n5) Quay lai. ");
+            System.out.print("Moi nhap lua chon: ");
+            Scanner sc = new Scanner(System.in);
+            option = sc.nextInt();
+            sc.nextLine();
+    
+            switch (option) {
+                case 1:
+                    System.out.print("\nNhap ma benh nhan can tim: ");
+                    int ma2 = sc.nextInt();
+                    boolean found = false;
+                    for (int i = 0; i < n; i++) {
+                        if (dsbn[i].getMaBenhNhan() == ma2) {
+                            System.out.format("%-12s %1s %-21s %1s %-9s %1s %-11s %1s %-13s %1s %-14s %1s %-10s %1s %-10s %1s %-12s %1s %-10s", "Ma benh nhan", "|", "Ho ten", "|", "Gioi tinh","|","SDT","|","Can nang(kg)","|","Chieu cao(kg)","|","Ngay sinh","|","Que quan","|","Benh nen","|","Ngay kham");
+                            System.out.println();
+                            xuatThongTinBenhNhan(i);
+                            found = true;
+                            break;
+                        }
+                    }
+                    if (!found) {
+                        System.out.println("Benh nhan khong ton tai!");
+                    }
+                    break;
+    
+                case 2:
+                    System.out.print("\nNhap ho benh nhan can tim: ");
+                    String ho2 = sc.nextLine();
+                    boolean foundAny = false;
+                    for (int i = 0; i < n; i++) {
+                        if (dsbn[i].getHo().equalsIgnoreCase(ho2)) {
+                            if (!foundAny) {
+                                System.out.format("%-12s %1s %-21s %1s %-9s %1s %-11s %1s %-13s %1s %-14s %1s %-10s %1s %-10s %1s %-12s %1s %-10s", "Ma benh nhan", "|", "Ho ten", "|", "Gioi tinh","|","SDT","|","Can nang(kg)","|","Chieu cao(kg)","|","Ngay sinh","|","Que quan","|","Benh nen","|","Ngay kham");
+                                System.out.println();
+                                foundAny = true;
+                            }
+                            xuatThongTinBenhNhan(i);
+                            System.out.println();
+                        }
+                    }
+                    if (!foundAny) {
+                        System.out.println("Benh nhan khong ton tai!");
+                    }
+                    break;
+
+                case 3:
+                    System.out.print("\nNhap gioi tinh can liet ke (Nam/Nu): ");
+                    String gioiTinh2 = sc.nextLine();
+                    boolean foundGender = false;
+                    for (int i = 0; i < n; i++) {
+                        if (dsbn[i].getGioiTinh().equalsIgnoreCase(gioiTinh2)) {
+                            if (!foundGender) {
+                                System.out.format("%-12s %1s %-21s %1s %-9s %1s %-11s %1s %-13s %1s %-14s %1s %-10s %1s %-10s %1s %-12s %1s %-10s", "Ma benh nhan", "|", "Ho ten", "|", "Gioi tinh","|","SDT","|","Can nang(kg)","|","Chieu cao(kg)","|","Ngay sinh","|","Que quan","|","Benh nen","|","Ngay kham");
+                                System.out.println();
+                                foundGender = true;
+                            }
+                            xuatThongTinBenhNhan(i);
+                            System.out.println();
+                        }
+                    }
+                    if (!foundGender) {
+                        System.out.println("Khong co benh nhan voi gioi tinh nay!");
+                    }
+                    break;
+    
+                case 4:
+                    System.out.print("\nNhap que quan benh nhan can tim: ");
+                    String queQuan2 = sc.nextLine();
+                    boolean foundHometown = false;
+                    for (int i = 0; i < n; i++) {
+                        if (dsbn[i].getQueQuan().equalsIgnoreCase(queQuan2)) {
+                            if (!foundHometown) {
+                                System.out.format("%-12s %1s %-21s %1s %-9s %1s %-11s %1s %-13s %1s %-14s %1s %-10s %1s %-10s %1s %-12s %1s %-10s", "Ma benh nhan", "|", "Ho ten", "|", "Gioi tinh","|","SDT","|","Can nang(kg)","|","Chieu cao(kg)","|","Ngay sinh","|","Que quan","|","Benh nen","|","Ngay kham");
+                                System.out.println();
+                                foundHometown = true;
+                            }
+                            xuatThongTinBenhNhan(i);
+                            System.out.println();
+                        }
+                    }
+                    if (!foundHometown) {
+                        System.out.println("Khong co benh nhan voi que quan nay!");
+                    }
+                    break;
             }
         }
-        return -1;
     }
-
-    public void XoaBN(String maBenhNhan) {
-        int d = TimkiemBN(maBenhNhan);
-        if (d == -1) {
-            System.out.print("\nKhong ton tai nguoi nay!!!");
-        } else {
-            System.arraycopy(dsbn, d + 1, dsbn, d, n - d - 1);
-            dsbn = Arrays.copyOf(dsbn, n - 1);
-            n--;
+    
+    public void XoaBN(int maBenhNhan) {
+        boolean found = false;
+        for (int i = 0; i < n; i++) {
+            if (dsbn[i].getMaBenhNhan() == maBenhNhan) {
+                System.arraycopy(dsbn, i + 1, dsbn, i, n - i - 1);
+                dsbn = Arrays.copyOf(dsbn, n - 1);
+                n--;
+                found = true;
+                break;
+            }
         }
+        
+        if (!found) {
+            System.out.println("\nKhong tim thay benh nhan!");
+        } else {
+            System.out.println("\nDa xoa benh nhan co ma " + maBenhNhan);
+        }
+    
         ghiFile();
     }
+    
 
     public void SuaTTBN() {
         Scanner input = new Scanner(System.in);
-        System.out.print("\nNhap ma benh nhan: ");
-        String ma = input.nextLine();
+        System.out.print("\nNhap ma benh nhan can sua: ");
+        int ma = input.nextInt();
         int foundIndex = -1;
         for (int i = 0; i < n; i++) {
-            if (dsbn[i].getMaBenhNhan().equals(ma)) {
+            if (dsbn[i].getMaBenhNhan() == ma) {
                 foundIndex = i;
                 break;
             }
@@ -197,7 +320,7 @@ public class DSBN implements arrayInterfaceBENHNHAN{
         switch(menu) {
             case 1:
                 System.out.print("\nNhap thong tin sua: ");
-                String tt1 = input.nextLine();
+                int tt1 = input.nextInt();
                 dsbn[m].setMaBenhNhan(tt1);
                 break;
             case 2:
