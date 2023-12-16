@@ -446,7 +446,9 @@ public class DANHSACHTHUOC implements arrayInterfaceTHUOC {
                 String tenThuocCanTim = mayScanner.nextLine();
 
                 boolean canFind = false;
-                System.out.format("\u001B[34m" + "|| %-10s | %-15s | %-25s | %-8s | %-10s | %-10s | %-14s ||\n" + "\u001B[0m", "MA THUOC", "MA NHA SAN XUAT", "TEN THUOC", "SO LUONG", "NGAY SX", "HAN SD", "GIA CA");
+                System.out.format(
+                        "\u001B[34m" + "|| %-10s | %-15s | %-25s | %-8s | %-10s | %-10s | %-14s ||\n" + "\u001B[0m",
+                        "MA THUOC", "MA NHA SAN XUAT", "TEN THUOC", "SO LUONG", "NGAY SX", "HAN SD", "GIA CA");
                 for (THUOC tempThuoc : this.dsThuoc) {
                     if (tempThuoc.getTenThuoc().contains(tenThuocCanTim)) {
 
@@ -463,22 +465,25 @@ public class DANHSACHTHUOC implements arrayInterfaceTHUOC {
                 mayScanner.nextLine();
                 System.out.print("Nhap loai thuoc can tim(0 la thuoc chich, 1 la thuoc vi): ");
                 int type = mayScanner.nextInt();
-                
-                
-                if(type == 0) {
-                    
-                    System.out.format("\u001B[34m" + "|| %-10s | %-15s | %-25s | %-8s | %-10s | %-10s | %-14s ||\n" + "\u001B[0m", "MA THUOC", "MA NHA SAN XUAT", "TEN THUOC", "SO LUONG", "NGAY SX", "HAN SD", "GIA CA");
-                    for(THUOC i : this.dsThuoc) {
-                        if(i instanceof THUOCCHICH) {
+
+                if (type == 0) {
+
+                    System.out.format(
+                            "\u001B[34m" + "|| %-10s | %-15s | %-25s | %-8s | %-10s | %-10s | %-14s ||\n" + "\u001B[0m",
+                            "MA THUOC", "MA NHA SAN XUAT", "TEN THUOC", "SO LUONG", "NGAY SX", "HAN SD", "GIA CA");
+                    for (THUOC i : this.dsThuoc) {
+                        if (i instanceof THUOCCHICH) {
                             i.inThongTinThuoc();
                         }
                     }
                 }
 
-                else if(type == 1) {
-                    System.out.format("\u001B[34m" + "|| %-10s | %-15s | %-25s | %-8s | %-10s | %-10s | %-14s ||\n" + "\u001B[0m", "MA THUOC", "MA NHA SAN XUAT", "TEN THUOC", "SO LUONG", "NGAY SX", "HAN SD", "GIA CA");
-                    for(THUOC i : this.dsThuoc) {
-                        if(i instanceof THUOCVI) {
+                else if (type == 1) {
+                    System.out.format(
+                            "\u001B[34m" + "|| %-10s | %-15s | %-25s | %-8s | %-10s | %-10s | %-14s ||\n" + "\u001B[0m",
+                            "MA THUOC", "MA NHA SAN XUAT", "TEN THUOC", "SO LUONG", "NGAY SX", "HAN SD", "GIA CA");
+                    for (THUOC i : this.dsThuoc) {
+                        if (i instanceof THUOCVI) {
                             i.inThongTinThuoc();
                         }
                     }
