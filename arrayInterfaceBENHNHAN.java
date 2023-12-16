@@ -1,12 +1,18 @@
-
 public interface arrayInterfaceBENHNHAN {
     void NhapBN();
     void XuatBN();
     void ThemBN();
-    int TimkiemBN(String maBenhNhan);
-    void XoaBN(String maBenhNhan);
+    void TimkiemBN();
+    void XoaBN(int maBenhNhan);
     void SuaTTBN();
 }
+
+
+
+
+
+
+
 
 
 
