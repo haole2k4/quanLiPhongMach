@@ -13,3 +13,4 @@ public interface arrayInterfaceTHUOC {
 }
 
 
+// CÙNG KIỂU DỮ LIỆU ĐỐI SỐ VÀ TRẢ VỀ LÀ ĐƯỢC 

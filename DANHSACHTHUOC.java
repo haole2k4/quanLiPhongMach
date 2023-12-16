@@ -102,13 +102,20 @@ public class DANHSACHTHUOC implements arrayInterfaceTHUOC {
         System.out.println("So thuoc chich: " + thuocTungLoai[0]);
         System.out.println("So thuoc vi: " + thuocTungLoai[1]);
         System.out.println("Tong so thuoc: " + this.soLuongThuoc);
-        System.out.println("-".repeat(50) + " DANH SACH THUOC " + "-".repeat(50));
-        System.out.format("|| %-10s | %-15s | %-25s | %-8s | %-10s | %-10s | %-14s ||\n", "MA THUOC", "MA NHA SAN XUAT",
+        // System.out.println("-".repeat(50) + " DANH SACH THUOC " + "-".repeat(50));
+        System.out.println("\u001B[32m" + "-".repeat(50) + " DANH SACH THUOC " + "-".repeat(50) + "\u001B[0m");
+
+        // System.out.format("|| %-10s | %-15s | %-25s | %-8s | %-10s | %-10s | %-14s
+        // ||\n", "MA THUOC", "MA NHA SAN XUAT",
+        // "TEN THUOC", "SO LUONG", "NGAY SX", "HAN SD", "GIA CA");
+        System.out.format("\u001B[34m" + "|| %-10s | %-15s | %-25s | %-8s | %-10s | %-10s | %-14s ||\n" + "\u001B[0m",
+                "MA THUOC", "MA NHA SAN XUAT",
                 "TEN THUOC", "SO LUONG", "NGAY SX", "HAN SD", "GIA CA");
+
         for (int i = 0; i < this.soLuongThuoc; i++) {
             this.dsThuoc[i].inThongTinThuoc();
         }
-        System.out.println("-".repeat(117));
+        System.out.println("\u001B[32m" + "-".repeat(117) + "\u001B[0m");
     }
 
     public void timThuocTheoTen(String tenThuocCanTim) {
