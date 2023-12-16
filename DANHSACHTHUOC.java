@@ -267,18 +267,18 @@ public class DANHSACHTHUOC implements arrayInterfaceTHUOC {
         int option = 0;
 
         do {
-            System.out.println("\t\t\t\tNhap 0 de thoat");
-            System.out.println("\t\t\t\tNhap 1 de them thuoc");
-            System.out.println("\t\t\t\tNhap 2 de xoa thuoc");
-            System.out.println("\t\t\t\tNhap 3 de sua thuoc ?????");
-            System.out.println("\t\t\t\tNhap 4 de thong ke thuoc");
-            System.out.println("\t\t\t\tNhap 5 de in danh sach thuoc ra");
-            System.out.println("\t\t\t\tNhap 6 de thoat khoi quan li thuoc");
-            System.out.print("\t\t\t\tVui long nhap lua chon cua ban: ");
+            System.out.println("\t\tNhap 0 de thoat");
+            System.out.println("\t\tNhap 1 de them thuoc");
+            System.out.println("\t\tNhap 2 de xoa thuoc");
+            System.out.println("\t\tNhap 3 de sua thuoc ?????");
+            System.out.println("\t\tNhap 4 de thong ke thuoc");
+            System.out.println("\t\tNhap 5 de in danh sach thuoc ra");
+            System.out.println("\t\tNhap 6 de thoat khoi quan li thuoc");
+            System.out.print("\t\tVui long nhap lua chon cua ban: ");
             option = mayScanner.nextInt();
 
             while (option < 0 || option > 6) {
-                System.out.print("\t\t\t\tLua chon nay khong ton tai, vui long nhap lai: ");
+                System.out.print("\t\tLua chon nay khong ton tai, vui long nhap lai: ");
                 option = mayScanner.nextInt();
             }
 
@@ -287,7 +287,7 @@ public class DANHSACHTHUOC implements arrayInterfaceTHUOC {
             }
 
             if (option == 1) {
-                System.out.print("\t\t\t\t\tNhap loai thuoc can them (0 la thuoc chich, 1 la thuoc vi): ");
+                System.out.print("\t\t\tNhap loai thuoc can them (0 la thuoc chich, 1 la thuoc vi): ");
                 int loaiThuocCanThem = mayScanner.nextInt();
                 if (loaiThuocCanThem == 0) {
                     THUOCCHICH tempThuocchich = new THUOCCHICH();
@@ -327,7 +327,7 @@ public class DANHSACHTHUOC implements arrayInterfaceTHUOC {
             }
 
             if(option == 4) {
-                
+
             }
 
             if(option == 5) {

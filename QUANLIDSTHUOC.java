@@ -1,14 +1,10 @@
-import java.util.Scanner;
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.PrintWriter;
 
 public class QUANLIDSTHUOC {
     public void trinhQuanLiDanhSachThuoc() {
         try {
             DANHSACHTHUOC ds = new DANHSACHTHUOC();
             ds.docData("data/dataThuoc.txt");
+            ds.inDanhSachThuoc();
             ds.menuThaoTac();
         }
         catch(Exception e) {
@@ -18,6 +14,14 @@ public class QUANLIDSTHUOC {
     }
 }
 
+
+
+
+// import java.util.Scanner;
+// import java.io.File;
+// import java.io.FileWriter;
+// import java.io.IOException;
+// import java.io.PrintWriter;
 // chỉnh sửa quản lí danh sách sao cho chỉ khai báo 1 danh sách và cho danh sách
 // đó đọc, 1 hàm còn lại thì cho chạy trình quản lí
 // public class QUANLIDSTHUOC {
