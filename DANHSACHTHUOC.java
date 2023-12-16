@@ -145,11 +145,10 @@ public class DANHSACHTHUOC implements arrayInterfaceTHUOC {
         }
     }
 
-
     public int isExists(String ma) {
         int result = 0;
-        for(int i = 0 ; i < this.dsThuoc.length; i++) {
-            if(this.dsThuoc[i].getMaThuoc().equalsIgnoreCase(ma)) 
+        for (int i = 0; i < this.dsThuoc.length; i++) {
+            if (this.dsThuoc[i].getMaThuoc().equalsIgnoreCase(ma))
                 result = 1;
         }
         return result;
@@ -311,28 +310,17 @@ public class DANHSACHTHUOC implements arrayInterfaceTHUOC {
             if (option == 1) {
                 System.out.print("\t\t\tNhap loai thuoc can them (0 la thuoc chich, 1 la thuoc vi): ");
                 int loaiThuocCanThem = mayScanner.nextInt();
+
                 if (loaiThuocCanThem == 0) {
                     THUOCCHICH tempThuocchich = new THUOCCHICH();
                     tempThuocchich.nhapThongTinThuoc();
-                    try {
-                        this.themThuoc(tempThuocchich);
-                        this.ghiData("data/dataThuoc.txt");
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
+                    this.themThuoc(tempThuocchich);
+                }
 
-                } else if (loaiThuocCanThem == 1) {
+                else if (loaiThuocCanThem == 1) {
                     THUOCVI tempThuocvi = new THUOCVI();
                     tempThuocvi.nhapThongTinThuoc();
-                    try {
-                        this.themThuoc(tempThuocvi);
-                        this.ghiData("data/dataThuoc.txt");
-                    }
-
-                    catch (IOException e) {
-                        e.printStackTrace();
-                    }
-
+                    this.themThuoc(tempThuocvi);
                 }
             }
 
@@ -350,13 +338,8 @@ public class DANHSACHTHUOC implements arrayInterfaceTHUOC {
                     }
                 }
                 if (isSuccess) {
-                    try {
-                        this.xoaThuoc(index);
-                        this.ghiData("data/dataThuoc.txt");
-                        System.out.println("\t\tDa xoa thanh cong!\n");
-                    } catch (IOException e) {
-                        System.out.println("Xoa that bai do khong tim thay file");
-                    }
+                    this.xoaThuoc(index);
+                    System.out.println("\t\tDa xoa thanh cong!\n");
 
                 } else {
                     System.out.println("Xoa that bai do khong tim thay ma thuoc yeu cau\n");
@@ -383,16 +366,16 @@ public class DANHSACHTHUOC implements arrayInterfaceTHUOC {
     }
 
     public void findOption() {
-        int find_option = 5;
+        int find_option = 0;
         do {
 
             System.out.println("\t" + "-".repeat(10) + " TRINH TIM KIEM VA THONG KE THUOC " + "-".repeat(10));
-            System.out.println("\tNhap 0 de thong ke so thuoc het han ");
+            System.out.println("\tNhap 5 de thong ke so thuoc het han ");
             System.out.println("\tNhap 1 de sap xep thuoc theo gia tang dan");
             System.out.println("\tNhap 2 de tim kiem thuoc theo ten ma thuoc");
             System.out.println("\tNhap 3 de tim kiem thuoc theo ten thuoc");
             System.out.println("\tNhap 4 de tim kiem thuoc theo loai thuoc");
-            System.out.println("\tNhap 5 de thoat trinh tim kiem");
+            System.out.println("\tNhap 0 de thoat trinh tim kiem");
             System.out.print("\tVui lonh nhap lua chon cua ban: ");
             find_option = mayScanner.nextInt();
 
@@ -401,7 +384,7 @@ public class DANHSACHTHUOC implements arrayInterfaceTHUOC {
                 find_option = mayScanner.nextInt();
             }
 
-            if (find_option == 0) {
+            if (find_option == 5) {
                 THUOC[] hetHsd;
                 hetHsd = checkThuocHetHanSuDungChua();
                 if (hetHsd.length == 0) {
@@ -437,18 +420,19 @@ public class DANHSACHTHUOC implements arrayInterfaceTHUOC {
                 mayScanner.nextLine();
                 System.out.print("Nhap ma thuoc can tim: ");
                 String maThuocCanTim = mayScanner.nextLine();
-                
+
                 boolean canFind = false;
                 for (THUOC tempThuoc : this.dsThuoc) {
                     if (tempThuoc.getMaThuoc().equalsIgnoreCase(maThuocCanTim)) {
                         System.out.format(
-                        "\u001B[34m" + "|| %-10s | %-15s | %-25s | %-8s | %-10s | %-10s | %-14s ||\n" + "\u001B[0m",
-                        "MA THUOC", "MA NHA SAN XUAT", "TEN THUOC", "SO LUONG", "NGAY SX", "HAN SD", "GIA CA");
+                                "\u001B[34m" + "|| %-10s | %-15s | %-25s | %-8s | %-10s | %-10s | %-14s ||\n"
+                                        + "\u001B[0m",
+                                "MA THUOC", "MA NHA SAN XUAT", "TEN THUOC", "SO LUONG", "NGAY SX", "HAN SD", "GIA CA");
                         tempThuoc.inThongTinThuoc();
                         canFind = true;
                     }
                 }
-                if(!canFind) {
+                if (!canFind) {
                     System.out.println("Khong tim thay ");
                 }
             }
@@ -460,10 +444,10 @@ public class DANHSACHTHUOC implements arrayInterfaceTHUOC {
             if (find_option == 4) {
 
             }
-            if (find_option == 5) {
+            if (find_option == 0) {
                 break;
             }
-        } while (find_option != 5);
+        } while (find_option != 0);
 
     }
 

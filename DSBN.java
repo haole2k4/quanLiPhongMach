@@ -77,23 +77,33 @@ public class DSBN implements arrayInterfaceBENHNHAN{
         }
     }
     public void NhapBN() {
-        // xoa data trong file truoc khi ghi lai file moi
-        xoaDataFile(fileBN());
         Scanner input = new Scanner(System.in);
-        System.out.print("\nNhap so luong: ");
-        int soLuongNhap = input.nextInt();
-        int soLuongHienTai = getSLBN();
-        int maBatDau = soLuongHienTai + 1;
-    
-        dsbn = Arrays.copyOf(dsbn, soLuongHienTai + soLuongNhap);
-    
-        for (int i = soLuongHienTai; i < soLuongHienTai + soLuongNhap; i++) {
-            int MaBN = maBatDau++;
-            dsbn[i] = new BenhNhan();
-            dsbn[i].nhapThongTinBenhNhan(MaBN);
+        System.out.println("Thuc hien tiep se dan den viec mat toan bo du lieu da luu, ban co chac chan tiep tuc?");
+        System.out.println("1) Tiep tuc.\n2) Quay lai.");
+        int option = input.nextInt();
+        while (option != 2)
+        switch (option) {
+            case 1:
+                xoaDataFile(fileBN());
+                System.out.print("\nNhap so luong: ");
+                int soLuongNhap = input.nextInt();
+                int soLuongHienTai = getSLBN();
+                int maBatDau = soLuongHienTai + 1;
+            
+                dsbn = Arrays.copyOf(dsbn, soLuongHienTai + soLuongNhap);
+            
+                for (int i = soLuongHienTai; i < soLuongHienTai + soLuongNhap; i++) {
+                    int MaBN = maBatDau++;
+                    dsbn[i] = new BenhNhan();
+                    dsbn[i].nhapThongTinBenhNhan(MaBN);
+                }
+                n = soLuongHienTai + soLuongNhap;
+                ghiFile();            
+                break;
+            default:
+                break;
         }
-        n = soLuongHienTai + soLuongNhap;
-        ghiFile();
+        // xoa data trong file truoc khi ghi lai file moi
     }
     
         void docData()
