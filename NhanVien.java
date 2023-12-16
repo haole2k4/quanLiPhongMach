@@ -72,7 +72,7 @@ public class NHANVIEN
     }
     public void xuat()
     {
-        System.out.print(maNV+"         "+ho+" "+ten+"         "+gioiTinh+"         "+ngaySinh+"         "+chucVu+"         "+heSoLuong+"         "+SDT+"         "+hoatDong);
+        System.out.format(" %15s | %28s | %10s | %9s | %15s | %15s | %13s | %10s | %15s ||\n", maNV,  ho, ten, gioiTinh, ngaySinh, chucVu, heSoLuong, SDT, hoatDong);
     }
 
 //GET

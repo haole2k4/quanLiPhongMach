@@ -59,5 +59,10 @@ public class QUANLYDSNV {
             }
         }
     }
+
+    public static void main(String[] args) {
+        QUANLYDSNV test = new QUANLYDSNV();
+        test.menu();
+    }
 }
   
