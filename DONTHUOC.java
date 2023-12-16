@@ -47,7 +47,7 @@ class DONTHUOC {
                 int soluong = input.nextInt();
                 if ((soluong>= 0) && soluong <= dstchinh.getSoLuongThuocTheoLoai(ma)){
                     dst[i].setSoLuong(soluong);
-                    dstchinh.getDsThuoc()[i].getGiaCa();
+
                     
                 }
                 else{
