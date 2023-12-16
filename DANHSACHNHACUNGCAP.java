@@ -8,7 +8,7 @@ public class DANHSACHNHACUNGCAP {
     int soLuongNCC;
 
     public void ghiFile() {
-        File file = new File("D:\\phongMach_THUOC\\quanLiPhongMach\\nhacungcap.txt");
+        File file = new File("D:\\phongMach_THUOC\\quanLiPhongMach\\data\\nhacungcap.txt");
         PrintWriter write = null;
         try {
             write = new PrintWriter(file);
@@ -24,7 +24,7 @@ public class DANHSACHNHACUNGCAP {
     }
 
     public void docFile() {
-        File file = new File("D:\\phongMach_THUOC\\quanLiPhongMach\\nhacungcap.txt");
+        File file = new File("D:\\phongMach_THUOC\\quanLiPhongMach\\data\\nhacungcap.txt");
         Scanner read = null;
         try {
             read = new Scanner(file);

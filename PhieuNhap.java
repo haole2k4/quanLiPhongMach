@@ -43,7 +43,7 @@ public class PHIEUNHAP {
             maCTPhieuNhap[i] = input.nextLine();
         
             // doc file chi tiet phieu nhap xem ma nay co ton tai khong !
-            File file = new File("D:\\phongMach_THUOC\\quanLiPhongMach\\chitietphieunhap.txt");
+            File file = new File("D:\\phongMach_THUOC\\quanLiPhongMach\\data\\chitietphieunhap.txt");
             Scanner read = null;
             try {
                 read = new Scanner(file);
@@ -76,7 +76,7 @@ public class PHIEUNHAP {
         }
         System.out.print("Ma nhan vien: ");
         maNhanVien = input.nextLine();
-        File f = new File("D:\\phongMach_THUOC\\quanLiPhongMach\\NhanVien.txt");
+        File f = new File("D:\\phongMach_THUOC\\quanLiPhongMach\\data\\NhanVien.txt");
         Scanner readf = null;
         try {
             readf = new Scanner(f);
@@ -115,7 +115,7 @@ public class PHIEUNHAP {
         System.out.print("Ma nha cung cap: ");
         maNhaCungCap = input.nextLine();
         //doc nha cung cap de xem nha cung cap co ton tai trong du lieu khong!
-        File filencc = new File("D:\\phongMach_THUOC\\quanLiPhongMach\\nhacungcap.txt" );
+        File filencc = new File("D:\\phongMach_THUOC\\quanLiPhongMach\\data\\nhacungcap.txt" );
         Scanner readncc = null;
         try{ readncc = new Scanner(filencc);} catch(Exception e){System.out.println("loi doc file nha cung cap");}
         String soLuongNCC = readncc.nextLine();
@@ -169,7 +169,7 @@ public class PHIEUNHAP {
         System.out.format( "|| %-29s ||\n","");
         System.out.format( "|| %-29s ||\n","   --- CHI TIET ---   ");
         System.out.format( "|| %-9s %-9S %-9s ||\n","Ten","SOLUONG","GIA");
-        File file = new File("D:\\phongMach_THUOC\\quanLiPhongMach\\chitietphieunhap.txt");
+        File file = new File("D:\\phongMach_THUOC\\quanLiPhongMach\\data\\chitietphieunhap.txt");
         Scanner read = null;
         try {
             read = new Scanner(file);

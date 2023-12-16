@@ -70,6 +70,7 @@ public class NHANVIEN
         System.out.print(" - Hoat dong(True/False)?: ");
         hoatDong = input.nextBoolean();     
     }
+    
     public void xuat()
     {
         System.out.format(" %15s | %28s | %10s | %9s | %15s | %15s | %13s | %10s | %15s ||\n", maNV,  ho, ten, gioiTinh, ngaySinh, chucVu, heSoLuong, SDT, hoatDong);
@@ -222,6 +223,12 @@ public class NHANVIEN
             }
         }
 
+    }
+
+    public String getThongTin()
+    {
+        String s = maNV + "," + ho + "," + ten + "," + gioiTinh + "," +ngaySinh.toString()+ "," + chucVu + "," + heSoLuong+ "," +  SDT+ "," + hoatDong   ;
+        return s;
     }
 
 }

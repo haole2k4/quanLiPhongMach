@@ -6,6 +6,7 @@ public class QUANLYDSNV {
     public void menu()
     
     {
+    qldsnv.docFile();
     System.out.println("[==============  QUAN LY NHAN VIEN ============]");
     System.out.println("\n");
     System.out.println(" 0. nhap danh sach nhan vien");    

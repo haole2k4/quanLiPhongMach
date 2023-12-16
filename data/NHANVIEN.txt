@@ -1,0 +1,4 @@
+3
+3122,nguyen,hoang,nam,2004-08-16,khong,1.2,0976732457,false
+456,nguyen,hoang,nam,2004-08-16,khong,1.2,0976732457,false
+3122560022,nguyen,hoang,nam,2004-08-16,khong,1.23,0976732457,true

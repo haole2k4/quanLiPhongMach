@@ -12,7 +12,7 @@ public class DANHSACHPHIEUNHAP {
 
     // HAM GHI FILE
     public void ghiFile() {
-        File file = new File("D:\\phongMach_THUOC\\quanLiPhongMach\\phieunhap.txt");
+        File file = new File("D:\\phongMach_THUOC\\quanLiPhongMach\\data\\phieunhap.txt");
         PrintWriter write = null;
         try {
             write = new PrintWriter(file);
@@ -28,7 +28,7 @@ public class DANHSACHPHIEUNHAP {
 
     // HAM DOC FILE
     public void docfile() {
-        File file = new File("D:\\phongMach_THUOC\\quanLiPhongMach\\phieunhap.txt");
+        File file = new File("D:\\phongMach_THUOC\\quanLiPhongMach\\data\\phieunhap.txt");
         Scanner read = null;
         try {
 

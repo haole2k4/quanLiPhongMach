@@ -24,62 +24,25 @@ public class DANHSACHNHANVIEN {
         dsnv = ds.dsnv;
         soLuongNV = ds.soLuongNV;
     }
-    public String fileNV()
-    {
-        return "D:\\phongMach_THUOC\\quanLiPhongMach\\NhanVien.txt";
-    }
-//ham lay dong de ghi vao file
-    public String getLine(int i)
-    {
-        return (dsnv[i].getMaNV()+","+dsnv[i].getHo()+","+dsnv[i].getTen()+","+dsnv[i].getGioiTinh()+","+dsnv[i].getNgaySinh()+","+dsnv[i].getChucVu()+","+dsnv[i].getHeSoLuong()+","+dsnv[i].getSDT()+","+dsnv[i].getHoatDong());
-    }
-//ham de xoa data trong 1 file
-    public void xoaDataFile(String filePath) {
-        try {
-            FileWriter writer = new FileWriter(filePath, false);
-            writer.write("");
 
-            writer.close();
-        } catch (IOException e) {
-            System.out.println("loi");
-        }
-    }
-//ham ghi file
-    public void ghiLine(String fileName,String s)
-    {
-        // xoa data trong file tr
-        File outFile = new File(fileName);
-        PrintWriter write=null;
-            try {
 
-                write= new PrintWriter(new FileWriter(outFile,true));
-        
-                }
-        
-               catch (Exception e){ System.out.println("Khong the tao tap tin ket qua");
-        
-                                    return;
-               }
-               write.print(s);
-               write.print("\n");
-               write.close();
-    }
     void ghiFile()
     {
-        xoaDataFile(fileNV());
-        ghiLine(fileNV(),String.valueOf(soLuongNV));
-        for (int i=0;i<soLuongNV;i++)
-        {
-            ghiLine(fileNV(),getLine(i));
+        File file = new File("D:\\phongMach_THUOC\\quanLiPhongMach\\data\\NHANVIEN.TXT");
+        PrintWriter write = null;
+        try {
+            write = new PrintWriter(file);
+        } catch (Exception e) {
+            System.out.println("loi ghi file!");
         }
+        write.println(soLuongNV);
+        for (int i = 0; i < soLuongNV; i++) {
+            write.println(dsnv[i].getThongTin());
+        }
+        write.close();
     }
-
-
-
-        void nhap()
+    void nhap()
         {
-            //xoa data trong file truoc khi ghi lai file moi
-            xoaDataFile(fileNV());
             Scanner input = new Scanner(System.in);
             System.out.print(" - So nhan vien: "); 
             soLuongNV = input.nextInt();
@@ -91,12 +54,11 @@ public class DANHSACHNHANVIEN {
                 dsnv[i].nhap();
                 System.out.print("\n");
             }
-            //ghi lai vao file
-            ghiFile();
+        ghiFile();
         }
-        void docData()
+        void docFile()
         {
-            File inFile = new File(fileNV());
+            File inFile = new File("D:\\\\phongMach_THUOC\\\\quanLiPhongMach\\\\data\\\\NHANVIEN.TXT");
             Scanner read = null;
             try
             {
@@ -131,9 +93,7 @@ public class DANHSACHNHANVIEN {
         }
     void xuat()
         {
-            docData();
-            System.out.println("\t\t\t\t\t\t\t\t\t=======DANH SACH NHAN VIEN=======");
-            System.out.println("======================================================================================================================================================================");
+            System.out.println("======================================================================[ DANH SACH NHAN VIEN ]=========================================================================");
             System.out.format("|| %1s | %15s | %28s | %10s | %5s | %15s | %15s | %13s | %10s | %15s ||\n", "STT", "MA NV", "HO", "TEN", "GIOI TINH", "NGAY SINH", "CHUC VU", "HE SO LUONG", "SDT", "HOAT DONG");
             for (int i=0;i<soLuongNV;i++)
             {

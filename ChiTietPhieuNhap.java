@@ -48,7 +48,7 @@ public class CHITIETPHIEUNHAP {
             System.out.print("Ma thuoc: ");
             String maThuoc = input.nextLine();
             // doc data thuoc de check xem thuoc co ton tai hay khong ?
-            File file = new File("D:\\phongMach_THUOC\\quanLiPhongMach\\dataThuoc.txt");
+            File file = new File("D:\\phongMach_THUOC\\quanLiPhongMach\\data\\dataThuoc.txt");
             Scanner read = null;
             try {
                 read = new Scanner(file);
