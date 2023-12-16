@@ -43,9 +43,16 @@ public class DANHSACHTHUOC implements arrayInterfaceTHUOC {
         return 0;
     }
 
-    public void setSoLuongThuoc(int soLuongThuoc) {
+    public void setSoLuongThuoc(int soluong) {
         this.soLuongThuoc = soLuongThuoc;
     }
+    public void giamSoLuongThuocTheoMa(String ma,int soluong){
+        for (int i=0;i<soLuongThuoc;i++){
+            if (ma.equals(dsThuoc[i].getTenThuoc())){
+                dsThuoc[i].setSoLuong(dsThuoc[i].getSoLuong()-soluong);
+            }
+        }
+ }
 
     public int[] getSoThuocTungLoai() {
         int[] thuocTungLoai = new int[2];
