@@ -155,18 +155,20 @@ public class PHIEUNHAP {
 
     public void xuatPhieuNhap() {
 
-        System.out.println("====== PHIEU NHAP HANG ======");
-        System.out.println("Ma phieu nhap : " + maPhieuNhap);
+        System.out.println("========= PHIEU NHAP HANG =========");
+        System.out.format( "|| %-29s ||\n","Ma phieu nhap : " + maPhieuNhap.trim());
         ;
-        System.out.println("Ma chi tiet phieu nhap : ");
+        System.out.format( "|| %-29s ||\n","Ma chi tiet phieu nhap : ");
         for (int i=0;i<maCTPhieuNhap.length;i++)
         {
-            System.out.println(" - "+ maCTPhieuNhap[i]);
+            System.out.format( "|| %-29s ||\n"," - "+ maCTPhieuNhap[i]);
         }
-        System.out.println("Ma nhan vien : " + maNhanVien);
-        System.out.println("Ma nha cung cap : " + maNhaCungCap);
-        System.out.println("Ngay nhap: " + ngayNhap);
-        System.out.println("--- CHI TIET PHIEU NHAP ---");
+        System.out.format( "|| %-29s ||\n","Ma nhan vien : " + maNhanVien);
+        System.out.format( "|| %-29s ||\n","Ma nha cung cap : " + maNhaCungCap);
+        System.out.format( "|| %-29s ||\n","Ngay nhap: " + ngayNhap);
+        System.out.format( "|| %-29s ||\n","");
+        System.out.format( "|| %-29s ||\n","   --- CHI TIET ---   ");
+        System.out.format( "|| %-9s %-9S %-9s ||\n","Ten","SOLUONG","GIA");
         File file = new File("D:\\phongMach_THUOC\\quanLiPhongMach\\chitietphieunhap.txt");
         Scanner read = null;
         try {
@@ -182,10 +184,11 @@ public class PHIEUNHAP {
             String arr[] = line.split(",");
             for (int k=0;k<maCTPhieuNhap.length;k++){
             if (arr[0].equals(maCTPhieuNhap[k])) {
+                
                 for (int i = 2; i <= arr.length - 2; i++) {
-                    System.out.print(arr[i] + "       ");
+                    System.out.print(arr[i] + "      ");
                     if (i % 3 == 1) {
-                        System.out.println();
+                        System.out.print("\n|| ");
                     }
                 }
                
