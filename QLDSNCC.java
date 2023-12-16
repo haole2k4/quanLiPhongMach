@@ -1,7 +1,7 @@
 
 import java.util.Scanner;
 public class QLDSNCC {
-    DSNCC ql = new DSNCC();
+    DANHSACHNHACUNGCAP ql = new DANHSACHNHACUNGCAP();
     public void menu()
     {
         int i;

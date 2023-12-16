@@ -1,7 +1,7 @@
 
 import java.util.Scanner;
-public class QLDSNV {
-    DSNV qldsnv = new DSNV();
+public class QUANLYDSNV {
+    DANHSACHNHANVIEN qldsnv = new DANHSACHNHANVIEN();
     Scanner input = new Scanner(System.in);
     public void menu()
     
@@ -58,6 +58,11 @@ public class QLDSNV {
             }
             }
         }
+    }
+
+    public static void main(String[] args) {
+        QUANLYDSNV test = new QUANLYDSNV();
+        test.menu();
     }
 }
   

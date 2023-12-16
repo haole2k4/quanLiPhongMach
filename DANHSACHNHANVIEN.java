@@ -4,22 +4,22 @@ import java.util.Scanner;
 import java.io.*;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-public class DSNV {
-    private NhanVien[] dsnv = new NhanVien[1];
+public class DANHSACHNHANVIEN {
+    private NHANVIEN[] dsnv = new NHANVIEN[1];
     private int soLuongNV;
     Scanner input = new Scanner(System.in);
-    DSNV()
+    DANHSACHNHANVIEN()
     {
         soLuongNV = 0;
-        dsnv[0] = new NhanVien();
+        dsnv[0] = new NHANVIEN();
         dsnv[0] = null;
     }
-    DSNV(NhanVien [] ds, int sl)
+    DANHSACHNHANVIEN(NHANVIEN [] ds, int sl)
     {
         dsnv = ds;
         soLuongNV = sl;
     }
-    DSNV(DSNV ds)
+    DANHSACHNHANVIEN(DANHSACHNHANVIEN ds)
     {
         dsnv = ds.dsnv;
         soLuongNV = ds.soLuongNV;
@@ -83,10 +83,10 @@ public class DSNV {
             Scanner input = new Scanner(System.in);
             System.out.print(" - So nhan vien: "); 
             soLuongNV = input.nextInt();
-            dsnv = new NhanVien[soLuongNV];
+            dsnv = new NHANVIEN[soLuongNV];
             for (int i=0;i<soLuongNV;i++)
             {
-                dsnv[i] = new NhanVien();
+                dsnv[i] = new NHANVIEN();
                 System.out.print("Nhan vien ["+(i+1)+"] :\n");
                 dsnv[i].nhap();
                 System.out.print("\n");
@@ -109,10 +109,10 @@ public class DSNV {
             }
             String sl = read.nextLine();
             soLuongNV = Integer.parseInt(sl);
-            dsnv = new NhanVien[soLuongNV];
+            dsnv = new NHANVIEN[soLuongNV];
             for (int i=0;i<soLuongNV;i++)
             {
-                dsnv[i] = new NhanVien();
+                dsnv[i] = new NHANVIEN();
                 String line = read.nextLine();
                 String [] str = line.split(",");
                 dsnv[i].setMaNV(str[0]);
@@ -132,11 +132,13 @@ public class DSNV {
     void xuat()
         {
             docData();
-            System.out.println("Danh sach nhan vien: ");
+            System.out.println("\t\t\t\t\t\t\t\t\t=======DANH SACH NHAN VIEN=======");
+            System.out.println("======================================================================================================================================================================");
+            System.out.format("|| %1s | %15s | %28s | %10s | %5s | %15s | %15s | %13s | %10s | %15s ||\n", "STT", "MA NV", "HO", "TEN", "GIOI TINH", "NGAY SINH", "CHUC VU", "HE SO LUONG", "SDT", "HOAT DONG");
             for (int i=0;i<soLuongNV;i++)
             {
+                System.out.format("|| %3s |", (i + 1));
                 dsnv[i].xuat();
-                System.out.print("\n");
             }
         }
 
@@ -144,7 +146,7 @@ public class DSNV {
     void them()
     {
         dsnv= Arrays.copyOf(dsnv,soLuongNV+1);
-        dsnv[soLuongNV] = new NhanVien();
+        dsnv[soLuongNV] = new NHANVIEN();
         dsnv[soLuongNV].nhap();
         soLuongNV++;
         ghiFile();
@@ -261,7 +263,7 @@ public class DSNV {
         ghiFile();
     }
 
-    public NhanVien timkiem()
+    public NHANVIEN timkiem()
     {
         Scanner input = new Scanner(System.in);
         System.out.print(" - Nhap ma nhan vien hoac ten nhan vien can tim kiem: ");
@@ -274,11 +276,11 @@ public class DSNV {
             }
         }
         System.out.println("Khong tim thay nhien vien");
-        NhanVien nv = new NhanVien();
+        NHANVIEN nv = new NHANVIEN();
         return nv;
     }
 
-    public NhanVien timkiem(String ma)
+    public NHANVIEN timkiem(String ma)
     {
        for (int i=0;i<soLuongNV;i++)
         {
@@ -288,7 +290,7 @@ public class DSNV {
             }
         }
         System.out.println("Khong tim thay nhien vien");
-        NhanVien nv = new NhanVien();
+        NHANVIEN nv = new NHANVIEN();
         return nv;
     }
 

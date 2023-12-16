@@ -1,26 +1,26 @@
 
 import java.util.Scanner;
-public class NhaCungCap {
+public class NHACUNGCAP {
     private String maNhaCungCap,tenNhaCungCap,diaChi,SDT;
     public String getLine()
     {
         return maNhaCungCap+","+tenNhaCungCap+","+diaChi+","+SDT;
     }
-    NhaCungCap()
+    NHACUNGCAP()
     {
         maNhaCungCap = null;
         tenNhaCungCap = null;
         diaChi = null;
         SDT = null;
     }
-    NhaCungCap(String mancc,String tncc,String dc,String sdt)
+    NHACUNGCAP(String mancc,String tncc,String dc,String sdt)
     {
         this.maNhaCungCap = mancc;
         this.tenNhaCungCap = tncc;
         this.diaChi = dc;
         this.SDT = sdt;
     }
-    NhaCungCap( NhaCungCap ncc)
+    NHACUNGCAP( NHACUNGCAP ncc)
     {
         this.maNhaCungCap = ncc.maNhaCungCap;
         this.tenNhaCungCap = ncc.tenNhaCungCap;
