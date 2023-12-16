@@ -1,12 +1,12 @@
 11
-1,Bui,Viet Bao Huy,Nam,032,60.0,160.0,06/09/2004,Gia Lai,khong co,15/12/2023
-2,Ngo,Truong Hieu,Nam,021,62.0,172.0,01/05/2004,TP HCM,khong co,27/12/2023
-3,Nguyen,Vinh Quang,Nam,0123456789,50.5,165.5,15/12/1956,Thai Binh,mau dong,18/12/2023
-4,Le,Thi Ngan,Nu,0987654321,42.8,153.2,25/12/1964,Ha Noi,khong co,17/12/2023
-5,Le,Chi Hao,Nam,0123456780,58.3,168.8,10/12/1975,KonTum,khong co,20/12/2023
-6,Nguyen,Viet Hoang,Nam,0123456781,46.7,162.3,14/12/1990,Binh Duong,khong co,22/12/2023
-7,Bui,Nguyen Hong Ngan,Nu,0987654322,37.2,145.7,20/12/2012,Binh Phuoc,dong kinh,21/12/2023
-8,Ho,Van Phuc,Nam,0123456782,55.1,167.0,12/12/2007,Gia Lai,khong co,19/12/2023
+1,Bui,Viet Bao Huy,Nam,032,60.0,160.0,06/09/2004,Gia Lai,khong co,06/04/2023
+2,Ngo,Truong Hieu,Nam,021,62.0,172.0,01/05/2004,TP HCM,khong co,07/06/2023
+3,Nguyen,Vinh Quang,Nam,0123456789,50.5,165.5,15/12/1956,Thai Binh,mau dong,18/07/2023
+4,Le,Thi Ngan,Nu,0987654321,42.8,153.2,25/12/1964,Ha Noi,khong co,17/09/2023
+5,Le,Chi Hao,Nam,0123456780,58.3,168.8,10/12/1975,KonTum,khong co,02/10/2023
+6,Nguyen,Viet Hoang,Nam,0123456781,46.7,162.3,14/12/1990,Binh Duong,khong co,22/10/2023
+7,Bui,Nguyen Hong Ngan,Nu,0987654322,37.2,145.7,20/12/2012,Binh Phuoc,dong kinh,21/11/2023
+8,Ho,Van Phuc,Nam,0123456782,55.1,167.0,12/12/2007,Gia Lai,khong co,01/12/2023
 9,Pham,Thi My Duyen,Nu,0979412245,42.6,154.2,05/02/2004,Binh Duong,khong co,09/12/2023
-10,Bui,Viet Hai,Nam,0979211186,55.2,165.7,02/02/1972,Gia Lai,khong co,26/12/2023
-11,Tran,Thi Ngoc Linh,Nu,0579321682,45.0,157.9,28/02/1999,Thai Binh,viem xoang,18/12/2023
+10,Bui,Viet Hai,Nam,0979211186,55.2,165.7,02/02/1972,Gia Lai,khong co,14/12/2023
+11,Tran,Thi Ngoc Linh,Nu,0579321682,45.0,157.9,28/02/1999,Thai Binh,viem xoang,17/12/2023
