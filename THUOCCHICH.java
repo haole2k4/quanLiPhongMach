@@ -85,9 +85,10 @@ public class THUOCCHICH extends THUOC {
         DateTimeFormatter dinhDangNgayThang = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         String ngaySanXuat = this.getNgaySanXuat().format(dinhDangNgayThang);
         String hanSuDung = this.getHanSuDung().format(dinhDangNgayThang);
-        System.out.println(
-                this.getMaThuoc() + " " + this.getMaNhaSanXuat() + " " + this.getTenThuoc() + " " + this.getSoLuong()
-                        + " " + ngaySanXuat + " " + hanSuDung + " " + this.dungTichThuoc);
+        // System.out.println(
+        //         this.getMaThuoc() + " " + this.getMaNhaSanXuat() + " " + this.getTenThuoc() + " " + this.getSoLuong()
+        //                 + " " + ngaySanXuat + " " + hanSuDung + " " + this.dungTichThuoc);
+        System.out.format("|| %-10s | %-15s | %-25s | %-8s | %-10s | %-10s | %-14s ||\n", this.getMaThuoc(), this.getMaNhaSanXuat(), this.getTenThuoc(), this.getSoLuong(), ngaySanXuat, hanSuDung, this.getGiaCa());
     }
 
     public void nhapThongTinThuoc() {

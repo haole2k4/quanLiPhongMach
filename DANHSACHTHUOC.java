@@ -102,9 +102,13 @@ public class DANHSACHTHUOC implements arrayInterfaceTHUOC {
         System.out.println("So thuoc chich: " + thuocTungLoai[0]);
         System.out.println("So thuoc vi: " + thuocTungLoai[1]);
         System.out.println("Tong so thuoc: " + this.soLuongThuoc);
+        System.out.println("-".repeat(50) + " DANH SACH THUOC " + "-".repeat(50));
+        System.out.format("|| %-10s | %-15s | %-25s | %-8s | %-10s | %-10s | %-14s ||\n", "MA THUOC", "MA NHA SAN XUAT",
+                "TEN THUOC", "SO LUONG", "NGAY SX", "HAN SD", "GIA CA");
         for (int i = 0; i < this.soLuongThuoc; i++) {
             this.dsThuoc[i].inThongTinThuoc();
         }
+        System.out.println("-".repeat(117));
     }
 
     public void timThuocTheoTen(String tenThuocCanTim) {
@@ -164,8 +168,8 @@ public class DANHSACHTHUOC implements arrayInterfaceTHUOC {
     public THUOC[] checkThuocHetHanSuDungChua() {
         THUOC[] outOfDateTHUOC = new THUOC[0];
         LocalDate today = LocalDate.now();
-        for(int i = 0; i < this.dsThuoc.length; i++ ) {
-            if(!this.dsThuoc[i].getHanSuDung().isEqual(today) && this.dsThuoc[i].getHanSuDung().isBefore(today)) {
+        for (int i = 0; i < this.dsThuoc.length; i++) {
+            if (!this.dsThuoc[i].getHanSuDung().isEqual(today) && this.dsThuoc[i].getHanSuDung().isBefore(today)) {
                 outOfDateTHUOC = Arrays.copyOf(outOfDateTHUOC, outOfDateTHUOC.length + 1);
                 outOfDateTHUOC[outOfDateTHUOC.length - 1] = this.dsThuoc[i];
             }
@@ -203,52 +207,51 @@ public class DANHSACHTHUOC implements arrayInterfaceTHUOC {
         fileScanner.close();
     }
 
-    public void themSoLuongChoThuoc(String ma,int soLuong)
-    {
-        //doc data thuoc de lam vien tren array va sau khi sua so luong thanh cong thi ghi lai vao file !
+    public void themSoLuongChoThuoc(String ma, int soLuong) {
+        // doc data thuoc de lam vien tren array va sau khi sua so luong thanh cong thi
+        // ghi lai vao file !
         File file = new File("D:\\phongMach_THUOC\\quanLiPhongMach\\dataThuoc.txt");
-        try{
+        try {
             docData(file);
-        } catch ( Exception e) { System.out.println("Loi!"); return;}
-        
-        for (int i=0;i<soLuongThuoc;i++)
-        {
-            if (dsThuoc[i].getMaThuoc().trim().equals(ma))
-            {
-                dsThuoc[i].setSoLuong(soLuong+dsThuoc[i].getSoLuong());
+        } catch (Exception e) {
+            System.out.println("Loi!");
+            return;
+        }
+
+        for (int i = 0; i < soLuongThuoc; i++) {
+            if (dsThuoc[i].getMaThuoc().trim().equals(ma)) {
+                dsThuoc[i].setSoLuong(soLuong + dsThuoc[i].getSoLuong());
             }
         }
 
-
-         PrintWriter write = null;
-            try {
-                write = new PrintWriter(file);
-            } catch ( Exception e ){
-                System.out.println("Loi !");
-                return;
-            }
-        for (int i=0;i<soLuongThuoc;i++)
-        {
+        PrintWriter write = null;
+        try {
+            write = new PrintWriter(file);
+        } catch (Exception e) {
+            System.out.println("Loi !");
+            return;
+        }
+        for (int i = 0; i < soLuongThuoc; i++) {
             write.println(getDataThuoc(i));
         }
         write.close();
 
-
     }
-    //ham ghi line vao cuoi dong
-    public void ghiLine(String s)
-    {   
+
+    // ham ghi line vao cuoi dong
+    public void ghiLine(String s) {
         File file = new File("D:\\phongMach_THUOC\\quanLiPhongMach\\dataThuoc.txt");
         PrintWriter write = null;
-            try {
-                write = new PrintWriter(new FileWriter(file,true));
-            } catch ( Exception e ){
-                System.out.println("Loi !");
-                return;
-            }
+        try {
+            write = new PrintWriter(new FileWriter(file, true));
+        } catch (Exception e) {
+            System.out.println("Loi !");
+            return;
+        }
         write.println(s);
         write.close();
     }
+
     // TRA VE DATA CUA CLASS VAO 1 STRING ROI GHI LEN FILE THEO DONG
     public String getDataThuoc(int index) {
         DateTimeFormatter dinhDangNgayThang = DateTimeFormatter.ofPattern("yyyy-MM-dd");
