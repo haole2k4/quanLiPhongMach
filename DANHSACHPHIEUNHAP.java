@@ -260,8 +260,7 @@ public class DANHSACHPHIEUNHAP {
             i = input.nextInt();
             switch (i) {
                 case 0:
-                    QUANLYNHAPHANG qlnh = new QUANLYNHAPHANG();
-                    qlnh.menu();
+                    {}
                     break;
                 case 1:
                     them();

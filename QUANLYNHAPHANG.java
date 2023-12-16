@@ -23,8 +23,7 @@ public class QUANLYNHAPHANG
             {
                 case 0:
                 {
-                    Menu MainMenu = new Menu();
-                    MainMenu.MainMenu();
+                   break;
                 }
                 case 1:
                 { 

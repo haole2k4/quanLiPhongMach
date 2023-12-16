@@ -286,5 +286,60 @@ public class DANHSACHNHANVIEN {
 
     }
 
-    
+
+
+     public void menu()
+    {
+    docFile();
+    System.out.println("[==============  QUAN LY NHAN VIEN ============]");
+    System.out.println(" 0. Quay tro lai");    
+    System.out.println(" 1. Xem danh sach nhan vien");
+    System.out.println(" 2. Them nhan vien");
+    System.out.println(" 3. Xoa nhan vien");
+    System.out.println(" 4. Sua thong tin nhan vien");
+    System.out.println(" 5. Tim kiem nhan vien");
+    System.out.println(" 6. Thong ke hoat dong cua nhan vien");
+    System.out.println(" 7. Nhap danh sach nhan vien");
+    int k=1;
+    while (k!=0)
+    {
+    System.out.print("Lua chon: ");
+    k = input.nextInt();
+    switch(k)
+        {
+            case 0:
+            {
+            } break;
+            case 1: 
+            {
+                xuat();
+            } break;
+            case 2: 
+            {
+                them();
+            } break;
+            case 3: 
+            {
+                xoa();
+            } break;
+            case 4: 
+            {
+                sua();
+            } break;
+            case 5:
+            {
+                timkiem().xuat();
+                System.out.println("\n");
+            } break;
+            case 6:
+            {
+                thongKeHoatDong();
+            } break;
+            case 7:
+            {
+                nhap();
+            }
+            }
+        }
+    }
 }
