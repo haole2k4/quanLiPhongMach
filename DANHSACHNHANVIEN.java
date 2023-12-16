@@ -290,7 +290,6 @@ public class DANHSACHNHANVIEN {
 
      public void menu()
     {
-    docFile();
     System.out.println("[==============  QUAN LY NHAN VIEN ============]");
     System.out.println(" 0. Quay tro lai");    
     System.out.println(" 1. Xem danh sach nhan vien");

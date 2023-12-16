@@ -2,13 +2,9 @@
 import java.util.Scanner;
 public class QUANLYNHAPHANG
 {
-    private DANHSACHCHITHIETPHIEUNHAP dsctpn = new DANHSACHCHITHIETPHIEUNHAP();
-    private DANHSACHPHIEUNHAP dspn = new DANHSACHPHIEUNHAP();
-    public void menu()
+    
+    public void menu(DANHSACHCHITHIETPHIEUNHAP dsctpn, DANHSACHPHIEUNHAP dspn)
     {
-        
-        dsctpn.docfile();//doc data co san
-        dspn.docfile();
         System.out.println("\n\t\u001B[34m======[ Trinh quan ly nhap hang ]=====\u001B[0m");
         System.out.println("\t -> Nhap 0 de quay tro lai");
         System.out.println("\t -> Nhap 1 de quan ly chi tiet phieu nhap");

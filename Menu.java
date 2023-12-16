@@ -5,10 +5,19 @@ public class Menu {
 
     DANHSACHNHANVIEN trinhqlNhanVien = new DANHSACHNHANVIEN();
     QUANLIDSTHUOC trinhqlThuoc = new QUANLIDSTHUOC();
+    private DANHSACHCHITHIETPHIEUNHAP trinhqlDSCTPN = new DANHSACHCHITHIETPHIEUNHAP();
+    private DANHSACHPHIEUNHAP trinhqlDSPN = new DANHSACHPHIEUNHAP();
     QUANLYNHAPHANG trinhqlNhapHang = new QUANLYNHAPHANG();
     
 
     public void MainMenu() {
+
+        // khong biet doc o dau nen doc o day
+        trinhqlNhanVien.docFile();
+        trinhqlDSCTPN.docfile();
+        trinhqlDSPN.docfile();
+
+
         int option = 0;
         do {
             System.out.println(
@@ -37,7 +46,7 @@ public class Menu {
             }
 
             if(option == 3) {
-                trinhqlNhapHang.menu();
+                trinhqlNhapHang.menu(trinhqlDSCTPN,trinhqlDSPN);
             }
 
         } while (option != 0);

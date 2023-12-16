@@ -66,17 +66,59 @@ public class DANHSACHNHACUNGCAP {
     }
 
     public void xuat() {
-        docFile();
         for (int i = 0; i < soLuongNCC; i++) {
             System.out.print((i + 1) + " ");
             dsncc[i].xuat();
             System.out.println();
         }
     }
-
-    public static void main(String[] args) {
-        DANHSACHNHACUNGCAP test = new DANHSACHNHACUNGCAP();
-
-        test.xuat();
+    public void timKiem()
+    {
+        Scanner input = new Scanner(System.in);
+        System.out.print("Nhap ma nha cung cap: ");
+        String ten = input.nextLine();
+        for (int i=0;i<soLuongNCC;i++)
+        {
+            if (ten.equals(dsncc[i].getTenNhaCungCap()))
+            {
+                dsncc[i].xuat();
+                return;
+            }
+        }
+        System.out.println("Khong tim thay nha cung cap nay!!!");
     }
+    public void menu()
+    {
+        int i;
+        do
+        {
+            System.out.println("0: Thoat");
+            System.out.println("1: Nhap Nha Cung Cap");
+            System.out.println("2: Tim kiem nha cung cap");
+            System.out.println("3: Xuat danh sach cac nha Cung Cap");
+            System.out.print("Lua chon: ");
+            Scanner input = new Scanner(System.in);
+            i = input.nextInt();
+            switch (i) {
+                case 1:
+                    them();
+                    break;
+                case 2:
+                    timKiem();
+                    break;
+                case 3: 
+                    xuat();
+                case 0:
+                {
+                    
+                } break;
+            }
+        }
+        while (i!=0);
+    }
+    public static void main(String[] args) {
+        DANHSACHNHACUNGCAP ds = new DANHSACHNHACUNGCAP();
+        ds.menu();
+    }
+
 }
