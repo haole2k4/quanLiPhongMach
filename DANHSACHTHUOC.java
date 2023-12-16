@@ -154,6 +154,16 @@ public class DANHSACHTHUOC implements arrayInterfaceTHUOC {
         }
         return result;
     }
+
+    public int getSoLuongThuocTheoLoai(String ma){
+        int result = 0;
+        for(int i = 0 ; i < this.dsThuoc.length; i++) {
+            if(this.dsThuoc[i].getMaThuoc().equalsIgnoreCase(ma)) 
+                result = dsThuoc[i].getSoLuong();
+        }
+        return result;
+    }
+
     // ----------- END XU LI THEO MA THUOC -------------
 
     // ------ START XU LI THUOC THEO MA NHA SAN XUAT ----------
