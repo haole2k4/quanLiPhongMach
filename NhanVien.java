@@ -2,7 +2,7 @@
 import java.util.Scanner;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;;
-public class NhanVien 
+public class NHANVIEN 
 {
     Scanner input = new Scanner(System.in);
     private String maNV,ho,ten,chucVu,gioiTinh,SDT;
@@ -10,7 +10,7 @@ public class NhanVien
     private LocalDate ngaySinh;
     private double heSoLuong;
 
-    public NhanVien()
+    public NHANVIEN()
     {
         maNV=  null;
         ho = null;
@@ -21,7 +21,7 @@ public class NhanVien
         hoatDong = false;
         heSoLuong = 0;
     }
-    public NhanVien(String maNV,String ho,String ten,String gioiTinh,LocalDate ngaySinh,String chucVu,String SDT,boolean hoatDong,double heSoLuong)
+    public NHANVIEN(String maNV,String ho,String ten,String gioiTinh,LocalDate ngaySinh,String chucVu,String SDT,boolean hoatDong,double heSoLuong)
     {
         this.maNV = maNV;
         this.ho=ho;
@@ -34,7 +34,7 @@ public class NhanVien
         this.heSoLuong = heSoLuong;
         
     }
-    public NhanVien(NhanVien nv)
+    public NHANVIEN(NHANVIEN nv)
     {
         maNV=nv.maNV;
         ho=nv.ho;

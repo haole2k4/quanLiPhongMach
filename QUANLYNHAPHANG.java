@@ -2,8 +2,8 @@
 import java.util.Scanner;
 public class QUANLYNHAPHANG
 {
-    private DSCTPN dsctpn = new DSCTPN();
-    private DSPN dspn = new DSPN();
+    private DANHSACHCHITHIETPHIEUNHAP dsctpn = new DANHSACHCHITHIETPHIEUNHAP();
+    private DANHSACHPHIEUNHAP dspn = new DANHSACHPHIEUNHAP();
     private DANHSACHTHUOC dst;
     private Main main;
     public void menu()

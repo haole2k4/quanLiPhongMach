@@ -4,14 +4,14 @@ import java.time.LocalDate;
 import java.util.Scanner;
 import java.time.format.DateTimeFormatter;
 
-public class PhieuNhap {
+public class PHIEUNHAP {
     private String maPhieuNhap;
     private String[] maCTPhieuNhap;
     private String maNhanVien, maNhaCungCap;
     private LocalDate ngayNhap;
     private double tongTien=0;
 
-    public PhieuNhap() {
+    public PHIEUNHAP() {
         maPhieuNhap = null;
         maCTPhieuNhap = null;
         maNhaCungCap = null;
@@ -20,7 +20,7 @@ public class PhieuNhap {
         tongTien = 0;
     }
 
-    public PhieuNhap(String mpn, String[] mctpn, String mnv, String mncc, LocalDate nn) {
+    public PHIEUNHAP(String mpn, String[] mctpn, String mnv, String mncc, LocalDate nn) {
         maPhieuNhap = mpn;
         maCTPhieuNhap = mctpn;
         maNhanVien = mnv;
@@ -136,7 +136,7 @@ public class PhieuNhap {
             int luachon= input.nextInt();
             if (luachon ==1) 
             {
-                DSNCC ncc = new DSNCC();
+                DANHSACHNHACUNGCAP ncc = new DANHSACHNHACUNGCAP();
                 ncc.them();
                 nhap();
             }

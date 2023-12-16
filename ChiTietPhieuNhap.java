@@ -2,13 +2,13 @@
 import java.io.File;
 import java.util.Scanner;
 
-public class ChiTietPhieuNhap {
+public class CHITIETPHIEUNHAP {
     private String maCTPhieuNhap;
     THUOC[] dsThuocNhap;
     int soLoaiThuocNhap = 0;
     double thanhTien = 0;
 
-    public ChiTietPhieuNhap() {
+    public CHITIETPHIEUNHAP() {
         maCTPhieuNhap = null;
         thanhTien = 0;
         soLoaiThuocNhap = 0;
@@ -16,7 +16,7 @@ public class ChiTietPhieuNhap {
         thanhTien = 0;
     }
 
-    public ChiTietPhieuNhap(ChiTietPhieuNhap ctpn) {
+    public CHITIETPHIEUNHAP(CHITIETPHIEUNHAP ctpn) {
         maCTPhieuNhap = ctpn.maCTPhieuNhap;
         dsThuocNhap = ctpn.dsThuocNhap;
         soLoaiThuocNhap = ctpn.soLoaiThuocNhap;
@@ -193,7 +193,7 @@ public class ChiTietPhieuNhap {
     }
 
     public static void main(String[] args) {
-        ChiTietPhieuNhap ql = new ChiTietPhieuNhap();
+        CHITIETPHIEUNHAP ql = new CHITIETPHIEUNHAP();
         ql.nhap();
     }
 }
