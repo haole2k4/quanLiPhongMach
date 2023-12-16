@@ -2,7 +2,7 @@
 import java.util.Scanner;
 
 class DONTHUOC {
-    Scanner mayScanner = new Scanner(System.in);
+    private String maDonThuoc;
     private THUOC[] dst;
     private String maPhongKham;
     private double tongTien;

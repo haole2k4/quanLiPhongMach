@@ -179,24 +179,25 @@ public class PHIEUNHAP {
         }
 
         String soLuong = read.nextLine();
+        String temp = "";
         while (read.hasNextLine()) {
             String line = read.nextLine();
             String arr[] = line.split(",");
             for (int k=0;k<maCTPhieuNhap.length;k++){
             if (arr[0].equals(maCTPhieuNhap[k])) {
-                
                 for (int i = 2; i <= arr.length - 2; i++) {
-                    System.out.print(arr[i] + "      ");
-                    if (i % 3 == 1) {
-                        System.out.print("\n|| ");
-                    }
+                    temp+= arr[i]+"     ";
                 }
+                System.out.format( "|| %-29s ||\n",temp);
+                temp="";
+
                
             }
             }
 
         }
-        System.out.println("Tong tien nhap hang : "+ tongTien);
+        System.out.format( "|| %-29s ||\n","Tong tien nhap hang : "+ tongTien);
+        System.out.println("===================================");
         read.close();
 
     }
