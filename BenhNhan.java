@@ -1,10 +1,9 @@
-
 import java.time.LocalDate;
 import java.util.Scanner;
 import java.time.format.DateTimeFormatter;
 
 class BenhNhan {
-    private String maBenhNhan;
+    private int maBenhNhan;
     private String Ho;
     private String Ten;
     private String gioiTinh;
@@ -20,7 +19,7 @@ class BenhNhan {
 
 
     BenhNhan() {
-        this.maBenhNhan = "NULL";
+        this.maBenhNhan = 0;
         this.Ho = "NULL";
         this.Ten = "NULL";
         this.gioiTinh = "NULL";
@@ -33,7 +32,7 @@ class BenhNhan {
         this.ngayKham = LocalDate.of(0, 1, 1);
     }
     
-    public void setMaBenhNhan(String maBenhNhan) {
+    public void setMaBenhNhan(int maBenhNhan) {
         this.maBenhNhan = maBenhNhan;
     }
     
@@ -77,7 +76,7 @@ class BenhNhan {
         this.ngayKham = LocalDate.parse(ngayTaiKham, dateFormatter);
     }
     
-    public String getMaBenhNhan() {
+    public int getMaBenhNhan() {
         return this.maBenhNhan;
     }
     
@@ -139,10 +138,10 @@ class BenhNhan {
         }
     }
 */ 
-public void nhapThongTinBenhNhan() {
+public void nhapThongTinBenhNhan(int MaBN) {
     Scanner sc = new Scanner(System.in);
-    System.out.print("Nhap ma benh nhan: ");
-    maBenhNhan = sc.next();
+    maBenhNhan =  MaBN + 1;
+    System.out.println("Ma benh nhan: " + maBenhNhan);
     System.out.print("Nhap ho cua benh nhan: ");
     Ho = sc.next();
     sc.nextLine();
@@ -181,18 +180,18 @@ public void nhapThongTinBenhNhan() {
     ngayKham = ngayKhamDate;
 }
     
-    public void xuatThongTinBenhNhan() {
-        System.out.println("------------------");
-        System.out.println("Ma benh nhan: " + maBenhNhan);
-        System.out.println("Ho ten cua benh nhan: " + Ho + " " + Ten);
-        System.out.println("Gioi tinh cua benh nhan: " + gioiTinh);
-        System.out.println("So dien thoai cua benh nhan: " + SDT);
-        System.out.println("Can nang cua benh nhan (kg): " + canNang);
-        System.out.println("Chieu cao cua benh nhan (cm): " + chieuCao);
-        System.out.println("Ngay sinh cua benh nhan: " + ngaySinh.format(dateFormatter));
-        System.out.println("Que quan cua benh nhan: " + queQuan);
-        System.out.println("Benh nen cua benh nhan: " + benhNen);
-        System.out.println("Ngay kham: " + ngayKham.format(dateFormatter));
-    }
+    // public void xuatThongTinBenhNhan() {
+    //     System.out.println("------------------");
+    //     System.out.println("Ma benh nhan: " + maBenhNhan);
+    //     System.out.println("Ho ten cua benh nhan: " + Ho + " " + Ten);
+    //     System.out.println("Gioi tinh cua benh nhan: " + gioiTinh);
+    //     System.out.println("So dien thoai cua benh nhan: " + SDT);
+    //     System.out.println("Can nang cua benh nhan (kg): " + canNang);
+    //     System.out.println("Chieu cao cua benh nhan (cm): " + chieuCao);
+    //     System.out.println("Ngay sinh cua benh nhan: " + ngaySinh.format(dateFormatter));
+    //     System.out.println("Que quan cua benh nhan: " + queQuan);
+    //     System.out.println("Benh nen cua benh nhan: " + benhNen);
+    //     System.out.println("Ngay kham: " + ngayKham.format(dateFormatter));
+    // }
 }
 
