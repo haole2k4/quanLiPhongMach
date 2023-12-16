@@ -6,6 +6,7 @@ public class QUANLIDSTHUOC {
             ds.docData("data/dataThuoc.txt");
             ds.inDanhSachThuoc();
             ds.menuThaoTac();
+            ds.ghiData("data/dataThuoc.txt");
         }
         catch(Exception e) {
             // e.printStackTrace();
