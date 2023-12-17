@@ -80,7 +80,7 @@ public class HOADON {
     public void xuat(){
         System.out.println("=".repeat(100));
         System.out.format("|| %94s ||\n","HOA DON BAN HANG");
-        System.out.format("||       %-47s %39s  ||\n","TIEM THUOC NHOM 10","Ngay tao: "+ngayTao);
+        System.out.format("||       %-47s %40s ||\n","TIEM THUOC NHOM 10","Ngay tao: "+ngayTao);
         System.out.format("|| %94s ||\n","So / Ma: "+maHoaDon);
         System.out.format("|| %-94s ||\n","Bac si quan ly: "+"CHUA CO");
         System.out.format("|| %-94s ||\n","Ma BSI: "+"CHUA CO");
