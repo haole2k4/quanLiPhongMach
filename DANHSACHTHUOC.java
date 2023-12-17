@@ -5,7 +5,7 @@ import java.io.*;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
-public class DANHSACHTHUOC implements arrayInterfaceTHUOC {
+public class DANHSACHTHUOC implements interfaceDanhSach{
     Scanner mayScanner = new Scanner(System.in);
     private THUOC[] dsThuoc;
     private int soLuongThuoc;
@@ -103,7 +103,7 @@ public class DANHSACHTHUOC implements arrayInterfaceTHUOC {
         this.dsThuoc[soLuongThuoc - 1] = newThuoc;
     }
 
-    // @Override
+    @Override
     public void Xoa(String maThuocCanXoa) {
         int index = 0;
         boolean isSuccess = false;
@@ -119,7 +119,7 @@ public class DANHSACHTHUOC implements arrayInterfaceTHUOC {
             System.out.println("\t\tDa xoa thanh cong!\n");
 
         } else {
-            System.out.println("Xoa that bai do khong tim thay ma thuoc yeu cau\n");
+            System.out.println("\t\tXoa that bai do khong tim thay ma thuoc yeu cau\n");
         }
     }
 
@@ -135,21 +135,26 @@ public class DANHSACHTHUOC implements arrayInterfaceTHUOC {
         }
     }
 
-    // @Override
-    public void suaThongTin(String maThuocCanSua) {
+    @Override
+    public void Sua(String maThuocCanSua) {
+        boolean isFind = false;
         for (int i = 0; i < this.soLuongThuoc; i++) {
-            if (maThuocCanSua.equals(this.dsThuoc[i].getMaThuoc()))
+            if (maThuocCanSua.equals(this.dsThuoc[i].getMaThuoc())) {
                 this.dsThuoc[i].suaThongTinThuoc();
+                isFind = true;
+            }
         }
+        if(!isFind)
+            System.out.println("Khong tim thay ma can sua");
     }
 
 
-    // @Override
+    @Override
     public void Them(int soThuocCanThem) {
         this.dsThuoc = Arrays.copyOf(this.dsThuoc, this.soLuongThuoc + soThuocCanThem);
         
         for (int i = 0; i < soThuocCanThem; i++) {
-            System.out.println("Thuoc them thu " + i);
+            System.out.println("\t\t\tThuoc them thu " + i);
             System.out.print("\t\t\tNhap loai thuoc can them (0 la thuoc chich, 1 la thuoc vi): ");
             int loaiThuocCanThem = mayScanner.nextInt();
 
@@ -291,7 +296,7 @@ public class DANHSACHTHUOC implements arrayInterfaceTHUOC {
     }
 
     // DOC DATA CUA FILE ROI GHI VAO MANG
-    // @Override
+    @Override
     public void docData(String filePath) throws FileNotFoundException {
         File dataFile = new File(filePath);
         Scanner fileScanner = new Scanner(dataFile);
@@ -321,7 +326,7 @@ public class DANHSACHTHUOC implements arrayInterfaceTHUOC {
         }
         fileScanner.close();
     }
-    // @Override
+    @Override
     public void ghiData(String filePath) throws IOException {
         File dataFile = new File(filePath);
         FileWriter writer = new FileWriter(dataFile);
@@ -404,7 +409,7 @@ public class DANHSACHTHUOC implements arrayInterfaceTHUOC {
             if (option == 3) {
                 System.out.println("Nhap ma thuoc can sua: ");
                 String maThuocCanSua = mayScanner.nextLine();
-                this.suaThongTin(maThuocCanSua);
+                this.Sua(maThuocCanSua);
             }
 
             if (option == 4) {

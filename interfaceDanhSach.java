@@ -6,6 +6,6 @@ public interface interfaceDanhSach {
     public void Sua(String maCanSua);
     public void docData(String filePath);
     public void ghiData(String filepath);
-    public void menuQuanLi();
+    public void menuThaoTac();
     
 } 
