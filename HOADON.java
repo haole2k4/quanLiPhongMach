@@ -90,9 +90,9 @@ public class HOADON {
         System.out.format("|| %-94s ||\n","Ma BSI: "+phieuKhamBenh.getPhieuKhamBenh(maPhieuKhamBenh).getMaBacSi());
         System.out.format("|| %-94s ||\n","SDT: "+dsbs.timKiem(phieuKhamBenh.getPhieuKhamBenh(maPhieuKhamBenh).getMaBacSi()).getSDT());
         System.out.format("|| %-94s ||\n"," ");
-        System.out.format("|| %-94s ||\n","Ten benh nhan: "+ dsbn.);
+        System.out.format("|| %-94s ||\n","Ten benh nhan: "+ dsbn.timKiemBenhNhan(phieuKhamBenh.getPhieuKhamBenh(maPhieuKhamBenh).getMaBenhNhan()).getHo()+ " "+dsbn.timKiemBenhNhan(phieuKhamBenh.getPhieuKhamBenh(maPhieuKhamBenh).getMaBenhNhan()).getTen());
         System.out.format("|| %-94s ||\n","Ma benh nhan: "+phieuKhamBenh.getPhieuKhamBenh(maPhieuKhamBenh).getMaBenhNhan());
-        System.out.format("|| %-94s ||\n","Da chi: "+"CHUA CO");
+        System.out.format("|| %-94s ||\n","Ngay sinh: "+dsbn.timKiemBenhNhan(phieuKhamBenh.getPhieuKhamBenh(maPhieuKhamBenh).getMaBenhNhan()).getNgaySinh());
         System.out.format("|| %-94s ||\n"," ");
         System.out.format("|| %-94s ||\n"," ".repeat(38)+"DON THUOC");
         // xuat don thuoc
@@ -101,7 +101,7 @@ public class HOADON {
         System.out.format("|| %53s %-40s ||\n"," ","Tong Tien Thanh Toan : "+ tongTien);
         System.out.format("|| %53s %-40s ||\n"," ", "Hinh thuc thanh toan : "+ hinhThucThanhToan);
         System.out.format("|| %-94s ||\n"," ");
-        System.out.format("||          %-48s %-31s      ||\n","Benh Nhan",phieuKhamBenh.getPhieuKhamBenh(maPhieuKhamBenh).getMaBenhNhan());
+        System.out.format("||          %-48s %-31s      ||\n","Benh Nhan",dsbn.timKiemBenhNhan(phieuKhamBenh.getPhieuKhamBenh(maPhieuKhamBenh).getMaBenhNhan()).getHo()+ " "+dsbn.timKiemBenhNhan(phieuKhamBenh.getPhieuKhamBenh(maPhieuKhamBenh).getMaBenhNhan()).getTen());
         System.out.format("||         %-49s %-31s      ||\n","Nguyen Van A",dsnv.timkiem(NVThuNgan).getHo().toUpperCase()+" "+dsnv.timkiem(NVThuNgan).getTen().toUpperCase());
         System.out.println("=".repeat(100));
 

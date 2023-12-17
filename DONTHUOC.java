@@ -36,7 +36,7 @@ class DONTHUOC {
         input.nextLine();
         for (int i=0;i<soLuongThuocBoc;i++)
         {
-            dst[i].
+
             dst[i] = new THUOCCHICH();
             System.out.print("Thuoc "+ (i+1) + " : "); 
             System.out.print("Ma: "); 
