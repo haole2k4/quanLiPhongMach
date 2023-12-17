@@ -10,11 +10,11 @@ import java.time.format.DateTimeFormatter;
 import java.util.Arrays;
 
 public class DSBS {
-//Thuoc tinh:
+// Thuộc tính:
     private BacSi [] dsbs;
     private int n;
 
-//Phuong thuc:
+// Phương thức:
     DSBS(){
         dsbs = new BacSi[1];
         dsbs [0] = null;
@@ -31,6 +31,7 @@ public class DSBS {
         dsbs = l.dsbs;
         n = l.n;
     }
+// Phương Thức Cũ !!!
 
 //     public String fileBS(){
 //         return "data/BacSi.txt";
@@ -68,6 +69,7 @@ public class DSBS {
 //         write.close();
 //     }
 
+// Ghi file
     void ghiFile(String filePath){
         File file = new File(filePath);
         PrintWriter write = null;
@@ -83,7 +85,7 @@ public class DSBS {
         write.close();
     }
 
-//Nhap:
+// Nhập
     public void nhap(){
         Scanner input = new Scanner(System.in);
         System.out.print("\nNhap so luong: ");
@@ -98,7 +100,7 @@ public class DSBS {
         
     }
 
-// Ham doc file
+// Đọc file
     void docData(String filePath){
         File inFile = new File(filePath);
         Scanner read = null;
@@ -130,7 +132,7 @@ public class DSBS {
         read.close();
     }
 
-//Xuat:
+// Xuất
     public void xuat(){
         System.out.print("\n" + "=".repeat(56) + "  DANH SACH BAC SI  " + "=".repeat(56));
         System.out.print("\n");
@@ -143,23 +145,42 @@ public class DSBS {
         System.out.print("\n" + "=".repeat(132));
     }
 
-//Them:
+// Thêm bác sĩ
     public void them(){
         // n = dsbs.length;
-        dsbs = Arrays.copyOf(dsbs, n + 1);
-        dsbs[n] = new BacSi();
-        dsbs[n].nhap();
-        n++;
-        
+        Scanner input = new Scanner(System.in);
+        System.out.print("\nNhap so luong muon them: ");
+        int sl = input.nextInt();
+        for(int i = 0; i < sl; i++){
+            dsbs = Arrays.copyOf(dsbs, n + 1);
+            dsbs[n] = new BacSi();
+            System.out.print("\nNhap thong tin bac si thu " + (n + 1) + " : \n");
+            dsbs[n].nhap();
+            n++;
+        }
+               
     }
 
-// Sua
+    public void them(int sl){
+        // n = dsbs.length;
+        for(int i = 0; i < sl; i++){
+            dsbs = Arrays.copyOf(dsbs, n + 1);
+            dsbs[n] = new BacSi();
+            System.out.print("\nNhap thong tin bac si thu " + (n + 1) + " : \n");
+            dsbs[n].nhap();
+            n++;
+        }
+               
+    }
+
+// Sửa thông tin 
     void sua(){
         Scanner input = new Scanner(System.in);
         System.out.print("\n <-> Nhap ma bac si can sua: ");
         String ma = input.nextLine();
         boolean flag = false;
         for(int i = 0; i < n; i++){
+            // Check theo mã để sửa
             if(ma.equals(dsbs[i].getMaBS())){
                 flag = true;
                 dsbs[i].menuSua();
@@ -209,7 +230,7 @@ public class DSBS {
     //     }
     // }
 
-// Xoa
+// Xóa bác sĩ 
     public void xoa(){
         System.out.print("\nNhap ma bac si can xoa: ");
         Scanner input = new Scanner(System.in);
@@ -246,17 +267,17 @@ public class DSBS {
         
     }
 
-// Tim kiem
+// Menu tìm kiếm theo: mã, tên, trình độ
     public void timKiem(){
         Scanner input = new Scanner(System.in);
-        System.out.print("\n <-> Nhap ma bac si can tim: ");
-        String ma = input.nextLine();
+        System.out.print("\n <-> Nhap thong tin can tim: ");
+        String search = input.nextLine();
         System.out.print("\n" + "=".repeat(56) + " THONG TIN CAN TIM " + "=".repeat(56));
         System.out.print("\n");
         System.out.format("|| %-12s | %-25s | %-10s | %-12s | %-14s | %-10s | %-12s | %-10s ||", "Ma bac si","Ho Ten","Gioi tinh","Ngay sinh","So dien thoai","Trinh do","Chuyen nganh","Hoat Dong");
         System.out.print("\n" + "||" + "-".repeat(128) + "||");
         for(int i = 0; i < n; i++){
-            if((ma.equals(dsbs[i].getMaBS())) || (ma.equals(dsbs[i].getTen()))){                
+            if((search.equals(dsbs[i].getMaBS())) || (search.equals(dsbs[i].getHo())) || search.equals(dsbs[i].getTen()) || search.equals(dsbs[i].getChuyenNganh()) || search.equals(dsbs[i].getGioiTinh())){                
                 dsbs[i].xuat();
             }
         } 
