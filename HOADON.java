@@ -85,7 +85,7 @@ public class HOADON {
         maPhieuKhamBenh = input.nextLine();
         phieuKhamBenh = new DANHSACHPHIEUKHAMBENH();
         try{
-            phieuKhamBenh.docData("D:\\phongMach_THUOC\\quanLiPhongMach\\data\\PHIEUKHAMBENH.TXT");
+            phieuKhamBenh.docData("D:\\phongMach_THUOC\\quanLiPhongMach\\data\\dataPhieuKham.txt");
         } catch(Exception e){
             System.out.println("loi doc file!");
             return;
@@ -112,7 +112,7 @@ public class HOADON {
     System.out.print("Ma nhan vien :"); 
     NVThuNgan = input.nextLine();
     dsnv = new DANHSACHNHANVIEN();
-    dsnv.docData("D:\\phongMach_THUOC\\quanLiPhongMach\\data\\HOADON.TXT" );
+    dsnv.docData("D:\\phongMach_THUOC\\quanLiPhongMach\\data\\NHANVIEN.TXT" );
     if (dsnv.kiemTraMaNhanVien(NVThuNgan)==0){
         System.out.println("Nhan vien khong ton tai!");
         them();
@@ -122,6 +122,7 @@ public class HOADON {
     }
     dsbs.docData("D:\\phongMach_THUOC\\quanLiPhongMach\\data\\BacSi.txt");
     dsbn.docData();
+    tongTien = donThuoc.getDonThuocTuMa(maDonThuoc).getDonGia()+phieuKhamBenh.getPhieuKhamBenh(maPhieuKhamBenh).getTienKham();
 
     
         
@@ -132,9 +133,9 @@ public class HOADON {
         System.out.format("|| %94s ||\n","HOA DON BAN HANG");
         System.out.format("||       %-47s %40s ||\n","TIEM THUOC NHOM 10","Ngay tao: "+ngayTao);
         System.out.format("|| %94s ||\n","So / Ma: "+maHoaDon);
-        System.out.format("|| %-94s ||\n","Bac si quan ly: "+dsbs.timKiem(phieuKhamBenh.getPhieuKhamBenh(maPhieuKhamBenh).getMaBacSi()).getHo()+" "+dsbs.timKiem(phieuKhamBenh.getPhieuKhamBenh(maPhieuKhamBenh).getMaBacSi()).getTen() );
+        System.out.format("|| %-94s ||\n","Bac si quan ly: "+dsbs.timKiemTraVeBacSi(phieuKhamBenh.getPhieuKhamBenh(maPhieuKhamBenh).getMaBacSi()).getHo()+" "+dsbs.timKiemTraVeBacSi(phieuKhamBenh.getPhieuKhamBenh(maPhieuKhamBenh).getMaBacSi()).getTen() );
         System.out.format("|| %-94s ||\n","Ma BSI: "+phieuKhamBenh.getPhieuKhamBenh(maPhieuKhamBenh).getMaBacSi());
-        System.out.format("|| %-94s ||\n","SDT: "+dsbs.timKiem(phieuKhamBenh.getPhieuKhamBenh(maPhieuKhamBenh).getMaBacSi()).getSDT());
+        System.out.format("|| %-94s ||\n","SDT: "+dsbs.timKiemTraVeBacSi(phieuKhamBenh.getPhieuKhamBenh(maPhieuKhamBenh).getMaBacSi()).getSDT());
         System.out.format("|| %-94s ||\n"," ");
         System.out.format("|| %-94s ||\n","Ten benh nhan: "+ dsbn.timKiemBenhNhan(phieuKhamBenh.getPhieuKhamBenh(maPhieuKhamBenh).getMaBenhNhan()).getHo()+ " "+dsbn.timKiemBenhNhan(phieuKhamBenh.getPhieuKhamBenh(maPhieuKhamBenh).getMaBenhNhan()).getTen());
         System.out.format("|| %-94s ||\n","Ma benh nhan: "+phieuKhamBenh.getPhieuKhamBenh(maPhieuKhamBenh).getMaBenhNhan());
@@ -147,8 +148,8 @@ public class HOADON {
         System.out.format("|| %53s %-40s ||\n"," ","Tong Tien Thanh Toan : "+ tongTien);
         System.out.format("|| %53s %-40s ||\n"," ", "Hinh thuc thanh toan : "+ hinhThucThanhToan);
         System.out.format("|| %-94s ||\n"," ");
-        System.out.format("||          %-48s %-31s      ||\n","Benh Nhan",dsbn.timKiemBenhNhan(phieuKhamBenh.getPhieuKhamBenh(maPhieuKhamBenh).getMaBenhNhan()).getHo()+ " "+dsbn.timKiemBenhNhan(phieuKhamBenh.getPhieuKhamBenh(maPhieuKhamBenh).getMaBenhNhan()).getTen());
-        System.out.format("||         %-49s %-31s      ||\n","Nguyen Van A",dsnv.timkiem(NVThuNgan).getHo().toUpperCase()+" "+dsnv.timkiem(NVThuNgan).getTen().toUpperCase());
+        System.out.format("||          %-48s %-31s      ||\n","Benh Nhan","Nguoi Ban Hang");
+        System.out.format("||         %-49s %-31s      ||\n",dsbn.timKiemBenhNhan(phieuKhamBenh.getPhieuKhamBenh(maPhieuKhamBenh).getMaBenhNhan()).getHo()+ " "+dsbn.timKiemBenhNhan(phieuKhamBenh.getPhieuKhamBenh(maPhieuKhamBenh).getMaBenhNhan()).getTen(),dsnv.timkiem(NVThuNgan).getHo().toUpperCase()+" "+dsnv.timkiem(NVThuNgan).getTen().toUpperCase());
         System.out.println("=".repeat(100));
 
 
