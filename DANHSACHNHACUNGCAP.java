@@ -6,6 +6,22 @@ import java.io.*;
 public class DANHSACHNHACUNGCAP {
     NHACUNGCAP[] dsncc;
     int soLuongNCC;
+    public DANHSACHNHACUNGCAP() {
+        dsncc = new NHACUNGCAP[0];
+        soLuongNCC = 0;
+    }
+
+    public DANHSACHNHACUNGCAP(NHACUNGCAP[] dsncc) {
+        this.dsncc = dsncc;
+        this.soLuongNCC = dsncc.length;
+    }
+
+    public void them(NHACUNGCAP ncc) {
+        soLuongNCC++;
+        dsncc = Arrays.copyOf(dsncc, soLuongNCC);
+        dsncc[soLuongNCC - 1] = ncc;
+        ghiFile();
+    }
 
     public void ghiFile() {
         File file = new File("D:\\phongMach_THUOC\\quanLiPhongMach\\data\\nhacungcap.txt");
@@ -61,7 +77,6 @@ public class DANHSACHNHACUNGCAP {
             dsncc[soLuongNCC - 1] = new NHACUNGCAP();
             dsncc[soLuongNCC - 1].nhap();
         }
-        ghiFile();
 
     }
 
@@ -116,5 +131,20 @@ public class DANHSACHNHACUNGCAP {
         }
         while (i!=0);
     }
+    public NHACUNGCAP[] getDsncc() {
+        return dsncc;
+    }
 
+    public void setDsncc(NHACUNGCAP[] dsncc) {
+        this.dsncc = dsncc;
+        this.soLuongNCC = dsncc.length;
+    }
+
+    public int getSoLuongNCC() {
+        return soLuongNCC;
+    }
+
+    public void setSoLuongNCC(int soLuongNCC) {
+        this.soLuongNCC = soLuongNCC;
+    }
 }
