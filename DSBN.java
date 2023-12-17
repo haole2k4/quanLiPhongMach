@@ -9,8 +9,8 @@ public class DSBN implements arrayInterfaceBENHNHAN{
     private BenhNhan[] dsbn;
     private int n;
 //Dat kieu dinh dang kieu thoi gian
-    private DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-    private DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+    DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 //Phuong thuc
     DSBN() {
         dsbn = new BenhNhan[1000];
