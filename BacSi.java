@@ -75,9 +75,8 @@ public class BacSi {
 
 //Xuat: 
     public void xuat(){
-        System.out.print("\n-----------------");
-        System.out.print("\nMa bac si: " + maBS + "\nHo: " + ho + "\nTen: " + ten + "\nGioi tinh: " + gioiTinh + 
-        "\nNgay sinh: " + ngaySinh + "\nSDT: " + SDT + "\nTrinh do: " + trinhDo + "\nChuyen nganh: " + chuyenNganh + "\nHoat dong: " + hoatDong);
+        System.out.print("\n");
+        System.out.format("|| %-12s | %-25s | %-10s | %-12s | %-14s | %-10s | %-12s | %-10s ||", maBS,ho +" "+ ten,gioiTinh,ngaySinh,SDT,trinhDo,chuyenNganh,hoatDong);
     }
 
 //Set:
@@ -206,11 +205,7 @@ public class BacSi {
                 hd = Boolean.parseBoolean(nd);
                 setHoatDong(hd);
             }
-        } while(option != 0);
-
-
-
-        
+        } while(option != 0);       
     }
 
     public String getThongTin(){

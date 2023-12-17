@@ -132,11 +132,15 @@ public class DSBS {
 
 //Xuat:
     public void xuat(){
-        System.out.print("\nDanh sach bac si: ");
+        System.out.print("\n" + "=".repeat(56) + "  DANH SACH BAC SI  " + "=".repeat(56));
+        System.out.print("\n");
+        System.out.format("|| %-12s | %-25s | %-10s | %-12s | %-14s | %-10s | %-12s | %-10s ||", "Ma bac si","Ho Ten","Gioi tinh","Ngay sinh","So dien thoai","Trinh do","Chuyen nganh","Hoat Dong");
+        System.out.print("\n" + "||" + "-".repeat(128) + "||");
+        
         for(int i = 0; i < n; i++){
-            dsbs[i].xuat();
-            System.out.print("\n");
+            dsbs[i].xuat();           
         }
+        System.out.print("\n" + "=".repeat(132));
     }
 
 //Them:
@@ -328,7 +332,7 @@ public class DSBS {
         int option = 0;
         do{  
             Scanner input = new Scanner(System.in);
-
+            System.out.print("\n");
             System.out.print("\n\t\t\t ========  QUAN LY BAC SI  ========");             
             System.out.print("\n\t\t\t || 0) Thoat.                    ||" +
                              "\n\t\t\t || 1) Tao danh sach bac si.     ||" + 
