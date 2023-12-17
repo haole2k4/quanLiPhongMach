@@ -105,7 +105,7 @@ class BenhNhan {
     }
 
     public String getNgaySinh() {
-        return ngaySinh.format(dateFormatter);
+        return this.ngaySinh.format(dateFormatter);
     }
 
     public String getQueQuan() {
