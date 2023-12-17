@@ -67,21 +67,16 @@ public class DANHSACHDONTHUOC {
         if (soLuongDonThuoc == 1){
             dsdt = new DONTHUOC[1];
             dsdt[0] = new DONTHUOC();
-            if (dsdt[0].them(dst) == 1)
-            {
-ghiFile("D:\\phongMach_THUOC\\quanLiPhongMach\\data\\DONTHUOC.TXT");
-            };
+            dsdt[0].them(dst);
         }
         else{
             this.dsdt = Arrays.copyOf(this.dsdt, soLuongDonThuoc);
             dsdt[soLuongDonThuoc-1] = new DONTHUOC();
-            if (dsdt[soLuongDonThuoc-1].them(dst) ==1){
-                        
-ghiFile("D:\\phongMach_THUOC\\quanLiPhongMach\\data\\DONTHUOC.TXT");
+            dsdt[soLuongDonThuoc-1].them(dst);
             }
-        
+        ghiFile("D:\\phongMach_THUOC\\quanLiPhongMach\\data\\DONTHUOC.TXT");
     
-    }
+    
 }
 
     public void xuat(){
