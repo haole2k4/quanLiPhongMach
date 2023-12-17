@@ -180,8 +180,53 @@ public class DANHSACHPHIEUKHAMBENH {
     }
 
     public void inChiTietPhieuKham(int index) {
+        DateTimeFormatter dinhDangNgayThang = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        String ngayTaiKham = this.dsPhieuKham[index].getNgayTaiKham().format(dinhDangNgayThang);
+        String ngayKham = this.dsPhieuKham[index].getNgayKham().format(dinhDangNgayThang);
+        LocalDate ngayIn = LocalDate.now();
+        String ngayInStr = ngayIn.format(dinhDangNgayThang);
+        // String tenBacSi = dsbs.getdsbs[index].getHo().
+        // String tenBenhNhan
+        String tenBacSi = "Tran Dong A";
+        String tenBenhNhan = "Le Chi Hao";
+        System.out.format("%80s\n", "=".repeat(84));
+        System.out.format("||%80s||\n", " ".repeat(32) + "PHIEU KHAM BENH" + " ".repeat(33));
+        System.out.format("||%80s||\n", " ".repeat(80));
+        System.out.format("||%80s||\n", "Ngay in phieu kham benh: " + ngayInStr + " ".repeat(2));
+        System.out.format("||%80s||\n", " ".repeat(80));
+        System.out.format("||%80s||\n", " ".repeat(80));
+        System.out.format("||%80s||\n", " ".repeat(80));
 
-        
+        System.out.format("||%-80s||\n", " ".repeat(2) + "Ho ten benh nhan: " + tenBenhNhan);
+        System.out.format("||%80s||\n", " ".repeat(80));
+
+        System.out.format("||%-80s||\n", " ".repeat(2) + "Ho ten bac si kham: " + tenBacSi);
+        System.out.format("||%80s||\n", " ".repeat(80));
+
+        System.out.format("||%-80s||\n", " ".repeat(2) + "Ngay kham benh: " + ngayKham);
+        System.out.format("||%80s||\n", " ".repeat(80));
+
+        System.out.format("||%-80s||\n", " ".repeat(2) + "Chuan doan benh: " + this.dsPhieuKham[index].getChuanDoan());
+        System.out.format("||%80s||\n", " ".repeat(80));
+
+        System.out.format("||%-80s||\n", " ".repeat(2) + "Ngay tai kham: " + ngayTaiKham);
+        System.out.format("||%80s||\n", " ".repeat(80));
+
+        System.out.format("||%-80s||\n", " ".repeat(2) + "Chi phi Kham: " + this.dsPhieuKham[index].getTienKham());
+        System.out.format("||%80s||\n", " ".repeat(80));
+
+        System.out.format("||%80s||\n", " ".repeat(80));
+        System.out.format("||%80s||\n", " ".repeat(80));
+
+        System.out.format("||%-80s||\n", " ".repeat(16) + "Benh nhan" + " ".repeat(30) + "Bac si");
+        System.out.format("||%-80s||\n", " ".repeat(12) + "(Ki ro ho va ten)" + " ".repeat(20) + "(Ki ro ho va ten)");
+        System.out.format("||%80s||\n", " ".repeat(80));
+        System.out.format("||%80s||\n", " ".repeat(80));
+        System.out.format("||%80s||\n", " ".repeat(80));
+        System.out.format("||%80s||\n", " ".repeat(80));
+        System.out.format("||%80s||\n", " ".repeat(80));
+        System.out.format("%80s\n", "=".repeat(84));
+
     }
 
     public void docData(String filePath) throws FileNotFoundException {
@@ -258,7 +303,7 @@ public class DANHSACHPHIEUKHAMBENH {
 
             if (option == 3) {
                 mayScanner.nextLine();
-                System.out.println("Nhap ma phieu kham benh: ");
+                System.out.print("Nhap ma phieu kham benh: ");
                 String maPhieuKhamCanTim = mayScanner.nextLine();
 
                 int index = timKiemTheoMa(maPhieuKhamCanTim);
@@ -267,7 +312,7 @@ public class DANHSACHPHIEUKHAMBENH {
                 }
 
                 else {
-                    this.dsPhieuKham[index].inPhieuKham();
+                    this.inChiTietPhieuKham(index);
                 }
             }
 
