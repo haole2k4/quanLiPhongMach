@@ -40,7 +40,7 @@ public class Menu {
             System.out.println("\tNhan phim 5 de vao trinh quan li don thuoc");
             System.out.println("\tNhan phim 6 de vao trinh quan li benh nhan");
             System.out.println("\tNhan phim 7 de vao trinh quan li bac si");
-            System.out.println("\tNhan 8 de vao trinh quan li phieu kham benh");
+            System.out.println("\tNhan phim 8 de vao trinh quan li phieu kham benh");
             System.out.print("\tVui long nhap lua chon cua ban: ");
             option = mayScanner.nextInt();
 

@@ -3,7 +3,7 @@ public class QLDSPHIEUKHAM {
         try {
             DANHSACHPHIEUKHAMBENH ds = new DANHSACHPHIEUKHAMBENH();
             ds.docData("data/dataPhieuKham.txt");
-            // ds.getNeedData("data/BacSi.txt", "data/BenhNhan.txt");
+            ds.getNeedData("data/BacSi.txt", "data/BenhNhan.txt");
             ds.inDanhSachPhieuKham();
             ds.menuThaoTac();
             ds.ghiData("data/dataPhieuKham.txt");

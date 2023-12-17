@@ -7,7 +7,7 @@ public class PHIEUKHAMBENH { // phieu kham chi thay doi chuan doan ngay tai kham
 
     private String maPhieuKham;
     private String maBacSi;
-    private String maBenhNhan;
+    private int maBenhNhan;
     private LocalDate ngayKham; // lay ngay hien tai
     private String chuanDoan;
     private LocalDate ngayTaiKham;
@@ -17,14 +17,14 @@ public class PHIEUKHAMBENH { // phieu kham chi thay doi chuan doan ngay tai kham
     PHIEUKHAMBENH() {
         this.maPhieuKham = null;
         this.maBacSi = null;
-        this.maBenhNhan = null;
+        this.maBenhNhan = 0;
         this.ngayKham = LocalDate.of(1970, 1, 1);
         this.chuanDoan = null;
         this.ngayTaiKham = LocalDate.of(1970, 1, 1);
         this.tienKham = 0;
     }
 
-    PHIEUKHAMBENH(String maPhieuKham, String maBacSi, String maBenhNhan, LocalDate ngayKham, String chuanDoan,
+    PHIEUKHAMBENH(String maPhieuKham, String maBacSi, int maBenhNhan, LocalDate ngayKham, String chuanDoan,
             LocalDate ngayTaiKham, double tienKham) {
 
         this.maPhieuKham = maPhieuKham;
@@ -37,13 +37,13 @@ public class PHIEUKHAMBENH { // phieu kham chi thay doi chuan doan ngay tai kham
     }
 
     PHIEUKHAMBENH(PHIEUKHAMBENH pkb2) {
-        this.maPhieuKham = null;
-this.maBacSi = null;
-this.maBenhNhan = null;
-this.ngayKham = null;
-this.chuanDoan = null;
-this.ngayTaiKham = null;
-this.tienKham = 0;
+        this.maPhieuKham = pkb2.maPhieuKham;
+        this.maBacSi = pkb2.maBacSi;
+        this.maBenhNhan = pkb2.maBenhNhan;
+        this.ngayKham = pkb2.ngayKham;
+        this.chuanDoan = pkb2.chuanDoan;
+        this.ngayTaiKham = pkb2.ngayTaiKham;
+        this.tienKham = pkb2.tienKham;
     }
 
     public String getMaPhieuKham() {
@@ -54,7 +54,7 @@ this.tienKham = 0;
         return this.maBacSi;
     }
 
-    public String getMaBenhNhan() {
+    public int getMaBenhNhan() {
         return this.maBenhNhan;
     }
 

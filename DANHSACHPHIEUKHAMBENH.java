@@ -12,8 +12,8 @@ public class DANHSACHPHIEUKHAMBENH {
     int soPhieuKham;
 
     Scanner mayScanner = new Scanner(System.in);
-    // DSBS dsbs = new DSBS();
-    // DSBN dsbn = new DSBN();
+    DSBS dsbs = new DSBS();
+    DSBN dsbn = new DSBN();
 
     DANHSACHPHIEUKHAMBENH() {
         this.dsPhieuKham = new PHIEUKHAMBENH[0];
@@ -56,10 +56,10 @@ public class DANHSACHPHIEUKHAMBENH {
         this.dsPhieuKham = dspkb;
     }
 
-    // public void getNeedData(String filePathBacSi, String filePathBenhNhan) {
-    //     dsbs.docData(filePathBacSi);
-    //     // dsbn.docData();
-    // }
+    public void getNeedData(String filePathBacSi, String filePathBenhNhan) {
+        dsbs.docData(filePathBacSi);
+        dsbn.docData(filePathBenhNhan);
+    }
 
     public int timKiemTheoMa(String ma) {
         for (int i = 0; i < soPhieuKham; i++) {
@@ -86,27 +86,24 @@ public class DANHSACHPHIEUKHAMBENH {
     public void taoPhieuKhamBenh() { // them vào cuối index
         String maPhieuKham;
         String maBacSi;
-        String maBenhNhan;
+        int maBenhNhan;
         String tempNgayTaiKham;
-
-        // do {
-
-        // } while (timMaPhieuKham(maPhieuKham) == -1);
         mayScanner.nextLine();
+        do {
+            System.out.print("Nhap ma phieu kham: ");
+            maPhieuKham = mayScanner.nextLine();
 
-        System.out.print("Nhap ma phieu kham: ");
-        maPhieuKham = mayScanner.nextLine();
+        } while (timMaPhieuKham(maPhieuKham) != -1);
+        
+        
+        do {
+            System.out.print("Nhap ma bac si: ");
+            maBacSi = mayScanner.nextLine();
+        } while (dsbs.timMaBacSi(maBacSi) == -1);
 
-
-        System.out.print("Nhap ma bac si: ");
-        maBacSi = mayScanner.nextLine();
-
-        // do {
-
-        // } while (dsbs.timMaBacSi(maBacSi) == -1);
 
         System.out.print("Nhap ma benh nhan: ");
-        maBenhNhan = mayScanner.nextLine();
+        maBenhNhan = mayScanner.nextInt();
 
         LocalDate ngayKham = LocalDate.now();
 
@@ -114,15 +111,14 @@ public class DANHSACHPHIEUKHAMBENH {
         String chuanDoan = mayScanner.nextLine();
 
         // do {
-            
+
         // } while (checkValidDate(ngayKham, LocalDate.parse(tempNgayTaiKham)));
         System.out.print("Nhap ngay tai kham(yyyy--MM-dd): ");
-            tempNgayTaiKham = mayScanner.nextLine();
+        tempNgayTaiKham = mayScanner.nextLine();
         LocalDate ngayTaiKham = LocalDate.parse(tempNgayTaiKham);
 
         System.out.print("Nhap tien kham: ");
         double tienKham = mayScanner.nextDouble();
-
 
         PHIEUKHAMBENH newPhieuKham = new PHIEUKHAMBENH(maPhieuKham, maBacSi, maBenhNhan, ngayKham, chuanDoan,
                 ngayTaiKham, tienKham);
@@ -170,7 +166,7 @@ public class DANHSACHPHIEUKHAMBENH {
             String[] danhSachThuocTinh = fileScanner.nextLine().split(", ");
             String tempMaPhieuKham = danhSachThuocTinh[0];
             String tempMaBacSi = danhSachThuocTinh[1];
-            String tempMaBenhNhan = danhSachThuocTinh[2];
+            int tempMaBenhNhan = Integer.parseInt(danhSachThuocTinh[2]);
             LocalDate tempNgayKham = LocalDate.parse(danhSachThuocTinh[3], formatter);
             String tempChuanDoan = danhSachThuocTinh[4];
             LocalDate tempNgayTaiKham = LocalDate.parse(danhSachThuocTinh[5], formatter);
