@@ -194,5 +194,4 @@ public class DANHSACHHOADON {
         ghiFile("data\\HOADON.TXT");
     }
 
-
 }

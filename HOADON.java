@@ -149,6 +149,7 @@ public class HOADON {
     }
 
     public void them() {
+        getData();
         Scanner input = new Scanner(System.in);
         System.out.print("Nhap ma hoa don : ");
         maHoaDon = input.nextLine();
@@ -197,40 +198,47 @@ public class HOADON {
     public void xuat() {
         getData();
         System.out.println("=".repeat(100));
+    
+        // Tiêu đề hoá đơn
         System.out.format("|| %94s ||\n", "HOA DON BAN HANG");
         System.out.format("||       %-47s %40s ||\n", "TIEM THUOC NHOM 10", "Ngay tao: " + ngayTao);
         System.out.format("|| %94s ||\n", "So / Ma: " + maHoaDon);
-        System.out.format("|| %-94s ||\n", "Bac si quan ly: "
-                + dsbs.timKiemTraVeBacSi(phieuKhamBenh.getPhieuKhamBenh(maPhieuKhamBenh).getMaBacSi()).getHo() + " "
-                + dsbs.timKiemTraVeBacSi(phieuKhamBenh.getPhieuKhamBenh(maPhieuKhamBenh).getMaBacSi()).getTen());
-        System.out.format("|| %-94s ||\n", "Ma BSI: " + phieuKhamBenh.getPhieuKhamBenh(maPhieuKhamBenh).getMaBacSi());
-        System.out.format("|| %-94s ||\n", "SDT: "
-                + dsbs.timKiemTraVeBacSi(phieuKhamBenh.getPhieuKhamBenh(maPhieuKhamBenh).getMaBacSi()).getSDT());
+    
+        // Thông tin bác sĩ quản lý
+        String maBacSi = phieuKhamBenh.getPhieuKhamBenh(maPhieuKhamBenh).getMaBacSi();
+        BacSi bacSi = dsbs.timKiemTraVeBacSi(maBacSi);
+        System.out.format("|| %-94s ||\n", "Bac si quan ly: " + bacSi.getHo() + " " + bacSi.getTen());
+        System.out.format("|| %-94s ||\n", "Ma BSI: " + maBacSi);
+        System.out.format("|| %-94s ||\n", "SDT: " + bacSi.getSDT());
+    
         System.out.format("|| %-94s ||\n", " ");
-        System.out.format("|| %-94s ||\n", "Ten benh nhan: "
-                + dsbn.timKiemBenhNhan(phieuKhamBenh.getPhieuKhamBenh(maPhieuKhamBenh).getMaBenhNhan()).getHo() + " "
-                + dsbn.timKiemBenhNhan(phieuKhamBenh.getPhieuKhamBenh(maPhieuKhamBenh).getMaBenhNhan()).getTen());
-        System.out.format("|| %-94s ||\n",
-                "Ma benh nhan: " + phieuKhamBenh.getPhieuKhamBenh(maPhieuKhamBenh).getMaBenhNhan());
-        System.out.format("|| %-94s ||\n", "Ngay sinh: "
-                + dsbn.timKiemBenhNhan(phieuKhamBenh.getPhieuKhamBenh(maPhieuKhamBenh).getMaBenhNhan()).getNgaySinh());
+    
+        // Thông tin bệnh nhân
+        String maBenhNhan = String.valueOf(phieuKhamBenh.getPhieuKhamBenh(maPhieuKhamBenh).getMaBenhNhan());
+        BenhNhan benhNhan = dsbn.timKiemBenhNhan(maBenhNhan);
+        System.out.format("|| %-94s ||\n", "Ten benh nhan: " + benhNhan.getHo() + " " + benhNhan.getTen());
+        System.out.format("|| %-94s ||\n", "Ma benh nhan: " + maBenhNhan);
+        System.out.format("|| %-94s ||\n", "Ngay sinh: " + benhNhan.getNgaySinh());
+    
         System.out.format("|| %-94s ||\n", " ");
+    
         System.out.format("|| %-94s ||\n", " ".repeat(38) + "DON THUOC");
-        // xuat don thuoc
+    
+        // Xuất đơn thuốc
         donThuoc.xuatDonThuocTheoMa(maDonThuoc);
-        System.out.format("|| %53s %-40s ||\n", " ",
-                "Cong Tien Kham : " + phieuKhamBenh.getPhieuKhamBenh(maPhieuKhamBenh).getTienKham());
+    
+        System.out.format("|| %53s %-40s ||\n", " ", "Cong Tien Kham : " + phieuKhamBenh.getPhieuKhamBenh(maPhieuKhamBenh).getTienKham());
         System.out.format("|| %53s %-40s ||\n", " ", "Tong Tien Thanh Toan : " + tongTien);
         System.out.format("|| %53s %-40s ||\n", " ", "Hinh thuc thanh toan : " + hinhThucThanhToan);
+    
         System.out.format("|| %-94s ||\n", " ");
-        System.out.format("||          %-48s %-31s      ||\n", "Benh Nhan", "Nguoi Ban Hang");
-        System.out.format("||         %-49s %-31s      ||\n",
-                dsbn.timKiemBenhNhan(phieuKhamBenh.getPhieuKhamBenh(maPhieuKhamBenh).getMaBenhNhan()).getHo() + " "
-                        + dsbn.timKiemBenhNhan(phieuKhamBenh.getPhieuKhamBenh(maPhieuKhamBenh).getMaBenhNhan())
-                                .getTen(),
-                dsnv.timkiem(NVThuNgan).getHo().toUpperCase() + " " + dsnv.timkiem(NVThuNgan).getTen().toUpperCase());
+    
+        // Thông tin bệnh nhân và người bán hàng
+        System.out.format("||          %-48s %-31s      ||\n","Ten Benh Nhan","Ten Nguoi Ban Hang");
+        String hoTenThuNgan = dsnv.timkiem(NVThuNgan).getHo().toUpperCase() + " " + dsnv.timkiem(NVThuNgan).getTen().toUpperCase();
+        System.out.format("||          %-48s %-31s      ||\n", benhNhan.getHo() + " " + benhNhan.getTen(), hoTenThuNgan);
+    
         System.out.println("=".repeat(100));
-
     }
 
 }
