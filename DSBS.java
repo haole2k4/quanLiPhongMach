@@ -270,18 +270,29 @@ public class DSBS {
 // Menu tìm kiếm theo: mã, tên, trình độ
     public void timKiem(){
         Scanner input = new Scanner(System.in);
-        System.out.print("\n <-> Nhap thong tin can tim: ");
-        String search = input.nextLine();
-        System.out.print("\n" + "=".repeat(56) + " THONG TIN CAN TIM " + "=".repeat(56));
-        System.out.print("\n");
-        System.out.format("|| %-12s | %-25s | %-10s | %-12s | %-14s | %-10s | %-12s | %-10s ||", "Ma bac si","Ho Ten","Gioi tinh","Ngay sinh","So dien thoai","Trinh do","Chuyen nganh","Hoat Dong");
-        System.out.print("\n" + "||" + "-".repeat(128) + "||");
-        for(int i = 0; i < n; i++){
-            if((search.equals(dsbs[i].getMaBS())) || (search.equals(dsbs[i].getHo())) || search.equals(dsbs[i].getTen()) || search.equals(dsbs[i].getChuyenNganh()) || search.equals(dsbs[i].getGioiTinh())){                
-                dsbs[i].xuat();
+        // Tạo vòng lặp duy trì tìm kiếm
+        boolean tiepTuc = true;
+        while(tiepTuc){
+            System.out.print("\n <-> Nhap thong tin can tim: ");
+            String search = input.nextLine();
+            System.out.print("\n" + "=".repeat(56) + " THONG TIN CAN TIM " + "=".repeat(56));
+            System.out.print("\n");
+            System.out.format("|| %-12s | %-25s | %-10s | %-12s | %-14s | %-10s | %-12s | %-10s ||", "Ma bac si","Ho Ten","Gioi tinh","Ngay sinh","So dien thoai","Trinh do","Chuyen nganh","Hoat Dong");
+            System.out.print("\n" + "||" + "-".repeat(128) + "||");
+            for(int i = 0; i < n; i++){
+                if((search.equals(dsbs[i].getMaBS())) || (search.equals(dsbs[i].getHo())) || search.equals(dsbs[i].getTen()) || search.equals(dsbs[i].getChuyenNganh()) || search.equals(dsbs[i].getGioiTinh()) || search.equals(dsbs[i].getTrinhDo())){                
+                    dsbs[i].xuat();
+                }
+            } 
+            System.out.print("\n" + "=".repeat(132));
+            // Xác nhận tiếp tục tìm kiếm
+            System.out.print("\nBan co muon tiep tuc tim kiem? (Y/N): ");
+            String luaChon = input.nextLine();
+            // Dừng tìm kiếm
+            if (!luaChon.equalsIgnoreCase("Y")) {
+                tiepTuc = false;
             }
-        } 
-        System.out.print("\n" + "=".repeat(132));
+        }
     }
 
     public void timKiem(String ma){
