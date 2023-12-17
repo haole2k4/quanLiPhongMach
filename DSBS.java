@@ -94,8 +94,8 @@ public class DSBS {
     }
 
 // Ham doc file
-    void docData(){
-        File inFile = new File(fileBS());
+    void docData(String filePath){
+        File inFile = new File(filePath);
         Scanner read = null;
         try{
             read = new Scanner(inFile);   
@@ -127,7 +127,6 @@ public class DSBS {
 
 //Xuat:
     public void xuat(){
-        docData();
         System.out.print("\nDanh sach bac si: ");
         for(int i = 0; i < n; i++){
             dsbs[i].xuat();
@@ -307,5 +306,53 @@ public class DSBS {
 
     public void thongKeHoatDong(){
 
+    }
+
+    public void Menu(){
+        
+        System.out.print("\t\t\t ========  QUAN LY BAC SI  ========");
+        int menu = 0;
+        Scanner input = new Scanner(System.in);
+        System.out.print("\n\t\t\t || 1) Nhap danh sach bac si.    ||" + 
+                         "\n\t\t\t || 2) Xem danh sach bac si.     ||" + 
+                         "\n\t\t\t || 3) Them bac si.              ||" + 
+                         "\n\t\t\t || 4) Xoa bac si.               ||" + 
+                         "\n\t\t\t || 5) Sua thong tin bac si.     ||" + 
+                         "\n\t\t\t || 6) Tim kiem thong tin bac si.||" + 
+                         "\n\t\t\t || 7) Thong ke danh sach bac si.||" + 
+                         "\n\t\t\t || 8) Ket thuc.                 ||");
+        System.out.print("\n\t\t\t ==================================");
+        while(menu != 8){
+            System.out.print("\n -Hay chon chuc nang: ");
+            menu = input.nextInt();
+            input.nextLine();
+            switch(menu){
+                case 1:
+                    nhap();
+                    break;
+                case 2:
+                    xuat();
+                    break;
+                case 3:
+                    them();
+                    break;
+                case 4:
+                    xoa();
+                    break;
+                case 5:
+                    sua();
+                    break;
+                case 6:
+                    timKiem();
+                    break;
+                case 7:
+                    menuThongKe();
+                    break;
+                case 8:
+                    break;
+                default:
+                    System.out.print("\nLua chon khong dung !!! Vui long chon lai.");
+            }
+        }
     }
 }
