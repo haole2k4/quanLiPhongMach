@@ -159,55 +159,58 @@ public class BacSi {
         
             System.out.print("\n <-> Chon thong tin can sua: ");
             option = input.nextInt();
+            input.nextLine();
             while (option < 0 || option > 9){
                 System.out.print("\nKhong ton tai lua chon nay !!! Vui long chon lai: ");
                 option = input.nextInt();
-            }
-        }
-
-
-
-        Scanner input = new Scanner(System.in);
-        System.out.print("\n** MENU Thong Tin Sua **" + "\n1) MaBS. \n2) Ho. \n3) Ten. \n4) Gioi Tinh. \n5) Ngay Sinh. \n6) SDT. \n7) Trinh Do \n8) Chuyen Nganh. \n9) Hoat Dong.");
-        System.out.print("\nChon thong tin can sua: ");
-        int menu = input.nextInt();
-        input.nextLine();
-        System.out.print("\nNhap noi dung sua: ");
-        String nd = input.nextLine();
-        switch(menu){
-            case 1:
-                setMaBS(nd);
+            } if(option == 0){
                 break;
-            case 2:
+            } if(option == 1){
+                System.out.print("\nNhap noi dung sua: ");
+                String nd = input.nextLine();
+                setMaBS(nd);                
+            } if(option == 2){
+                System.out.print("\nNhap noi dung sua: ");
+                String nd = input.nextLine();
                 setHo(nd);
-                break;
-            case 3:
+            } if(option == 3){
+                System.out.print("\nNhap noi dung sua: ");
+                String nd = input.nextLine();
                 setTen(nd);
-                break;
-            case 4:
+            } if(option == 4){
+                System.out.print("\nNhap noi dung sua: ");
+                String nd = input.nextLine();
                 setGioiTinh(nd);
-                break;
-            case 5:
+            } if(option == 5){
+                System.out.print("\nNhap noi dung sua: ");
+                String nd = input.nextLine();
                 DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
                 LocalDate tt5 = LocalDate.parse(nd, formatter);
                 setNgaySinh(tt5);
-                break;
-            case 6:
+            } if(option == 6){
+                System.out.print("\nNhap noi dung sua: ");
+                String nd = input.nextLine();
                 setSDT(nd);
-                break;
-            case 7:
+            } if(option == 7){
+                System.out.print("\nNhap noi dung sua: ");
+                String nd = input.nextLine();
                 setTrinhDo(nd);
-                break;
-            case 8:
+            } if(option == 8){
+                System.out.print("\nNhap noi dung sua: ");
+                String nd = input.nextLine();
                 setChuyenNganh(nd);
-                break;
-            case 9:
+            } if(option == 9){
+                System.out.print("\nNhap noi dung sua: ");
+                String nd = input.nextLine();
                 boolean hd;
                 hd = Boolean.parseBoolean(nd);
                 setHoatDong(hd);
-            default:
-                System.out.print("Sai!");
-        }
+            }
+        } while(option != 0);
+
+
+
+        
     }
 
     public String getThongTin(){

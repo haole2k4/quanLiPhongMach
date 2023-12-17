@@ -152,7 +152,7 @@ public class DSBS {
 // Sua
     void sua(){
         Scanner input = new Scanner(System.in);
-        System.out.print("\nNhap ma bac si can sua: ");
+        System.out.print("\n <-> Nhap ma bac si can sua: ");
         String ma = input.nextLine();
         boolean flag = false;
         for(int i = 0; i < n; i++){
@@ -329,7 +329,7 @@ public class DSBS {
         do{  
             Scanner input = new Scanner(System.in);
 
-            System.out.print("\t\t\t ========  QUAN LY BAC SI  ========");             
+            System.out.print("\n\t\t\t ========  QUAN LY BAC SI  ========");             
             System.out.print("\n\t\t\t || 0) Thoat.                    ||" +
                              "\n\t\t\t || 1) Tao danh sach bac si.     ||" + 
                              "\n\t\t\t || 2) Xem danh sach bac si.     ||" + 
