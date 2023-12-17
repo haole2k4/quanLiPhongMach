@@ -140,6 +140,26 @@ public class BacSi {
     
 //Sua: 
     public void menuSua(){
+        int option = 0;
+        do{
+            Scanner input = new Scanner(System.in);
+            
+            System.out.print("\t\t\t === DANH SACH CAC SUA THONG TIN ===");            
+            System.out.print("\n\t\t\t || 0) Thoat.                     ||" +
+                             "\n\t\t\t || 1) Ma bac si.                 ||" + 
+                             "\n\t\t\t || 2) Ho bac si.                 ||" + 
+                             "\n\t\t\t || 3) Ten bac si.                ||" + 
+                             "\n\t\t\t || 4) Gioi tinh.                 ||" + 
+                             "\n\t\t\t || 5) Ngay sinh.                 ||" + 
+                             "\n\t\t\t || 6) So dien thoai.             ||" + 
+                             "\n\t\t\t || 7) Trinh do.                  ||" +
+                             "\n\t\t\t || 4) Chuyen nganh.              ||" +
+                             "\n\t\t\t || 4) Hoat dong.                 ||" );
+            System.out.print("\n\t\t\t ===================================");
+        
+            System.out.print("\n <-> Chon thong tin can sua: ");
+            option = input.nextInt();
+        }
         Scanner input = new Scanner(System.in);
         System.out.print("\n** MENU Thong Tin Sua **" + "\n1) MaBS. \n2) Ho. \n3) Ten. \n4) Gioi Tinh. \n5) Ngay Sinh. \n6) SDT. \n7) Trinh Do \n8) Chuyen Nganh. \n9) Hoat Dong.");
         System.out.print("\nChon thong tin can sua: ");
@@ -161,7 +181,7 @@ public class BacSi {
                 setGioiTinh(nd);
                 break;
             case 5:
-                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/mm/yyyy");
+                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
                 LocalDate tt5 = LocalDate.parse(nd, formatter);
                 setNgaySinh(tt5);
                 break;

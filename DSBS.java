@@ -85,8 +85,6 @@ public class DSBS {
 
 //Nhap:
     public void nhap(){
-        // Xoa data trong file truoc khi ghi lai file moi
-        
         Scanner input = new Scanner(System.in);
         System.out.print("\nNhap so luong: ");
         n = input.nextInt();
@@ -315,51 +313,45 @@ public class DSBS {
 
     }
 
-    public void Menu(){
+    public void menuBacSi(){
+        int option = 0;
+        do{  
+            Scanner input = new Scanner(System.in);
+
+            System.out.print("\t\t\t ========  QUAN LY BAC SI  ========");             
+            System.out.print("\n\t\t\t || 0) Thoat.                    ||" +
+                             "\n\t\t\t || 1) Tao danh sach bac si.     ||" + 
+                             "\n\t\t\t || 2) Xem danh sach bac si.     ||" + 
+                             "\n\t\t\t || 3) Them bac si.              ||" + 
+                             "\n\t\t\t || 4) Xoa bac si.               ||" + 
+                             "\n\t\t\t || 5) Sua thong tin bac si.     ||" + 
+                             "\n\t\t\t || 6) Tim kiem thong tin bac si.||" + 
+                             "\n\t\t\t || 7) Thong ke danh sach bac si.||" );
+            System.out.print("\n\t\t\t ==================================");
         
-        System.out.print("\t\t\t ========  QUAN LY BAC SI  ========");
-        int menu = 0;
-        Scanner input = new Scanner(System.in);
-        System.out.print("\n\t\t\t || 1) Nhap danh sach bac si.    ||" + 
-                         "\n\t\t\t || 2) Xem danh sach bac si.     ||" + 
-                         "\n\t\t\t || 3) Them bac si.              ||" + 
-                         "\n\t\t\t || 4) Xoa bac si.               ||" + 
-                         "\n\t\t\t || 5) Sua thong tin bac si.     ||" + 
-                         "\n\t\t\t || 6) Tim kiem thong tin bac si.||" + 
-                         "\n\t\t\t || 7) Thong ke danh sach bac si.||" + 
-                         "\n\t\t\t || 8) Ket thuc.                 ||");
-        System.out.print("\n\t\t\t ==================================");
-        while(menu != 8){
-            System.out.print("\n -Hay chon chuc nang: ");
-            menu = input.nextInt();
-            input.nextLine();
-            switch(menu){
-                case 1:
-                    nhap();
-                    break;
-                case 2:
-                    xuat();
-                    break;
-                case 3:
-                    them();
-                    break;
-                case 4:
-                    xoa();
-                    break;
-                case 5:
-                    sua();
-                    break;
-                case 6:
-                    timKiem();
-                    break;
-                case 7:
-                    menuThongKe();
-                    break;
-                case 8:
-                    break;
-                default:
-                    System.out.print("\nLua chon khong dung !!! Vui long chon lai.");
+            System.out.print("\n <-> Hay chon chuc nang: ");
+            option = input.nextInt();
+            while (option < 0 || option > 7){
+                System.out.print("\nKhong ton tai lua chon nay !!! Vui long chon lai.");
+                option = input.nextInt();
+            } if(option == 0){
+                break;
+            } if(option == 1){
+                nhap();
+            } if(option == 2){
+                xuat();
+            } if(option == 3){
+                them();
+            } if(option == 4){
+                xoa();
+            } if(option == 5){
+                sua();
+            } if(option == 6){
+                timKiem();
+            } if(option == 7){
+                menuThongKe();
             }
-        }
+        } while(option != 0);
     }
+    
 }
