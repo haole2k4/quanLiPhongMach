@@ -31,7 +31,7 @@ public class THUOCCHICH extends THUOC {
         System.out.println("\t\t\tNhap 1 de sua so luong thuoc");
         System.out.println("\t\t\tNhap 2 de sua gia ca thuoc");
         System.out.println("\t\t\tNhap 3 de sua dung tich thuoc");
-        System.out.println("\t\t\tNhap ten thuoc tinh thuoc can sua: ");
+        System.out.print("\t\t\tNhap ten thuoc tinh thuoc can sua: ");
         int newThuocTinhCanSua = mayScanner.nextInt();
 
         switch (newThuocTinhCanSua) {

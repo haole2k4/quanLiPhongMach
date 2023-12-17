@@ -59,7 +59,7 @@ public class THUOCVI extends THUOC {
         System.out.println("\t\t\tNhap 2 de sua gia ca thuoc");
         System.out.println("\t\t\tNhap 3 de sua so vi");
         System.out.println("\t\t\tNhap 4 de sua so thuoc moi vi");
-        System.out.println("Nhap ten thuoc tinh thuoc can sua: ");
+        System.out.print("Nhap ten thuoc tinh thuoc can sua: ");
         int newThuocTinhCanSua = mayScanner.nextInt();
 
         switch (newThuocTinhCanSua) {
