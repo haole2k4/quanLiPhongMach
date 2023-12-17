@@ -247,32 +247,29 @@ public class DSBS {
     }
 
 // Tim kiem
-    public BacSi timKiem(){
+    public void timKiem(){
         Scanner input = new Scanner(System.in);
-        System.out.print("\nNhap ma bac si can tim: ");
+        System.out.print("\n <-> Nhap ma bac si can tim: ");
         String ma = input.nextLine();
+        System.out.print("\n" + "=".repeat(56) + " THONG TIN CAN TIM " + "=".repeat(56));
+        System.out.print("\n");
+        System.out.format("|| %-12s | %-25s | %-10s | %-12s | %-14s | %-10s | %-12s | %-10s ||", "Ma bac si","Ho Ten","Gioi tinh","Ngay sinh","So dien thoai","Trinh do","Chuyen nganh","Hoat Dong");
+        System.out.print("\n" + "||" + "-".repeat(128) + "||");
         for(int i = 0; i < n; i++){
-            if((ma.equals(dsbs[i].getMaBS())) || (ma.equals(dsbs[i].getTen()))){
-                System.out.print("\nThong tin bac si can tim: " );
-                return dsbs[i];
+            if((ma.equals(dsbs[i].getMaBS())) || (ma.equals(dsbs[i].getTen()))){                
+                dsbs[i].xuat();
             }
         } 
-        System.out.print("\nKhong tim thay bac si !!!");
-        BacSi none = new BacSi();
-        return none;
+        System.out.print("\n" + "=".repeat(132));
     }
 
-    public BacSi timKiem(String ma){
+    public void timKiem(String ma){
         
         for(int i = 0; i < n; i++){
             if((ma.equals(dsbs[i].getMaBS())) || (ma.equals(dsbs[i].getTen()))){
-                System.out.print("\nThong tin bac si can tim: ");
-                return dsbs[i];
+                dsbs[i].xuat();
             }
-        } 
-        System.out.print("\nKhong tim thay bac si !!!");
-        BacSi none = new BacSi();
-        return none;
+        }
     }
     public BacSi timKiemTraVeBacSi(String ma){
         
@@ -298,44 +295,145 @@ public class DSBS {
 
 // Thong ke
     public void menuThongKe(){
-        Scanner input = new Scanner(System.in);
-        int menu = 0;
-        System.out.print("\n-----------------------");
-        System.out.print("\n|| >>Thong ke theo<< ||\n||  1) Trinh do.     ||\n||  2) Gioi tinh.    ||\n||  3) Hoat dong.    ||\n||  4) Thoat.        ||");
-        System.out.print("\n-----------------------");
+        int option = 0;
+        do{
+            Scanner input = new Scanner(System.in);
+
+            System.out.print("\n\t\t-----------------------");
+            System.out.print("\n\t\t|| >>Thong ke theo<< ||" + 
+                             "\n\t\t||  0) Thoat.        ||" + 
+                             "\n\t\t||  1) Gioi tinh.    ||" + 
+                             "\n\t\t||  2) Trinh do.     ||" + 
+                             "\n\t\t||  3) Hoat dong.    ||");
+            System.out.print("\n\t\t-----------------------");
         
-            System.out.print("\n -Chon phuong thuc thong ke: ");
-            menu = input.nextInt();
+            System.out.print("\n <-> Chon phuong thuc thong ke: ");
+            option = input.nextInt();
             input.nextLine();
-            switch (menu) {
-                case 1:
-                    thongKeTrinhDo();
-                    break;
-                case 2:
-                    thongKeGioiTinh();
-                    break;
-                case 3:
-                    thongKeHoatDong();
-                    break;
-                case 4:
-                    break;
-                default:
-                    System.out.print("\nLua chon khong hop le !!! Vui long nhap lai.");
-                    
+            while (option < 0 || option > 4){
+                System.out.print("\nKhong ton tai lua chon nay !!! Vui long chon lai: ");
+                option = input.nextInt();
+            } if(option == 0){
+               break; 
+            } if(option == 1){
+                thongKeGioiTinh();
+            } if(option == 2){
+                thongKeTrinhDo();
+            } if(option == 3){
+                thongKeHoatDong();
             }
-        
+        } while(option != 0);
     }
 
     public void thongKeTrinhDo(){
+        Arrays.sort(dsbs, 0, n, (bs1, bs2) -> bs1.getTrinhDo().compareTo(bs2.getTrinhDo()));
 
+        int daiHoc = 0;
+        int thacSi = 0;
+        int tienSi = 0;
+        
+        System.out.print("\n" + "=".repeat(54) + " BANG THONG KE TRINH DO " + "=".repeat(54));
+        System.out.print("\n" + "=".repeat(5) + " TRINH DO DAI HOC " + "=".repeat(109));
+        System.out.print("\n");
+        System.out.format("|| %-12s | %-25s | %-10s | %-12s | %-14s | %-10s | %-12s | %-10s ||", "Ma bac si","Ho Ten","Gioi tinh","Ngay sinh","So dien thoai","Trinh do","Chuyen nganh","Hoat Dong");
+        System.out.print("\n" + "||" + "-".repeat(128) + "||");
+        for(int i = 0; i < n; i++){
+            
+            if(dsbs[i].getTrinhDo().equalsIgnoreCase("Dai hoc")){
+                daiHoc++;
+                dsbs[i].xuat();
+            }
+        }
+
+        System.out.print("\n" +"||" + "=".repeat(3) + " TRINH DO THAC SI " + "=".repeat(107) + "||");       
+        for(int i = 0; i < n; i++){
+            if(dsbs[i].getTrinhDo().equalsIgnoreCase("thac si")){
+                thacSi++;               
+                dsbs[i].xuat();
+            }
+        }
+
+        System.out.print("\n" +"||" + "=".repeat(3) + " TRINH DO TIEN SI " + "=".repeat(107) + "||");       
+        for(int i = 0; i < n; i++){
+            if(dsbs[i].getTrinhDo().equalsIgnoreCase("Tien si")){
+                tienSi++;
+                dsbs[i].xuat();
+            }
+        }
+        System.out.print("\n" + "=".repeat(132));
+        System.out.print("\nTONG SO LUONG BAC SI: " + n);
+        System.out.print("\n- Trinh do dai hoc: " + daiHoc);
+        System.out.print("\n- Trinh do thac si: " + thacSi);
+        System.out.print("\n- Trinh do tien si: " + tienSi);
     }
     
     public void thongKeGioiTinh(){
+        Arrays.sort(dsbs, 0, n, (bs1, bs2) -> bs1.getTrinhDo().compareTo(bs2.getTrinhDo()));
 
+        int nam = 0;
+        int nu = 0;
+        
+        System.out.print("\n" + "=".repeat(54) + " BANG THONG KE GIOI TINH " + "=".repeat(53));
+        System.out.print("\n" + "=".repeat(5) + " NAM " + "=".repeat(122));
+        System.out.print("\n");
+        System.out.format("|| %-12s | %-25s | %-10s | %-12s | %-14s | %-10s | %-12s | %-10s ||", "Ma bac si","Ho Ten","Gioi tinh","Ngay sinh","So dien thoai","Trinh do","Chuyen nganh","Hoat Dong");
+        System.out.print("\n" + "||" + "-".repeat(128) + "||");
+        for(int i = 0; i < n; i++){
+            
+            if(dsbs[i].getGioiTinh().equalsIgnoreCase("Nam")){
+                nam++;
+                dsbs[i].xuat();
+            }
+        }
+
+        System.out.print("\n" +"||" + "=".repeat(3) + " NU " + "=".repeat(121) + "||");       
+        for(int i = 0; i < n; i++){
+            if(dsbs[i].getGioiTinh().equalsIgnoreCase("Nu")){
+                nu++;               
+                dsbs[i].xuat();
+            }
+        }
+
+        System.out.print("\n" + "=".repeat(132));
+        System.out.print("\nTONG SO LUONG BAC SI: " + n);
+        System.out.print("\n- Gioi tinh nam: " + nam + " (" + (nam * 100.0 / n) + "%)");
+        System.out.print("\n- Gioi tinh nu: " + nu + " (" + (nu * 100.0 / n) + "%)");
     }
 
     public void thongKeHoatDong(){
+        int hd =0;
+        System.out.print("\n" + "=".repeat(54) + " BANG THONG KE HOAT DONG " + "=".repeat(53));
+        for (int i = 0; i < n; i++)
+        {
+            if (dsbs[i].getHoatDong())
+            {
+                hd++;
+            }
+        }
+        System.out.print("\n" + "=".repeat(5) + " So bac si dang hoat dong: "+ hd +" :" + "=".repeat(97));
+        System.out.print("\n");
+        System.out.format("|| %-12s | %-25s | %-10s | %-12s | %-14s | %-10s | %-12s | %-10s ||", "Ma bac si","Ho Ten","Gioi tinh","Ngay sinh","So dien thoai","Trinh do","Chuyen nganh","Hoat Dong");
+        System.out.print("\n" + "||" + "-".repeat(128) + "||");
+        for (int i=0;i<n;i++)
+        {
+            if (dsbs[i].getHoatDong())
+            {
+                dsbs[i].xuat();
+            }
+        }
 
+        System.out.print("\n" + "=".repeat(5) + " So bac si khong hoat dong: "+ (n - hd) +" :" + "=".repeat(96));
+        System.out.print("\n");
+        System.out.format("|| %-12s | %-25s | %-10s | %-12s | %-14s | %-10s | %-12s | %-10s ||", "Ma bac si","Ho Ten","Gioi tinh","Ngay sinh","So dien thoai","Trinh do","Chuyen nganh","Hoat Dong");
+        System.out.print("\n" + "||" + "-".repeat(128) + "||");
+        for (int i=0;i<n;i++)
+        {
+            if (!dsbs[i].getHoatDong())
+            {
+                dsbs[i].xuat();
+            }
+        }
+        System.out.print("\n" + "=".repeat(132));
     }
 
     public void menuBacSi(){

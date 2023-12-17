@@ -70,7 +70,7 @@ public class BacSi {
         chuyenNganh = input.nextLine();
         System.out.print("\nNhap hoat dong: ");
         hoatDong = input.nextBoolean();
-        System.out.print("\n----------\n");
+        System.out.print("\n");
     }
 
 //Xuat: 
@@ -143,18 +143,18 @@ public class BacSi {
         do{
             Scanner input = new Scanner(System.in);
             
-            System.out.print("\t\t\t === DANH SACH CAC SUA THONG TIN ===");            
-            System.out.print("\n\t\t\t || 0) Thoat.                     ||" +
-                             "\n\t\t\t || 1) Ma bac si.                 ||" + 
-                             "\n\t\t\t || 2) Ho bac si.                 ||" + 
-                             "\n\t\t\t || 3) Ten bac si.                ||" + 
-                             "\n\t\t\t || 4) Gioi tinh.                 ||" + 
-                             "\n\t\t\t || 5) Ngay sinh.                 ||" + 
-                             "\n\t\t\t || 6) So dien thoai.             ||" + 
-                             "\n\t\t\t || 7) Trinh do.                  ||" +
-                             "\n\t\t\t || 8) Chuyen nganh.              ||" +
-                             "\n\t\t\t || 9) Hoat dong.                 ||" );
-            System.out.print("\n\t\t\t ===================================");
+            System.out.print("\t\t === DANH SACH CAC SUA THONG TIN ===");            
+            System.out.print("\n\t\t || 0) Thoat.                     ||" +
+                             "\n\t\t || 1) Ma bac si.                 ||" + 
+                             "\n\t\t || 2) Ho bac si.                 ||" + 
+                             "\n\t\t || 3) Ten bac si.                ||" + 
+                             "\n\t\t || 4) Gioi tinh.                 ||" + 
+                             "\n\t\t || 5) Ngay sinh.                 ||" + 
+                             "\n\t\t || 6) So dien thoai.             ||" + 
+                             "\n\t\t || 7) Trinh do.                  ||" +
+                             "\n\t\t || 8) Chuyen nganh.              ||" +
+                             "\n\t\t || 9) Hoat dong.                 ||" );
+            System.out.print("\n\t\t ===================================");
         
             System.out.print("\n <-> Chon thong tin can sua: ");
             option = input.nextInt();
