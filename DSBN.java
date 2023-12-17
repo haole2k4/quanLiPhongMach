@@ -8,7 +8,7 @@ public class DSBN implements arrayInterfaceBENHNHAN{
 // Thuoc tinh
     private BenhNhan[] dsbn;
     private int n;
-//Dat kieu dinh dang theo dd/MM/yyyy
+//Dat kieu dinh dang kieu thoi gian
     private DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
     private DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 //Phuong thuc
@@ -154,9 +154,9 @@ public class DSBN implements arrayInterfaceBENHNHAN{
 
     public void TimkiemBN() {
         int option = 0;
-        while (option != 5) {
+        while (option != 6) {
             System.out.println("\n----------------------");
-            System.out.println("Chon thong tin can loc:\n1) Ma benh nhan.\n2) Ho.\n3) Gioi tinh. \n4) Que quan.\n5) Quay lai. ");
+            System.out.println("Chon thong tin can loc:\n1) Ma benh nhan.\n2) Ho.\n3) Gioi tinh. \n4) Que quan.\n5) Pham vi ngay kham.\n6) Quay lai. ");
             System.out.print("Moi nhap lua chon: ");
             Scanner sc = new Scanner(System.in);
             option = sc.nextInt();
@@ -237,6 +237,34 @@ public class DSBN implements arrayInterfaceBENHNHAN{
                     }
                     if (!foundHometown) {
                         System.out.println("Khong co benh nhan voi que quan nay!");
+                    }
+                    break;
+                
+                case 5:
+                    System.out.print("\nNhap ngay bat dau (dd/mm/yyyy): ");
+                    String ngayBatDauStr = sc.nextLine();
+                    LocalDate ngayBatDau = LocalDate.parse(ngayBatDauStr, dateFormatter);
+                
+                    System.out.print("\nNhap ngay ket thuc (dd/mm/yyyy): ");
+                    String ngayKetThucStr = sc.nextLine();
+                    LocalDate ngayKetThuc = LocalDate.parse(ngayKetThucStr, dateFormatter);
+                
+                    boolean foundDateRange = false;
+                    for (int i = 0; i < n; i++) {
+                        LocalDate ngayKham = LocalDate.parse(dsbn[i].getNgayKham(), dateFormatter);
+                        if ((ngayKham.isEqual(ngayBatDau) || ngayKham.isAfter(ngayBatDau)) &&
+                            (ngayKham.isEqual(ngayKetThuc) || ngayKham.isBefore(ngayKetThuc))) {
+                            if (!foundDateRange) {
+                                System.out.format("%-12s | %-21s | %-9s | %-11s | %-13s | %-14s | %-10s | %-10s | %-12s | %-10s", "Ma benh nhan", "Ho ten", "Gioi tinh", "SDT", "Can nang(kg)", "Chieu cao(kg)", "Ngay sinh", "Que quan", "Benh nen", "Ngay kham");
+                                System.out.println();
+                                foundDateRange = true;
+                            }
+                            xuatThongTinBenhNhan(i);
+                            System.out.println();
+                        }
+                    }
+                    if (!foundDateRange) {
+                        System.out.println("Khong co benh nhan nao kham trong pham vi thoi gian nay!");
                     }
                     break;
             }
