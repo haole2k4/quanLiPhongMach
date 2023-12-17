@@ -35,20 +35,20 @@ public class HOADON {
         System.out.println("Nhap ma phieu kham benh: ");
 
         maPhieuKhamBenh = input.nextLine();
-       // phieuKhamBenh = new DANHSACHPHIEUKHAMBENH();
-       // try{
-         //   phieuKhamBenh.docData("D:\\phongMach_THUOC\\quanLiPhongMach\\data\\PHIEUKHAMBENH.TXT");
-       // } catch(Exception e){
-       //     System.out.println("loi doc file!");
-     //       return;
-   //     }
-//        if (phieuKhamBenh.timKiemTheoMa(maPhieuKhamBenh)==0){
-   //         System.out.println("Ma phieu kham benh nay khong ton tai ! nhap lai!!!");
- //           them();
-     //   }
-       // else {
-       //     System.out.println("Da xong!");
-        //}
+        phieuKhamBenh = new DANHSACHPHIEUKHAMBENH();
+        try{
+            phieuKhamBenh.docData("D:\\phongMach_THUOC\\quanLiPhongMach\\data\\PHIEUKHAMBENH.TXT");
+        } catch(Exception e){
+            System.out.println("loi doc file!");
+            return;
+        }
+         if (phieuKhamBenh.timKiemTheoMa(maPhieuKhamBenh)==0){
+            System.out.println("Ma phieu kham benh nay khong ton tai ! nhap lai!!!");
+          them();
+        }
+        else {
+           System.out.println("Da xong!");
+        }
     System.out.print("Hinh thuc thanh toan: (1:CK, 2:Tien mat)???");
     int option = input.nextInt();
     do{
@@ -82,22 +82,22 @@ public class HOADON {
         System.out.format("|| %94s ||\n","HOA DON BAN HANG");
         System.out.format("||       %-47s %40s ||\n","TIEM THUOC NHOM 10","Ngay tao: "+ngayTao);
         System.out.format("|| %94s ||\n","So / Ma: "+maHoaDon);
-        System.out.format("|| %-94s ||\n","Bac si quan ly: "+"CHUA CO");
-        System.out.format("|| %-94s ||\n","Ma BSI: "+"CHUA CO");
-        System.out.format("|| %-94s ||\n","SDT: "+"CHUA CO");
+        System.out.format("|| %-94s ||\n","Bac si quan ly: "+phieuKhamBenh.getPhieuKhamBenh(maPhieuKhamBenh).getMaBacSi());
+        System.out.format("|| %-94s ||\n","Ma BSI: "+phieuKhamBenh.getPhieuKhamBenh(maPhieuKhamBenh).getMaBacSi());
+        System.out.format("|| %-94s ||\n","SDT: "+"chua co");
         System.out.format("|| %-94s ||\n"," ");
-        System.out.format("|| %-94s ||\n","Ten benh nhan: "+ "Chua co");
-        System.out.format("|| %-94s ||\n","Ma benh nhan: "+"CHUA CO");
+        System.out.format("|| %-94s ||\n","Ten benh nhan: "+ phieuKhamBenh.getPhieuKhamBenh(maPhieuKhamBenh).getMaBenhNhan());
+        System.out.format("|| %-94s ||\n","Ma benh nhan: "+phieuKhamBenh.getPhieuKhamBenh(maPhieuKhamBenh).getMaBenhNhan());
         System.out.format("|| %-94s ||\n","Da chi: "+"CHUA CO");
         System.out.format("|| %-94s ||\n"," ");
         System.out.format("|| %-94s ||\n"," ".repeat(38)+"DON THUOC");
         // xuat don thuoc
         donThuoc.xuatDonThuocTheoMa(maDonThuoc);
-        System.out.format("|| %53s %-40s ||\n"," ","Cong Tien Kham : "+ "CHUA CO");
-        System.out.format("|| %53s %-40s ||\n"," ","Tong Tien Thanh Toan : "+ "CHUA CO");
+        System.out.format("|| %53s %-40s ||\n"," ","Cong Tien Kham : "+ phieuKhamBenh.getPhieuKhamBenh(maPhieuKhamBenh).getTienKham());
+        System.out.format("|| %53s %-40s ||\n"," ","Tong Tien Thanh Toan : "+ tongTien);
         System.out.format("|| %53s %-40s ||\n"," ", "Hinh thuc thanh toan : "+ hinhThucThanhToan);
         System.out.format("|| %-94s ||\n"," ");
-        System.out.format("||          %-48s %-31s      ||\n","Benh Nhan","Nhan vien Ban Hang");
+        System.out.format("||          %-48s %-31s      ||\n","Benh Nhan",phieuKhamBenh.getPhieuKhamBenh(maPhieuKhamBenh).getMaBenhNhan());
         System.out.format("||         %-49s %-31s      ||\n","Nguyen Van A",dsnv.timkiem(NVThuNgan).getHo().toUpperCase()+" "+dsnv.timkiem(NVThuNgan).getTen().toUpperCase());
         System.out.println("=".repeat(100));
 

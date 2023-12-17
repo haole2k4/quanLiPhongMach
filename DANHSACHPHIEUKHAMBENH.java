@@ -34,11 +34,19 @@ public class DANHSACHPHIEUKHAMBENH {
     public PHIEUKHAMBENH[] getDsPhieuKham() {
         return this.dsPhieuKham;
     }
+    public PHIEUKHAMBENH getPhieuKhamBenh(String ma){
+        for (int i=0;i<soPhieuKham;i++){
+            if (dsPhieuKham[i].getMaPhieuKham().equals(ma))
+        return dsPhieuKham[i];
+    
+        }
+        return null;
+        
+    }
 
     public int getSoPhieuKham() {
         return this.soPhieuKham;
     }
-
     public void setSoPhieuKham(int soPhieu) {
         this.soPhieuKham = soPhieu;
     }
@@ -55,6 +63,14 @@ public class DANHSACHPHIEUKHAMBENH {
         } catch(IOException e) {
             System.out.println("Doc data can thiet that bai");
         }
+    }
+    public int timKiemTheoMa(String ma){
+        for (int i=0;i<soPhieuKham;i++){
+            if (ma.equals(dsPhieuKham[i].getMaPhieuKham())){
+                return 1;
+            }
+        }
+        return 0;
     }
 
     public void themPhieuKhamBenh(PHIEUKHAMBENH newPhieukhambenh) {
