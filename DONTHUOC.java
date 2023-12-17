@@ -42,7 +42,7 @@ class DONTHUOC {
             String ma = input.nextLine();
             if (dstchinh.isExists(ma) == 0){
                 System.out.println("Thuoc khong ton tai ! Nhap lai!");
-                return;
+                them(dstchinh);
             }
             else{
                 dst[i].setMaThuoc(ma);
@@ -61,7 +61,7 @@ class DONTHUOC {
                 }
                 else{
                     System.out.println("So luong thuoc khong phu hop!");
-                    return;
+                    them(dstchinh);
                 }
         
             }
