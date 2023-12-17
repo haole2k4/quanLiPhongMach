@@ -54,7 +54,7 @@ public class DANHSACHDONTHUOC {
                 arrThuoc[j].setGiaCa(Double.parseDouble(arr[4*(j+1)]));
                 arrThuoc[j].setSoLuong(Integer.parseInt(arr[4*(j+1)+1]));
             }
-            dsdt[i].setDst(arrThuoc);
+            dsdt[i].setDst(0,arrThuoc);
             dsdt[i].setDonGia(Double.parseDouble(arr[arr.length-1]));
             i++;
 
@@ -74,7 +74,6 @@ public class DANHSACHDONTHUOC {
             dsdt[soLuongDonThuoc-1] = new DONTHUOC();
             dsdt[soLuongDonThuoc-1].them(dst);
             }
-        ghiFile("D:\\phongMach_THUOC\\quanLiPhongMach\\data\\DONTHUOC.TXT");
     
     
 }
@@ -124,7 +123,145 @@ public class DANHSACHDONTHUOC {
         System.out.println("Khong tim thay ma nay ! xoa that bai!!!");
         
 
+    
     }
+    public void xoa(String ma){
+        for (int i=0;i<soLuongDonThuoc;i++){
+            if (ma.equals(dsdt[i].getMaDonThuoc()))
+            {
+                for (int j=i;j<soLuongDonThuoc-1;j++){
+                    dsdt[i] = dsdt[i+1];
+                    
+                }
+                System.out.println("Xoa thanh cong!");
+                soLuongDonThuoc--;
+                return;
+            }
+            
+        }
+        System.out.println("Khong tim thay ma nay ! xoa that bai!!!");
+        
+
+    
+    }
+    public void sua(){
+        Scanner input = new Scanner(System.in);
+        System.out.print("Nhap ma can sua!");
+        String ma = input.nextLine();
+        for (int i=0;i<soLuongDonThuoc;i++){
+            if (ma.equals(dsdt[i].getMaDonThuoc())){
+                System.out.println("Lua chon noi dung can sua: ");
+                System.out.println("0: Thoat");
+                System.out.println("1: Ma don thuoc");
+                System.out.println("2: sua thong tin thuoc");
+                System.out.print("Lua chon: "); 
+                int option = input.nextInt();
+                input.nextLine();
+                if (option == 0) return;
+                if (option ==1 ){
+                    System.out.print("Nhap ma don thuoc moi :");
+                    String ma2 = input.nextLine();
+                    dsdt[i].setMaDonThuoc(ma2);
+                    System.out.println("Sua thanh cong ! ");
+                }
+                if (option ==2 ){
+                    System.out.println("--> sua thong tin cua thuoc ");
+                    System.out.println("0: Thoat");
+                    System.out.println("1: sua so luong theo ma");
+                    System.out.println("2: xoa thuoc");
+                    System.out.println("3: Them thuoc");
+                    System.out.print("Lua chon");
+                    int option2 = input.nextInt();
+                    input.nextLine();
+                    if (option2 == 0) return;
+                    if (option2 ==1 ){
+                        System.out.print("NHap ma can sua so luong: "); 
+                        String maT = input.nextLine();
+                        boolean flag = false;
+                        for (int j=0;j<dsdt[i].getDst().length;j++){
+                            if (maT.equals(dsdt[i].getDst()[j].getMaThuoc())){
+                                flag = true;
+                                System.out.print("So luong moi : ");
+                                dsdt[i].getDst()[j].setSoLuong(input.nextInt());
+                                System.out.println("Sua thanh cong!");
+                                dsdt[i].xuat();
+                                return;
+                            }
+                            
+                        }
+                            if (!flag){
+                                System.out.println("Khong tim thay ma thuoc nay !");
+                            }
+                    }
+                    if (option2 ==2 ){
+                        System.out.print("Nhap ma thuoc can xoa: ");
+                        String maT = input.nextLine();
+                        for (int j=0;j<dsdt[i].getDst().length;j++){
+                            if (maT.equals(dsdt[i].getDst()[j].getMaThuoc())){
+                                for (int k =j;k<dsdt[i].getDst().length-1;k++){
+                                    dsdt[i].getDst()[k] = dsdt[i].getDst()[k];
+                                }
+                                dsdt[i].setSoLuongThuocBoc(dsdt[i].getSoLuongThuocBoc()-1);
+                                if (dsdt[i].getSoLuongThuocBoc() == 0){
+                                    xoa(dsdt[i].getMaDonThuoc());
+                                }
+                            }
+                    }
+                    }
+                    if (option2 == 3){
+                        THUOC [] newDST = Arrays.copyOf(dsdt[i].getDst(), dsdt[i].getDst().length + 1);
+                            DANHSACHTHUOC dstchinh = new DANHSACHTHUOC();
+                            try{
+                                dstchinh.docData("D:\\phongMach_THUOC\\quanLiPhongMach\\data\\dataThuoc.txt");
+                            } catch ( Exception e){
+                                System.out.println("Loi ghi file");
+                                return;
+                            }
+                            // chỗ này chưa định dạng đc 2 loạit thuốc :v nên để đại , fix sau
+                            newDST[dsdt[i].getDst().length] = new THUOCCHICH();
+                            System.out.print("Ma: "); 
+                            String ma2 = input.nextLine();
+                            if (dstchinh.isExists(ma2) == 0){
+                                System.out.println("Thuoc khong ton tai ! Nhap lai!");
+                                return;
+                            }
+                            else{
+                                newDST[dsdt[i].getDst().length] .setMaThuoc(ma2);
+                                 newDST[dsdt[i].getDst().length] .setTenThuoc(dstchinh.getTenThuocTheoMa(ma2));
+                                System.out.print("So luong: "); 
+                                int soluong = input.nextInt();
+                                input.nextLine();
+                                if ((soluong>= 0) && soluong <= dstchinh.getSoLuongThuocTheoLoai(ma2)){
+                                    newDST[dsdt[i].getDst().length] .setSoLuong(soluong);
+                                     newDST[dsdt[i].getDst().length] .setGiaCa(dstchinh.getGiaCaTheoMa(ma2));
+                                    // tinh don gia 
+                                    double tien = newDST[dsdt[i].getDst().length].getGiaCa()* newDST[dsdt[i].getDst().length] .getSoLuong();
+                                    dsdt[i].setDonGia(tien+dsdt[i].getDonGia());
+                                    //khi nhap xong don thuoc thi set lai so luong trong danh sach thuoc
+                                    dstchinh.giamSoLuongThuocTheoMa(ma2, soluong);
+                                    
+                                }
+                                else{
+                                    System.out.println("So luong thuoc khong phu hop!");
+                                    return;
+                                }
+                        
+                           
+                            dsdt[i].setDst(1,newDST);
+                            
+                             }
+                
+                        }
+
+                        
+                    }
+                    
+                    
+                }
+
+            }
+        }
+    
 
     public void menu(DANHSACHTHUOC dst){
         System.out.println("TRINH QUAN LY DON THUOC");
@@ -134,12 +271,18 @@ public class DANHSACHDONTHUOC {
         System.out.println("3: tim kiem don thuoc");
         System.out.println("4: xoa don thuoc");
         
-        System.out.println("5: In hoa don moi tao");
+        System.out.println("5: sua don thuoc");
+        
+        System.out.println("6: In hoa don moi tao");
         
         System.out.print("Lua chon: ");
         Scanner input = new Scanner(System.in);
         int i= input.nextInt();
         do{
+        if (i==0)
+        {
+ 
+        }
 
         if (i==1){
             them(dst);
@@ -154,13 +297,18 @@ public class DANHSACHDONTHUOC {
         {
             xoa();
         }
-        if ( i==5){
+        if (i == 5)
+        {
+            sua();
+        }
+        if ( i==6){
             inCuoi();
         }
         System.out.print("Lua chon: ");
         i= input.nextInt();
         
     } while ( i !=0 );
+               ghiFile("D:\\phongMach_THUOC\\quanLiPhongMach\\data\\DONTHUOC.TXT" );
     }
     
     

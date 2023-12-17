@@ -1,4 +1,5 @@
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 class DONTHUOC {
@@ -114,8 +115,11 @@ class DONTHUOC {
         return dst;
     }
 
-    public void setDst(THUOC[] dst) {
-        this.dst = dst;
+    public void setDst(int soluong, THUOC[] newdst) {
+        this.dst= new THUOC[soLuongThuocBoc+soluong];
+        this.dst=newdst;
+        soLuongThuocBoc+=soluong;
+        
     }
 
     public int getSoLuongThuocBoc() {
