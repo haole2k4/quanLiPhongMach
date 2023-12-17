@@ -134,6 +134,23 @@ public class DSBN implements arrayInterfaceBENHNHAN{
         n++;
     }
 
+    public int Timkiem() {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("\nNhap ma benh nhan can tim: ");
+        int macantim = sc.nextInt();
+        
+        int foundIndex = -1;
+        
+        for (int i = 0; i < n; i++) {
+            if (dsbn[i].getMaBenhNhan() == macantim) {
+                foundIndex = i;
+                break;
+            }
+        }
+        
+        return foundIndex;
+    }
+
     public void TimkiemBN() {
         int option = 0;
         while (option != 5) {
