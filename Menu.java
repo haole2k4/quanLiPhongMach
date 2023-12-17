@@ -4,7 +4,7 @@ public class Menu {
     Scanner mayScanner = new Scanner(System.in);
 
     DANHSACHTHUOC trinhqlThuoc = new DANHSACHTHUOC();
-    DANHSACHNHANVIEN trinhqlNhanVien = new DANHSACHNHANVIEN();
+    QUANLIDSNhanVien trinhqlNhanVien = new QUANLIDSNhanVien();
     DANHSACHCHITHIETPHIEUNHAP trinhqlDSCTPN = new DANHSACHCHITHIETPHIEUNHAP();
     DANHSACHPHIEUNHAP trinhqlDSPN = new DANHSACHPHIEUNHAP();
     QUANLYNHAPHANG trinhqlNhapHang = new QUANLYNHAPHANG();
@@ -59,7 +59,7 @@ public class Menu {
                 trinhqlThuoc.menuThaoTac();
             }
             if(option == 2) {
-                trinhqlNhanVien.menu();
+                trinhqlNhanVien.thaoTac();
             }
 
             if(option == 3) {

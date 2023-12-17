@@ -191,7 +191,12 @@ public class DANHSACHHOADON {
             i = input.nextInt();
 
         } while (i != 0);
-        ghiFile("data\\HOADON.TXT");
     }
+    public static void main(String[] args) {
+        DANHSACHHOADON ds = new DANHSACHHOADON();
+        ds.docFile("data\\HOADON.TXT");
+        ds.xuat();
+    }
+
 
 }

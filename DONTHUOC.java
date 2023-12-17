@@ -38,24 +38,19 @@ class DONTHUOC {
         input.nextLine();
         for (int i = 0; i < soLuongThuocBoc; i++) {
 
+            System.out.print("Thuoc " + (i + 1) + " : ");
             System.out.println("0: Thuoc chinh ");
             System.out.println("1: Thuoc vi ");
             int option = input.nextInt();
             input.nextLine();
             if (option ==0 )
             {
-                THUOCCHICH temp = new THUOCCHICH();
-                if (dst[i] instanceof THUOCCHICH) {
-                    
-                }
+                dst[i] = new THUOCCHICH();
             }
             if (option ==1 )
             {
-                THUOCVI temp = new THUOCVI();
-                dst[i] = new THUOCCHICH();
+                dst[i] = new THUOCVI();
             }
-            dst[i] = new THUOCCHICH();
-            System.out.print("Thuoc " + (i + 1) + " : ");
             System.out.print("Ma: ");
             String ma = input.nextLine();
             if (dstchinh.isExists(ma) == 0) {
