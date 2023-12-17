@@ -28,47 +28,26 @@ public class THUOCCHICH extends THUOC {
     }
 
     public void suaThongTinThuoc() {
-        System.out.println("Nhap ten thuoc tinh thuoc can sua: ");
+        System.out.println("\t\t\tNhap 1 de sua so luong thuoc");
+        System.out.println("\t\t\tNhap 2 de sua gia ca thuoc");
+        System.out.println("\t\t\tNhap 3 de sua dung tich thuoc");
+        System.out.println("\t\t\tNhap ten thuoc tinh thuoc can sua: ");
         int newThuocTinhCanSua = mayScanner.nextInt();
 
         switch (newThuocTinhCanSua) {
+            
             case 1:
-                System.out.print("Nhap ma thuoc: ");
-                String newMaThuoc = mayScanner.nextLine();
-                this.setMaThuoc(newMaThuoc);
-                break;
-            case 2:
-                System.out.print("Nhap nha san xuat: ");
-                String newMaNhaSanXuat = mayScanner.nextLine();
-                this.setMaNhaSanXuat(newMaNhaSanXuat);
-                break;
-            case 3:
-                System.out.print("Nhap ten thuoc: ");
-                String newTenThuoc = mayScanner.nextLine();
-                this.setTenThuoc(newTenThuoc);
-                break;
-            case 4:
-                System.out.print("Nhap so luong thuoc: ");
+                System.out.print("\t\t\tNhap so luong thuoc: ");
                 int newSoLuong = mayScanner.nextInt();
                 this.setSoLuong(newSoLuong);
                 break;
-            case 5:
-                System.out.print("Nhap ngay san xuat thuoc: ");
-                String newNgaySanXuat = mayScanner.nextLine();
-                this.setNgaySanXuat(LocalDate.parse(newNgaySanXuat));
-                break;
-            case 6:
-                System.out.print("Nhap han su dung thuoc: ");
-                String newHanSuDung = mayScanner.nextLine();
-                this.setHanSuDung(LocalDate.parse(newHanSuDung));
-                break;
-            case 7:
-                System.out.print("Nhap gia ca thuoc: ");
+            case 2:
+                System.out.print("\t\t\tNhap gia ca thuoc: ");
                 double newGiaCa = mayScanner.nextDouble();
                 this.setGiaCa(newGiaCa);
                 break;
-            case 8:
-                System.out.print("Nhap dung tich thuoc: ");
+            case 3:
+                System.out.print("\t\t\tNhap dung tich thuoc: ");
                 int newDungTichThuoc = mayScanner.nextInt();
                 this.dungTichThuoc = newDungTichThuoc;
                 break;
@@ -82,7 +61,7 @@ public class THUOCCHICH extends THUOC {
         DateTimeFormatter dinhDangNgayThang = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         String ngaySanXuat = this.getNgaySanXuat().format(dinhDangNgayThang);
         String hanSuDung = this.getHanSuDung().format(dinhDangNgayThang);
-        System.out.format("|| %-10s | %-15s | %-25s | %-8s | %-10s | %-10s | %-14s ||\n", this.getMaThuoc(), this.getMaNhaSanXuat(), this.getTenThuoc(), this.getSoLuong(), ngaySanXuat, hanSuDung, this.getGiaCa());
+        System.out.format("|| %-13s | %-10s | %-15s | %-25s | %-8s | %-10s | %-10s | %-14s ||\n", "Thuoc vi",this.getMaThuoc(), this.getMaNhaSanXuat(), this.getTenThuoc(), this.getSoLuong(), ngaySanXuat, hanSuDung, this.getGiaCa());
     }
 
     public void nhapThongTinThuoc() {
