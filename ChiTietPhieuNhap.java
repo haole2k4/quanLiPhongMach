@@ -48,7 +48,7 @@ import java.util.Scanner;
             System.out.print("Ma thuoc: ");
             String maThuoc = input.nextLine();
             // doc data thuoc de check xem thuoc co ton tai hay khong ?
-            File file = new File("D:\\phongMach_THUOC\\quanLiPhongMach\\data\\dataThuoc.txt");
+            File file = new File("data\\dataThuoc.txt");
             Scanner read = null;
             try {
                 read = new Scanner(file);
@@ -85,13 +85,11 @@ import java.util.Scanner;
                         tempThuocchich.nhapThongTinThuoc();
                         DANHSACHTHUOC dst = new DANHSACHTHUOC();
                         dst.themThuoc(tempThuocchich);
-                        dst.ghiLine(dst.getDataThuoc(0));
                     } else if (loaiThuocCanThem == 1) {
                         THUOCVI tempThuocvi = new THUOCVI();
                         tempThuocvi.nhapThongTinThuoc();
                         DANHSACHTHUOC dst = new DANHSACHTHUOC();
                         dst.themThuoc(tempThuocvi);
-                        dst.ghiLine(dst.getDataThuoc(0));
                     }
                     System.out.println("De tao thong tin thuoc thanh cong. Hay tiep tuc!");
                 } else if (chon == 1) {

@@ -47,17 +47,20 @@ public class DANHSACHPHIEUKHAMBENH {
     public int getSoPhieuKham() {
         return this.soPhieuKham;
     }
-    public String getChuanDoanTuMa(String ma){
-        for (int i=0;i<soPhieuKham;i++){
-            if (ma.equals(dsPhieuKham[i].getMaPhieuKham())){
+
+    public String getChuanDoanTuMa(String ma) {
+        for (int i = 0; i < soPhieuKham; i++) {
+            if (ma.equals(dsPhieuKham[i].getMaPhieuKham())) {
                 return dsPhieuKham[i].getChuanDoan();
             }
         }
         return "";
     }
+
     public void setSoPhieuKham(int soPhieu) {
         this.soPhieuKham = soPhieu;
     }
+
     public void setDanhSachPhieuKham(PHIEUKHAMBENH[] dspkb) {
         this.dsPhieuKham = dspkb;
     }
@@ -130,7 +133,7 @@ public class DANHSACHPHIEUKHAMBENH {
         // } while (checkValidDate(ngayKham, LocalDate.parse(tempNgayTaiKham)));
         System.out.print("Nhap ngay tai kham (yyyy--MM-dd): ");
         tempNgayTaiKham = mayScanner.nextLine();
-        while(!checkValidDate(ngayKham, LocalDate.parse(tempNgayTaiKham))) {
+        while (!checkValidDate(ngayKham, LocalDate.parse(tempNgayTaiKham))) {
 
         }
         LocalDate ngayTaiKham = LocalDate.parse(tempNgayTaiKham);
@@ -248,13 +251,13 @@ public class DANHSACHPHIEUKHAMBENH {
                 this.taoPhieuKhamBenh();
             }
 
-            if(option == 3) {
+            if (option == 3) {
                 mayScanner.nextLine();
                 System.out.println("Nhap ma phieu kham benh: ");
                 String maPhieuKhamCanTim = mayScanner.nextLine();
 
                 int index = timKiemTheoMa(maPhieuKhamCanTim);
-                if(index == -1) {
+                if (index == -1) {
                     System.out.println("Ma thuoc khong co trong CSDL");
                 }
 

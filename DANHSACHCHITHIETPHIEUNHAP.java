@@ -11,7 +11,7 @@ public class DANHSACHCHITHIETPHIEUNHAP {
     // 3 ham khoi tao
     // HAM DOC FILE
     public void docfile() {
-        File file = new File("data/chitietphieunhap.txt");
+        File file = new File("data\\chitietphieunhap.txt");
         Scanner read = null;
         try {
             read = new Scanner(file);
@@ -52,7 +52,7 @@ public class DANHSACHCHITHIETPHIEUNHAP {
 
     // HAM GHI FILE
     public void ghiFile() {
-        File file = new File("data/chitietphieunhap.txt");
+        File file = new File("data\\chitietphieunhap.txt");
         PrintWriter write = null;
         try {
             write = new PrintWriter(file);
