@@ -67,7 +67,7 @@ public class HOADON {
     }
     public void them(){
         Scanner input = new Scanner(System.in);
-        System.out.println("Nhap ma hoa don : ");
+        System.out.print("Nhap ma hoa don : ");
         maHoaDon = input.nextLine();
         ngayTao= ngayTao.now();
         System.out.print("Nhap ma don thuoc: ");
@@ -78,9 +78,8 @@ public class HOADON {
             System.out.println("Ma don thuoc nay khong ton tai! nhap lai !!!!");
             them();
         }
-        else {System.out.println("Da xong!");}
         //phieuKhamBenh.docFile("D:\phongMach_THUOC\quanLiPhongMach\data\\PHIEUKHAMBENH.TXT");
-        System.out.println("Nhap ma phieu kham benh: ");
+        System.out.print("Nhap ma phieu kham benh: ");
 
         maPhieuKhamBenh = input.nextLine();
         phieuKhamBenh = new DANHSACHPHIEUKHAMBENH();
@@ -94,10 +93,8 @@ public class HOADON {
             System.out.println("Ma phieu kham benh nay khong ton tai ! nhap lai!!!");
           them();
         }
-        else {
-           System.out.println("Da xong!");
-        }
-    System.out.print("Hinh thuc thanh toan: (1:CK, 2:Tien mat)???");
+
+    System.out.print("Hinh thuc thanh toan: (1:CK / 2:Tien mat) ");
     int option = input.nextInt();
     do{
         if (option ==1){

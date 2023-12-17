@@ -230,7 +230,8 @@ public class DSBN implements arrayInterfaceBENHNHAN{
                 return dsbn[i];
             }
         }
-        return null;
+        BenhNhan test = new BenhNhan();
+        return test;
     }
     
     public void XoaBN() {
