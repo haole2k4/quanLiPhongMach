@@ -70,15 +70,6 @@ public class DANHSACHPHIEUKHAMBENH {
         dsbn.docData(filePathBenhNhan);
     }
 
-    public int timKiemTheoMa(String ma) {
-        for (int i = 0; i < soPhieuKham; i++) {
-            if (ma.equals(dsPhieuKham[i].getMaPhieuKham())) {
-                return 1;
-            }
-        }
-        return 0;
-    }
-
     public boolean checkValidDate(LocalDate ngayKham, LocalDate ngayTaiKham) {
         boolean isValid = true;
         if (ngayKham.isEqual(ngayTaiKham) && ngayKham.isBefore(ngayTaiKham))
@@ -277,8 +268,9 @@ public class DANHSACHPHIEUKHAMBENH {
         int option = 0;
 
         do {
+            System.out.println("\t\t" + "-".repeat(10) + " Trinh quan li phieu kham benh " + "-".repeat(10));
             System.out.println("\t\tNhap 0 de thoat");
-            System.out.println("\t\tNhap 1 de in toan bo hoa don");
+            System.out.println("\t\tNhap 1 de in danh sach toan bo phieu kham benh");
             System.out.println("\t\tNhap 2 de nhap them mot phieu kham benh");
             System.out.println("\t\tNhap 3 de in mot phieu kham benh");
             System.out.print("\t\tVui long nhap lua chon cua ban: ");
@@ -290,6 +282,7 @@ public class DANHSACHPHIEUKHAMBENH {
             }
 
             if (option == 0) {
+                
                 break;
             }
 
@@ -306,7 +299,7 @@ public class DANHSACHPHIEUKHAMBENH {
                 System.out.print("Nhap ma phieu kham benh: ");
                 String maPhieuKhamCanTim = mayScanner.nextLine();
 
-                int index = timKiemTheoMa(maPhieuKhamCanTim);
+                int index = timMaPhieuKham(maPhieuKhamCanTim);
                 if (index == -1) {
                     System.out.println("Ma thuoc khong co trong CSDL");
                 }
@@ -314,6 +307,7 @@ public class DANHSACHPHIEUKHAMBENH {
                 else {
                     this.inChiTietPhieuKham(index);
                 }
+                
             }
 
         } while (option != 0);
@@ -335,6 +329,7 @@ public class DANHSACHPHIEUKHAMBENH {
             }
 
             if (find_option == 0) {
+                
                 break;
             }
 
