@@ -5,11 +5,12 @@ import java.time.format.DateTimeFormatter;
 import java.util.Arrays;
 
 public class DSBN implements arrayInterfaceBENHNHAN{
+// Thuoc tinh
     private BenhNhan[] dsbn;
     private int n;
-
+//Dat kieu dinh dang theo dd/MM/yyyy
     private DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-    
+//Phuong thuc
     DSBN() {
         dsbn = new BenhNhan[1000];
         dsbn[0] = null;
@@ -32,50 +33,23 @@ public class DSBN implements arrayInterfaceBENHNHAN{
         return n;
     }
 
-    public String fileBN()
+    void ghiFile(String filePath)
     {
-        return "data/BenhNhan.txt";
-    }
-    //ham lay dong de ghi vao file
-    public String getLine(int i)
-    {
-        return (dsbn[i].getMaBenhNhan()+","+dsbn[i].getHo()+","+dsbn[i].getTen()+","+dsbn[i].getGioiTinh()+","+dsbn[i].getSDT()+","+dsbn[i].getCanNang()+","+dsbn[i].getChieuCao()+","+dsbn[i].getNgaySinh()+","+dsbn[i].getQueQuan()+","+dsbn[i].getBenhNen()+","+dsbn[i].getNgayKham());
-    }
-    //ham de xoa data trong 1 file
-    public void xoaDataFile(String filePath) {
+        File file = new File(filePath);
+        PrintWriter write = null;
         try {
-            FileWriter writer = new FileWriter(filePath, false);
-            writer.write("");
-            writer.close();
-        } catch (IOException e) {
-            System.out.println("loi");
+            write = new PrintWriter(file);
+        }   catch (Exception e) {
+            System.out.println("Loi ghi file!");
         }
-    }
-    //ham ghi file
-    public void ghiLine(String fileName,String s)
-    {
-        // xoa data trong file tr
-        File outFile = new File(fileName);
-        PrintWriter write=null;
-            try {
-                write= new PrintWriter(new FileWriter(outFile,true));
-                }
-               catch (Exception e){ System.out.println("Khong the tao tap tin ket qua");
-                    return;
-               }
-               write.print(s);
-               write.print("\n");
-               write.close();
-    }
-    void ghiFile()
-    {
-        xoaDataFile(fileBN());
-        ghiLine(fileBN(),String.valueOf(n));
-        for (int i=0;i<n;i++)
+        write.println(n);
+        for (int i = 0; i < n; i++)
         {
-            ghiLine(fileBN(),getLine(i));
+            write.println(dsbn[i].getThongTin());
         }
+        write.close();
     }
+
     public void NhapBN() {
         Scanner input = new Scanner(System.in);
         System.out.println("Thuc hien tiep se dan den viec mat toan bo du lieu da luu, ban co chac chan tiep tuc?");
@@ -84,7 +58,6 @@ public class DSBN implements arrayInterfaceBENHNHAN{
         while (option != 2)
         switch (option) {
             case 1:
-                xoaDataFile(fileBN());
                 System.out.print("\nNhap so luong: ");
                 int soLuongNhap = input.nextInt();
                 int soLuongHienTai = getSLBN();
@@ -97,71 +70,55 @@ public class DSBN implements arrayInterfaceBENHNHAN{
                     dsbn[i] = new BenhNhan();
                     dsbn[i].nhapThongTinBenhNhan(MaBN);
                 }
-                n = soLuongHienTai + soLuongNhap;
-                ghiFile();            
+                n = soLuongHienTai + soLuongNhap;           
                 break;
             default:
                 break;
         }
-        // xoa data trong file truoc khi ghi lai file moi
     }
     
-        void docData()
+        void docData(String filePath)
         {
-            File inFile = new File(fileBN());
+            File inFile = new File(filePath);
             Scanner read = null;
-
-            if (!inFile.exists()) System.out.println("File does not exist: " + fileBN());
-
-            try
+            try{
+                read = new Scanner(inFile);   
+            } catch( Exception e){
+                System.out.print("Khong mo duoc file BenhNhan.txt");
+                return;
+            }
+            String s1 = read.nextLine();
+            n = Integer.parseInt(s1);
+            dsbn = new BenhNhan[n];
+            for (int i=0;i<n;i++)
             {
-                read = new Scanner(inFile);
-                if (read.hasNextLine()) 
-                {
-                    n = Integer.parseInt(read.nextLine());
-                    dsbn = new BenhNhan[n];
-                    for (int i=0;i<n;i++)
-                    {
-                        dsbn[i] = new BenhNhan();
-                        String line = read.nextLine();
-                        String [] str = line.split(",");
-                        dsbn[i].setMaBenhNhan(Integer.parseInt(str[0]));
-                        dsbn[i].setHo(str[1]);
-                        dsbn[i].setTen(str[2]);
-                        dsbn[i].setGioiTinh(str[3]);
-                        dsbn[i].setSDT(str[4]);
-                        dsbn[i].setCanNang(Double.parseDouble(str[5]));
-                        dsbn[i].setChieuCao(Double.parseDouble(str[6]));
-                        LocalDate ngaySinhDate = LocalDate.parse(str[7], dateFormatter);
-                        dsbn[i].setNgaySinh(ngaySinhDate.format(dateFormatter));
-                        dsbn[i].setQueQuan(str[8]);
-                        dsbn[i].setBenhNen(str[9]);
-                        LocalDate ngayKhamDate = LocalDate.parse(str[10], dateFormatter);
-                        dsbn[i].setNgayKham(ngayKhamDate.format(dateFormatter));
-                    }
+                dsbn[i] = new BenhNhan();
+                String line = read.nextLine();
+                String [] str = line.split(",");
+                dsbn[i].setMaBenhNhan(Integer.parseInt(str[0]));
+                dsbn[i].setHo(str[1]);
+                dsbn[i].setTen(str[2]);
+                dsbn[i].setGioiTinh(str[3]);
+                dsbn[i].setSDT(str[4]);
+                dsbn[i].setCanNang(Double.parseDouble(str[5]));
+                dsbn[i].setChieuCao(Double.parseDouble(str[6]));
+                LocalDate ngaySinhDate = LocalDate.parse(str[7], dateFormatter);
+                dsbn[i].setNgaySinh(ngaySinhDate.format(dateFormatter));
+                dsbn[i].setQueQuan(str[8]);
+                dsbn[i].setBenhNen(str[9]);
+                LocalDate ngayKhamDate = LocalDate.parse(str[10], dateFormatter);
+                dsbn[i].setNgayKham(ngayKhamDate.format(dateFormatter));
             }
-                else System.out.println("File is empty!");
-            }
-            catch (Exception e)
-            {
-                System.out.print("khong the mo file BenhNhan.txt");
-            }
-            finally 
-            {
-                if (read != null) {
-                    read.close();
-                }
-            }
+            read.close();
         }
         
     public void xuatThongTinBenhNhan(int i) {
-                System.out.format(  "%-12s %1s %-21s %1s %-9s %1s %-11s %1s %-13s %1s %-14s %1s %-10s %1s %-10s %1s %-12s %1s %-10s", dsbn[i].getMaBenhNhan(),"|", dsbn[i].getHo() + " " + dsbn[i].getTen(),"|", dsbn[i].getGioiTinh(),"|",dsbn[i].getSDT(),"|",dsbn[i].getCanNang(),"|",dsbn[i].getChieuCao(),"|",dsbn[i].getNgaySinh(),"|",dsbn[i].getQueQuan(),"|",dsbn[i].getBenhNen(),"|",dsbn[i].getNgayKham());
+                System.out.format(  "%-12s | %-21s | %-9s | %-11s | %-13s | %-14s | %-10s | %-10s | %-12s | %-10s", dsbn[i].getMaBenhNhan(), dsbn[i].getHo() + " " + dsbn[i].getTen(), dsbn[i].getGioiTinh(), dsbn[i].getSDT(), dsbn[i].getCanNang(), dsbn[i].getChieuCao(), dsbn[i].getNgaySinh(), dsbn[i].getQueQuan(), dsbn[i].getBenhNen(), dsbn[i].getNgayKham());
         }
 
     public void XuatBN() {
             System.out.println("-".repeat(65) + "DANH SACH BENH NHAN" + "-".repeat(65));
-            System.out.format("%-12s %1s %-21s %1s %-9s %1s %-11s %1s %-13s %1s %-14s %1s %-10s %1s %-10s %1s %-12s %1s %-10s", "Ma benh nhan", "|", "Ho ten", "|", "Gioi tinh","|","SDT","|","Can nang(kg)","|","Chieu cao(kg)","|","Ngay sinh","|","Que quan","|","Benh nen","|","Ngay kham");
-            System.out.println();
+            System.out.format("%-12s | %-21s | %-9s | %-11s | %-13s | %-14s | %-10s | %-10s | %-12s | %-10s", "Ma benh nhan", "Ho ten", "Gioi tinh", "SDT", "Can nang(kg)", "Chieu cao(kg)", "Ngay sinh", "Que quan", "Benh nen", "Ngay kham");            System.out.println();
             System.out.print("-".repeat(149));
             for (int i = 0; i < n; i++) {
                 System.out.println();
@@ -175,17 +132,7 @@ public class DSBN implements arrayInterfaceBENHNHAN{
         dsbn[n] = new BenhNhan();
         dsbn[n].nhapThongTinBenhNhan(MaBN);
         n++;
-        ghiFile();
     }
-
-    // public int TimkiemBN(String maBenhNhan) {
-    //     for (int i = 0; i < n; i++) {
-    //         if (dsbn[i].getMaBenhNhan().equals(maBenhNhan)) {
-    //             return i;
-    //         }
-    //     }
-    //     return -1;
-    // }
 
     public void TimkiemBN() {
         int option = 0;
@@ -204,8 +151,7 @@ public class DSBN implements arrayInterfaceBENHNHAN{
                     boolean found = false;
                     for (int i = 0; i < n; i++) {
                         if (dsbn[i].getMaBenhNhan() == ma2) {
-                            System.out.format("%-12s %1s %-21s %1s %-9s %1s %-11s %1s %-13s %1s %-14s %1s %-10s %1s %-10s %1s %-12s %1s %-10s", "Ma benh nhan", "|", "Ho ten", "|", "Gioi tinh","|","SDT","|","Can nang(kg)","|","Chieu cao(kg)","|","Ngay sinh","|","Que quan","|","Benh nen","|","Ngay kham");
-                            System.out.println();
+                            System.out.format("%-12s | %-21s | %-9s | %-11s | %-13s | %-14s | %-10s | %-10s | %-12s | %-10s", "Ma benh nhan", "Ho ten", "Gioi tinh", "SDT", "Can nang(kg)", "Chieu cao(kg)", "Ngay sinh", "Que quan", "Benh nen", "Ngay kham");                            System.out.println();
                             xuatThongTinBenhNhan(i);
                             found = true;
                             break;
@@ -223,7 +169,7 @@ public class DSBN implements arrayInterfaceBENHNHAN{
                     for (int i = 0; i < n; i++) {
                         if (dsbn[i].getHo().equalsIgnoreCase(ho2)) {
                             if (!foundAny) {
-                                System.out.format("%-12s %1s %-21s %1s %-9s %1s %-11s %1s %-13s %1s %-14s %1s %-10s %1s %-10s %1s %-12s %1s %-10s", "Ma benh nhan", "|", "Ho ten", "|", "Gioi tinh","|","SDT","|","Can nang(kg)","|","Chieu cao(kg)","|","Ngay sinh","|","Que quan","|","Benh nen","|","Ngay kham");
+                            System.out.format("%-12s | %-21s | %-9s | %-11s | %-13s | %-14s | %-10s | %-10s | %-12s | %-10s", "Ma benh nhan", "Ho ten", "Gioi tinh", "SDT", "Can nang(kg)", "Chieu cao(kg)", "Ngay sinh", "Que quan", "Benh nen", "Ngay kham");
                                 System.out.println();
                                 foundAny = true;
                             }
@@ -243,7 +189,7 @@ public class DSBN implements arrayInterfaceBENHNHAN{
                     for (int i = 0; i < n; i++) {
                         if (dsbn[i].getGioiTinh().equalsIgnoreCase(gioiTinh2)) {
                             if (!foundGender) {
-                                System.out.format("%-12s %1s %-21s %1s %-9s %1s %-11s %1s %-13s %1s %-14s %1s %-10s %1s %-10s %1s %-12s %1s %-10s", "Ma benh nhan", "|", "Ho ten", "|", "Gioi tinh","|","SDT","|","Can nang(kg)","|","Chieu cao(kg)","|","Ngay sinh","|","Que quan","|","Benh nen","|","Ngay kham");
+                                System.out.format("%-12s | %-21s | %-9s | %-11s | %-13s | %-14s | %-10s | %-10s | %-12s | %-10s", "Ma benh nhan", "Ho ten", "Gioi tinh", "SDT", "Can nang(kg)", "Chieu cao(kg)", "Ngay sinh", "Que quan", "Benh nen", "Ngay kham");
                                 System.out.println();
                                 foundGender = true;
                             }
@@ -263,7 +209,7 @@ public class DSBN implements arrayInterfaceBENHNHAN{
                     for (int i = 0; i < n; i++) {
                         if (dsbn[i].getQueQuan().equalsIgnoreCase(queQuan2)) {
                             if (!foundHometown) {
-                                System.out.format("%-12s %1s %-21s %1s %-9s %1s %-11s %1s %-13s %1s %-14s %1s %-10s %1s %-10s %1s %-12s %1s %-10s", "Ma benh nhan", "|", "Ho ten", "|", "Gioi tinh","|","SDT","|","Can nang(kg)","|","Chieu cao(kg)","|","Ngay sinh","|","Que quan","|","Benh nen","|","Ngay kham");
+                                System.out.format("%-12s | %-21s | %-9s | %-11s | %-13s | %-14s | %-10s | %-10s | %-12s | %-10s", "Ma benh nhan", "Ho ten", "Gioi tinh", "SDT", "Can nang(kg)", "Chieu cao(kg)", "Ngay sinh", "Que quan", "Benh nen", "Ngay kham");
                                 System.out.println();
                                 foundHometown = true;
                             }
@@ -287,26 +233,32 @@ public class DSBN implements arrayInterfaceBENHNHAN{
         return null;
     }
     
-    public void XoaBN(int maBenhNhan) {
-        boolean found = false;
+    public void XoaBN() {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("\nNhap ma benh nhan can xoa: ");
+        int maCanXoa = sc.nextInt();
+        int viTriCanXoa = -1;
+
         for (int i = 0; i < n; i++) {
-            if (dsbn[i].getMaBenhNhan() == maBenhNhan) {
-                System.arraycopy(dsbn, i + 1, dsbn, i, n - i - 1);
-                dsbn = Arrays.copyOf(dsbn, n - 1);
-                n--;
-                found = true;
+            if (dsbn[i].getMaBenhNhan() == maCanXoa) {
+                viTriCanXoa = i;
                 break;
             }
         }
-        
-        if (!found) {
-            System.out.println("\nKhong tim thay benh nhan!");
+
+        if (viTriCanXoa != -1) {
+            System.arraycopy(dsbn, viTriCanXoa + 1, dsbn, viTriCanXoa, n - viTriCanXoa - 1);
+            dsbn = Arrays.copyOf(dsbn, n - 1);
+            n--;
+            for (int i = viTriCanXoa; i < n; i++) {
+                dsbn[i].setMaBenhNhan(dsbn[i].getMaBenhNhan() - 1);
+            }
+            System.out.println("Benh nhan da duoc xoa.");
         } else {
-            System.out.println("\nDa xoa benh nhan co ma " + maBenhNhan);
+            System.out.println("Khong tim thay benh nhan!");
         }
-    
-        ghiFile();
     }
+
     
 
     public void SuaTTBN() {
@@ -325,65 +277,62 @@ public class DSBN implements arrayInterfaceBENHNHAN{
         } else {
             System.out.println("Khong tim thay benh nhan!");
         }
-        ghiFile();
     }
 
     public void MenuSua(int m) {
         Scanner input = new Scanner(System.in);
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-        System.out.print("\n** MENU Thong Tin Sua **" + "\n1) Ma benh nhan. \n2) Ho. \n3) Ten. \n4) Gioi Tinh. \n5) Ngay Sinh. \n6) SDT. \n7) Can Nang \n8) Chieu Cao. \n9) Ngay Tai Kham.");
-        System.out.print("\nChon thong tin can sua: ");
-        int menu = input.nextInt();
-        input.nextLine();
-        switch(menu) {
-            case 1:
-                System.out.print("\nNhap thong tin sua: ");
-                int tt1 = input.nextInt();
-                dsbn[m].setMaBenhNhan(tt1);
-                break;
-            case 2:
-                System.out.print("\nNhap thong tin sua: ");
-                String tt2 = input.nextLine();
-                dsbn[m].setHo(tt2);
-                break;
-            case 3:
-                System.out.print("\nNhap thong tin sua: ");
-                String tt3 = input.nextLine();
-                dsbn[m].setTen(tt3);
-                break;
-            case 4:
-                System.out.print("\nNhap thong tin sua: ");
-                String tt4 = input.nextLine();
-                dsbn[m].setGioiTinh(tt4);
-                break;
-            case 5:
-                System.out.print("\nNhap thong tin sua: ");
-                String ngaySinhTemp = input.nextLine();
-                LocalDate tt5 = LocalDate.parse(ngaySinhTemp, formatter);
-                dsbn[m].setNgaySinh(tt5.format(formatter));
-                break;
-            case 6:
-                System.out.print("\nNhap thong tin sua: ");
-                String tt6 = input.nextLine();
-                dsbn[m].setSDT(tt6);
-                break;
-            case 7:
-                System.out.print("\nNhap thong tin sua: ");
-                double tt7 = input.nextDouble();
-                dsbn[m].setCanNang(tt7);
-                break;
-            case 8:
-                System.out.print("\nNhap thong tin sua: ");
-                double tt8 = input.nextDouble();
-                dsbn[m].setChieuCao(tt8);
-                break;
-            case 9:
-                System.out.print("\nNhap thong tin sua (dd/mm/yyyy): ");
-                String ngayKhamTemp = input.nextLine();
-                LocalDate tt9 = LocalDate.parse(ngayKhamTemp, formatter);
-                dsbn[m].setNgayKham(tt9.format(formatter));
-                break;
-        }
+        int menu = 0;
+        while (menu != 9) {
+            System.out.print("\n-------MENU Thong Tin Sua-------" + "\n1) Ho. \n2) Ten. \n3) Gioi Tinh. \n4) Ngay Sinh. \n5) SDT. \n6) Can Nang \n7) Chieu Cao. \n8) Ngay Tai Kham. \n9) Quay lai.");
+            System.out.print("\n\nChon thong tin can sua: ");
+            menu = input.nextInt();
+            input.nextLine();
+                switch(menu) {
+                    case 1:
+                        System.out.print("\nNhap ho thay the: ");
+                        String tt2 = input.nextLine();
+                        dsbn[m].setHo(tt2);
+                        break;
+                    case 2:
+                        System.out.print("\nNhap ten thay the: ");
+                        String tt3 = input.nextLine();
+                        dsbn[m].setTen(tt3);
+                        break;
+                    case 3:
+                        System.out.print("\nNhap gioi tinh (Nam/Nu): ");
+                        String tt4 = input.nextLine();
+                        dsbn[m].setGioiTinh(tt4);
+                        break;
+                    case 4:
+                        System.out.print("\nNhap ngay sinh thay the (dd/mm/yyyy): ");
+                        String ngaySinhTemp = input.nextLine();
+                        LocalDate tt5 = LocalDate.parse(ngaySinhTemp, formatter);
+                        dsbn[m].setNgaySinh(tt5.format(formatter));
+                        break;
+                    case 5:
+                        System.out.print("\nNhap SDT thay the: ");
+                        String tt6 = input.nextLine();
+                        dsbn[m].setSDT(tt6);
+                        break;
+                    case 6:
+                        System.out.print("\nNhap can nang: ");
+                        double tt7 = input.nextDouble();
+                        dsbn[m].setCanNang(tt7);
+                        break;
+                    case 7:
+                        System.out.print("\nNhap chieu cao: ");
+                        double tt8 = input.nextDouble();
+                        dsbn[m].setChieuCao(tt8);
+                        break;
+                    case 8:
+                        System.out.print("\nNhap thong tin ngay kham thay the (dd/mm/yyyy): ");
+                        String ngayKhamTemp = input.nextLine();
+                        LocalDate tt9 = LocalDate.parse(ngayKhamTemp, formatter);
+                        dsbn[m].setNgayKham(tt9.format(formatter));
+                        break;
+                }
+            }
     }
 
     public void menuThongKe() {
@@ -491,6 +440,48 @@ public class DSBN implements arrayInterfaceBENHNHAN{
     
         System.out.println("Trung binh can nang: " + trungBinhCanNang + "kg.");
         System.out.println("Trung binh chieu cao: " + trungBinhChieuCao + "cm.");
+    }
+
+    public void menuBenhNhan() {
+        int menu = 0;
+        Scanner sc = new Scanner(System.in);
+        while (menu != 8) {
+            System.out.print("\n\n---------QUAN LY BENH NHAN---------");
+            System.out.print("\n1) Nhap DSBN." + 
+                             "\n2) Xem DSBN." + 
+                             "\n3) Them BN." + 
+                             "\n4) Xoa BN." + 
+                             "\n5) Sua thong tin BN." + 
+                             "\n6) Tim kiem." + 
+                             "\n7) Thong ke. " + 
+                             "\n8) Ket thuc.");
+            System.out.print("\n\nHay chon chuc nang: ");
+            menu = sc.nextInt();
+            sc.nextLine();
+            switch (menu) {
+                case 1:
+                    NhapBN();
+                    break;
+                case 2:
+                    XuatBN();
+                    break;
+                case 3:
+                    ThemBN();
+                    break;
+                case 4:
+                    XoaBN();
+                    break;
+                case 5:
+                    SuaTTBN();
+                    break;
+                case 6:
+                    TimkiemBN();
+                    break;
+                case 7:
+                    menuThongKe();
+                break;
+            }
+        }
     }
 }
 

@@ -3,10 +3,9 @@ public interface arrayInterfaceBENHNHAN {
     void XuatBN();
     void ThemBN();
     void TimkiemBN();
-    void XoaBN(int maBenhNhan);
+    void XoaBN();
     void SuaTTBN();
 }
-
 
 
 
