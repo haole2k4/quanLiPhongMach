@@ -23,6 +23,7 @@ public class Menu {
         } catch(Exception E){
             System.out.println("loi !");
         }
+        trinhqlDONTHUOC.docFile("D:\\phongMach_THUOC\\quanLiPhongMach\\data\\DONTHUOC.TXT");
         int option = 0;
         do {
             System.out.println(

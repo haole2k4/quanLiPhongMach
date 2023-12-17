@@ -25,9 +25,8 @@ class DONTHUOC {
         this.soLuongThuocBoc = dt.soLuongThuocBoc;
         this.donGia = dt.donGia;
     }
-    public void them(DANHSACHTHUOC dstchinh)
+    public int them(DANHSACHTHUOC dstchinh)
     {   Scanner input = new Scanner(System.in);
-        input.nextLine();
         System.out.print("Ma don thuoc: ");
         maDonThuoc = input.nextLine();
         System.out.print("So loai thuoc boc: "); 
@@ -43,7 +42,7 @@ class DONTHUOC {
             String ma = input.nextLine();
             if (dstchinh.isExists(ma) == 0){
                 System.out.println("Thuoc khong ton tai ! Nhap lai!");
-                return;
+                return 0;
             }
             else{
                 dst[i].setMaThuoc(ma);
@@ -58,24 +57,28 @@ class DONTHUOC {
                     donGia+=dst[i].getGiaCa()*dst[i].getSoLuong();
                     //khi nhap xong don thuoc thi set lai so luong trong danh sach thuoc
                     dstchinh.giamSoLuongThuocTheoMa(ma, soluong);
-                    dstchinh.inDanhSachThuoc();
-                    try{
-                        dstchinh.ghiData("D:\\phongMach_THUOC\\quanLiPhongMach\\data\\dataThuoc.txt");
-                    } catch(Exception e){
-                        System.out.println("Loi doc file!");
-
-                    }
+                    
                 }
                 else{
                     System.out.println("So luong thuoc khong phu hop!");
-                    return;
+                    return 0;
                 }
+        
             }
 
             
 
 
         }
+        try{
+                        dstchinh.ghiData("D:\\phongMach_THUOC\\quanLiPhongMach\\data\\dataThuoc.txt");
+                    } catch(Exception e){
+                        System.out.println("Loi ghi file!");
+
+                      
+                    }
+        return 1;
+    
     }
     public void xuat(){
         Scanner input = new Scanner(System.in);
@@ -91,7 +94,8 @@ class DONTHUOC {
     public String getThongTin(){
         String s=maDonThuoc+","+soLuongThuocBoc;
         for (int i=0;i<soLuongThuocBoc;i++){
-            s=s+","+dst[i].getMaThuoc()+","+dst[i].getSoLuong();
+            if (dst[i] == null ) return null;
+            s=s+","+dst[i].getMaThuoc()+","+dst[i].getTenThuoc()+","+dst[i].getGiaCa()+","+dst[i].getSoLuong();
         }
         s=s+","+donGia;
         return s;
