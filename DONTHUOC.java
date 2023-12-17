@@ -81,14 +81,16 @@ class DONTHUOC {
     }
     public void xuat(){
         Scanner input = new Scanner(System.in);
-        System.out.println("Ma: "+ maDonThuoc);
-        System.out.println("So loai thuoc boc: "+ soLuongThuocBoc);
-        System.out.format("%-3s %-15s %-40s %-15s %-15s\n","STT","Ma","Ten","So luong","gia ca");
+        System.out.format("=".repeat(100)+"\n");
+        System.out.format("|| %-103s || \n","\u001B[34mMa don thuoc: "+ maDonThuoc+"\u001B[0m" );
+        System.out.format("|| %-94s || \n","So loai thuoc boc: "+ soLuongThuocBoc);
+        System.out.format("|| %-10s %-15s %-35s %-15s %-15s ||\n","STT","Ma","Ten","So luong","gia ca");
         for (int i=0;i<soLuongThuocBoc;i++)
         {
-            System.out.format("%-3s %-15s %-40s %-15s %-15s\n",i+1,dst[i].getMaThuoc(),dst[i].getTenThuoc(),dst[i].getSoLuong(),dst[i].getGiaCa());
+            System.out.format("|| %-10s %-15s %-35s %-15s %-15s ||\n",i+1,dst[i].getMaThuoc(),dst[i].getTenThuoc(),dst[i].getSoLuong(),dst[i].getGiaCa());
         }
-        System.out.println("Don gia: "+ donGia);
+        System.out.format("|| %-94s || \n","DON GIA: "+ donGia);
+        System.out.format("=".repeat(100)+"\n");
     }
     public String getThongTin(){
         String s=maDonThuoc+","+soLuongThuocBoc;

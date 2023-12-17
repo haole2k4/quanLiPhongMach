@@ -49,10 +49,10 @@ public class DANHSACHDONTHUOC {
             //doc du lieu phan thuoc va truyen vo mang tam
             for (int j=0;j<dsdt[i].getSoLuongThuocBoc();j++){
                 arrThuoc[j] = new THUOCCHICH();
-                arrThuoc[j].setMaThuoc(arr[(j+1)*2]);
-                arrThuoc[j].setTenThuoc(arr[2*(j+1)+1]);
-                arrThuoc[j].setGiaCa(Double.parseDouble(arr[2*(j+1)+2]));
-                arrThuoc[j].setSoLuong(Integer.parseInt(arr[2*(j+1)+3]));
+                arrThuoc[j].setMaThuoc(arr[(j+1)*4-2]);
+                arrThuoc[j].setTenThuoc(arr[4*(j+1)-1]);
+                arrThuoc[j].setGiaCa(Double.parseDouble(arr[4*(j+1)]));
+                arrThuoc[j].setSoLuong(Integer.parseInt(arr[4*(j+1)+1]));
             }
             dsdt[i].setDst(arrThuoc);
             dsdt[i].setDonGia(Double.parseDouble(arr[arr.length-1]));
@@ -80,9 +80,50 @@ public class DANHSACHDONTHUOC {
 }
 
     public void xuat(){
+        System.out.println("\u001B[34m=".repeat(20)+"[ DANH SACH DON THUOC ]"+"=".repeat(20)+"\u001B[0m");
         for (int i=0;i<soLuongDonThuoc;i++){
+            System.out.format("STT: "+ (i+1)+"\n");
             dsdt[i].xuat();
+            System.out.println();
         }
+    }
+    public void inCuoi(){
+        System.out.println("Hoa don moi nhat : ");
+        dsdt[dsdt.length-1].xuat();
+    }
+    public void timKiem(){
+        Scanner input = new Scanner(System.in);
+        System.out.print("Nhap ma can tim kiem: ");
+        String ma = input.nextLine();
+        for (int i=0;i<soLuongDonThuoc;i++){
+            if (ma.equals(dsdt[i].getMaDonThuoc())){
+                dsdt[i].xuat();
+                return;
+            }
+        }
+        System.out.println("Ma thuoc khong ton tai!");
+
+    }
+    public void xoa(){
+        Scanner input =  new Scanner(System.in);
+        System.out.print("Nhap ma can xoa: ");
+        String ma = input.nextLine();
+        for (int i=0;i<soLuongDonThuoc;i++){
+            if (ma.equals(dsdt[i].getMaDonThuoc()))
+            {
+                for (int j=i;j<soLuongDonThuoc-1;j++){
+                    dsdt[i] = dsdt[i+1];
+                    
+                }
+                System.out.println("Xoa thanh cong!");
+                soLuongDonThuoc--;
+                return;
+            }
+            
+        }
+        System.out.println("Khong tim thay ma nay ! xoa that bai!!!");
+        
+
     }
 
     public void menu(DANHSACHTHUOC dst){
@@ -90,6 +131,11 @@ public class DANHSACHDONTHUOC {
         System.out.println("0: Thoat");
         System.out.println("1: Them don thuoc");
         System.out.println("2: Xuat danh sach don thuoc");
+        System.out.println("3: tim kiem don thuoc");
+        System.out.println("4: xoa don thuoc");
+        
+        System.out.println("5: In hoa don moi tao");
+        
         System.out.print("Lua chon: ");
         Scanner input = new Scanner(System.in);
         int i= input.nextInt();
@@ -101,6 +147,16 @@ public class DANHSACHDONTHUOC {
         if (i==2){
             xuat();
         };
+        if ( i==3){
+            timKiem();
+        }
+        if (i == 4)
+        {
+            xoa();
+        }
+        if ( i==5){
+            inCuoi();
+        }
         System.out.print("Lua chon: ");
         i= input.nextInt();
         
