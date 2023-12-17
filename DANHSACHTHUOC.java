@@ -555,7 +555,7 @@ public class DANHSACHTHUOC implements interfaceDanhSach {
                 System.out.print("\t\t\tNhap so thuoc can them: ");
                 int soThuocCanThem = mayScanner.nextInt();
                 this.Them(soThuocCanThem);
-
+                this.ghiData("data/dataThuoc.txt");
             }
 
             if (option == 2) {
@@ -564,6 +564,7 @@ public class DANHSACHTHUOC implements interfaceDanhSach {
                 String maThuocCanXoa = mayScanner.nextLine();
 
                 this.Xoa(maThuocCanXoa);
+                this.ghiData("data/dataThuoc.txt");
             }
 
             if (option == 3) {
@@ -572,6 +573,7 @@ public class DANHSACHTHUOC implements interfaceDanhSach {
                 String maThuocCanSua = mayScanner.nextLine();
 
                 this.Sua(maThuocCanSua);
+                this.ghiData("data/dataThuoc.txt");
             }
 
             if (option == 4) {

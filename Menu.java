@@ -52,7 +52,7 @@ public class Menu {
             }
 
             if(option == 1) {
-                // trinhqlThuoc.menuThaoTac();
+                trinhqlThuoc.menuThaoTac();
                 // trinhQuanlidsthuoc.trinhQuanLiDanhSachThuoc();
             }
             if(option == 2) {
