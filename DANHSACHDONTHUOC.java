@@ -110,6 +110,14 @@ public class DANHSACHDONTHUOC {
         }
         return 0;
     }
+    public void xuatDonThuocTheoMa(String ma){
+        for (int i=0;i<soLuongDonThuoc;i++){
+            if (ma.equals(dsdt[i].getMaDonThuoc()))
+            {
+                dsdt[i].xuaHD();
+            }
+        }
+    }
 
     
     public void xoa(){

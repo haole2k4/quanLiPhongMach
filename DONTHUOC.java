@@ -93,6 +93,17 @@ class DONTHUOC {
         System.out.format("|| %-94s || \n","DON GIA: "+ donGia);
         System.out.format("=".repeat(100)+"\n");
     }
+        public void xuaHD(){
+        Scanner input = new Scanner(System.in);
+        System.out.format("-".repeat(100)+"\n");
+        System.out.format("|| %-10s %-15s %-35s %-15s %-15s ||\n","STT","Ma","Ten","So luong","gia ca");
+        for (int i=0;i<soLuongThuocBoc;i++)
+        {
+            System.out.format("|| %-10s %-15s %-35s %-15s %-15s ||\n",i+1,dst[i].getMaThuoc(),dst[i].getTenThuoc(),dst[i].getSoLuong(),dst[i].getGiaCa());
+        }
+        System.out.format("|| %53s %-40s ||\n"," ","Tong Tien Thuoc : "+donGia);
+        System.out.format("-".repeat(100)+"\n");
+    }
     public String getThongTin(){
         String s=maDonThuoc+","+soLuongThuocBoc;
         for (int i=0;i<soLuongThuocBoc;i++){
