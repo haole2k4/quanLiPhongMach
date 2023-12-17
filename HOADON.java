@@ -13,6 +13,8 @@ public class HOADON {
     private DANHSACHDONTHUOC donThuoc;
     private DANHSACHPHIEUKHAMBENH phieuKhamBenh;
     private DANHSACHNHANVIEN dsnv;
+    private DSBN dsbn;
+    private DSBS dsbs;
    
 
     // 3 ham khoi tao
@@ -72,6 +74,8 @@ public class HOADON {
     else{
         System.out.println("Da xong!");
     }
+    dsbs.docData("D:\\phongMach_THUOC\\quanLiPhongMach\\data\\BacSi.txt");
+    dsbn.docData();
 
     
         
@@ -82,7 +86,7 @@ public class HOADON {
         System.out.format("|| %94s ||\n","HOA DON BAN HANG");
         System.out.format("||       %-47s %40s ||\n","TIEM THUOC NHOM 10","Ngay tao: "+ngayTao);
         System.out.format("|| %94s ||\n","So / Ma: "+maHoaDon);
-        System.out.format("|| %-94s ||\n","Bac si quan ly: "+phieuKhamBenh.getPhieuKhamBenh(maPhieuKhamBenh).getMaBacSi());
+        System.out.format("|| %-94s ||\n","Bac si quan ly: "+dsbs.timKiem(phieuKhamBenh.getPhieuKhamBenh(maPhieuKhamBenh).getMaBacSi()));
         System.out.format("|| %-94s ||\n","Ma BSI: "+phieuKhamBenh.getPhieuKhamBenh(maPhieuKhamBenh).getMaBacSi());
         System.out.format("|| %-94s ||\n","SDT: "+"chua co");
         System.out.format("|| %-94s ||\n"," ");
