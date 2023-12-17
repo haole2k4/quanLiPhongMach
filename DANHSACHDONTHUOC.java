@@ -198,14 +198,17 @@ public class DANHSACHDONTHUOC {
                         String maT = input.nextLine();
                         for (int j=0;j<dsdt[i].getDst().length;j++){
                             if (maT.equals(dsdt[i].getDst()[j].getMaThuoc())){
+                                dsdt[i].setDonGia(dsdt[i].getDonGia()-dsdt[i].getDst()[j].getGiaCa()*dsdt[i].getDst()[j].getSoLuong());
                                 for (int k =j;k<dsdt[i].getDst().length-1;k++){
-                                    dsdt[i].getDst()[k] = dsdt[i].getDst()[k];
+
+                                    dsdt[i].getDst()[k] = dsdt[i].getDst()[k+1];
                                 }
                                 dsdt[i].setSoLuongThuocBoc(dsdt[i].getSoLuongThuocBoc()-1);
                                 if (dsdt[i].getSoLuongThuocBoc() == 0){
                                     xoa(dsdt[i].getMaDonThuoc());
                                 }
                             }
+
                     }
                     }
                     if (option2 == 3){
@@ -250,15 +253,9 @@ public class DANHSACHDONTHUOC {
                             dsdt[i].setDst(1,newDST);
                             
                              }
-                
-                        }
-
-                        
+                        }   
                     }
-                    
-                    
                 }
-
             }
         }
     
