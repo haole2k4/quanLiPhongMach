@@ -153,13 +153,20 @@ public class BacSi {
                              "\n\t\t\t || 5) Ngay sinh.                 ||" + 
                              "\n\t\t\t || 6) So dien thoai.             ||" + 
                              "\n\t\t\t || 7) Trinh do.                  ||" +
-                             "\n\t\t\t || 4) Chuyen nganh.              ||" +
-                             "\n\t\t\t || 4) Hoat dong.                 ||" );
+                             "\n\t\t\t || 8) Chuyen nganh.              ||" +
+                             "\n\t\t\t || 9) Hoat dong.                 ||" );
             System.out.print("\n\t\t\t ===================================");
         
             System.out.print("\n <-> Chon thong tin can sua: ");
             option = input.nextInt();
+            while (option < 0 || option > 9){
+                System.out.print("\nKhong ton tai lua chon nay !!! Vui long chon lai: ");
+                option = input.nextInt();
+            }
         }
+
+
+
         Scanner input = new Scanner(System.in);
         System.out.print("\n** MENU Thong Tin Sua **" + "\n1) MaBS. \n2) Ho. \n3) Ten. \n4) Gioi Tinh. \n5) Ngay Sinh. \n6) SDT. \n7) Trinh Do \n8) Chuyen Nganh. \n9) Hoat Dong.");
         System.out.print("\nChon thong tin can sua: ");

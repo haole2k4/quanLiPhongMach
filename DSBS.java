@@ -271,6 +271,17 @@ public class DSBS {
         return none;
     }
 
+
+    
+    public int timMaBacSi(String findedMaBacSi) {
+        int index = -1;
+        for (int i = 0; i < this.n; i++) {
+            if (this.dsbs[i].getMaBS().equals(findedMaBacSi))
+                index = i;
+        }
+        return index;
+    }
+
 // Thong ke
     public void menuThongKe(){
         Scanner input = new Scanner(System.in);
@@ -332,7 +343,7 @@ public class DSBS {
             System.out.print("\n <-> Hay chon chuc nang: ");
             option = input.nextInt();
             while (option < 0 || option > 7){
-                System.out.print("\nKhong ton tai lua chon nay !!! Vui long chon lai.");
+                System.out.print("\nKhong ton tai lua chon nay !!! Vui long chon lai: ");
                 option = input.nextInt();
             } if(option == 0){
                 break;
