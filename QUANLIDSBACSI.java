@@ -7,7 +7,7 @@ public class QUANLIDSBACSI {
         try{
             DSBS qlDSBS = new DSBS();
             qlDSBS.docData("data/BacSi.txt");
-            qlDSBS.xuat();
+            // qlDSBS.xuat();
             qlDSBS.Menu();
             qlDSBS.ghiFile("data/BacSi.txt");
         } catch(Exception e){
