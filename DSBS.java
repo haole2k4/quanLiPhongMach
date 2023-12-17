@@ -332,7 +332,7 @@ public class DSBS {
             System.out.print("\n <-> Hay chon chuc nang: ");
             option = input.nextInt();
             while (option < 0 || option > 7){
-                System.out.print("\nKhong ton tai lua chon nay !!! Vui long chon lai.");
+                System.out.print("\nKhong ton tai lua chon nay !!! Vui long chon lai: ");
                 option = input.nextInt();
             } if(option == 0){
                 break;
