@@ -74,6 +74,15 @@ public class PHIEUKHAMBENH { // phieu kham chi thay doi chuan doan ngay tai kham
         return this.tienKham;
     }
 
+
+    public void setMaBacSi(String newMaBacSi) {
+        this.maBacSi = newMaBacSi;
+    }
+
+    public void setMaBenhNhan(int newMaBenhNhan) {
+        this.maBenhNhan = newMaBenhNhan;
+    }
+
     public void setChuanDoan(String chuanDoan) {
         this.chuanDoan = chuanDoan;
     }
@@ -86,14 +95,6 @@ public class PHIEUKHAMBENH { // phieu kham chi thay doi chuan doan ngay tai kham
         this.tienKham = tienKham;
     }
 
-    // public void nhapPhieuKhamBenh() {
-    // System.out.print("Nhap ngay tai kham: ");
-    // String ngayTaiKham = mayScanner.nextLine();
-    // System.out.print("Nhap tien kham: ");
-    // double tienKham = mayScanner.nextDouble();
-    // this.ngayTaiKham = LocalDate.parse(ngayTaiKham);
-    // this.tienKham = tienKham;
-    // }
 
     public void inPhieuKham() {
         DateTimeFormatter dinhDangNgayThang = DateTimeFormatter.ofPattern("dd/MM/yyyy");
