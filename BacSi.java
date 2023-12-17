@@ -182,4 +182,9 @@ public class BacSi {
                 System.out.print("Sai!");
         }
     }
+
+    public String getThongTin(){
+        String inFor = maBS + "," + ho + "," + ten + "," + gioiTinh + "," + ngaySinh + "," + SDT + "," + trinhDo + "," + chuyenNganh + "," +hoatDong;
+        return inFor;
+    }
 }

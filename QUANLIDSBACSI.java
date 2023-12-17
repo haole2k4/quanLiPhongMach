@@ -11,7 +11,7 @@ public class QUANLIDSBACSI {
             qlDSBS.Menu();
             qlDSBS.ghiFile();
         } catch(Exception e){
-            System.out.print("\nLoi khong the doc file !!!");
+            System.out.print("\nLoi khong the doc file !!!\n");
         }
     }
 }
