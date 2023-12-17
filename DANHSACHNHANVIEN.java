@@ -92,13 +92,14 @@ public class DANHSACHNHANVIEN {
         }
     void xuat()
         {
-            System.out.println("======================================================================[ DANH SACH NHAN VIEN ]=========================================================================");
+            System.out.println("===================================================================[ DANH SACH NHAN VIEN ]=========================================================================");
             System.out.format("|| %1s | %15s | %28s | %10s | %5s | %15s | %15s | %13s | %10s | %15s ||\n", "STT", "MA NV", "HO", "TEN", "GIOI TINH", "NGAY SINH", "CHUC VU", "HE SO LUONG", "SDT", "HOAT DONG");
             for (int i=0;i<soLuongNV;i++)
             {
                 System.out.format("|| %3s |", (i + 1));
                 dsnv[i].xuat();
             }
+             System.out.println("====================================================================================================================================================================");
         }
 
 
@@ -288,7 +289,6 @@ public class DANHSACHNHANVIEN {
 
      public void menu()
     {
-    xuat();
     System.out.println("[==============  QUAN LY NHAN VIEN ============]");
     System.out.println(" 0. Quay tro lai");    
     System.out.println(" 1. Xem danh sach nhan vien");

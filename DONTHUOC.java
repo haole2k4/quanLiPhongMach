@@ -38,8 +38,19 @@ class DONTHUOC {
         input.nextLine();
         for (int i = 0; i < soLuongThuocBoc; i++) {
 
-            dst[i] = new THUOCCHICH();
             System.out.print("Thuoc " + (i + 1) + " : ");
+            System.out.println("0: Thuoc chinh ");
+            System.out.println("1: Thuoc vi ");
+            int option = input.nextInt();
+            input.nextLine();
+            if (option ==0 )
+            {
+                dst[i] = new THUOCCHICH();
+            }
+            if (option ==1 )
+            {
+                dst[i] = new THUOCVI();
+            }
             System.out.print("Ma: ");
             String ma = input.nextLine();
             if (dstchinh.isExists(ma) == 0) {
@@ -56,8 +67,7 @@ class DONTHUOC {
                     dst[i].setGiaCa(dstchinh.getGiaCaTheoMa(ma));
                     // tinh don gia
                     donGia += dst[i].getGiaCa() * dst[i].getSoLuong();
-                    // khi nhap xong don thuoc thi set lai so luong trong danh sach thuoc
-                    dstchinh.giamSoLuongThuocTheoMa(ma, soluong);
+                
 
                 } else {
                     System.out.println("So luong thuoc khong phu hop!");

@@ -3,10 +3,10 @@ public class QUANLIDSHoaDon {
     public void thaoTac() {
         try {
             DANHSACHHOADON ds = new DANHSACHHOADON();
-            ds.docFile("data/HOADON.txt");
+            ds.docFile("data\\HOADON.txt");
             ds.xuat();
             ds.thaoTac();
-            ds.ghiFile("data/HOADON.txt");
+            ds.ghiFile("data\\HOADON.txt");
         }
         catch(Exception e) {
             // e.printStackTrace();
