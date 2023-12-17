@@ -12,7 +12,7 @@ public class Menu {
     QUANLIDSBACSI trinhqlBacSi = new QUANLIDSBACSI();
     QLDSPHIEUKHAM trinhQlPhieuKham = new QLDSPHIEUKHAM();
     QUANLIDSHoaDon trinhQLDSHoaDon = new QUANLIDSHoaDon();
-
+    QUANLIDSTHUOC trinhQuanlidsthuoc = new QUANLIDSTHUOC();
 
     public void MainMenu() {
 
@@ -52,7 +52,8 @@ public class Menu {
             }
 
             if(option == 1) {
-                trinhqlThuoc.menuThaoTac();
+                // trinhqlThuoc.menuThaoTac();
+                trinhQuanlidsthuoc.trinhQuanLiDanhSachThuoc();
             }
             if(option == 2) {
                 trinhqlNhanVien.thaoTac();
