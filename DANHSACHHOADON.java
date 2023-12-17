@@ -153,9 +153,9 @@ public class DANHSACHHOADON {
         System.out.println("TRINH QUAN LY HOA DON");
         System.out.println("0: Thoat");
         System.out.println("1: Them hoa don");
-        System.out.println("2: Xuat danh sach don thuoc");
-        System.out.println("3: tim kiem don thuoc");
-        System.out.println("4: xoa don thuoc");
+        System.out.println("2: Xuat danh sach hoa don");
+        System.out.println("3: tim kiem hoa don");
+        System.out.println("4: xoa hoa don");
 
         System.out.println("5: In hoa don moi tao");
 
