@@ -85,12 +85,12 @@ class CHITIETPHIEUNHAP {
     }
 
     public void xuat() {
-        System.out.println("====  Chi tiet phieu nhap ====");
-        System.out.println(" ma : " + maCTPhieuNhap);
-        System.out.println(" so loai: " + soLoaiThuocNhap);
-        System.out.println(" ---- CHI TIET ----");
+        System.out.format( "|| %-29s ||\n","         ===CHI TIET PN===");
+        System.out.format( "|| %-29s ||\n","Ma: " + maCTPhieuNhap);
+        System.out.format( "|| %-29s ||\n","So loai thuoc: " , soLoaiThuocNhap);
+        System.out.format("|| %-29s ||\n" ," ---- CHI TIET ----");
         xuatThuocDaNhap();
-        System.out.println(" Tong tien : " + thanhTien);
+         System.out.format( "|| %-29s ||\n","Tong tien: " + thanhTien);
         System.out.println();
 
     }
@@ -156,6 +156,6 @@ class CHITIETPHIEUNHAP {
 
     public static void main(String[] args) {
         CHITIETPHIEUNHAP ql = new CHITIETPHIEUNHAP();
-        ql.nhap();
+        ql.xuat();
     }
 }

@@ -10,7 +10,6 @@ import java.time.format.DateTimeFormatter;
     private String maNhanVien, maNhaCungCap;
     private LocalDate ngayNhap;
     private double tongTien=0;
-    private CHITIETPHIEUNHAP ctpn;
     public PHIEUNHAP() {
         maPhieuNhap = null;
         maCTPhieuNhap = null;
@@ -187,6 +186,7 @@ import java.time.format.DateTimeFormatter;
             if (arr[0].equals(maCTPhieuNhap[k])) {
                 for (int i = 2; i <= arr.length - 2; i++) {
                     temp+= arr[i]+"     ";
+                    if (i%3==1) temp+="\n|| ";
                 }
                 System.out.format( "|| %-29s ||\n",temp);
                 temp="";
