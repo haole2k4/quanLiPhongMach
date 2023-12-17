@@ -7,7 +7,7 @@ public class Menu {
     QUANLIDSNhanVien trinhqlNhanVien = new QUANLIDSNhanVien();
     QUANLYNHAPHANG trinhqlNhapHang = new QUANLYNHAPHANG();
     DANHSACHNHACUNGCAP trinhqlNCC = new DANHSACHNHACUNGCAP();
-    DANHSACHDONTHUOC trinhqlDONTHUOC = new DANHSACHDONTHUOC();
+    QUANLIDSDonThuoc trinhqlDONTHUOC = new QUANLIDSDonThuoc();
     QuanLyDSBN trinhqlBenhNhan = new QuanLyDSBN();
     QUANLIDSBACSI trinhqlBacSi = new QUANLIDSBACSI();
     QLDSPHIEUKHAM trinhQlPhieuKham = new QLDSPHIEUKHAM();
@@ -25,7 +25,6 @@ public class Menu {
         } catch(Exception E){
             System.out.println("loi !");
         }
-        trinhqlDONTHUOC.docFile("D:\\phongMach_THUOC\\quanLiPhongMach\\data\\DONTHUOC.TXT");
         int option = 0;
         do {
             System.out.println(
@@ -66,7 +65,7 @@ public class Menu {
                 trinhqlNCC.menu();
             }
             if (option == 5){
-                trinhqlDONTHUOC.menu(trinhqlThuoc);
+                trinhqlDONTHUOC.thaoTac();
             }
             if (option == 6){
                 trinhqlBenhNhan.thaoTac();

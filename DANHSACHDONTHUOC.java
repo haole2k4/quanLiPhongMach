@@ -70,17 +70,17 @@ public class DANHSACHDONTHUOC {
         }
 
     }
-    public void them(DANHSACHTHUOC dst){
+    public void them(){
         soLuongDonThuoc++;
         if (soLuongDonThuoc == 1){
             dsdt = new DONTHUOC[1];
             dsdt[0] = new DONTHUOC();
-            dsdt[0].them(dst);
+            dsdt[0].them();
         }
         else{
             this.dsdt = Arrays.copyOf(this.dsdt, soLuongDonThuoc);
             dsdt[soLuongDonThuoc-1] = new DONTHUOC();
-            dsdt[soLuongDonThuoc-1].them(dst);
+            dsdt[soLuongDonThuoc-1].them();
             }
     
     
@@ -285,7 +285,7 @@ public class DANHSACHDONTHUOC {
         }
     
 
-    public void menu(DANHSACHTHUOC dst){
+    public void thaoTac(){
         System.out.println("TRINH QUAN LY DON THUOC");
         System.out.println("0: Thoat");
         System.out.println("1: Them don thuoc");
@@ -307,7 +307,7 @@ public class DANHSACHDONTHUOC {
         }
 
         if (i==1){
-            them(dst);
+            them();
         };
         if (i==2){
             xuat();
@@ -330,7 +330,6 @@ public class DANHSACHDONTHUOC {
         i= input.nextInt();
         
     } while ( i !=0 );
-               ghiFile("D:\\phongMach_THUOC\\quanLiPhongMach\\data\\DONTHUOC.TXT" );
     }
     
     

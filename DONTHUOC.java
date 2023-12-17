@@ -28,7 +28,7 @@ class DONTHUOC {
         this.donGia = dt.donGia;
     }
 
-    public void them(DANHSACHTHUOC dstchinh) {
+    public void them() {
         Scanner input = new Scanner(System.in);
         System.out.print("Ma don thuoc: ");
         maDonThuoc = input.nextLine();
@@ -52,10 +52,15 @@ class DONTHUOC {
                 dst[i] = new THUOCVI();
             }
             System.out.print("Ma: ");
+            DANHSACHTHUOC dstchinh = new DANHSACHTHUOC();
+            try{
+                dstchinh.docData("data\\dataThuoc.txt");
+            } catch ( Exception e){
+            }
             String ma = input.nextLine();
             if (dstchinh.isExists(ma) == 0) {
                 System.out.println("Thuoc khong ton tai ! Nhap lai!");
-                them(dstchinh);
+                them();
             } else {
                 dst[i].setMaThuoc(ma);
                 dst[i].setTenThuoc(dstchinh.getTenThuocTheoMa(ma));
@@ -71,19 +76,12 @@ class DONTHUOC {
 
                 } else {
                     System.out.println("So luong thuoc khong phu hop!");
-                    them(dstchinh);
+                    them();
                 }
 
             }
 
         }
-        try {
-            dstchinh.ghiData("D:\\phongMach_THUOC\\quanLiPhongMach\\data\\dataThuoc.txt");
-        } catch (Exception e) {
-            System.out.println("Loi ghi file!");
-
-        }
-
     }
 
     public void xuat() {
