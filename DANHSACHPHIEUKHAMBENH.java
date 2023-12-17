@@ -47,11 +47,17 @@ public class DANHSACHPHIEUKHAMBENH {
     public int getSoPhieuKham() {
         return this.soPhieuKham;
     }
-
+    public String getChuanDoanTuMa(String ma){
+        for (int i=0;i<soPhieuKham;i++){
+            if (ma.equals(dsPhieuKham[i].getMaPhieuKham())){
+                return dsPhieuKham[i].getChuanDoan();
+            }
+        }
+        return "";
+    }
     public void setSoPhieuKham(int soPhieu) {
         this.soPhieuKham = soPhieu;
     }
-
     public void setDanhSachPhieuKham(PHIEUKHAMBENH[] dspkb) {
         this.dsPhieuKham = dspkb;
     }

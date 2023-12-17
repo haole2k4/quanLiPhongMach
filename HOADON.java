@@ -163,6 +163,7 @@ public class HOADON {
         System.out.print("Nhap ma phieu kham benh: ");
 
         maPhieuKhamBenh = input.nextLine();
+
         if (phieuKhamBenh.timKiemTheoMa(maPhieuKhamBenh) == 0) {
             System.out.println("Ma phieu kham benh nay khong ton tai ! nhap lai!!!");
             them();
@@ -219,6 +220,7 @@ public class HOADON {
         System.out.format("|| %-94s ||\n", "Ten benh nhan: " + benhNhan.getHo() + " " + benhNhan.getTen());
         System.out.format("|| %-94s ||\n", "Ma benh nhan: " + maBenhNhan);
         System.out.format("|| %-94s ||\n", "Ngay sinh: " + benhNhan.getNgaySinh());
+        System.out.format("|| %-94s ||\n", "Chuan doan: " + phieuKhamBenh.getChuanDoanTuMa(maPhieuKhamBenh));
     
         System.out.format("|| %-94s ||\n", " ");
     
