@@ -101,8 +101,17 @@ public class DANHSACHDONTHUOC {
             }
         }
         System.out.println("Ma thuoc khong ton tai!");
-
     }
+        
+    public int timKiemTheoMa(String ma){
+        for (int i=0;i<soLuongDonThuoc;i++){
+            if (ma.equals(dsdt[i].getMaDonThuoc()))
+            return 1;
+        }
+        return 0;
+    }
+
+    
     public void xoa(){
         Scanner input =  new Scanner(System.in);
         System.out.print("Nhap ma can xoa: ");
