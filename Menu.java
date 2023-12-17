@@ -70,7 +70,7 @@ public class Menu {
                 trinhqlDONTHUOC.menu(trinhqlThuoc);
             }
             if (option == 6){
-                trinhqlBenhNhan.Menu();
+                trinhqlBenhNhan.thaoTac();
             }
             if (option == 7){
                 trinhqlBacSi.thaoTac();;

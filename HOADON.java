@@ -121,7 +121,6 @@ public class HOADON {
         System.out.println("Da xong!");
     }
     dsbs.docData("D:\\phongMach_THUOC\\quanLiPhongMach\\data\\BacSi.txt");
-    dsbn.docData();
     tongTien = donThuoc.getDonThuocTuMa(maDonThuoc).getDonGia()+phieuKhamBenh.getPhieuKhamBenh(maPhieuKhamBenh).getTienKham();
 
     
