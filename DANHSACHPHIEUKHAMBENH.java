@@ -68,12 +68,6 @@ public class DANHSACHPHIEUKHAMBENH implements interfaceDanhSach {
         dsbn.docData(filePathBenhNhan);
     }
 
-    public boolean checkValidDate(LocalDate ngayKham, LocalDate ngayTaiKham) {
-        boolean isValid = false;
-        if (ngayKham.isEqual(ngayTaiKham) || ngayKham.isBefore(ngayTaiKham))
-            isValid = true;
-        return isValid;
-    }
 
     public void themPhieuKhamBenh(PHIEUKHAMBENH newPhieukhambenh) {
         this.soPhieuKham += 1;
@@ -121,12 +115,7 @@ public class DANHSACHPHIEUKHAMBENH implements interfaceDanhSach {
         tempNgayTaiKham = mayScanner.nextLine();
         LocalDate ngayTaiKham = LocalDate.parse(tempNgayTaiKham);
 
-        // System.out.println("\tNgay tai kham: " + tempNgayTaiKham);
-        // while (!checkValidDate(ngayKham, ngayTaiKham)) {
-        //     System.out.print("Ngay tai kham khong phu hop, vui long nhap lai: ");
-        //     tempNgayTaiKham = mayScanner.nextLine();
-        // }
-
+    
         while (!(ngayKham.isEqual(ngayTaiKham) || ngayKham.isBefore(ngayTaiKham))) {
             System.out.print("Ngay tai kham khong phu hop, vui long nhap lai: ");
             tempNgayTaiKham = mayScanner.nextLine();
