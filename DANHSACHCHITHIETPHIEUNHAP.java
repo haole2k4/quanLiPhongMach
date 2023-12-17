@@ -11,13 +11,14 @@ public class DANHSACHCHITHIETPHIEUNHAP {
     // 3 ham khoi tao
     // HAM DOC FILE
     public void docfile() {
-        File file = new File("D:\\phongMach_THUOC\\quanLiPhongMach\\data\\chitietphieunhap.txt");
+        File file = new File("data/chitietphieunhap.txt");
         Scanner read = null;
         try {
             read = new Scanner(file);
 
         } catch (Exception e) {
             System.out.println("Loi doc file!");
+            e.printStackTrace();
 
         }
         if (read.hasNextLine()) {
@@ -51,7 +52,7 @@ public class DANHSACHCHITHIETPHIEUNHAP {
 
     // HAM GHI FILE
     public void ghiFile() {
-        File file = new File("D:\\phongMach_THUOC\\quanLiPhongMach\\data\\chitietphieunhap.txt");
+        File file = new File("data/chitietphieunhap.txt");
         PrintWriter write = null;
         try {
             write = new PrintWriter(file);

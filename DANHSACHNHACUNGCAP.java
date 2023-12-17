@@ -40,7 +40,7 @@ public class DANHSACHNHACUNGCAP {
     }
 
     public void docFile() {
-        File file = new File("D:\\phongMach_THUOC\\quanLiPhongMach\\data\\nhacungcap.txt");
+        File file = new File("data/nhacungcap.txt");
         Scanner read = null;
         try {
             read = new Scanner(file);
