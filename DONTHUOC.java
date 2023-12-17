@@ -72,6 +72,12 @@ class DONTHUOC {
                     dst[i].setGiaCa(dstchinh.getGiaCaTheoMa(ma));
                     // tinh don gia
                     donGia += dst[i].getGiaCa() * dst[i].getSoLuong();
+                    dstchinh.themSoLuongChoThuoc(ma, -1*soluong);
+                    try{
+                        dstchinh.ghiData("data\\dataThuoc.txt");
+                    } catch ( Exception e){
+                        
+                    }
                 
 
                 } else {

@@ -164,7 +164,7 @@ public class HOADON {
 
         maPhieuKhamBenh = input.nextLine();
 
-        if (phieuKhamBenh.timKiemTheoMa(maPhieuKhamBenh) == 0) {
+        if (phieuKhamBenh.timMaPhieuKham(maPhieuKhamBenh) == -1) {
             System.out.println("Ma phieu kham benh nay khong ton tai ! nhap lai!!!");
             them();
         }

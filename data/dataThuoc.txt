@@ -1,4 +1,4 @@
-TV01, Cola Coco, Hoat huyet duong nao, 100, 2022-02-28, 2023-12-30, 500000.0, 4, 13
+TV01, Cola Coco, Hoat huyet duong nao, 90, 2022-02-28, 2023-12-30, 500000.0, 4, 13
 TV02, Jolly Mouse, Bar bo gan, 99, 2022-01-28, 2024-12-30, 80000.0, 99, 11
 TV03, Jolly Pig, Tri roi loan, 75, 2023-08-09, 2023-12-12, 56000.0, 6, 19
 TC03, Coconut, Tri roi loan lo au, 99, 2022-05-05, 2024-05-05, 50000.0, 400

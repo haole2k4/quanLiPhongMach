@@ -54,9 +54,7 @@ public class DANHSACHHOADON {
             dshd[i].setTongTien(Double.parseDouble(arr[6]));
             i++;
         }
-
     }
-
     public void them() {
         soLuongHoaDon++;
         if (soLuongHoaDon == 1) {
@@ -192,7 +190,10 @@ public class DANHSACHHOADON {
 
         } while (i != 0);
     }
-
-
-
+    public static void main(String[] args) {
+         DANHSACHHOADON ds = new DANHSACHHOADON();
+         ds.docFile("data\\HOADON.java");
+         ds.xuat();
+         ds.thaoTac();
+    }
 }
