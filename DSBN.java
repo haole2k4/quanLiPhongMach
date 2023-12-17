@@ -250,6 +250,19 @@ public class DSBN implements arrayInterfaceBENHNHAN{
         BenhNhan test = new BenhNhan();
         return test;
     }
+
+
+
+    
+    public int timMaBenhNhan(int findedMaBenhNhan) {
+        int index = -1;
+        for(int i = 0; i < n; i++) {
+            if(this.dsbn[i].getMaBenhNhan() == findedMaBenhNhan) {
+                index = i;
+            }
+        }
+        return index;
+    }
     
     public void XoaBN() {
         Scanner sc = new Scanner(System.in);

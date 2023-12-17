@@ -94,19 +94,23 @@ public class DANHSACHPHIEUKHAMBENH {
             maPhieuKham = mayScanner.nextLine();
 
         } while (timMaPhieuKham(maPhieuKham) != -1);
-        
-        
-        do {
-            System.out.print("Nhap ma bac si: ");
-            maBacSi = mayScanner.nextLine();
-        } while (dsbs.timMaBacSi(maBacSi) == -1);
 
+        System.out.print("Nhap ma bac si: ");
+        maBacSi = mayScanner.nextLine();
+        while (dsbs.timMaBacSi(maBacSi) == -1) {
+            System.out.print("Ma bac si khong co trong CSDL, vui long nhap lai: ");
+            maBacSi = mayScanner.nextLine();
+        }
 
         System.out.print("Nhap ma benh nhan: ");
         maBenhNhan = mayScanner.nextInt();
-
+        while(dsbn.timMaBenhNhan(maBenhNhan) == -1) {
+            System.out.print("Ma benh nhan khong co trong CSDL, vui long nhap lai: ");
+            maBenhNhan = mayScanner.nextInt();
+        }
         LocalDate ngayKham = LocalDate.now();
 
+        mayScanner.nextLine();
         System.out.print("Nhap chuan doan: ");
         String chuanDoan = mayScanner.nextLine();
 
