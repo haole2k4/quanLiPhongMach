@@ -13,12 +13,19 @@ public class PHIEUKHAMBENH { // phieu kham chi thay doi chuan doan ngay tai kham
     private LocalDate ngayTaiKham;
     private double tienKham;
 
-
     // thieu 3 ham tao nua ....
-    
+    PHIEUKHAMBENH() {
+        this.maPhieuKham = null;
+        this.maBacSi = null;
+        this.maBenhNhan = null;
+        this.ngayKham = LocalDate.of(1970, 1, 1);
+        this.chuanDoan = null;
+        this.ngayTaiKham = LocalDate.of(1970, 1, 1);
+        this.tienKham = 0;
+    }
 
-
-    PHIEUKHAMBENH(String maPhieuKham, String maBacSi, String maBenhNhan, LocalDate ngayKham, String chuanDoan, LocalDate ngayTaiKham, double tienKham) {
+    PHIEUKHAMBENH(String maPhieuKham, String maBacSi, String maBenhNhan, LocalDate ngayKham, String chuanDoan,
+            LocalDate ngayTaiKham, double tienKham) {
 
         this.maPhieuKham = maPhieuKham;
         this.maBacSi = maBacSi;
@@ -29,7 +36,15 @@ public class PHIEUKHAMBENH { // phieu kham chi thay doi chuan doan ngay tai kham
         this.tienKham = tienKham;
     }
 
-  
+    PHIEUKHAMBENH(PHIEUKHAMBENH pkb2) {
+        this.maPhieuKham = null;
+this.maBacSi = null;
+this.maBenhNhan = null;
+this.ngayKham = null;
+this.chuanDoan = null;
+this.ngayTaiKham = null;
+this.tienKham = 0;
+    }
 
     public String getMaPhieuKham() {
         return this.maPhieuKham;
@@ -72,21 +87,20 @@ public class PHIEUKHAMBENH { // phieu kham chi thay doi chuan doan ngay tai kham
     }
 
     // public void nhapPhieuKhamBenh() {
-    //     System.out.print("Nhap ngay tai kham: ");
-    //     String ngayTaiKham = mayScanner.nextLine();
-    //     System.out.print("Nhap tien kham: ");
-    //     double tienKham = mayScanner.nextDouble();
-    //     this.ngayTaiKham = LocalDate.parse(ngayTaiKham);
-    //     this.tienKham = tienKham;
+    // System.out.print("Nhap ngay tai kham: ");
+    // String ngayTaiKham = mayScanner.nextLine();
+    // System.out.print("Nhap tien kham: ");
+    // double tienKham = mayScanner.nextDouble();
+    // this.ngayTaiKham = LocalDate.parse(ngayTaiKham);
+    // this.tienKham = tienKham;
     // }
 
     public void inPhieuKham() {
         DateTimeFormatter dinhDangNgayThang = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         String ngayTaiKham = this.ngayTaiKham.format(dinhDangNgayThang);
         String ngayKham = this.ngayKham.format(dinhDangNgayThang);
-        System.out.format("\u001B[34m" + "|| %-10s | %-15s | %-15s | %-10s | %-10s | %-15s | %-10s ||\n" + "\u001B[0m",  this.maPhieuKham, this.maBacSi, this.maBenhNhan, ngayKham, this.chuanDoan, ngayTaiKham, this.tienKham);
+        System.out.format("\u001B[34m" + "|| %-10s | %-15s | %-15s | %-10s | %-10s | %-15s | %-10s ||\n" + "\u001B[0m",
+                this.maPhieuKham, this.maBacSi, this.maBenhNhan, ngayKham, this.chuanDoan, ngayTaiKham, this.tienKham);
     }
 
 }
-
-

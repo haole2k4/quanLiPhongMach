@@ -126,7 +126,7 @@ public class DANHSACHPHIEUKHAMBENH {
 
         PHIEUKHAMBENH newPhieuKham = new PHIEUKHAMBENH(maPhieuKham, maBacSi, maBenhNhan, ngayKham, chuanDoan,
                 ngayTaiKham, tienKham);
-
+        // PHIEUKHAMBENH newPhieuKham = new PHIEUKHAMBENH();
         this.themPhieuKhamBenh(newPhieuKham);
     }
 
@@ -156,7 +156,7 @@ public class DANHSACHPHIEUKHAMBENH {
         System.out.println("\u001B[32m" + "-".repeat(50) + " DANH SACH PHIEU KHAM " + "-".repeat(50) + "\u001B[0m");
         System.out.format("\u001B[34m" + "|| %-10s | %-15s | %-15s | %-10s | %-10s | %-15s | %-10s ||\n" + "\u001B[0m",
                 "MA Pk", "MA BAC SI", "MA BENH NHAN", "NGAY KHAM", "CHUAN DOAN", "NGAY TAI KHAM", "TIEM KHAM");
-        for (int i = 0; i < this.soPhieuKham - 1; i++) {
+        for (int i = 0; i < this.soPhieuKham; i++) {
             this.dsPhieuKham[i].inPhieuKham();
         }
         System.out.println("\u001B[32m" + "-".repeat(117) + "\u001B[0m");
