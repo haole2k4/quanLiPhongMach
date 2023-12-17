@@ -112,7 +112,7 @@ public class HOADON {
     System.out.print("Ma nhan vien :"); 
     NVThuNgan = input.nextLine();
     dsnv = new DANHSACHNHANVIEN();
-    dsnv.docFile();
+    dsnv.docData("D:\\phongMach_THUOC\\quanLiPhongMach\\data\\HOADON.TXT" );
     if (dsnv.kiemTraMaNhanVien(NVThuNgan)==0){
         System.out.println("Nhan vien khong ton tai!");
         them();
