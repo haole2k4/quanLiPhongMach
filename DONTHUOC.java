@@ -25,7 +25,7 @@ class DONTHUOC {
         this.soLuongThuocBoc = dt.soLuongThuocBoc;
         this.donGia = dt.donGia;
     }
-    public int them(DANHSACHTHUOC dstchinh)
+    public void them(DANHSACHTHUOC dstchinh)
     {   Scanner input = new Scanner(System.in);
         System.out.print("Ma don thuoc: ");
         maDonThuoc = input.nextLine();
@@ -42,7 +42,7 @@ class DONTHUOC {
             String ma = input.nextLine();
             if (dstchinh.isExists(ma) == 0){
                 System.out.println("Thuoc khong ton tai ! Nhap lai!");
-                return 0;
+                return;
             }
             else{
                 dst[i].setMaThuoc(ma);
@@ -61,7 +61,7 @@ class DONTHUOC {
                 }
                 else{
                     System.out.println("So luong thuoc khong phu hop!");
-                    return 0;
+                    return;
                 }
         
             }
@@ -77,7 +77,6 @@ class DONTHUOC {
 
                       
                     }
-        return 1;
     
     }
     public void xuat(){
