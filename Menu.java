@@ -10,6 +10,8 @@ public class Menu {
     QUANLYNHAPHANG trinhqlNhapHang = new QUANLYNHAPHANG();
     DANHSACHNHACUNGCAP trinhqlNCC = new DANHSACHNHACUNGCAP();
     DANHSACHDONTHUOC trinhqlDONTHUOC = new DANHSACHDONTHUOC();
+    QuanLyDSBN trinhqlBenhNhan = new QuanLyDSBN();
+    QUANLIDSBACSI trinhqlBacSi = new QUANLIDSBACSI();
 
     public void MainMenu() {
 
@@ -34,6 +36,9 @@ public class Menu {
             System.out.println("\tNhan phim 3 de vao trinh quan li nhap hang");
             System.out.println("\tNhan phim 4 de vao trinh quan li nha cung cap");
             System.out.println("\tNhan phim 5 de vao trinh quan li don thuoc");
+            System.out.println("\tNhan phim 6 de vao trinh quan li benh nhan");
+            System.out.println("\tNhan phim 7 de vao trinh quan li bac si");
+            
             System.out.print("\tVui long nhap lua chon cua ban: ");
             option = mayScanner.nextInt();
 
@@ -61,6 +66,12 @@ public class Menu {
             }
             if (option == 5){
                 trinhqlDONTHUOC.menu(trinhqlThuoc);
+            }
+            if (option == 6){
+                trinhqlBenhNhan.Menu();
+            }
+            if (option == 7){
+                trinhqlBacSi.thaoTac();;
             }
 
         } while (option != 0);

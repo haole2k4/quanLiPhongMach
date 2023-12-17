@@ -12,6 +12,7 @@ public class HOADON {
 
     private DANHSACHDONTHUOC donThuoc;
     private DANHSACHPHIEUKHAMBENH phieuKhamBenh;
+    private DANHSACHNHANVIEN dsnv;
    
 
     // 3 ham khoi tao
@@ -59,13 +60,27 @@ public class HOADON {
         }
 
     } while (option !=1 && option !=2);
+    input.nextLine();
+    System.out.print("Ma nhan vien :"); 
+    NVThuNgan = input.nextLine();
+    dsnv = new DANHSACHNHANVIEN();
+    dsnv.docFile();
+    if (dsnv.kiemTraMaNhanVien(NVThuNgan)==0){
+        System.out.println("Nhan vien khong ton tai!");
+        them();
+    }
+    else{
+        System.out.println("Da xong!");
+    }
+
+    
         
     }
 
     public void xuat(){
         System.out.println("=".repeat(100));
-        System.out.format("|| %-94s ||\n", " ".repeat(10)+"TIEM THUOC NHOM 10"+" ".repeat(50)+"HOA DON BAN HANG");
-        System.out.format("|| %94s ||\n","Ngay tao: "+ngayTao);
+        System.out.format("|| %94s ||\n","HOA DON BAN HANG");
+        System.out.format("||       %-47s %39s  ||\n","TIEM THUOC NHOM 10","Ngay tao: "+ngayTao);
         System.out.format("|| %94s ||\n","So / Ma: "+maHoaDon);
         System.out.format("|| %-94s ||\n","Bac si quan ly: "+"CHUA CO");
         System.out.format("|| %-94s ||\n","Ma BSI: "+"CHUA CO");
@@ -82,7 +97,9 @@ public class HOADON {
         System.out.format("|| %53s %-40s ||\n"," ","Tong Tien Thanh Toan : "+ "CHUA CO");
         System.out.format("|| %53s %-40s ||\n"," ", "Hinh thuc thanh toan : "+ hinhThucThanhToan);
         System.out.format("|| %-94s ||\n"," ");
-
+        System.out.format("||          %-48s %-31s      ||\n","Benh Nhan","Nhan vien Ban Hang");
+        System.out.format("||         %-49s %-31s      ||\n","Nguyen Van A",dsnv.timkiem(NVThuNgan).getHo().toUpperCase()+" "+dsnv.timkiem(NVThuNgan).getTen().toUpperCase());
+        System.out.println("=".repeat(100));
 
 
         

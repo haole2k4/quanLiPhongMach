@@ -3,7 +3,7 @@
 // import java.util.Scanner;
 
 public class QUANLIDSBACSI {
-    public void trinhQuanLiDSBacSi(){
+    public void thaoTac(){
         try{
             DSBS qlDSBS = new DSBS();
             qlDSBS.docData("data/BacSi.txt");

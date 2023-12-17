@@ -253,7 +253,15 @@ public class DANHSACHNHANVIEN {
         NHANVIEN nv = new NHANVIEN();
         return nv;
     }
-
+    public int kiemTraMaNhanVien(String ma){
+        for (int i=0;i<soLuongNV;i++)
+        {
+            if (ma.equals(dsnv[i].getMaNV())){
+                return 1;
+            }
+        }
+        return 0;
+    }
     public void thongKeHoatDong()
     {
         int hd =0;
