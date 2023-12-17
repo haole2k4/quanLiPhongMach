@@ -103,4 +103,17 @@ public class PHIEUKHAMBENH { // phieu kham chi thay doi chuan doan ngay tai kham
                 this.maPhieuKham, this.maBacSi, this.maBenhNhan, ngayKham, this.chuanDoan, ngayTaiKham, this.tienKham);
     }
 
+    public void inThongTinPhieuKham() {
+        DateTimeFormatter dinhDangNgayThang = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        String ngayTaiKham = this.ngayTaiKham.format(dinhDangNgayThang);
+        String ngayKham = this.ngayKham.format(dinhDangNgayThang);
+        LocalDate ngayIn = LocalDate.now();
+        String ngayInStr = ngayIn.format(dinhDangNgayThang);
+
+        
+
+
+
+    }
+
 }

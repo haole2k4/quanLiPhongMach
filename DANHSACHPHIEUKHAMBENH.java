@@ -95,22 +95,27 @@ public class DANHSACHPHIEUKHAMBENH {
         int maBenhNhan;
         String tempNgayTaiKham;
         mayScanner.nextLine();
-        do {
-            System.out.print("Nhap ma phieu kham: ");
+
+        System.out.print("Nhap ma phieu kham: ");
+        maPhieuKham = mayScanner.nextLine();
+
+        while (timMaPhieuKham(maPhieuKham) != -1) {
+            System.out.print("Ma phieu kham khong co trong CSDL, vui long nhap lai: ");
             maPhieuKham = mayScanner.nextLine();
+        }
 
-        } while (timMaPhieuKham(maPhieuKham) != -1);
-
-        System.out.print("Nhap ma bac si: ");
+        dsbs.xuat();
+        System.out.print("\nNhap ma bac si: ");
         maBacSi = mayScanner.nextLine();
         while (dsbs.timMaBacSi(maBacSi) == -1) {
             System.out.print("Ma bac si khong co trong CSDL, vui long nhap lai: ");
             maBacSi = mayScanner.nextLine();
         }
 
-        System.out.print("Nhap ma benh nhan: ");
+        dsbn.XuatBN();
+        System.out.print("\nNhap ma benh nhan: ");
         maBenhNhan = mayScanner.nextInt();
-        while(dsbn.timMaBenhNhan(maBenhNhan) == -1) {
+        while (dsbn.timMaBenhNhan(maBenhNhan) == -1) {
             System.out.print("Ma benh nhan khong co trong CSDL, vui long nhap lai: ");
             maBenhNhan = mayScanner.nextInt();
         }
@@ -123,8 +128,11 @@ public class DANHSACHPHIEUKHAMBENH {
         // do {
 
         // } while (checkValidDate(ngayKham, LocalDate.parse(tempNgayTaiKham)));
-        System.out.print("Nhap ngay tai kham(yyyy--MM-dd): ");
+        System.out.print("Nhap ngay tai kham (yyyy--MM-dd): ");
         tempNgayTaiKham = mayScanner.nextLine();
+        while(!checkValidDate(ngayKham, LocalDate.parse(tempNgayTaiKham))) {
+
+        }
         LocalDate ngayTaiKham = LocalDate.parse(tempNgayTaiKham);
 
         System.out.print("Nhap tien kham: ");
@@ -219,6 +227,7 @@ public class DANHSACHPHIEUKHAMBENH {
             System.out.println("\t\tNhap 0 de thoat");
             System.out.println("\t\tNhap 1 de in toan bo hoa don");
             System.out.println("\t\tNhap 2 de nhap them mot phieu kham benh");
+            System.out.println("\t\tNhap 3 de in mot phieu kham benh");
             System.out.print("\t\tVui long nhap lua chon cua ban: ");
             option = mayScanner.nextInt();
 
@@ -237,6 +246,21 @@ public class DANHSACHPHIEUKHAMBENH {
 
             if (option == 2) {
                 this.taoPhieuKhamBenh();
+            }
+
+            if(option == 3) {
+                mayScanner.nextLine();
+                System.out.println("Nhap ma phieu kham benh: ");
+                String maPhieuKhamCanTim = mayScanner.nextLine();
+
+                int index = timKiemTheoMa(maPhieuKhamCanTim);
+                if(index == -1) {
+                    System.out.println("Ma thuoc khong co trong CSDL");
+                }
+
+                else {
+                    this.dsPhieuKham[index].inPhieuKham();
+                }
             }
 
         } while (option != 0);
