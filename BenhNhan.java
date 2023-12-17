@@ -179,6 +179,11 @@ public void nhapThongTinBenhNhan(int MaBN) {
     } while (ngayKhamStr.isEmpty()); 
     ngayKham = ngayKhamDate;
 }
+
+public String getThongTin(){
+    String inFor = maBenhNhan + "," + Ho + "," + Ten + "," + gioiTinh + "," + SDT + "," + canNang + "," + chieuCao + "," + ngaySinh + "," + queQuan + "," + benhNen + "," + ngayKham;
+    return inFor;
+}
     
     // public void xuatThongTinBenhNhan() {
     //     System.out.println("------------------");

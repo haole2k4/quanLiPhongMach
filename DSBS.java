@@ -274,6 +274,16 @@ public class DSBS {
         BacSi none = new BacSi();
         return none;
     }
+    public BacSi timKiemTraVeBacSi(String ma){
+        
+        for(int i = 0; i < n; i++){
+            if((ma.equals(dsbs[i].getMaBS())) || (ma.equals(dsbs[i].getTen()))){
+                return dsbs[i];
+            }
+        } 
+        BacSi none = new BacSi();
+        return none;
+    }
 
 
     

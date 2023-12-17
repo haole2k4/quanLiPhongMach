@@ -226,11 +226,12 @@ public class DSBN implements arrayInterfaceBENHNHAN{
     }
     public BenhNhan timKiemBenhNhan(String ma){
         for (int i=0;i<n;i++){
-            if (ma.equals(dsbn[i].getMaBenhNhan())){
+            if (Integer.parseInt(ma)==dsbn[i].getMaBenhNhan()){
                 return dsbn[i];
             }
         }
-        return null;
+        BenhNhan test = new BenhNhan();
+        return test;
     }
     
     public void XoaBN() {

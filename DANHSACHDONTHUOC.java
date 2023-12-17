@@ -6,7 +6,15 @@ public class DANHSACHDONTHUOC {
     private int soLuongDonThuoc;
 
     //3 ham khoi tao
-
+    //get
+    public DONTHUOC getDonThuocTuMa(String ma){
+        for (int i=0;i<soLuongDonThuoc;i++){
+            if (dsdt[i].getMaDonThuoc().equals(ma)){
+                return dsdt[i];
+            }
+        }
+        return null;
+    }
 
     //ham ghi file
     public void ghiFile(String path)
