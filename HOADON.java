@@ -73,18 +73,17 @@ public class HOADON {
         System.out.print("Nhap ma don thuoc: ");
         maDonThuoc = input.nextLine();
         donThuoc = new DANHSACHDONTHUOC();
-        donThuoc.docFile("D:\\phongMach_THUOC\\quanLiPhongMach\\data\\DONTHUOC.TXT");
+        donThuoc.docFile("data\\DONTHUOC.TXT");
         if (donThuoc.timKiemTheoMa(maDonThuoc) == 0 ){
             System.out.println("Ma don thuoc nay khong ton tai! nhap lai !!!!");
             them();
         }
-        //phieuKhamBenh.docFile("D:\phongMach_THUOC\quanLiPhongMach\data\\PHIEUKHAMBENH.TXT");
         System.out.print("Nhap ma phieu kham benh: ");
 
         maPhieuKhamBenh = input.nextLine();
         phieuKhamBenh = new DANHSACHPHIEUKHAMBENH();
         try{
-            phieuKhamBenh.docData("D:\\phongMach_THUOC\\quanLiPhongMach\\data\\dataPhieuKham.txt");
+            phieuKhamBenh.docData("data\\dataPhieuKham.txt");
         } catch(Exception e){
             System.out.println("loi doc file!");
             return;
@@ -109,7 +108,7 @@ public class HOADON {
     System.out.print("Ma nhan vien :"); 
     NVThuNgan = input.nextLine();
     dsnv = new DANHSACHNHANVIEN();
-    dsnv.docData("D:\\phongMach_THUOC\\quanLiPhongMach\\data\\NHANVIEN.TXT" );
+    dsnv.docData("data\\NHANVIEN.TXT" );
     if (dsnv.kiemTraMaNhanVien(NVThuNgan)==0){
         System.out.println("Nhan vien khong ton tai!");
         them();
@@ -117,7 +116,8 @@ public class HOADON {
     else{
         System.out.println("Da xong!");
     }
-    dsbs.docData("D:\\phongMach_THUOC\\quanLiPhongMach\\data\\BacSi.txt");
+    dsbs.docData("data\\BacSi.txt");
+    dsbn.docData("data\\BenhNhan.txt");
     tongTien = donThuoc.getDonThuocTuMa(maDonThuoc).getDonGia()+phieuKhamBenh.getPhieuKhamBenh(maPhieuKhamBenh).getTienKham();
 
     
