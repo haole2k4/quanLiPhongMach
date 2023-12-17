@@ -15,8 +15,70 @@ public class HOADON {
     private DANHSACHNHANVIEN dsnv;
     private DSBN dsbn;
     private DSBS dsbs;
-   
 
+    private String tenBS,sdtBS,tenBN,ngaysinhBN,tenNV;
+   
+    // Getter methods
+    public String getThongTin(){
+        String s=maHoaDon+","+maDonThuoc+","+maPhieuKhamBenh+","+NVThuNgan+","+ngayTao+","+hinhThucThanhToan+","+tongTien;
+        return s;
+    }
+    public String getMaHoaDon() {
+        return maHoaDon;
+    }
+
+    public String getMaDonThuoc() {
+        return maDonThuoc;
+    }
+
+    public String getMaPhieuKhamBenh() {
+        return maPhieuKhamBenh;
+    }
+
+    public double getTongTien() {
+        return tongTien;
+    }
+
+    public LocalDate getNgayTao() {
+        return ngayTao;
+    }
+
+    public String getHinhThucThanhToan() {
+        return hinhThucThanhToan;
+    }
+
+    public String getNVThuNgan() {
+        return NVThuNgan;
+    }
+
+    // Setter methods
+    public void setMaHoaDon(String maHoaDon) {
+        this.maHoaDon = maHoaDon;
+    }
+
+    public void setMaDonThuoc(String maDonThuoc) {
+        this.maDonThuoc = maDonThuoc;
+    }
+
+    public void setMaPhieuKhamBenh(String maPhieuKhamBenh) {
+        this.maPhieuKhamBenh = maPhieuKhamBenh;
+    }
+
+    public void setTongTien(double tongTien) {
+        this.tongTien = tongTien;
+    }
+
+    public void setNgayTao(LocalDate ngayTao) {
+        this.ngayTao = ngayTao;
+    }
+
+    public void setHinhThucThanhToan(String hinhThucThanhToan) {
+        this.hinhThucThanhToan = hinhThucThanhToan;
+    }
+
+    public void setNVThuNgan(String NVThuNgan) {
+        this.NVThuNgan = NVThuNgan;
+    }
     // 3 ham khoi tao
     public HOADON() {
         maHoaDon = null;
@@ -64,6 +126,22 @@ public class HOADON {
         dsnv = hd.dsnv;
         dsbn = hd.dsbn;
         dsbs = hd.dsbs;
+    }
+    public int checkPK(String ma)
+    {
+        phieuKhamBenh = new DANHSACHPHIEUKHAMBENH();
+        try{
+            phieuKhamBenh.docData("data\\dataPhieuKham.txt");
+        } catch(Exception e){
+            System.out.println("loi doc file!");
+            return 0;
+        }
+         if (phieuKhamBenh.timKiemTheoMa(maPhieuKhamBenh)==0){
+            return 0;
+            tenBS = dsbs.timKiemTraVeBacSi(phieuKhamBenh.getPhieuKhamBenh(maPhieuKhamBenh).getMaBacSi()).getHo()+" "+dsbs.timKiemTraVeBacSi(phieuKhamBenh.getPhieuKhamBenh(maPhieuKhamBenh).getMaBacSi()).getTen();
+        }
+
+        return 1;
     }
     public void them(){
         Scanner input = new Scanner(System.in);
@@ -153,11 +231,6 @@ public class HOADON {
         
 
     }
-    public static void main(String[] args) {
-        HOADON hd = new HOADON();
-        hd.them();
-        hd.xuat();
-    }
-    
+
     
 }
