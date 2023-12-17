@@ -86,11 +86,11 @@ public class HOADON {
         System.out.format("|| %94s ||\n","HOA DON BAN HANG");
         System.out.format("||       %-47s %40s ||\n","TIEM THUOC NHOM 10","Ngay tao: "+ngayTao);
         System.out.format("|| %94s ||\n","So / Ma: "+maHoaDon);
-        System.out.format("|| %-94s ||\n","Bac si quan ly: "+dsbs.timKiem(phieuKhamBenh.getPhieuKhamBenh(maPhieuKhamBenh).getMaBacSi()));
+        System.out.format("|| %-94s ||\n","Bac si quan ly: "+dsbs.timKiem(phieuKhamBenh.getPhieuKhamBenh(maPhieuKhamBenh).getMaBacSi()).getHo()+" "+dsbs.timKiem(phieuKhamBenh.getPhieuKhamBenh(maPhieuKhamBenh).getMaBacSi()).getTen() );
         System.out.format("|| %-94s ||\n","Ma BSI: "+phieuKhamBenh.getPhieuKhamBenh(maPhieuKhamBenh).getMaBacSi());
-        System.out.format("|| %-94s ||\n","SDT: "+"chua co");
+        System.out.format("|| %-94s ||\n","SDT: "+dsbs.timKiem(phieuKhamBenh.getPhieuKhamBenh(maPhieuKhamBenh).getMaBacSi()).getSDT());
         System.out.format("|| %-94s ||\n"," ");
-        System.out.format("|| %-94s ||\n","Ten benh nhan: "+ phieuKhamBenh.getPhieuKhamBenh(maPhieuKhamBenh).getMaBenhNhan());
+        System.out.format("|| %-94s ||\n","Ten benh nhan: "+ dsbn.);
         System.out.format("|| %-94s ||\n","Ma benh nhan: "+phieuKhamBenh.getPhieuKhamBenh(maPhieuKhamBenh).getMaBenhNhan());
         System.out.format("|| %-94s ||\n","Da chi: "+"CHUA CO");
         System.out.format("|| %-94s ||\n"," ");

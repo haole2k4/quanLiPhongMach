@@ -278,6 +278,14 @@ public class DSBN implements arrayInterfaceBENHNHAN{
             }
         }
     }
+    public BenhNhan timKiemBenhNhan(String ma){
+        for (int i=0;i<n;i++){
+            if (ma.equals(dsbn[i].getMaBenhNhan())){
+                return dsbn[i];
+            }
+        }
+        return null;
+    }
     
     public void XoaBN(int maBenhNhan) {
         boolean found = false;
