@@ -2,7 +2,7 @@ public class QLDSPHIEUKHAM {
     public void trinhQuanLiDanhSachPhieuKhamBenh() {
         try {
             DANHSACHPHIEUKHAMBENH ds = new DANHSACHPHIEUKHAMBENH();
-            ds.docData("data/dataThuoc.txt");
+            ds.docData("data/dataPhieuKham.txt");
             ds.getNeedData("data/dataThuoc.txt", "data/BacSi.txt", "data/BenhNhan.txt");
             ds.inDanhSachPhieuKham();
             ds.menuThaoTac();

@@ -101,12 +101,12 @@ public class DANHSACHPHIEUKHAMBENH {
         do {
             System.out.print("Nhap ma bac si: ");
             maBacSi = mayScanner.nextLine();
-        }while();
+        }while(dsbs.timMaBacSi(maBacSi) == -1);
         
-        do {
+       
              System.out.print("Nhap ma benh nhan: ");
             maBenhNhan = mayScanner.nextLine();
-        }while();
+      
        
 
         LocalDate ngayKham = LocalDate.now();
