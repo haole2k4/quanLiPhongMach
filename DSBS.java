@@ -271,6 +271,17 @@ public class DSBS {
         return none;
     }
 
+
+    
+    public int timMaBacSi(String findedMaBacSi) {
+        int index = -1;
+        for (int i = 0; i < this.n; i++) {
+            if (this.dsbs[i].getMaBS().equals(findedMaBacSi))
+                index = i;
+        }
+        return index;
+    }
+
 // Thong ke
     public void menuThongKe(){
         Scanner input = new Scanner(System.in);
