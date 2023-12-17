@@ -32,54 +32,61 @@ public class DSBS {
         n = l.n;
     }
 
-    public String fileBS(){
-        return "data/BacSi.txt";
-    }
+//     public String fileBS(){
+//         return "data/BacSi.txt";
+//     }
 
-// Ham lay dong de ghi vao file
-    public String getLine(int i){
-        return (dsbs[i].getMaBS()+","+dsbs[i].getHo()+","+dsbs[i].getTen()+","+dsbs[i].getGioiTinh()+","+dsbs[i].getNgaySinh()+","+dsbs[i].getSDT()+","+dsbs[i].getTrinhDo()+","+dsbs[i].getChuyenNganh()+","+dsbs[i].getHoatDong());
-    }
+// // Ham lay dong de ghi vao file
+//     public String getLine(int i){
+//         return (dsbs[i].getMaBS()+","+dsbs[i].getHo()+","+dsbs[i].getTen()+","+dsbs[i].getGioiTinh()+","+dsbs[i].getNgaySinh()+","+dsbs[i].getSDT()+","+dsbs[i].getTrinhDo()+","+dsbs[i].getChuyenNganh()+","+dsbs[i].getHoatDong());
+//     }
 
-// Ham xoa data trong file
-    public void xoaDataFile(String filePath){
-        try{
-            FileWriter writer = new FileWriter(filePath, false);
-            writer.write("");
-            writer.close();
-        } catch(IOException e){
-            System.out.print("\nLoi");
-        }
-    }
+// // Ham xoa data trong file
+//     public void xoaDataFile(String filePath){
+//         try{
+//             FileWriter writer = new FileWriter(filePath, false);
+//             writer.write("");
+//             writer.close();
+//         } catch(IOException e){
+//             System.out.print("\nLoi");
+//         }
+//     }
 
-// Ham ghi file
-    public void ghiLine(String fileName, String s){
-        // Xoa data trong file truoc
-        File outFile = new File(fileName);
+// // Ham ghi file
+//     public void ghiLine(String fileName, String s){
+//         // Xoa data trong file truoc
+//         File outFile = new File(fileName);
+//         PrintWriter write = null;
+//         try{
+//             write = new PrintWriter(new FileWriter(outFile, true));
+//         } catch(Exception e){
+//             System.out.print("\nKhong the tao tap tin ket qua");
+//             return;
+//         }
+//         write.print(s);
+//         write.print("\n");
+//         write.close();
+//     }
+
+    void ghiFile(String filePath){
+        File file = new File(filePath);
         PrintWriter write = null;
-        try{
-            write = new PrintWriter(new FileWriter(outFile, true));
-        } catch(Exception e){
-            System.out.print("\nKhong the tao tap tin ket qua");
-            return;
+        try {
+            write = new PrintWriter(file);
+        } catch (Exception e) {
+            System.out.println("loi ghi file!");
         }
-        write.print(s);
-        write.print("\n");
+        write.println(n);
+        for (int i = 0; i < n; i++) {
+            write.println(dsbs[i].getThongTin());
+        }
         write.close();
-    }
-
-    void ghiFile(){
-        xoaDataFile(fileBS());
-        ghiLine(fileBS(), String.valueOf(n));
-        for(int i = 0; i < n; i++){
-            ghiLine(fileBS(), getLine(i));
-        }
     }
 
 //Nhap:
     public void nhap(){
         // Xoa data trong file truoc khi ghi lai file moi
-        xoaDataFile(fileBS());
+        
         Scanner input = new Scanner(System.in);
         System.out.print("\nNhap so luong: ");
         n = input.nextInt();
@@ -90,7 +97,7 @@ public class DSBS {
             dsbs[i].nhap();
             System.out.print("\n");
         }
-        ghiFile();
+        
     }
 
 // Ham doc file
@@ -141,7 +148,7 @@ public class DSBS {
         dsbs[n] = new BacSi();
         dsbs[n].nhap();
         n++;
-        ghiFile();
+        
     }
 
 // Sua
@@ -158,7 +165,7 @@ public class DSBS {
         } if(!flag){
             System.out.print("\nKhong tim thay bac si !!!");
         }
-        ghiFile();
+        
     }
 
     void sua(String ma){
@@ -171,7 +178,7 @@ public class DSBS {
         } if(!flag){
             System.out.print("\nKhong tim thay bac si !!!");
         }
-        ghiFile();
+        
     }
 
 //Tim:
@@ -218,7 +225,7 @@ public class DSBS {
             System.out.print("\nKhong tim thay ma bac si !!!");
             return;
         }
-        ghiFile();
+        
     }
     public void xoa(String ma){
         boolean flag = false;
@@ -234,7 +241,7 @@ public class DSBS {
             System.out.print("\nKhong tim thay ma bac si !!!");
             return;
         }
-        ghiFile();
+        
     }
 
 // Tim kiem
