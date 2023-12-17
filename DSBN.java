@@ -304,6 +304,9 @@ public class DSBN implements arrayInterfaceBENHNHAN{
             }
         }
         if (foundIndex != -1) {
+            System.out.format("%-12s | %-21s | %-9s | %-11s | %-13s | %-14s | %-10s | %-10s | %-12s | %-10s", "Ma benh nhan", "Ho ten", "Gioi tinh", "SDT", "Can nang(kg)", "Chieu cao(kg)", "Ngay sinh", "Que quan", "Benh nen", "Ngay kham");
+            System.out.println();
+            xuatThongTinBenhNhan(foundIndex);
             MenuSua(foundIndex);
         } else {
             System.out.println("Khong tim thay benh nhan!");
