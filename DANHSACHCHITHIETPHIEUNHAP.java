@@ -12,8 +12,9 @@ public class DANHSACHCHITHIETPHIEUNHAP {
     // HAM DOC FILE
     public void docfile(String path) {
         Scanner read = null;
+        File file = new File(path);
         try {
-            read = new Scanner(path);
+            read = new Scanner(file);
 
         } catch (Exception e) {
             System.out.println("Loi doc file!");
@@ -21,7 +22,7 @@ public class DANHSACHCHITHIETPHIEUNHAP {
 
         }
         if (read.hasNextLine()) {
-            soLuong = Integer.parseInt(read.nextLine());
+            soLuong= Integer.parseInt(read.nextLine());
             dsctpn = new CHITIETPHIEUNHAP[soLuong];
         } else
             return;
@@ -151,5 +152,10 @@ public class DANHSACHCHITHIETPHIEUNHAP {
 
             }
         } while (i != 0);
+    }
+    public static void main(String[] args) {
+        DANHSACHCHITHIETPHIEUNHAP ds = new DANHSACHCHITHIETPHIEUNHAP();
+        ds.docfile("data\\CHITIETPHIEUNHAP.TXT");
+        ds.xuat();
     }
 }

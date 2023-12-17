@@ -3,10 +3,10 @@ public class QUANLIDSPN {
     public void thaoTac() {
         try {
             DANHSACHPHIEUNHAP ds = new DANHSACHPHIEUNHAP();
-            ds.docfile("data\\CHITIETPHIEUNHAP.txt");
+            ds.docfile("data\\PHIEUNHAP.txt");
             ds.xuat();
             ds.thaoTac();
-            ds.ghiFile("data\\CHITIETPHIEUNHAP.txt");
+            ds.ghiFile("data\\PHIEUNHAP.txt");
         }
         catch(Exception e) {
             // e.printStackTrace();

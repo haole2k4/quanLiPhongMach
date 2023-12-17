@@ -26,7 +26,7 @@ public class QUANLYNHAPHANG
                 { 
                     qldsctpn.thaoTac();
                 }break;
-                case 2: qldsctpn.thaoTac(); break;
+                case 2: qldspn.thaoTac(); break;
             }
 
 
