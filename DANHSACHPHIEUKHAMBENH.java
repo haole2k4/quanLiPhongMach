@@ -176,6 +176,11 @@ public class DANHSACHPHIEUKHAMBENH {
         System.out.println("\u001B[32m" + "-".repeat(117) + "\u001B[0m");
     }
 
+    public void inChiTietPhieuKham(int index) {
+
+        
+    }
+
     public void docData(String filePath) throws FileNotFoundException {
         File dataFile = new File(filePath);
         Scanner fileScanner = new Scanner(dataFile);
