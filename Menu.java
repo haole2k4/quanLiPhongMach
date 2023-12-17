@@ -18,7 +18,7 @@ public class Menu {
     public void MainMenu() {
 
         // khong biet doc o dau nen doc o day
-        trinhqlNhanVien.docFile();
+
         trinhqlDSCTPN.docfile();
         trinhqlDSPN.docfile();
         trinhqlNCC.docFile();
