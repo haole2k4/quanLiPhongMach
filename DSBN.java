@@ -10,6 +10,7 @@ public class DSBN implements arrayInterfaceBENHNHAN{
     private int n;
 //Dat kieu dinh dang theo dd/MM/yyyy
     private DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+    private DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 //Phuong thuc
     DSBN() {
         dsbn = new BenhNhan[1000];
@@ -102,11 +103,11 @@ public class DSBN implements arrayInterfaceBENHNHAN{
                 dsbn[i].setSDT(str[4]);
                 dsbn[i].setCanNang(Double.parseDouble(str[5]));
                 dsbn[i].setChieuCao(Double.parseDouble(str[6]));
-                LocalDate ngaySinhDate = LocalDate.parse(str[7], dateFormatter);
+                LocalDate ngaySinhDate = LocalDate.parse(str[7], formatter);
                 dsbn[i].setNgaySinh(ngaySinhDate.format(dateFormatter));
                 dsbn[i].setQueQuan(str[8]);
                 dsbn[i].setBenhNen(str[9]);
-                LocalDate ngayKhamDate = LocalDate.parse(str[10], dateFormatter);
+                LocalDate ngayKhamDate = LocalDate.parse(str[10], formatter);
                 dsbn[i].setNgayKham(ngayKhamDate.format(dateFormatter));
             }
             read.close();
@@ -518,4 +519,3 @@ public class DSBN implements arrayInterfaceBENHNHAN{
         }
     }
 }
-

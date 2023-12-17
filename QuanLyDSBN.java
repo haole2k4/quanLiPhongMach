@@ -7,6 +7,7 @@ public class QuanLyDSBN {
             qlDSBN.ghiFile("data/BenhNhan.txt");
         } catch (Exception e){
             System.out.println("\nLoi khong the doc file!\n");
+            e.printStackTrace();
         }
     }
 }
