@@ -12,9 +12,8 @@ public class DANHSACHPHIEUKHAMBENH {
     int soPhieuKham;
 
     Scanner mayScanner = new Scanner(System.in);
-    DANHSACHTHUOC dst = new DANHSACHTHUOC();
-    DSBS dsbs = new DSBS();
-    DSBN dsbn = new DSBN();
+    // DSBS dsbs = new DSBS();
+    // DSBN dsbn = new DSBN();
 
     DANHSACHPHIEUKHAMBENH() {
         this.dsPhieuKham = new PHIEUKHAMBENH[0];
@@ -34,19 +33,21 @@ public class DANHSACHPHIEUKHAMBENH {
     public PHIEUKHAMBENH[] getDsPhieuKham() {
         return this.dsPhieuKham;
     }
-    public PHIEUKHAMBENH getPhieuKhamBenh(String ma){
-        for (int i=0;i<soPhieuKham;i++){
+
+    public PHIEUKHAMBENH getPhieuKhamBenh(String ma) {
+        for (int i = 0; i < soPhieuKham; i++) {
             if (dsPhieuKham[i].getMaPhieuKham().equals(ma))
-        return dsPhieuKham[i];
-    
+                return dsPhieuKham[i];
+
         }
         return null;
-        
+
     }
 
     public int getSoPhieuKham() {
         return this.soPhieuKham;
     }
+
     public void setSoPhieuKham(int soPhieu) {
         this.soPhieuKham = soPhieu;
     }
@@ -55,18 +56,14 @@ public class DANHSACHPHIEUKHAMBENH {
         this.dsPhieuKham = dspkb;
     }
 
-    public void getNeedData(String filePathThuoc, String filePathBacSi, String filePathBenhNhan) {
-        try {
-            dst.docData(filePathThuoc);
-            dsbs.docData(filePathBacSi);
-            // dsbn.docData();
-        } catch (IOException e) {
-            System.out.println("Doc data can thiet that bai");
-        }
-    }
-    public int timKiemTheoMa(String ma){
-        for (int i=0;i<soPhieuKham;i++){
-            if (ma.equals(dsPhieuKham[i].getMaPhieuKham())){
+    // public void getNeedData(String filePathBacSi, String filePathBenhNhan) {
+    //     dsbs.docData(filePathBacSi);
+    //     // dsbn.docData();
+    // }
+
+    public int timKiemTheoMa(String ma) {
+        for (int i = 0; i < soPhieuKham; i++) {
+            if (ma.equals(dsPhieuKham[i].getMaPhieuKham())) {
                 return 1;
             }
         }
@@ -83,7 +80,7 @@ public class DANHSACHPHIEUKHAMBENH {
     public void themPhieuKhamBenh(PHIEUKHAMBENH newPhieukhambenh) {
         this.soPhieuKham += 1;
         this.dsPhieuKham = Arrays.copyOf(this.dsPhieuKham, soPhieuKham);
-        this.dsPhieuKham[soPhieuKham] = newPhieukhambenh;
+        this.dsPhieuKham[soPhieuKham - 1] = newPhieukhambenh;
     }
 
     public void taoPhieuKhamBenh() { // them vào cuối index
@@ -92,37 +89,40 @@ public class DANHSACHPHIEUKHAMBENH {
         String maBenhNhan;
         String tempNgayTaiKham;
 
-        do {
-            System.out.print("Nhap ma phieu kham: ");
-            maPhieuKham = mayScanner.nextLine();
-        } while (timMaPhieuKham(maPhieuKham) == -1);
+        // do {
+
+        // } while (timMaPhieuKham(maPhieuKham) == -1);
+        mayScanner.nextLine();
+
+        System.out.print("Nhap ma phieu kham: ");
+        maPhieuKham = mayScanner.nextLine();
 
 
-        do {
-            System.out.print("Nhap ma bac si: ");
-            maBacSi = mayScanner.nextLine();
-        }while(dsbs.timMaBacSi(maBacSi) == -1);
-        
-       
-             System.out.print("Nhap ma benh nhan: ");
-            maBenhNhan = mayScanner.nextLine();
-      
-       
+        System.out.print("Nhap ma bac si: ");
+        maBacSi = mayScanner.nextLine();
+
+        // do {
+
+        // } while (dsbs.timMaBacSi(maBacSi) == -1);
+
+        System.out.print("Nhap ma benh nhan: ");
+        maBenhNhan = mayScanner.nextLine();
 
         LocalDate ngayKham = LocalDate.now();
 
         System.out.print("Nhap chuan doan: ");
         String chuanDoan = mayScanner.nextLine();
 
-        do {
-            System.out.print("Nhap ngay tai kham(yyyy--MM-dd): ");
+        // do {
+            
+        // } while (checkValidDate(ngayKham, LocalDate.parse(tempNgayTaiKham)));
+        System.out.print("Nhap ngay tai kham(yyyy--MM-dd): ");
             tempNgayTaiKham = mayScanner.nextLine();
-        } while(checkValidDate(ngayKham, LocalDate.parse(tempNgayTaiKham)));
-        
         LocalDate ngayTaiKham = LocalDate.parse(tempNgayTaiKham);
 
         System.out.print("Nhap tien kham: ");
         double tienKham = mayScanner.nextDouble();
+
 
         PHIEUKHAMBENH newPhieuKham = new PHIEUKHAMBENH(maPhieuKham, maBacSi, maBenhNhan, ngayKham, chuanDoan,
                 ngayTaiKham, tienKham);
@@ -202,7 +202,7 @@ public class DANHSACHPHIEUKHAMBENH {
         dataPhieuKham.append(ngayKham).append(", ");
         dataPhieuKham.append(this.dsPhieuKham[index].getChuanDoan()).append(", ");
         dataPhieuKham.append(ngayTaiKham).append(", ");
-        dataPhieuKham.append(this.dsPhieuKham[index].getTienKham()).append(", ");
+        dataPhieuKham.append(this.dsPhieuKham[index].getTienKham());
         return dataPhieuKham.toString();
     }
 
@@ -221,26 +221,24 @@ public class DANHSACHPHIEUKHAMBENH {
                 option = mayScanner.nextInt();
             }
 
-            if(option == 0) {
+            if (option == 0) {
                 break;
             }
 
-            if(option == 1) {
+            if (option == 1) {
                 this.inDanhSachPhieuKham();
             }
 
-            if(option == 2) {
+            if (option == 2) {
                 this.taoPhieuKhamBenh();
             }
 
         } while (option != 0);
     }
 
-
-
     public void findOption() {
-        int find_option = 0; 
-        
+        int find_option = 0;
+
         do {
             System.out.println("\t\tNhap 0 de thoat");
             System.out.println("Nhap 1 de tim kiem theo ma phieu");
@@ -248,34 +246,31 @@ public class DANHSACHPHIEUKHAMBENH {
             System.out.print("\t\tVui long nhap lua chon cua ban: ");
             find_option = mayScanner.nextInt();
 
-            while(find_option < 0 || find_option > 6) {
+            while (find_option < 0 || find_option > 6) {
                 System.out.println("Ban nhap khong dung gia tri, vui long nhap lai: ");
                 find_option = mayScanner.nextInt();
             }
 
-            if(find_option == 0) {
+            if (find_option == 0) {
                 break;
             }
 
-            if(find_option == 1) {
+            if (find_option == 1) {
                 mayScanner.nextInt();
                 System.out.println("Nhap ma phieu can tim kiem: ");
                 String maPhieuKhamCanTim = mayScanner.nextLine();
-                if(timMaPhieuKham(maPhieuKhamCanTim) == -1) {
+                if (timMaPhieuKham(maPhieuKhamCanTim) == -1) {
                     System.out.println("Khong tim thay ma phieu kham can tim");
-                }
-                else {
+                } else {
                     this.dsPhieuKham[timMaPhieuKham(maPhieuKhamCanTim)].inPhieuKham();
                 }
             }
 
-            if(find_option == 2) {
+            if (find_option == 2) {
 
             }
 
-
-
-        }while(find_option != 0);
+        } while (find_option != 0);
     }
 
 }

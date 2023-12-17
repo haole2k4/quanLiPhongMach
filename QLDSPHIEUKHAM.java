@@ -3,10 +3,10 @@ public class QLDSPHIEUKHAM {
         try {
             DANHSACHPHIEUKHAMBENH ds = new DANHSACHPHIEUKHAMBENH();
             ds.docData("data/dataPhieuKham.txt");
-            ds.getNeedData("data/dataThuoc.txt", "data/BacSi.txt", "data/BenhNhan.txt");
+            // ds.getNeedData("data/BacSi.txt", "data/BenhNhan.txt");
             ds.inDanhSachPhieuKham();
             ds.menuThaoTac();
-            ds.ghiData("data/dataThuoc.txt");
+            ds.ghiData("data/dataPhieuKham.txt");
         }
         catch(Exception e) {
             // e.printStackTrace();
