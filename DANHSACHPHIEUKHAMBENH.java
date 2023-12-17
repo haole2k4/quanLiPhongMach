@@ -160,6 +160,29 @@ public class DANHSACHPHIEUKHAMBENH {
         return index;
     }
 
+    public void timKiemKhoangNgayKham() {
+        System.out.println("Nhap ngay bat dau (yyyy-MM-dd): ");
+        String ngayBatDauStr = mayScanner.nextLine();
+        System.out.println("Nhap ngay ket thuc (yyyy-MM-dd): ");
+        String ngayKetThucStr = mayScanner.nextLine();
+
+        LocalDate ngayBatDau = LocalDate.parse(ngayBatDauStr);
+        LocalDate ngayKetThuc = LocalDate.parse(ngayKetThucStr);
+        System.out.println("\u001B[32m" + "-".repeat(50) + " DANH SACH PHIEU KHAM " + "-".repeat(50) + "\u001B[0m");
+        System.out.format("\u001B[34m" + "|| %-10s | %-15s | %-15s | %-10s | %-10s | %-15s | %-10s ||\n" + "\u001B[0m",
+                "MA Pk", "MA BAC SI", "MA BENH NHAN", "NGAY KHAM", "CHUAN DOAN", "NGAY TAI KHAM", "TIEM KHAM");
+        for (int i = 0; i < this.soPhieuKham; i++) {
+            if (this.dsPhieuKham[i].getNgayKham().isEqual(ngayBatDau)
+                    || this.dsPhieuKham[i].getNgayKham().isEqual(ngayKetThuc)
+                    || (this.dsPhieuKham[i].getNgayKham().isAfter(ngayBatDau))
+                            && this.dsPhieuKham[i].getNgayKham().isBefore(ngayKetThuc)) {
+                this.dsPhieuKham[i].inPhieuKham();
+            }
+        }
+        System.out.println("\u001B[32m" + "-".repeat(117) + "\u001B[0m");
+
+    }
+
     public void inDanhSachPhieuKham() {
         System.out.println("\u001B[32m" + "-".repeat(50) + " DANH SACH PHIEU KHAM " + "-".repeat(50) + "\u001B[0m");
         System.out.format("\u001B[34m" + "|| %-10s | %-15s | %-15s | %-10s | %-10s | %-15s | %-10s ||\n" + "\u001B[0m",
@@ -273,6 +296,7 @@ public class DANHSACHPHIEUKHAMBENH {
             System.out.println("\t\tNhap 1 de in danh sach toan bo phieu kham benh");
             System.out.println("\t\tNhap 2 de nhap them mot phieu kham benh");
             System.out.println("\t\tNhap 3 de in mot phieu kham benh");
+            System.out.println("\t\tNhap 4 de mo trinh tim kiem phieu kham benh");
             System.out.print("\t\tVui long nhap lua chon cua ban: ");
             option = mayScanner.nextInt();
 
@@ -282,7 +306,7 @@ public class DANHSACHPHIEUKHAMBENH {
             }
 
             if (option == 0) {
-                
+
                 break;
             }
 
@@ -307,7 +331,11 @@ public class DANHSACHPHIEUKHAMBENH {
                 else {
                     this.inChiTietPhieuKham(index);
                 }
-                
+
+            }
+
+            if (option == 4) {
+                this.findOption();
             }
 
         } while (option != 0);
@@ -329,12 +357,12 @@ public class DANHSACHPHIEUKHAMBENH {
             }
 
             if (find_option == 0) {
-                
+
                 break;
             }
 
             if (find_option == 1) {
-                mayScanner.nextInt();
+                mayScanner.nextLine();
                 System.out.println("Nhap ma phieu can tim kiem: ");
                 String maPhieuKhamCanTim = mayScanner.nextLine();
                 if (timMaPhieuKham(maPhieuKhamCanTim) == -1) {
@@ -345,7 +373,8 @@ public class DANHSACHPHIEUKHAMBENH {
             }
 
             if (find_option == 2) {
-
+                mayScanner.nextLine();
+                this.timKiemKhoangNgayKham();
             }
 
         } while (find_option != 0);
