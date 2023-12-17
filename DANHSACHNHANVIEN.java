@@ -26,9 +26,9 @@ public class DANHSACHNHANVIEN {
     }
 
 
-    void ghiFile()
+    void ghiData(String path)
     {
-        File file = new File("D:\\phongMach_THUOC\\quanLiPhongMach\\data\\NHANVIEN.TXT");
+        File file = new File(path);
         PrintWriter write = null;
         try {
             write = new PrintWriter(file);
@@ -54,11 +54,10 @@ public class DANHSACHNHANVIEN {
                 dsnv[i].nhap();
                 System.out.print("\n");
             }
-        ghiFile();
         }
-        void docFile()
+        void docData(String path)
         {
-            File inFile = new File("D:\\\\phongMach_THUOC\\\\quanLiPhongMach\\\\data\\\\NHANVIEN.TXT");
+            File inFile = new File(path);
             Scanner read = null;
             try
             {
@@ -109,7 +108,6 @@ public class DANHSACHNHANVIEN {
         dsnv[soLuongNV] = new NHANVIEN();
         dsnv[soLuongNV].nhap();
         soLuongNV++;
-        ghiFile();
     }
 
     void sua()
@@ -129,7 +127,6 @@ public class DANHSACHNHANVIEN {
         }
         if (!flag )
         System.out.println("khong tim thay nhan vien");
-        ghiFile();
         
     }
 
@@ -147,10 +144,7 @@ public class DANHSACHNHANVIEN {
             }
         }
         if (!flag )
-        System.out.println("khong tim thay nhan vien");
-
-//sua trong file
-        ghiFile();
+        System.out.println("khong tim thay nhan vien");;
 
 
     }
@@ -167,7 +161,6 @@ public class DANHSACHNHANVIEN {
 
     void xoa()
     {
-//xoa trong array hien tai
         System.out.print(" - Nhap ma nhan vien can xoa: ");
         Scanner input = new Scanner(System.in);
         String ma;
@@ -191,14 +184,13 @@ public class DANHSACHNHANVIEN {
             System.out.println("Khong tim thay ma nhan vien!");
             return;
         }
-        ghiFile();
+
     }
 
 
 
     void xoa(String ma)
     {
-//xoa trong array hien tai
 
         boolean flag = false;
         for (int i=0;i<soLuongNV;i++)
@@ -219,8 +211,6 @@ public class DANHSACHNHANVIEN {
             System.out.println("Khong tim thay ma nhan vien!");
             return;
         }
-// xoa trong file
-        ghiFile();
     }
 
     public NHANVIEN timkiem()

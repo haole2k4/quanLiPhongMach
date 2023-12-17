@@ -79,7 +79,6 @@ public class DANHSACHCHITHIETPHIEUNHAP {
             dsctpn[soLuong - 1] = new CHITIETPHIEUNHAP();
             dsctpn[soLuong - 1].nhap();
         }
-        ghiFile();
     }
 
     public void xoa() {
@@ -94,7 +93,6 @@ public class DANHSACHCHITHIETPHIEUNHAP {
                 soLuong--;
             }
         }
-        ghiFile();
     }
 
     public void timKiem() {

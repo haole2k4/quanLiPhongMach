@@ -18,7 +18,53 @@ public class HOADON {
    
 
     // 3 ham khoi tao
+    public HOADON() {
+        maHoaDon = null;
+        maDonThuoc = null;
+        maPhieuKhamBenh = null;
+        tongTien = 0.0;
+        ngayTao = null;
+        hinhThucThanhToan = null;
+        NVThuNgan = null;
 
+        donThuoc = new DANHSACHDONTHUOC();
+        phieuKhamBenh = new DANHSACHPHIEUKHAMBENH();
+        dsnv = new DANHSACHNHANVIEN();
+        dsbn = new DSBN();
+        dsbs = new DSBS();
+    }
+
+    public HOADON(String maHoaDon, String maDonThuoc, String maPhieuKhamBenh, double tongTien, LocalDate ngayTao, String hinhThucThanhToan, String NVThuNgan) {
+        this.maHoaDon = maHoaDon;
+        this.maDonThuoc = maDonThuoc;
+        this.maPhieuKhamBenh = maPhieuKhamBenh;
+        this.tongTien = tongTien;
+        this.ngayTao = ngayTao;
+        this.hinhThucThanhToan = hinhThucThanhToan;
+        this.NVThuNgan = NVThuNgan;
+
+        donThuoc = new DANHSACHDONTHUOC();
+        phieuKhamBenh = new DANHSACHPHIEUKHAMBENH();
+        dsnv = new DANHSACHNHANVIEN();
+        dsbn = new DSBN();
+        dsbs = new DSBS();
+    }
+
+    public HOADON(HOADON hd) {
+        maHoaDon = hd.maHoaDon;
+        maDonThuoc = hd.maDonThuoc;
+        maPhieuKhamBenh = hd.maPhieuKhamBenh;
+        tongTien = hd.tongTien;
+        ngayTao = hd.ngayTao;
+        hinhThucThanhToan = hd.hinhThucThanhToan;
+        NVThuNgan = hd.NVThuNgan;
+
+        donThuoc = hd.donThuoc;
+        phieuKhamBenh = hd.phieuKhamBenh;
+        dsnv = hd.dsnv;
+        dsbn = hd.dsbn;
+        dsbs = hd.dsbs;
+    }
     public void them(){
         Scanner input = new Scanner(System.in);
         System.out.println("Nhap ma hoa don : ");
