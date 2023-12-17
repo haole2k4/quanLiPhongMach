@@ -5,8 +5,6 @@ public class Menu {
 
     DANHSACHTHUOC trinhqlThuoc = new DANHSACHTHUOC();
     QUANLIDSNhanVien trinhqlNhanVien = new QUANLIDSNhanVien();
-    DANHSACHCHITHIETPHIEUNHAP trinhqlDSCTPN = new DANHSACHCHITHIETPHIEUNHAP();
-    DANHSACHPHIEUNHAP trinhqlDSPN = new DANHSACHPHIEUNHAP();
     QUANLYNHAPHANG trinhqlNhapHang = new QUANLYNHAPHANG();
     DANHSACHNHACUNGCAP trinhqlNCC = new DANHSACHNHACUNGCAP();
     DANHSACHDONTHUOC trinhqlDONTHUOC = new DANHSACHDONTHUOC();
@@ -20,8 +18,7 @@ public class Menu {
 
         // khong biet doc o dau nen doc o day
 
-        trinhqlDSCTPN.docfile();
-        trinhqlDSPN.docfile();
+
         trinhqlNCC.docFile();
         try{
         trinhqlThuoc.docData("D:\\phongMach_THUOC\\quanLiPhongMach\\data\\dataThuoc.txt" );
@@ -63,7 +60,7 @@ public class Menu {
             }
 
             if(option == 3) {
-                trinhqlNhapHang.menu(trinhqlDSCTPN,trinhqlDSPN);
+                trinhqlNhapHang.menu();
             }
              if(option == 4) {
                 trinhqlNCC.menu();

@@ -10,11 +10,10 @@ public class DANHSACHCHITHIETPHIEUNHAP {
 
     // 3 ham khoi tao
     // HAM DOC FILE
-    public void docfile() {
-        File file = new File("data\\chitietphieunhap.txt");
+    public void docfile(String path) {
         Scanner read = null;
         try {
-            read = new Scanner(file);
+            read = new Scanner(path);
 
         } catch (Exception e) {
             System.out.println("Loi doc file!");
@@ -51,8 +50,8 @@ public class DANHSACHCHITHIETPHIEUNHAP {
     }
 
     // HAM GHI FILE
-    public void ghiFile() {
-        File file = new File("data\\chitietphieunhap.txt");
+    public void ghiFile(String path) {
+        File file = new File(path);
         PrintWriter write = null;
         try {
             write = new PrintWriter(file);
@@ -116,7 +115,7 @@ public class DANHSACHCHITHIETPHIEUNHAP {
         }
     }
 
-    public void menu() {
+    public void thaoTac() {
         System.out.println("\u001B[34m\n\t\t==> QUAN LY CHI TIET PHIEU NHAP:");
         System.out.println("\t\t0: BACK");
         System.out.println("\t\t1: Them chi tiet phieu nhap");
@@ -152,10 +151,5 @@ public class DANHSACHCHITHIETPHIEUNHAP {
 
             }
         } while (i != 0);
-    }
-
-    public static void main(String[] args) {
-        DANHSACHCHITHIETPHIEUNHAP test = new DANHSACHCHITHIETPHIEUNHAP();
-        test.menu();
     }
 }

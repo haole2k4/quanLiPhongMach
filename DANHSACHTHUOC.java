@@ -44,7 +44,7 @@ public class DANHSACHTHUOC implements arrayInterfaceTHUOC {
 
     // ???
     public void themSoLuongChoThuoc(String ma,int soluong){
-        for (int i=0;i<soluong;i++){
+        for (int i=0;i<soLuongThuoc;i++){
             if (ma.equals(dsThuoc[i].getMaThuoc())){
                 dsThuoc[i].setSoLuong(dsThuoc[i].getSoLuong()+soluong);
             }

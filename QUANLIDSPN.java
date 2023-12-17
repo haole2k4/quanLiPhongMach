@@ -1,12 +1,12 @@
 
-public class QUANLIDSHoaDon {
+public class QUANLIDSPN {
     public void thaoTac() {
         try {
-            DANHSACHHOADON ds = new DANHSACHHOADON();
-            ds.docFile("data\\HOADON.txt");
+            DANHSACHPHIEUNHAP ds = new DANHSACHPHIEUNHAP();
+            ds.docfile("data\\CHITIETPHIEUNHAP.txt");
             ds.xuat();
             ds.thaoTac();
-            ds.ghiFile("data\\HOADON.txt");
+            ds.ghiFile("data\\CHITIETPHIEUNHAP.txt");
         }
         catch(Exception e) {
             // e.printStackTrace();

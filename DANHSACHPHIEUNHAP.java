@@ -11,8 +11,8 @@ public class DANHSACHPHIEUNHAP {
     // 3 ham khoi tao
 
     // HAM GHI FILE
-    public void ghiFile() {
-        File file = new File("D:\\phongMach_THUOC\\quanLiPhongMach\\data\\phieunhap.txt");
+    public void ghiFile(String path) {
+        File file = new File(path);
         PrintWriter write = null;
         try {
             write = new PrintWriter(file);
@@ -27,8 +27,8 @@ public class DANHSACHPHIEUNHAP {
     }
 
     // HAM DOC FILE
-    public void docfile() {
-        File file = new File("D:\\phongMach_THUOC\\quanLiPhongMach\\data\\phieunhap.txt");
+    public void docfile(String path) {
+        File file = new File(path);
         Scanner read = null;
         try {
 
@@ -81,7 +81,6 @@ public class DANHSACHPHIEUNHAP {
             dspn[soLuong - 1].nhap();
 
         }
-        ghiFile();
     }
 
     public void xuat() {
@@ -104,8 +103,6 @@ public class DANHSACHPHIEUNHAP {
                 soLuong--;
             }
         }
-       
-        ghiFile();
     }
 
     public void timKiem() {
@@ -245,7 +242,7 @@ public class DANHSACHPHIEUNHAP {
         }
     }
 
-    public void menu() {
+    public void thaoTac() {
         System.out.println("\u001B[34m\n\t\t ==>MENU QUAN LY PHIEU NHAP: ");
         System.out.println("\t\t0: BACK");
         System.out.println("\t\t1: Them phieu nhap");
@@ -279,7 +276,6 @@ public class DANHSACHPHIEUNHAP {
                     input.nextLine();
                     switch (dem) {
                         case 0:
-                            menu();
                             break;
                         case 1:
                             timKiem();

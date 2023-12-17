@@ -2,8 +2,9 @@
 import java.util.Scanner;
 public class QUANLYNHAPHANG
 {
-    
-    public void menu(DANHSACHCHITHIETPHIEUNHAP dsctpn, DANHSACHPHIEUNHAP dspn)
+    QUANLIDSCTPN qldsctpn = new QUANLIDSCTPN();
+    QUANLIDSPN qldspn = new QUANLIDSPN();
+    public void menu()
     {
         System.out.println("\n\t\u001B[34m======[ Trinh quan ly nhap hang ]=====\u001B[0m");
         System.out.println("\t -> Nhap 0 de quay tro lai");
@@ -23,11 +24,9 @@ public class QUANLYNHAPHANG
                 }
                 case 1:
                 { 
-                
-                    dsctpn.menu(); 
-                    
+                    qldsctpn.thaoTac();
                 }break;
-                case 2: dspn.menu(); break;
+                case 2: qldsctpn.thaoTac(); break;
             }
 
 

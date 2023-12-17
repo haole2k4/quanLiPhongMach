@@ -5,8 +5,8 @@ import java.util.Scanner;
  class CHITIETPHIEUNHAP {
     private String maCTPhieuNhap;
     THUOC[] dsThuocNhap;
-    int soLoaiThuocNhap = 0;
-    double thanhTien = 0;
+    int soLoaiThuocNhap;
+    double thanhTien;
    // 3 HÀM KHƠI TẠO
     public CHITIETPHIEUNHAP() {
         maCTPhieuNhap = null;
