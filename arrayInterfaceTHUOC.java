@@ -1,3 +1,5 @@
+import java.io.FileNotFoundException;
+
 /**
  * arrayInterface
  */
@@ -9,6 +11,7 @@ public interface arrayInterfaceTHUOC {
     public void nhapThuoc(int soThuocCanNhap);
     public void timThuocTheoTen(String tenThuocCanTim);
     public void inThuocTheoMa(String maThuocCanTim);
+    public void docData(String filePath) throws FileNotFoundException;
 }
 
 
