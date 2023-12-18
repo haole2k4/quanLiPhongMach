@@ -400,7 +400,7 @@ public class DSBS {
     }
     
     public void thongKeGioiTinh(){
-        Arrays.sort(dsbs, 0, n, (bs1, bs2) -> bs1.getTrinhDo().compareTo(bs2.getTrinhDo()));
+        Arrays.sort(dsbs, 0, n, (bs1, bs2) -> bs1.getGioiTinh().compareTo(bs2.getGioiTinh()));
 
         int nam = 0;
         int nu = 0;
