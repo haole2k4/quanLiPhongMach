@@ -13,8 +13,11 @@ public class PHIEUKHAMBENH { // phieu kham chi thay doi chuan doan ngay tai kham
     private LocalDate ngayTaiKham;
     private double tienKham;
 
+    public static int tongSoPhieu = 0;
+
     // thieu 3 ham tao nua ....
     PHIEUKHAMBENH() {
+        tongSoPhieu ++;
         this.maPhieuKham = null;
         this.maBacSi = null;
         this.maBenhNhan = 0;
@@ -27,6 +30,7 @@ public class PHIEUKHAMBENH { // phieu kham chi thay doi chuan doan ngay tai kham
     PHIEUKHAMBENH(String maPhieuKham, String maBacSi, int maBenhNhan, LocalDate ngayKham, String chuanDoan,
             LocalDate ngayTaiKham, double tienKham) {
 
+        tongSoPhieu ++;
         this.maPhieuKham = maPhieuKham;
         this.maBacSi = maBacSi;
         this.maBenhNhan = maBenhNhan;
@@ -37,6 +41,7 @@ public class PHIEUKHAMBENH { // phieu kham chi thay doi chuan doan ngay tai kham
     }
 
     PHIEUKHAMBENH(PHIEUKHAMBENH pkb2) {
+        tongSoPhieu ++;
         this.maPhieuKham = pkb2.maPhieuKham;
         this.maBacSi = pkb2.maBacSi;
         this.maBenhNhan = pkb2.maBenhNhan;
