@@ -150,9 +150,10 @@ public class DANHSACHPHIEUKHAMBENH implements interfaceDanhSach {
         System.out.println("\t\t\tNhap 2 de sua chuan doan");
         System.out.println("\t\t\tNhap 3 de sua bac si kham");
         System.out.println("\t\t\tNhap 4 de sua benh nhan kham");
-        System.out.println("Nhap ten thuoc tinh thuoc can sua: ");
+        System.out.print("Nhap ten thuoc tinh thuoc can sua: ");
         int newThuocTinhCanSua = mayScanner.nextInt();
 
+        mayScanner.nextLine();
         switch (newThuocTinhCanSua) {
 
             case 1:
@@ -162,7 +163,8 @@ public class DANHSACHPHIEUKHAMBENH implements interfaceDanhSach {
                 break;
 
             case 2:
-                System.out.print("\t\t\tNhap chuan doan can sua");
+
+                System.out.print("\t\t\tNhap chuan doan can sua: ");
                 String newChuanDoan = mayScanner.nextLine();
                 this.dsPhieuKham[index].setChuanDoan(newChuanDoan);
                 break;
@@ -366,17 +368,14 @@ public class DANHSACHPHIEUKHAMBENH implements interfaceDanhSach {
 
     @Override
     public void Sua(String maPhieuCanSua) {
-        boolean isFind = false;
+        
         for (int i = 0; i < this.soPhieuKham; i++) {
             if (maPhieuCanSua.equals(this.dsPhieuKham[i].getMaPhieuKham())) {
                 this.suaPhieuKhamBenh(i);
-                isFind = true;
+                
             }
         }
-        if (!isFind)
-            System.out.println("\t\t\tKhong tim thay ma can sua");
-        else 
-            System.out.println("\t\t\tSua thanh cong");
+        
     }
 
     @Override
@@ -429,11 +428,11 @@ public class DANHSACHPHIEUKHAMBENH implements interfaceDanhSach {
             System.out.println("\t\t" + "-".repeat(10) + " Trinh quan li phieu kham benh " + "-".repeat(10));
             System.out.println("\t\tNhap 0 de thoat");
             System.out.println("\t\tNhap 1 de in danh sach toan bo phieu kham benh");
-            System.out.println("\t\tNhap 2 de nhap them  phieu kham benh");
-            System.out.println("\t\tNhap 5 de xoa mot phieu kham benh");
-            System.out.println("\t\tNhap 6 de sua mot phieu kham benh");
+            System.out.println("\t\tNhap 2 de nhap them phieu kham benh");
             System.out.println("\t\tNhap 3 de in mot phieu kham benh");
             System.out.println("\t\tNhap 4 de mo trinh tim kiem phieu kham benh");
+            System.out.println("\t\tNhap 5 de xoa mot phieu kham benh");
+            System.out.println("\t\tNhap 6 de sua mot phieu kham benh");
             System.out.print("\t\tVui long nhap lua chon cua ban: ");
             option = mayScanner.nextInt();
 
