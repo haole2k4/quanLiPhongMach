@@ -6,7 +6,7 @@ public class QUANLIDSDonThuoc {
             ds.docData("data\\DONTHUOC.txt");
             ds.xuat();
             ds.menuThaoTac();
-            ds.ghiData("data\\HOADON.txt");
+            ds.ghiData("data\\DONTHUOC.txt");
         }
         catch(Exception e) {
             // e.printStackTrace();
