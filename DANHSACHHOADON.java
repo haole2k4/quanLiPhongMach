@@ -190,4 +190,10 @@ public class DANHSACHHOADON {
 
         } while (i != 0);
     }
+
+    public static void main(String[] args) {
+        DANHSACHHOADON ds = new DANHSACHHOADON();
+        ds.docFile("data\\HOADON.txt");
+        ds.xuat();
+    }
 }

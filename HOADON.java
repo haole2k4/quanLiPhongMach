@@ -135,7 +135,7 @@ public class HOADON {
         dsnv = new DANHSACHNHANVIEN();
         dsnv.docData("data\\NHANVIEN.TXT");
         donThuoc = new DANHSACHDONTHUOC();
-        donThuoc.docFile("data\\DONTHUOC.TXT");
+        donThuoc.docData("data\\DONTHUOC.TXT");
         dsbs.docData("data\\BacSi.txt");
         dsbn.docData("data\\BenhNhan.txt");
         phieuKhamBenh = new DANHSACHPHIEUKHAMBENH();

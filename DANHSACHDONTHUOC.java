@@ -1,7 +1,7 @@
 import java.util.Arrays;
 import java.io.*;
 import java.util.Scanner;
-public class DANHSACHDONTHUOC {
+public class DANHSACHDONTHUOC implements interfaceDanhSach {
     private DONTHUOC [] dsdt;
     private int soLuongDonThuoc;
 
@@ -15,77 +15,6 @@ public class DANHSACHDONTHUOC {
         }
         return null;
     }
-
-    //ham ghi file
-    public void ghiFile(String path)
-    {
-        File file = new File(path);
-        PrintWriter write = null;
-        try {
-            write = new PrintWriter(file);
-        } catch (Exception e){
-            System.out.println("Loi ghi file ");
-            return;
-        }
-        write.println(soLuongDonThuoc);
-        for (int i=0;i<soLuongDonThuoc;i++){
-            write.println(dsdt[i].getThongTin());
-        }
-        write.close();
-    }
-    public void docFile(String path){
-        Scanner read = null;
-        File file = new File(path);
-        try{
-            read = new Scanner(file);
-        } catch(Exception e){
-            System.out.println("Loi doc file !");
-            return;
-        }
-        if (!read.hasNextLine()) return;
-        soLuongDonThuoc = Integer.parseInt(read.nextLine());
-        dsdt = new DONTHUOC[soLuongDonThuoc];
-        int i=0;
-        while ( read.hasNextLine())
-        {
-            dsdt[i] = new DONTHUOC();
-            String line = read.nextLine();
-            String [] arr = line.split(",");
-            dsdt[i].setMaDonThuoc(arr[0]);
-            dsdt[i].setSoLuongThuocBoc(Integer.parseInt(arr[1]));
-            THUOC [] arrThuoc = new THUOC[dsdt[i].getSoLuongThuocBoc()];
-            //doc du lieu phan thuoc va truyen vo mang tam
-            for (int j=0;j<dsdt[i].getSoLuongThuocBoc();j++){
-                arrThuoc[j] = new THUOCCHICH();
-                arrThuoc[j].setMaThuoc(arr[(j+1)*4-2]);
-                arrThuoc[j].setTenThuoc(arr[4*(j+1)-1]);
-                arrThuoc[j].setGiaCa(Double.parseDouble(arr[4*(j+1)]));
-                arrThuoc[j].setSoLuong(Integer.parseInt(arr[4*(j+1)+1]));
-            }
-            dsdt[i].setDst(0,arrThuoc);
-            dsdt[i].setDonGia(Double.parseDouble(arr[arr.length-1]));
-            i++;
-
-
-        }
-
-    }
-    public void them(){
-        soLuongDonThuoc++;
-        if (soLuongDonThuoc == 1){
-            dsdt = new DONTHUOC[1];
-            dsdt[0] = new DONTHUOC();
-            dsdt[0].them();
-        }
-        else{
-            this.dsdt = Arrays.copyOf(this.dsdt, soLuongDonThuoc);
-            dsdt[soLuongDonThuoc-1] = new DONTHUOC();
-            dsdt[soLuongDonThuoc-1].them();
-            }
-    
-    
-}
-
     public void xuat(){
         System.out.println("\u001B[34m=".repeat(20)+"[ DANH SACH DON THUOC ]"+"=".repeat(20)+"\u001B[0m");
         for (int i=0;i<soLuongDonThuoc;i++){
@@ -127,8 +56,24 @@ public class DANHSACHDONTHUOC {
         }
     }
 
+    public void them(){
+        soLuongDonThuoc++;
+        if (soLuongDonThuoc == 1){
+            dsdt = new DONTHUOC[1];
+            dsdt[0] = new DONTHUOC();
+            dsdt[0].them();
+        }
+        else{
+            this.dsdt = Arrays.copyOf(this.dsdt, soLuongDonThuoc);
+            dsdt[soLuongDonThuoc-1] = new DONTHUOC();
+            dsdt[soLuongDonThuoc-1].them();
+            }
     
-    public void xoa(){
+    
+}
+
+    
+    public void Xoa(){
         Scanner input =  new Scanner(System.in);
         System.out.print("Nhap ma can xoa: ");
         String ma = input.nextLine();
@@ -150,7 +95,82 @@ public class DANHSACHDONTHUOC {
 
     
     }
-    public void xoa(String ma){
+
+
+    ///-------------------override ----------------------
+    @Override
+    public void Them(int soLuong ){
+        soLuongDonThuoc++;
+        if (soLuongDonThuoc == 1){
+            dsdt = new DONTHUOC[1];
+            dsdt[0] = new DONTHUOC();
+            dsdt[0].them();
+        }
+        else{
+            this.dsdt = Arrays.copyOf(this.dsdt, soLuongDonThuoc);
+            dsdt[soLuongDonThuoc-1] = new DONTHUOC();
+            dsdt[soLuongDonThuoc-1].them();
+            }
+    
+    
+}
+    @Override
+    public void ghiData(String path)
+    {
+        File file = new File(path);
+        PrintWriter write = null;
+        try {
+            write = new PrintWriter(file);
+        } catch (Exception e){
+            System.out.println("Loi ghi file ");
+            return;
+        }
+        write.println(soLuongDonThuoc);
+        for (int i=0;i<soLuongDonThuoc;i++){
+            write.println(dsdt[i].getThongTin());
+        }
+        write.close();
+    }
+    @Override
+    public void docData(String path){
+        Scanner read = null;
+        File file = new File(path);
+        try{
+            read = new Scanner(file);
+        } catch(Exception e){
+            System.out.println("Loi doc file !");
+            return;
+        }
+        if (!read.hasNextLine()) return;
+        soLuongDonThuoc = Integer.parseInt(read.nextLine());
+        dsdt = new DONTHUOC[soLuongDonThuoc];
+        int i=0;
+        while ( read.hasNextLine())
+        {
+            dsdt[i] = new DONTHUOC();
+            String line = read.nextLine();
+            String [] arr = line.split(",");
+            dsdt[i].setMaDonThuoc(arr[0]);
+            dsdt[i].setSoLuongThuocBoc(Integer.parseInt(arr[1]));
+            THUOC [] arrThuoc = new THUOC[dsdt[i].getSoLuongThuocBoc()];
+            //doc du lieu phan thuoc va truyen vo mang tam
+            for (int j=0;j<dsdt[i].getSoLuongThuocBoc();j++){
+                arrThuoc[j] = new THUOCCHICH();
+                arrThuoc[j].setMaThuoc(arr[(j+1)*4-2]);
+                arrThuoc[j].setTenThuoc(arr[4*(j+1)-1]);
+                arrThuoc[j].setGiaCa(Double.parseDouble(arr[4*(j+1)]));
+                arrThuoc[j].setSoLuong(Integer.parseInt(arr[4*(j+1)+1]));
+            }
+            dsdt[i].setDst(0,arrThuoc);
+            dsdt[i].setDonGia(Double.parseDouble(arr[arr.length-1]));
+            i++;
+
+
+        }
+
+    }
+    @Override
+    public void Xoa(String ma){
         for (int i=0;i<soLuongDonThuoc;i++){
             if (ma.equals(dsdt[i].getMaDonThuoc()))
             {
@@ -169,7 +189,8 @@ public class DANHSACHDONTHUOC {
 
     
     }
-    public void sua(){
+    @Override
+    public void Sua(String maCanSua){
         Scanner input = new Scanner(System.in);
         System.out.print("Nhap ma can sua!");
         String ma = input.nextLine();
@@ -230,7 +251,7 @@ public class DANHSACHDONTHUOC {
                                 }
                                 dsdt[i].setSoLuongThuocBoc(dsdt[i].getSoLuongThuocBoc()-1);
                                 if (dsdt[i].getSoLuongThuocBoc() == 0){
-                                    xoa(dsdt[i].getMaDonThuoc());
+                                    Xoa(dsdt[i].getMaDonThuoc());
                                 }
                             }
 
@@ -284,8 +305,8 @@ public class DANHSACHDONTHUOC {
             }
         }
     
-
-    public void thaoTac(){
+    @Override
+    public void menuThaoTac(){
         System.out.println("TRINH QUAN LY DON THUOC");
         System.out.println("0: Thoat");
         System.out.println("1: Them don thuoc");
@@ -317,11 +338,11 @@ public class DANHSACHDONTHUOC {
         }
         if (i == 4)
         {
-            xoa();
+            Xoa();
         }
         if (i == 5)
         {
-            sua();
+            Sua("test");
         }
         if ( i==6){
             inCuoi();
