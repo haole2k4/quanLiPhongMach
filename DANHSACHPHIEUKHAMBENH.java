@@ -225,7 +225,7 @@ public class DANHSACHPHIEUKHAMBENH implements interfaceDanhSach {
     }
 
     public void inDanhSachPhieuKham() {
-        System.out.println("\tTong so phieu kham: " + PHIEUKHAMBENH.tongSoPhieu);
+        System.out.println("\tTong so phieu kham: " + PHIEUKHAMBENH.getTongSoPhieu());
         System.out.println("\u001B[32m" + "-".repeat(50) + " DANH SACH PHIEU KHAM " + "-".repeat(50) + "\u001B[0m");
         System.out.format("\u001B[34m" + "|| %-10s | %-15s | %-15s | %-10s | %-10s | %-15s | %-10s ||\n" + "\u001B[0m",
                 "MA Pk", "MA BAC SI", "MA BENH NHAN", "NGAY KHAM", "CHUAN DOAN", "NGAY TAI KHAM", "TIEM KHAM");
@@ -355,7 +355,7 @@ public class DANHSACHPHIEUKHAMBENH implements interfaceDanhSach {
             if (this.dsPhieuKham[i].getMaPhieuKham().indexOf(maPhieuCanXoa) != -1) { // da tim thay
                 isSuccess = true;
                 index = i;
-                PHIEUKHAMBENH.tongSoPhieu--;
+                PHIEUKHAMBENH.giamTongSoPhieu();
                 break;
             }
         }
