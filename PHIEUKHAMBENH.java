@@ -13,7 +13,9 @@ public class PHIEUKHAMBENH { // phieu kham chi thay doi chuan doan ngay tai kham
     private LocalDate ngayTaiKham;
     private double tienKham;
 
-    public static int tongSoPhieu = 0;
+    private static int tongSoPhieu = 0;
+
+
 
     // thieu 3 ham tao nua ....
     PHIEUKHAMBENH() {
@@ -79,6 +81,14 @@ public class PHIEUKHAMBENH { // phieu kham chi thay doi chuan doan ngay tai kham
         return this.tienKham;
     }
 
+    public static int getTongSoPhieu() {
+        return tongSoPhieu;
+    }
+
+
+    public static void giamTongSoPhieu() {
+        tongSoPhieu --;
+    }
 
     public void setMaBacSi(String newMaBacSi) {
         this.maBacSi = newMaBacSi;
