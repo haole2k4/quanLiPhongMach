@@ -55,6 +55,7 @@ public class DSBN implements arrayInterfaceBENHNHAN{
         Scanner input = new Scanner(System.in);
         System.out.println("Thuc hien tiep se dan den viec mat toan bo du lieu da luu, ban co chac chan tiep tuc?");
         System.out.println("1) Tiep tuc.\n2) Quay lai.");
+        System.out.print("Vui long nhap lua chon: ");
         int option = input.nextInt();
         while (option != 2)
         switch (option) {
@@ -400,26 +401,29 @@ public class DSBN implements arrayInterfaceBENHNHAN{
 
     public void menuThongKe() {
         Scanner sc = new Scanner(System.in);
-        System.out.println("-------------------------");
-        System.out.println("**Menu thong ke thong tin benh nhan**\n1) So luong, nam va nu.\n2) Theo do tuoi.\n3) Trang thai suc khoe.\n4) Can nang va chieu cao.");
-        System.out.print("Chon loai thong ke: ");
-        int menu = sc.nextInt();
-        sc.nextLine();
-        switch(menu) {
-            case 1:
-                thongKeGioiTinh();
-                break;
-            case 2:
-                thongKeDoTuoi();
-                break;
-            case 3:
-                thongKeSucKhoe();
-                break;
-            case 4:
-                thongKeCanNangChieuCao();
-                break;
-            default:
-                System.out.println("Lua chon khong hop le.");
+        int menu = 0;
+        while (menu != 5){
+            System.out.println("-------------------------");
+            System.out.println("**Menu thong ke thong tin benh nhan**\n1) So luong, nam va nu.\n2) Theo do tuoi.\n3) Trang thai suc khoe.\n4) Can nang va chieu cao.\n5) Quay lai.");
+            System.out.print("Chon loai thong ke: ");
+            menu = sc.nextInt();
+            sc.nextLine();
+            switch(menu) {
+                case 1:
+                    thongKeGioiTinh();
+                    break;
+                case 2:
+                    thongKeDoTuoi();
+                    break;
+                case 3:
+                    thongKeSucKhoe();
+                    break;
+                case 4:
+                    thongKeCanNangChieuCao();
+                    break;
+                default:
+                    System.out.println("Lua chon khong hop le.");
+            }
         }
     }
     
