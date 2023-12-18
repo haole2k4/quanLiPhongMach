@@ -153,9 +153,5 @@ public class DANHSACHCHITHIETPHIEUNHAP {
             }
         } while (i != 0);
     }
-    public static void main(String[] args) {
-        DANHSACHCHITHIETPHIEUNHAP ds = new DANHSACHCHITHIETPHIEUNHAP();
-        ds.docfile("data\\CHITIETPHIEUNHAP.TXT");
-        ds.xuat();
-    }
+    
 }

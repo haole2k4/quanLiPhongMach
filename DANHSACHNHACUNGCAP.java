@@ -20,11 +20,10 @@ public class DANHSACHNHACUNGCAP {
         soLuongNCC++;
         dsncc = Arrays.copyOf(dsncc, soLuongNCC);
         dsncc[soLuongNCC - 1] = ncc;
-        ghiFile();
     }
 
-    public void ghiFile() {
-        File file = new File("D:\\phongMach_THUOC\\quanLiPhongMach\\data\\nhacungcap.txt");
+    public void ghiData(String path) {
+        File file = new File(path);
         PrintWriter write = null;
         try {
             write = new PrintWriter(file);
@@ -39,8 +38,8 @@ public class DANHSACHNHACUNGCAP {
         write.close();
     }
 
-    public void docFile() {
-        File file = new File("data/nhacungcap.txt");
+    public void docData(String path) {
+        File file = new File(path);
         Scanner read = null;
         try {
             read = new Scanner(file);
@@ -102,7 +101,7 @@ public class DANHSACHNHACUNGCAP {
         }
         System.out.println("Khong tim thay nha cung cap nay!!!");
     }
-    public void menu()
+    public void menuThaoTac()
     {
         int i;
         do
