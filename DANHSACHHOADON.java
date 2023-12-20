@@ -199,14 +199,14 @@ public class DANHSACHHOADON {
 
 
 
-    public void tongtienHoaDonTheoKhachHang(String maNhanVien) {
-        double sum = 0;
+    // public void tongtienHoaDonTheoKhachHang(String maNhanVien) {
+    //     double sum = 0;
 
-        for(HOADON hd: this.dshd){
-            hd.getNVThuNgan().equals(maNhanVien);
-            sum += hd.getTongTien();
-        }
+    //     for(HOADON hd: this.dshd){
+    //         hd.getNVThuNgan().equals(maNhanVien);
+    //         sum += hd.getTongTien();
+    //     }
 
-        System.out.println("tong tien theo nhan vien ban " + maNhanVien + " la: " + sum);
-    }
+    //     System.out.println("tong tien theo nhan vien ban " + maNhanVien + " la: " + sum);
+    // }
 }
