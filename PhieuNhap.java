@@ -28,6 +28,9 @@ import java.time.format.DateTimeFormatter;
 
     }
 
+    public double tongtien() {
+        return this.tongTien;
+    }
     public void nhap() {
         Scanner input = new Scanner(System.in);
         System.out.print("Ma Phieu nhap:");

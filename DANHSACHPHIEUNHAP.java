@@ -301,4 +301,33 @@ public class DANHSACHPHIEUNHAP {
     }
 
 
+    public void ABC() {
+        Scanner mayScanner = new Scanner(System.in);
+        
+        System.out.println("Nhap ngay bat dau(yyyy-MM-dd): ");
+        String tempNgayBatDau = mayScanner.nextLine();
+
+        System.out.println("Nhap ngay ket thuc: ");
+        String tempNgayKetThuc = mayScanner.nextLine();
+
+        LocalDate ngayBatDau = LocalDate.parse(tempNgayBatDau);
+        LocalDate ngayKetThuc = LocalDate.parse(tempNgayKetThuc);
+
+
+
+        double sum = 0;
+        for(PHIEUNHAP pn : this.dspn) {
+            if(pn.getNgayNhap().isBefore(ngayKetThuc) && pn.getNgayNhap().isAfter(ngayBatDau)) {
+                sum += pn.tongtien();
+            }
+        }
+
+        System.out.println("Tong tien la: " + sum);
+
+        
+
+    } // xuat ra phieu nhap tu ngay den ngay
+    
+
+
 }

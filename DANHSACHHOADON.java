@@ -196,4 +196,17 @@ public class DANHSACHHOADON {
         ds.docFile("data\\HOADON.txt");
         ds.xuat();
     }
+
+
+
+    public void tongtienHoaDonTheoKhachHang(String maNhanVien) {
+        double sum = 0;
+
+        for(HOADON hd: this.dshd){
+            hd.getNVThuNgan().equals(maNhanVien);
+            sum += hd.getTongTien();
+        }
+
+        System.out.println("tong tien theo nhan vien ban " + maNhanVien + " la: " + sum);
+    }
 }
